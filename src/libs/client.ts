@@ -1,7 +1,8 @@
-import { microCMSApiKey, microCMSServiceDomain } from '@/config';
-import { createClient } from 'microcms-js-sdk';
+import { createClient } from 'microcms-js-sdk'
+
+import { microCMSApiKey, microCMSServiceDomain } from '@/config'
 
 export const client = createClient({
-  serviceDomain: microCMSServiceDomain, 
-  apiKey: microCMSApiKey,
-});
+  serviceDomain: microCMSServiceDomain,
+  apiKey: microCMSApiKey
+})
