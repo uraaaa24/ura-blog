@@ -1,4 +1,4 @@
-import { client } from '@/libs/client'
+import { client } from '@/libs/microcms'
 
 export default async function Home() {
   const data = await client.get({
