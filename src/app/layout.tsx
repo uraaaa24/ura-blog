@@ -1,9 +1,11 @@
-import { Inter } from 'next/font/google'
+import { Murecho } from 'next/font/google'
+
+import Header from '@/components/layouts/header'
+import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
-import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const murecho = Murecho({ weight: '300', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,8 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body className={`${murecho.className} min-h-screen bg-gray-50`}>
+        <div>
+          <Header />
+          <div className="container mx-auto">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
