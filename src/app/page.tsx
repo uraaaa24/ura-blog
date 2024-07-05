@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 const Page = () => {
-  redirect('/blogs')
+  redirect('/articles')
 }
 
 export default Page

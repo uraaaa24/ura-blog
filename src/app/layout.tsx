@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${murecho.className} min-h-screen bg-gray-50`}>
         <div>
           <Header />
-          <div className="container mx-auto">{children}</div>
+          <div className="container mx-auto p-8">{children}</div>
         </div>
       </body>
     </html>

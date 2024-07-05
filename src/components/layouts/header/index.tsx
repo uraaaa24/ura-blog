@@ -5,7 +5,9 @@ const Header = () => {
     <header className="bg-white border-b-2">
       <div className="container mx-auto flex gap-10 py-4">
         <div>
-          <h1 className="text-4xl font-bold">Ura Blog</h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold">Ura Blog</h1>
+          </Link>
         </div>
 
         <nav className="flex items-center justify-between">
