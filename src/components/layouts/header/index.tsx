@@ -1,6 +1,15 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+import { NAV_ITEMS } from '@/constants/header'
+
+import NavItem from './navItem'
 
 const Header = () => {
+  const pathname = usePathname()
+
   return (
     <header className="bg-white border-b-2">
       <div className="container mx-auto flex gap-10 py-4">
@@ -12,15 +21,9 @@ const Header = () => {
 
         <nav className="flex items-center justify-between">
           <ul className="flex gap-8">
-            <li>
-              <Link href="/articles">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            {/* <li>
-              <a href="/contact">Contact</a>
-            </li> */}
+            {NAV_ITEMS.map((item) => (
+              <NavItem key={item.href} href={item.href} label={item.label} isActive={pathname === item.href} />
+            ))}
           </ul>
         </nav>
       </div>
