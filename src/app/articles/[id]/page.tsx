@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import RichEditor from '@/components/elements/richEditor'
+
 import { convertDate } from '@/utils'
 import { getArticleById } from '@/utils/microcms'
 
@@ -11,7 +13,6 @@ const Article = async ({
   }
 }) => {
   const { id } = params
-
   const data = await getArticleById(id)
 
   return (
@@ -22,7 +23,6 @@ const Article = async ({
         <Image
           src={data.eyeCatch?.url ?? '/static/no-image.png'}
           alt="アイキャッチ"
-          // 画面の横幅に合わせる
           width={data.eyeCatch?.width ?? 600}
           height={data.eyeCatch?.height ?? 450}
           style={{ maxHeight: 450, width: '100%', objectFit: 'contain' }}
@@ -31,11 +31,7 @@ const Article = async ({
         />
       </div>
       <div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${data.body}`
-          }}
-        />
+        <RichEditor body={data.body} />
       </div>
     </article>
   )
