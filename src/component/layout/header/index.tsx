@@ -22,7 +22,7 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <ul className="flex gap-8">
             {NAV_ITEMS.map((item) => (
-              <NavItem key={item.href} href={item.href} label={item.label} isActive={pathname === item.href} />
+              <NavItem key={item.href} href={item.href} label={item.label} isActive={pathname.startsWith(item.href)} />
             ))}
           </ul>
         </nav>
