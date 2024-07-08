@@ -1,7 +1,7 @@
 import { MicroCMSQueries } from 'microcms-js-sdk'
 
-import { client } from '@/libs/microcms'
-import { Article } from '@/types/microcms'
+import { client } from '@/lib/microcms'
+import { Article } from '@/type/microcms'
 
 /** 記事一覧を取得する */
 export const getAllArticles = async (queries?: MicroCMSQueries) => {

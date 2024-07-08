@@ -1,7 +1,7 @@
 import { Murecho } from 'next/font/google'
 
-import Header from '@/components/layouts/header'
-import '@/styles/globals.css'
+import Header from '@/component/layout/header'
+import '@/style/globals.css'
 
 import type { Metadata } from 'next'
 

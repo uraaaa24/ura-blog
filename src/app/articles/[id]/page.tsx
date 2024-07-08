@@ -1,9 +1,8 @@
 import Image from 'next/image'
 
-import RichEditor from '@/components/elements/richEditor'
-
-import { convertDate } from '@/utils'
-import { getArticleById } from '@/utils/microcms'
+import RichEditor from '@/component/element/richEditor'
+import { convertDate } from '@/util'
+import { getArticleById } from '@/util/microcms'
 
 const Article = async ({
   params

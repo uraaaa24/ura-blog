@@ -1,4 +1,4 @@
-import { Article } from '@/types/microcms'
+import { Article } from '@/type/microcms'
 
 import Card from './card'
 

@@ -1,6 +1,5 @@
-import CardList from '@/components/elements/cardList'
-
-import { getAllArticles } from '@/utils/microcms'
+import CardList from '@/component/element/cardList'
+import { getAllArticles } from '@/util/microcms'
 
 const Articles = async () => {
   const articleList = await getAllArticles()

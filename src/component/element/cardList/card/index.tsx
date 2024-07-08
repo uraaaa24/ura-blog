@@ -2,7 +2,7 @@ import { MicroCMSImage } from 'microcms-js-sdk'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { convertDate } from '@/utils'
+import { convertDate } from '@/util'
 
 type CardProps = {
   id: string
