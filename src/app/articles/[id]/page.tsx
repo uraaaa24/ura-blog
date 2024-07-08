@@ -17,7 +17,7 @@ const Article = async ({
 
   return (
     <div className="flex gap-8">
-      <article className="w-3/4 max-w-screen-lg mx-auto bg-white px-6 py-8 rounded-lg flex flex-col gap-6">
+      <article className="w-3/4 max-w-screen-lg mx-auto px-6 py-8 rounded-sm flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <h1 className="text-4xl font-bold text-center">{data.title}</h1>
           <p className="text-center text-gray-500">{convertDate(data.createdAt)}</p>

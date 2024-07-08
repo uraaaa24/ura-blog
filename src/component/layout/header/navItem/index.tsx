@@ -11,14 +11,14 @@ const NavItem = (props: NavItemProps) => {
     <li>
       <Link href={props.href} className="relative group cursor-pointer">
         <span
-          className={`transition-colors duration-300 ${
-            props.isActive ? 'text-gray-900' : 'text-gray-700 hover:text-gray-900'
+          className={`transition-colors duration-300 font-bold ${
+            props.isActive ? 'text-[#e30613]' : 'text-gray-700 hover:text-gray-900'
           }`}
         >
           {props.label}
         </span>
         <span
-          className={`absolute left-0 -bottom-0.5 h-0.5 bg-gray-700 transition-all duration-300 ease-out ${
+          className={`absolute left-0 -bottom-0.5 h-0.5 bg-[#e30613] transition-all duration-300 ease-out ${
             props.isActive ? 'w-full' : 'w-0 group-hover:w-full'
           }`}
         />

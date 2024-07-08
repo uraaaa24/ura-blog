@@ -11,7 +11,7 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className="bg-white border-b-2">
+    <header className="bg-white border-b-2 border-[#e30613]">
       <div className="container mx-auto flex gap-10 py-4">
         <div>
           <Link href="/">
