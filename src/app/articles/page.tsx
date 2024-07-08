@@ -1,17 +1,18 @@
 import CardList from '@/component/element/cardList'
-import { getAllArticles } from '@/util/microcms'
+import TagSidebar from '@/component/element/sideBar/tagsSidebar'
+import { getAllArticles, getAllTags } from '@/util/microcms'
 
 const Articles = async () => {
   const articleList = await getAllArticles()
+  const tags = await getAllTags()
 
   return (
-    <div className="flex min-h-screen gap-8">
+    <div className="flex gap-8">
       <div className="w-3/4 flex-grow">
         <CardList articleList={articleList} />
       </div>
-      {/* TODO: カテゴリー(タグ)を使った検索フォームを作成する */}
-      <aside className="w-1/4 flex flex-col">
-        <p>サイドバー</p>
+      <aside className="w-1/4">
+        <TagSidebar tags={tags} />
       </aside>
     </div>
   )

@@ -18,7 +18,7 @@ const Card = (props: CardProps) => {
 
   return (
     <Link href={`/articles/${props.id}`}>
-      <div className="bg-white border-2 rounded-lg overflow-hidden h-full">
+      <div className="bg-white rounded-lg overflow-hidden h-full">
         <div className="relative w-full h-40">
           <Image
             src={props.eyeCatch?.url || '/static/no-image.png'}

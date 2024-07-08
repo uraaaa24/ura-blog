@@ -10,3 +10,8 @@ export type Article = {
   /** アイキャッチ画像 */
   eyeCatch?: MicroCMSImage
 } & MicroCMSDate
+
+export type Tag = {
+  /** タグ名 */
+  name: string
+}
