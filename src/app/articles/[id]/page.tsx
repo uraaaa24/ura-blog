@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import RichEditor from '@/component/element/richEditor'
+import CategoryTip from '@/component/element/tip/categoryTip'
 import { convertDate } from '@/util'
 import { getArticleById } from '@/util/microcms'
 
@@ -15,7 +16,7 @@ const Article = async ({
   const data = await getArticleById(id)
 
   return (
-    <article className="max-w-6xl mx-auto px-6 rounded-sm flex flex-col gap-6">
+    <article className="max-w-5xl mx-auto px-6 rounded-sm flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col gap-1.5 mb-2">
           <p className="text-gray-500">{convertDate(data.createdAt)}</p>
@@ -23,10 +24,7 @@ const Article = async ({
           {data.tags && (
             <div className="flex gap-1">
               {data.tags.map((tag, index) => (
-                // TODO: チップで別コンポーネントに切り出す
-                <span key={index} className="text-sm text-gray-500">
-                  {tag.name}
-                </span>
+                <CategoryTip key={index} name={tag.name} />
               ))}
             </div>
           )}
