@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 import RichEditor from '@/component/element/richEditor'
-import ContentsSideBar from '@/component/element/sideBar/contentsSidebar'
 import { convertDate } from '@/util'
 import { getArticleById } from '@/util/microcms'
 
@@ -31,12 +30,13 @@ const Article = async ({
         />
       </div>
       <div className="flex w-full gap-6">
-        <div className="w-3/4">
+        <div className="w-full">
           <RichEditor body={data.body} />
         </div>
-        <aside className="w-1/4">
+        {/* TODO: 目次用のコンポーネントを実装する */}
+        {/* <aside className="w-1/4">
           <ContentsSideBar />
-        </aside>
+        </aside> */}
       </div>
     </article>
   )

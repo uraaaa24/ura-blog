@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { NAV_ITEMS } from '@/constant/header'
+import { mPlusRounded1c700 } from '@/style/font'
 
 import NavItem from './navItem'
 
@@ -11,7 +12,7 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className="bg-white border-b-2">
+    <header className={`${mPlusRounded1c700.className} bg-white border-b-2"`}>
       <div className="container mx-auto flex gap-10 py-4">
         <div>
           <Link href="/">

@@ -1,11 +1,8 @@
-import { Murecho } from 'next/font/google'
-
 import Header from '@/component/layout/header'
+import { mPlusRounded1c400 } from '@/style/font'
 import '@/style/globals.css'
 
 import type { Metadata } from 'next'
-
-const murecho = Murecho({ weight: '300', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${murecho.className} min-h-screen bg-gray-50`}>
+      <body className={`${mPlusRounded1c400.className} min-h-screen bg-gray-50`}>
         <div>
           <Header />
           <div className="container mx-auto p-8">{children}</div>
