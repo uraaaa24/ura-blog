@@ -22,7 +22,12 @@ export const Template: Story = {
         updatedAt: '2021-01-01T00:00:00.000Z',
         eyeCatch: {
           url: 'https://placehold.jp/300x300.png'
-        }
+        },
+        tags: [
+          {
+            name: 'tag1'
+          }
+        ]
       },
       {
         id: '2',
@@ -32,7 +37,15 @@ export const Template: Story = {
         updatedAt: '2021-01-01T00:00:00.000Z',
         eyeCatch: {
           url: 'https://placehold.jp/300x300.png'
-        }
+        },
+        tags: [
+          {
+            name: 'tag1'
+          },
+          {
+            name: 'tag2'
+          }
+        ]
       }
     ]
   }

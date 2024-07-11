@@ -8,7 +8,7 @@ const Articles = async () => {
 
   return (
     <div className="flex gap-8">
-      <div className="w-3/4 flex-grow">
+      <div className="w-3/4">
         <CardList articleList={articleList} />
       </div>
       <aside className="w-1/4">

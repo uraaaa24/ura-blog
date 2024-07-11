@@ -9,6 +9,8 @@ export type Article = {
   body: string
   /** アイキャッチ画像 */
   eyeCatch?: MicroCMSImage
+  /** タグ */
+  tags: Tag[]
 } & MicroCMSDate
 
 export type Tag = {

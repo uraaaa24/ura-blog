@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={`${mPlusRounded1c400.className} min-h-screen bg-gray-50`}>
         <div>
           <Header />
-          <div className="container mx-auto p-8">{children}</div>
+          <div className="max-w-7xl mx-auto p-8">{children}</div>
         </div>
       </body>
     </html>

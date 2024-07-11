@@ -12,8 +12,8 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className={`${mPlusRounded1c700.className} bg-white border-b-2"`}>
-      <div className="container mx-auto flex gap-10 py-4">
+    <header className={`${mPlusRounded1c700.className} bg-white border-b-2`}>
+      <div className="max-w-7xl mx-auto flex gap-10 py-4">
         <div>
           <Link href="/">
             <h1 className="text-2xl font-bold">Ura Blog</h1>
