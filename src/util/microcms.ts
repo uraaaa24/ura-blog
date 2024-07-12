@@ -23,6 +23,21 @@ export const getArticleById = async (id: string) => {
   return data
 }
 
+/**  検索ワードを指定して記事を取得する */
+export const searchArticles = async (q: string, page: number, perPage: number = 4) => {
+  const data = await client.getList<Article>({
+    endpoint: 'article',
+    queries: { q, offset: (page - 1) * perPage, limit: perPage }
+  })
+
+  return {
+    articles: data.contents,
+    totalCount: data.totalCount,
+    totalPages: Math.ceil(data.totalCount / perPage)
+  }
+}
+
+/** タグ一覧を取得する */
 export const getAllTags = async () => {
   const data = await client.getAllContents<Tag>({
     endpoint: 'tag'
