@@ -1,5 +1,7 @@
 import { Tag } from '@/type/microcms'
 
+import SearchForm from '../../form/searchForm'
+
 type TagSidebarProps = {
   tags: Tag[]
 }
@@ -8,8 +10,7 @@ const TagSidebar = (props: TagSidebarProps) => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex gap-2">
-        {/* TODO: 別コンポーネントに切り出す */}
-        <input type="text" placeholder="Search..." className="w-full border border-gray-300 rounded p-2" />
+        <SearchForm />
       </div>
       <div className="flex flex-col gap-6">
         <p className="text-lg font-bold">Category</p>
