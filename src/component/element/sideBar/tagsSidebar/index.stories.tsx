@@ -15,10 +15,16 @@ export const Template: Story = {
   args: {
     tags: [
       {
-        name: 'tag1'
+        id: '1',
+        name: 'tag1',
+        createdAt: '2024-07-08T13:44:04.589Z',
+        updatedAt: '2024-07-08T13:44:04.589Z'
       },
       {
-        name: 'tag2'
+        id: '2',
+        name: 'tag2',
+        createdAt: '2024-07-08T13:44:04.589Z',
+        updatedAt: '2024-07-08T13:44:04.589Z'
       }
     ]
   },

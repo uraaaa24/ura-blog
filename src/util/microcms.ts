@@ -27,7 +27,29 @@ export const getArticleById = async (id: string) => {
 export const searchArticles = async (q: string, page: number, perPage: number = 4) => {
   const data = await client.getList<Article>({
     endpoint: 'article',
-    queries: { q, offset: (page - 1) * perPage, limit: perPage }
+    queries: {
+      filters: `title[contains]${q}`,
+      offset: (page - 1) * perPage,
+      limit: perPage
+    }
+  })
+
+  return {
+    articles: data.contents,
+    totalCount: data.totalCount,
+    totalPages: Math.ceil(data.totalCount / perPage)
+  }
+}
+
+/** タグを指定して記事を取得する */
+export const getArticlesByTag = async (tagId: string, page: number, perPage: number = 4) => {
+  const data = await client.getList<Article>({
+    endpoint: 'article',
+    queries: {
+      filters: `tags[contains]${tagId}`,
+      offset: (page - 1) * perPage,
+      limit: perPage
+    }
   })
 
   return {

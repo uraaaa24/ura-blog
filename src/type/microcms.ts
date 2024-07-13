@@ -14,6 +14,8 @@ export type Article = {
 } & MicroCMSDate
 
 export type Tag = {
+  /** タグID */
+  id: string
   /** タグ名 */
   name: string
-}
+} & MicroCMSDate

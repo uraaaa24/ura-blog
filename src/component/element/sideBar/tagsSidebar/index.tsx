@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { Tag } from '@/type/microcms'
 
 import SearchForm from '../../form/searchForm'
@@ -17,9 +19,13 @@ const TagSidebar = (props: TagSidebarProps) => {
         <div className="flex flex-col gap-4">
           {props.tags.map((tag) => {
             return (
-              <div key={tag.name} className="text-sm border-b border-gray-300 pb-2">
+              <Link
+                href={`/category/${encodeURIComponent(tag.id)}?page=1`}
+                key={tag.name}
+                className="text-sm border-b border-gray-300 pb-2"
+              >
                 {tag.name}
-              </div>
+              </Link>
             )
           })}
         </div>

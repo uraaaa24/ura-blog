@@ -24,7 +24,7 @@ const Article = async ({
           {data.tags && (
             <div className="flex gap-1">
               {data.tags.map((tag, index) => (
-                <CategoryTip key={index} name={tag.name} />
+                <CategoryTip key={index} id={tag.id} name={tag.name} />
               ))}
             </div>
           )}
