@@ -1,26 +1,27 @@
+'use client'
+
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
+import { useTagContext } from '@/context/tagContext'
+
 type BreadcrumbItem = {
   label: string
-  href: string
+  href?: string
 }
 
-type BreadcrumbProps = {
-  items: BreadcrumbItem[]
-}
+const Breadcrumb = () => {
+  const { selectedTag } = useTagContext()
 
-const Breadcrumb = (props: BreadcrumbProps) => {
-  const breadcrumbItems = [{ label: 'Home', href: '/articles' }, ...props.items]
+  const breadcrumbItems: BreadcrumbItem[] = [{ label: 'Home', href: '/articles' }, { label: selectedTag.name }]
 
   return (
     <nav>
-      <ul className="flex items-center gap-1 break-words text-sm">
+      <ul className="flex items-center gap-1 break-words text-sm py-2">
         {breadcrumbItems.map((item, index) => {
           return (
             <li key={index}>
-              {/* itemsの最後は、hrefをつけない */}
-              {index === breadcrumbItems.length - 1 ? (
+              {!item.href || index === breadcrumbItems.length - 1 ? (
                 item.label
               ) : (
                 <div className="flex gap-1 items-center">
