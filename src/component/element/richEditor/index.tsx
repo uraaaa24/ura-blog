@@ -37,7 +37,7 @@ const RichEditor = (props: RichEditorProps) => {
       return undefined
     }
   }
-  return <div className="bg-white p-8 w-full rounded-sm">{parse(props.body, options)}</div>
+  return <div className="bg-white w-full rounded-sm">{parse(props.body, options)}</div>
 }
 
 export default RichEditor

@@ -22,7 +22,7 @@ const Breadcrumb = () => {
           return (
             <li key={index}>
               {!item.href || index === breadcrumbItems.length - 1 ? (
-                item.label
+                <p className="text-xl">{item.label}</p>
               ) : (
                 <div className="flex gap-1 items-center">
                   <Link href={item.href} className="hover:text-[#e30613] transition-all duration-300">
