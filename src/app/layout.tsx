@@ -1,5 +1,5 @@
 import Header from '@/component/layout/header'
-import { mPlusRounded1c400 } from '@/style/font'
+import { mPlusRounded1c400 } from '@/constant/font'
 import '@/style/globals.css'
 
 import type { Metadata } from 'next'

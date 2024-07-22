@@ -1,10 +1,10 @@
 import { StoryObj } from '@storybook/react'
 
-import ContentsSideBar from '.'
+import TableOfContentsSideBar from '.'
 
 const meta = {
   title: 'Elements/SideBar/ContentsSidebar',
-  component: ContentsSideBar,
+  component: TableOfContentsSideBar,
   tags: ['autodocs']
 }
 

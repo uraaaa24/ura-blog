@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { mPlusRounded1c700 } from '@/constant/font'
 import { NAV_ITEMS } from '@/constant/header'
-import { mPlusRounded1c700 } from '@/style/font'
 
 import NavItem from './navItem'
 

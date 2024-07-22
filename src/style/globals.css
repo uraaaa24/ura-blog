@@ -9,5 +9,29 @@
 }
 
 body {
-  letter-spacing: 0.025em;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.js-toc li {
+  list-style-type: none;
+  margin-bottom: 4px;
+  padding-left: 15px;
+  font-size: 0.95em;
+  position: relative;
+}
+
+.js-toc a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0.5;
+}
+
+.js-toc a:hover {
+  opacity: 1;
+}
+
+.js-toc a.is-active-link {
+  font-weight: bold;
+  opacity: 1;
 }
