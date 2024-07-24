@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "bright": "^0.8.5",
     "eslint-plugin-unused-imports": "^3.2.0",
     "lucide-react": "^0.408.0",
     "microcms-js-sdk": "^3.1.2",

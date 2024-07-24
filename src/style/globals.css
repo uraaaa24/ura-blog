@@ -13,11 +13,14 @@ body {
   line-height: 1.6;
 }
 
+.js-toc {
+  font-size: 0.95em;
+}
+
 .js-toc li {
   list-style-type: none;
   margin-bottom: 4px;
-  padding-left: 15px;
-  font-size: 0.95em;
+  padding-left: 16px;
   position: relative;
 }
 
