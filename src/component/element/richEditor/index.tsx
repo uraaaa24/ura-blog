@@ -1,30 +1,30 @@
 import parse, { DOMNode, domToReact, Element, HTMLReactParserOptions } from 'html-react-parser'
 import { ReactElement } from 'react'
 
-import RichBlockquote from '@/component/element/richEditor/richTextElement/richBlockquote'
+import RichBlockquote from '@/component/element/richEditor/richHtmlComponent/richBlockquote'
+import RichCode from '@/component/element/richEditor/richHtmlComponent/richCode'
+import RichEmphasis from '@/component/element/richEditor/richHtmlComponent/richEmphasis'
 import {
   RichHeading1,
   RichHeading2,
   RichHeading3,
   RichHeading4
-} from '@/component/element/richEditor/richTextElement/richHeading'
-import RichImage from '@/component/element/richEditor/richTextElement/richImage'
-import RichLink from '@/component/element/richEditor/richTextElement/richLink'
-import { RichOrderList, RichUnorderedList } from '@/component/element/richEditor/richTextElement/richList'
-import RichListItem from '@/component/element/richEditor/richTextElement/richListItem'
-import RichParagraph from '@/component/element/richEditor/richTextElement/richParagraph'
+} from '@/component/element/richEditor/richHtmlComponent/richHeading'
+import RichImage from '@/component/element/richEditor/richHtmlComponent/richImage'
+import RichLink from '@/component/element/richEditor/richHtmlComponent/richLink'
+import { RichOrderList, RichUnorderedList } from '@/component/element/richEditor/richHtmlComponent/richList'
+import RichListItem from '@/component/element/richEditor/richHtmlComponent/richListItem'
+import RichParagraph from '@/component/element/richEditor/richHtmlComponent/richParagraph'
+import RichPerformedText from '@/component/element/richEditor/richHtmlComponent/richPreformattedText'
+import RichStrong from '@/component/element/richEditor/richHtmlComponent/richStrong'
 import {
   RichTable,
   RichTableBody,
   RichTableData,
   RichTableHeader,
   RichTableRow
-} from '@/component/element/richEditor/richTextElement/richTable'
-
-import RichCode from './richTextElement/richCode'
-import RichPerformedText from './richTextElement/richPreformattedText'
-import RichStrong from './richTextElement/richStrong'
-import RichUnderLine from './richTextElement/richUnderLine'
+} from '@/component/element/richEditor/richHtmlComponent/richTable'
+import RichUnderLine from '@/component/element/richEditor/richHtmlComponent/richUnderLine'
 
 type RichEditorProps = {
   body: string
@@ -67,6 +67,8 @@ const options: HTMLReactParserOptions = {
           return <RichParagraph>{renderedChildren}</RichParagraph>
         case 'strong':
           return <RichStrong>{renderedChildren}</RichStrong>
+        case 'em':
+          return <RichEmphasis>{renderedChildren}</RichEmphasis>
         case 's':
           return <s>{renderedChildren}</s>
         case 'u':
@@ -118,9 +120,7 @@ const options: HTMLReactParserOptions = {
         }
         case 'br':
           return <br />
-
         default:
-          console.log(`Unknown tag: ${name}`)
           return <>{renderedChildren}</>
       }
     }
