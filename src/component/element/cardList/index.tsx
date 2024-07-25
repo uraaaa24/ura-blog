@@ -14,9 +14,9 @@ const CardList = (props: CardListProps) => {
           key={article.id}
           id={article.id}
           title={article.title}
-          body={article.body}
           eyeCatch={article.eyeCatch}
           createdAt={article.createdAt}
+          tags={article.tags}
         />
       ))}
     </div>

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import RichEditor from '@/component/element/richEditor'
 import TableOfContentsSideBar from '@/component/element/sideBar/tableOfContentsSidebar'
 import CategoryTip from '@/component/element/tip/categoryTip'
@@ -15,12 +17,12 @@ const Article = async ({
   const data = await getArticleById(id)
 
   return (
-    <article className="rounded-sm flex flex-col gap-6">
+    <article className="rounded-md flex flex-col gap-6">
       <div className="flex w-full gap-6">
         <div className="w-3/4 flex flex-col bg-white py-6 px-10">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
             <p className="text-gray-500">{convertDate(data.createdAt)}</p>
-            <h1 className="text-4xl font-bold">{data.title}</h1>
+            <h1 className="text-4xl">{data.title}</h1>
             {data.tags && (
               <div className="flex gap-1 justify-center mt-1">
                 {data.tags.map((tag, index) => (
@@ -28,6 +30,15 @@ const Article = async ({
                 ))}
               </div>
             )}
+            <div className="relative w-full mt-4 bg-white" style={{ paddingTop: '56.25%' }}>
+              <Image
+                src={data.eyeCatch?.url ? data.eyeCatch.url : '/static/no-image.png'}
+                alt={data.title}
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
+            </div>
           </div>
           <RichEditor body={data.body} />
         </div>

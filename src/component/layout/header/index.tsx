@@ -12,14 +12,13 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className={`${mPlusRounded1c700.className} bg-white border-b-2`}>
+    <header className={`${mPlusRounded1c700.className} bg-white`}>
       <div className="max-w-7xl mx-auto flex gap-10 py-4">
         <div>
           <Link href="/">
-            <h1 className="text-2xl font-bold">Ura Blog</h1>
+            <h1 className="text-2xl">Ura Blog</h1>
           </Link>
         </div>
-
         <nav className="flex items-center justify-between">
           <ul className="flex gap-8">
             {NAV_ITEMS.map((item) => (

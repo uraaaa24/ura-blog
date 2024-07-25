@@ -1,39 +1,42 @@
 import { MicroCMSImage } from 'microcms-js-sdk'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { convertDate } from '@/util'
 
+import CategoryTip from '../../tip/categoryTip'
+
 type CardProps = {
   id: string
   title: string
-  body: string
   createdAt: string
   eyeCatch?: MicroCMSImage
+  tags?: {
+    id: string
+    name: string
+  }[]
 }
 
 const Card = (props: CardProps) => {
-  // NOTE: bodyからHTMLタグを除去
-  const bodyText = props.body.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')
-
   return (
-    <Link href={`/articles/${props.id}`}>
-      <div className="bg-white rounded-sm overflow-hidden h-96 hover:text-[#e30613] transition-all duration-300">
-        <div className="relative w-full h-48">
-          <Image
-            src={props.eyeCatch?.url || '/static/no-image.png'}
-            alt={props.title}
-            layout="fill"
-            objectFit="cover"
-            className="h-auto"
-          />
-        </div>
-        <div className="p-4 flex flex-col gap-2">
-          <div className="flex flex-col ">
-            <p className="text-sm text-gray-600">{convertDate(props.createdAt)}</p>
-            <h2 className="text-2xl">{props.title}</h2>
-          </div>
-          <p className="text-sm text-gray-600 line-clamp-3">{bodyText}</p>
+    <Link href={`/articles/${props.id}`} className="block">
+      <div className="relative bg-white rounded-md overflow-hidden border-slate-700 h-72 transition-all duration-300 group">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${props.eyeCatch?.url || '/static/no-image.png'})`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
+        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <p className="text-sm">{convertDate(props.createdAt)}</p>
+          <h2 className="text-2xl group-hover:text-[#e30613] transition-colors duration-300">{props.title}</h2>
+          {props.tags && (
+            <div className="flex gap-1 mt-1">
+              {props.tags.map((tag, index) => (
+                <CategoryTip key={index} id={tag.id} name={tag.name} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Link>
