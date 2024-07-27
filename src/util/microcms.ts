@@ -1,16 +1,22 @@
-import { MicroCMSQueries } from 'microcms-js-sdk'
-
 import { client } from '@/lib/microcms'
 import { Article, Tag } from '@/type/microcms'
 
 /** 記事一覧を取得する */
-export const getAllArticles = async (queries?: MicroCMSQueries) => {
-  const data = await client.getAllContents<Article>({
+export const getAllArticles = async (page: number, perPage: number = 4) => {
+  const data = await client.getList<Article>({
     endpoint: 'article',
-    queries
+    queries: {
+      fields: ['id', 'title', 'eyeCatch', 'createdAt', 'tags'],
+      offset: (page - 1) * perPage,
+      limit: perPage
+    }
   })
 
-  return data
+  return {
+    articles: data.contents,
+    totalCount: data.totalCount,
+    totalPages: Math.ceil(data.totalCount / perPage)
+  }
 }
 
 /** IDを指定して記事を取得する */

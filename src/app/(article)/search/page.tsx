@@ -1,4 +1,5 @@
 import CardList from '@/component/element/cardList'
+import SearchForm from '@/component/element/form/searchForm'
 import { searchArticles } from '@/util/microcms'
 
 const Search = async ({
@@ -15,7 +16,16 @@ const Search = async ({
 
   return (
     <div className="w-full">
-      <CardList articleList={articles} />
+      <div className="mb-4">
+        <SearchForm />
+      </div>
+      {articles.length !== 0 ? (
+        <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+      ) : (
+        <div className="text-center text-gray-500 text-xl h-40 flex items-center justify-center">
+          {q} の検索結果が見つかりませんでした
+        </div>
+      )}
     </div>
   )
 }

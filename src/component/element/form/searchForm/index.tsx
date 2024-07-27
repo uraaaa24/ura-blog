@@ -2,7 +2,7 @@
 
 import { Search, X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { ICON_SIZE } from '@/constant/icon'
 
@@ -10,7 +10,7 @@ const SearchForm = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const [searchWord, setSearchWord] = useState<string>('')
+  const [searchWord, setSearchWord] = useState<string>(searchParams.get('q') || '')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -24,13 +24,6 @@ const SearchForm = () => {
   const handleClear = () => {
     setSearchWord('')
   }
-
-  useEffect(() => {
-    const query = searchParams.get('q')
-    if (query) {
-      setSearchWord(query)
-    }
-  }, [searchParams])
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 w-full">

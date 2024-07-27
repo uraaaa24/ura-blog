@@ -22,7 +22,7 @@ const Category = async ({
   return (
     <div className="flex flex-col gap-2 w-full">
       <Breadcrumb />
-      <CardList articleList={articles} />
+      <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
     </div>
   )
 }
