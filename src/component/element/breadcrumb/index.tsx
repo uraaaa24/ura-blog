@@ -3,6 +3,7 @@
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
+import { ICON_SIZE } from '@/constant/icon'
 import { useTagContext } from '@/context/tagContext'
 
 type BreadcrumbItem = {
@@ -28,7 +29,7 @@ const Breadcrumb = () => {
                   <Link href={item.href} className="hover:text-[#e30613] transition-all duration-300">
                     {item.label}
                   </Link>
-                  <ChevronRight size={16} />
+                  <ChevronRight size={ICON_SIZE.SMALL} />
                 </div>
               )}
             </li>

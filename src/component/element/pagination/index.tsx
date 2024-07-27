@@ -3,6 +3,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
+import { ICON_SIZE } from '@/constant/icon'
+
 type PaginationProps = {
   currentPage: number
   totalPage: number
@@ -24,7 +26,7 @@ const Pagination = (props: PaginationProps) => {
         onClick={() => handleClick(props.currentPage - 1)}
         className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-[#e30613] enabled:hover:text-white disabled:opacity-50"
       >
-        <ArrowLeft size={16} />
+        <ArrowLeft size={ICON_SIZE.SMALL} />
         Previous
       </button>
 
@@ -54,7 +56,7 @@ const Pagination = (props: PaginationProps) => {
         className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-[#e30613] enabled:hover:text-white disabled:opacity-50"
       >
         Next
-        <ArrowRight size={16} />
+        <ArrowRight size={ICON_SIZE.SMALL} />
       </button>
     </div>
   )
