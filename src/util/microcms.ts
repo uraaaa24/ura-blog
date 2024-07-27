@@ -2,7 +2,7 @@ import { client } from '@/lib/microcms'
 import { Article, Tag } from '@/type/microcms'
 
 /** 記事一覧を取得する */
-export const getAllArticles = async (page: number, perPage: number = 4) => {
+export const getArticles = async (page: number, perPage: number = 4) => {
   const data = await client.getList<Article>({
     endpoint: 'article',
     queries: {
@@ -69,6 +69,16 @@ export const getArticlesByTag = async (tagId: string, page: number, perPage: num
 export const getAllTags = async () => {
   const data = await client.getAllContents<Tag>({
     endpoint: 'tag'
+  })
+
+  return data
+}
+
+/** IDを指定してタグ名を取得する */
+export const getTagNameById = async (id: string) => {
+  const data = await client.get<Tag>({
+    endpoint: 'tag',
+    contentId: id
   })
 
   return data

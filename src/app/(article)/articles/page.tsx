@@ -1,6 +1,18 @@
 import CardList from '@/component/element/cardList'
 import TagSidebar from '@/component/element/sideBar/tagsSidebar'
-import { getAllArticles } from '@/util/microcms'
+import { getArticles } from '@/util/microcms'
+
+export const generateMetadata = () => {
+  return {
+    title: 'Home | Ura Blog',
+    icons: [
+      {
+        rel: 'icon',
+        url: '/my-icon.jpeg'
+      }
+    ]
+  }
+}
 
 const Articles = async ({
   searchParams
@@ -11,7 +23,7 @@ const Articles = async ({
 }) => {
   const currentPage = Number(searchParams.page) || 1
 
-  const { articles, totalCount, totalPages } = await getAllArticles(currentPage)
+  const { articles, totalCount, totalPages } = await getArticles(currentPage)
 
   return (
     <div className="flex gap-8">

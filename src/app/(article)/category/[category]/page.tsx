@@ -1,6 +1,26 @@
 import Breadcrumb from '@/component/element/breadcrumb'
 import CardList from '@/component/element/cardList'
-import { getArticlesByTag } from '@/util/microcms'
+import { getArticlesByTag, getTagNameById } from '@/util/microcms'
+
+export const generateMetadata = async ({
+  params
+}: {
+  params: {
+    category: string
+  }
+}) => {
+  const { name } = await getTagNameById(params.category)
+
+  return {
+    title: `${name} | Ura Blog`,
+    icons: [
+      {
+        rel: 'icon',
+        url: '/my-icon.jpeg'
+      }
+    ]
+  }
+}
 
 const Category = async ({
   params,

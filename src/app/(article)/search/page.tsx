@@ -2,6 +2,24 @@ import CardList from '@/component/element/cardList'
 import SearchForm from '@/component/element/form/searchForm'
 import { searchArticles } from '@/util/microcms'
 
+export const generateMetadata = ({
+  searchParams
+}: {
+  searchParams: {
+    q: string
+  }
+}) => {
+  return {
+    title: `${searchParams.q} | Ura Blog`,
+    icons: [
+      {
+        rel: 'icon',
+        url: '/my-icon.jpeg'
+      }
+    ]
+  }
+}
+
 const Search = async ({
   searchParams
 }: {

@@ -7,6 +7,26 @@ import CategoryTip from '@/component/element/tip/categoryTip'
 import { convertDate } from '@/util'
 import { getArticleById } from '@/util/microcms'
 
+export const generateMetadata = async ({
+  params
+}: {
+  params: {
+    id: string
+  }
+}) => {
+  const { title } = await getArticleById(params.id)
+
+  return {
+    title: `${title} | Ura Blog`,
+    icons: [
+      {
+        rel: 'icon',
+        url: '/my-icon.jpeg'
+      }
+    ]
+  }
+}
+
 const Article = async ({
   params
 }: {
