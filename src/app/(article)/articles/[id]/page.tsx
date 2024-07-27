@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import AuthorBiography from '@/component/element/biography/authorBiography'
 import RichEditor from '@/component/element/richEditor'
 import TableOfContentsSideBar from '@/component/element/sideBar/tableOfContentsSidebar'
 import CategoryTip from '@/component/element/tip/categoryTip'
@@ -40,7 +41,10 @@ const Article = async ({
               />
             </div>
           </div>
-          <RichEditor body={data.body} />
+          <div className="flex flex-col gap-4">
+            <RichEditor body={data.body} />
+            <AuthorBiography />
+          </div>
         </div>
         <aside className="w-1/4">
           <TableOfContentsSideBar />

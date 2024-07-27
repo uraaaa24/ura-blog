@@ -1,4 +1,5 @@
 import { MicroCMSImage } from 'microcms-js-sdk'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { convertDate } from '@/util'
@@ -20,12 +21,14 @@ const Card = (props: CardProps) => {
   return (
     <Link href={`/articles/${props.id}`} className="block">
       <div className="relative bg-white rounded-md overflow-hidden border-slate-700 h-72 transition-all duration-300 group">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${props.eyeCatch?.url || '/static/no-image.png'})`
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={props.eyeCatch?.url || '/static/no-image.png'}
+            alt={props.title}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
           <p className="text-sm">{convertDate(props.createdAt)}</p>

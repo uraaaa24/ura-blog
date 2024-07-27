@@ -30,14 +30,14 @@ const Footer = () => {
             >
               <Image src="/icons/zenn.svg" width={20} height={20} alt="Zenn" />
             </a>
-            <a
+            {/* <a
               href="#"
               target="_self"
               // className="rounded-full p-2 hover:bg-[#ffcc99] dark:hover:bg-[#996633] transition-all duration-200"
               className="rounded-full p-2 hover:bg-[#ffcc99] transition-all duration-200"
             >
               <Image src="/icons/rss.svg" width={20} height={20} alt="RSS" />
-            </a>
+            </a> */}
           </div>
           <p className="text-gray-500 text-xs mt-2">© 2024 Ura-Blog. All rights reserved.</p>
         </div>

@@ -130,7 +130,7 @@ const options: HTMLReactParserOptions = {
 
 const RichEditor = (props: RichEditorProps) => {
   return (
-    <div className="js-toc-content w-full max-w-3xl mx-auto px-4 pt-2 pb-8 sm:px-6 lg:px-8">
+    <div className="js-toc-content w-full mx-auto">
       <article className="prose prose-blue max-w-none ">{parse(props.body, options)}</article>
     </div>
   )
