@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import { ICON_SIZE } from '@/constant/icon'
+
 const Footer = () => {
   return (
     <footer className="bg-white">
@@ -12,7 +14,7 @@ const Footer = () => {
               // className="rounded-full p-2 hover:bg-[#d4c2e8] dark:hover:bg-[#6e5b80] transition-all duration-200"
               className="rounded-full p-2 hover:bg-[#d4c2e8] transition-all duration-200"
             >
-              <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" />
+              <Image src="/icons/github.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="GitHub" />
             </a>
             <a
               href="https://x.com/__ars____24"
@@ -20,7 +22,7 @@ const Footer = () => {
               // className="rounded-full p-2 hover:bg-[#cccccc] dark:hover:bg-[#4d4d4d] transition-all duration-200"
               className="rounded-full p-2 hover:bg-[#cccccc] transition-all duration-200"
             >
-              <Image src="/icons/x.svg" width={20} height={20} alt="X" />
+              <Image src="/icons/x.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="X" />
             </a>
             <a
               href="https://zenn.dev/uraaaa24"
@@ -28,7 +30,7 @@ const Footer = () => {
               // className="rounded-full p-2 hover:bg-[#cce7ff] dark:hover:bg-[#3b6e99] transition-all duration-200"
               className="rounded-full p-2 hover:bg-[#cce7ff] transition-all duration-200"
             >
-              <Image src="/icons/zenn.svg" width={20} height={20} alt="Zenn" />
+              <Image src="/icons/zenn.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="Zenn" />
             </a>
             {/* <a
               href="#"
@@ -36,7 +38,7 @@ const Footer = () => {
               // className="rounded-full p-2 hover:bg-[#ffcc99] dark:hover:bg-[#996633] transition-all duration-200"
               className="rounded-full p-2 hover:bg-[#ffcc99] transition-all duration-200"
             >
-              <Image src="/icons/rss.svg" width={20} height={20} alt="RSS" />
+              <Image src="/icons/rss.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="RSS" />
             </a> */}
           </div>
           <p className="text-gray-500 text-xs mt-2">© 2024 Ura-Blog. All rights reserved.</p>
