@@ -65,6 +65,7 @@ const Article = async ({
           </div>
           <div className="flex flex-col gap-4">
             <RichEditor body={data.body} />
+            <hr className="my-8 border-gray-200" />
             <AuthorBiography />
           </div>
         </div>
