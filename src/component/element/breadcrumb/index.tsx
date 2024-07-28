@@ -18,12 +18,12 @@ const Breadcrumb = () => {
 
   return (
     <nav>
-      <ul className="flex items-center gap-1 break-words text-sm py-2">
+      <ul className="flex items-center gap-1 break-words text-xl py-2">
         {breadcrumbItems.map((item, index) => {
           return (
             <li key={index}>
               {!item.href || index === breadcrumbItems.length - 1 ? (
-                <p className="text-xl">{item.label}</p>
+                <p>{item.label}</p>
               ) : (
                 <div className="flex gap-1 items-center">
                   <Link href={item.href} className="hover:text-[#e30613] transition-all duration-300">

@@ -1,5 +1,6 @@
 import Breadcrumb from '@/component/element/breadcrumb'
 import CardList from '@/component/element/cardList'
+import TagSidebar from '@/component/element/sideBar/tagsSidebar'
 import { getArticlesByTag, getTagNameById } from '@/util/microcms'
 
 export const generateMetadata = async ({
@@ -40,9 +41,16 @@ const Category = async ({
   const { articles, totalCount, totalPages } = await getArticlesByTag(category, currentPage)
 
   return (
-    <div className="flex flex-col gap-2 w-full">
-      <Breadcrumb />
-      <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+    <div className="flex gap-8">
+      <div className="w-3/4">
+        <div className="mb-2">
+          <Breadcrumb />
+        </div>
+        <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+      </div>
+      <aside className="w-1/4">
+        <TagSidebar />
+      </aside>
     </div>
   )
 }

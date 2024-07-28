@@ -40,6 +40,8 @@ const Article = async ({
   return (
     <article className="rounded-md flex flex-col gap-6">
       <div className="flex w-full gap-6">
+        {/* TODO: SNS共有ボタンを設置する（イメージはZenn） */}
+        {/* <div>SNS共有ボタン</div> */}
         <div className="w-3/4 flex flex-col bg-white py-6 px-10">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
             <p className="text-gray-500">{convertDate(data.createdAt)}</p>

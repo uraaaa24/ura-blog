@@ -1,5 +1,5 @@
 import CardList from '@/component/element/cardList'
-import SearchForm from '@/component/element/form/searchForm'
+import TagSidebar from '@/component/element/sideBar/tagsSidebar'
 import { searchArticles } from '@/util/microcms'
 
 export const generateMetadata = ({
@@ -33,17 +33,24 @@ const Search = async ({
   const { articles, totalCount, totalPages } = await searchArticles(q, currentPage)
 
   return (
-    <div className="w-full">
-      <div className="mb-4">
-        <SearchForm />
-      </div>
-      {articles.length !== 0 ? (
-        <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
-      ) : (
-        <div className="text-center text-gray-500 text-xl h-40 flex items-center justify-center">
-          {q} の検索結果が見つかりませんでした
+    <div className="flex gap-8">
+      <div className="w-3/4">
+        <div className="py-2 mb-2">
+          <p className="text-xl">
+            <span className="text-[#e30613]">{q}</span> の検索結果
+          </p>
         </div>
-      )}
+        {articles.length !== 0 ? (
+          <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+        ) : (
+          <div className="text-center text-gray-500 text-xl h-40 flex items-center justify-center">
+            {q} の検索結果が見つかりませんでした
+          </div>
+        )}
+      </div>
+      <aside className="w-1/4">
+        <TagSidebar />
+      </aside>
     </div>
   )
 }
