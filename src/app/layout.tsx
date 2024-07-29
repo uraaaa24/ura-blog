@@ -1,5 +1,6 @@
+import Footer from '@/component/layout/footer'
 import Header from '@/component/layout/header'
-import { mPlusRounded1c400 } from '@/style/font'
+import { mPlusRounded1c400 } from '@/constant/font'
 import '@/style/globals.css'
 
 import type { Metadata } from 'next'
@@ -16,11 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${mPlusRounded1c400.className} min-h-screen bg-gray-50`}>
-        <div>
-          <Header />
-          <div className="max-w-7xl mx-auto p-8">{children}</div>
-        </div>
+      <body
+        className={`${mPlusRounded1c400.className} min-h-screen bg-gray-100 
+      dark:bg-gray-800 dark:text-gray-100 transition-colors duration-200
+      
+      `}
+      >
+        <Header />
+        <div className="max-w-7xl min-h-[82.8vh] mx-auto p-8">{children}</div>
+        <Footer />
       </body>
     </html>
   )

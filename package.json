@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "bright": "^0.8.5",
     "eslint-plugin-unused-imports": "^3.2.0",
     "lucide-react": "^0.408.0",
     "microcms-js-sdk": "^3.1.2",
@@ -44,6 +45,7 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "storybook": "^8.1.11",
     "tailwindcss": "^3.4.1",
+    "tocbot": "^4.28.2",
     "typescript": "^5"
   }
 }

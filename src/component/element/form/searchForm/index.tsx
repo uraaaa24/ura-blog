@@ -2,7 +2,7 @@
 
 import { Search, X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { ICON_SIZE } from '@/constant/icon'
 
@@ -10,7 +10,7 @@ const SearchForm = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const [searchWord, setSearchWord] = useState<string>('')
+  const [searchWord, setSearchWord] = useState<string>(searchParams.get('q') || '')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -25,13 +25,6 @@ const SearchForm = () => {
     setSearchWord('')
   }
 
-  useEffect(() => {
-    const query = searchParams.get('q')
-    if (query) {
-      setSearchWord(query)
-    }
-  }, [searchParams])
-
   return (
     <form onSubmit={handleSubmit} className="flex gap-2 w-full">
       <div className="relative w-full">
@@ -40,7 +33,7 @@ const SearchForm = () => {
           placeholder="Search..."
           value={searchWord}
           onChange={(e) => setSearchWord(e.target.value)}
-          className="w-full border border-gray-300 rounded-sm p-2 pr-8 focus:border-[#e30613] focus:outline-none focus:ring-[#e30613]"
+          className="w-full border border-gray-300 dark:bg-gray-900 rounded-md p-2 pr-8 focus:border-[#e30613] focus:outline-none focus:ring-[#e30613]"
         />
         {searchWord && (
           <button
@@ -52,7 +45,7 @@ const SearchForm = () => {
           </button>
         )}
       </div>
-      <button className="bg-[#e30613] text-white rounded-sm p-2 ">
+      <button className="bg-[#e30613] text-white rounded-md p-2 ">
         <Search size={ICON_SIZE.MEDIUM} />
       </button>
     </form>

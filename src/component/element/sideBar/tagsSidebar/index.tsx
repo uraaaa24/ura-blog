@@ -1,14 +1,21 @@
-import Link from 'next/link'
+'use client'
 
-import { Tag } from '@/type/microcms'
+import { useRouter } from 'next/navigation'
+
+import { LabelItem, useTagContext } from '@/context/tagContext'
 
 import SearchForm from '../../form/searchForm'
 
-type TagSidebarProps = {
-  tags: Tag[]
-}
+const TagSidebar = () => {
+  const router = useRouter()
 
-const TagSidebar = (props: TagSidebarProps) => {
+  const { allTags, setSelectedTag } = useTagContext()
+
+  const handleClick = (tag: LabelItem) => {
+    setSelectedTag(tag)
+    router.push(`/category/${encodeURIComponent(tag.id)}?page=1`)
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex gap-2">
@@ -17,15 +24,15 @@ const TagSidebar = (props: TagSidebarProps) => {
       <div className="flex flex-col gap-6">
         <p className="text-lg font-bold">Category</p>
         <div className="flex flex-col gap-4">
-          {props.tags.map((tag) => {
+          {allTags.map((tag) => {
             return (
-              <Link
-                href={`/category/${encodeURIComponent(tag.id)}?page=1`}
-                key={tag.name}
-                className="text-sm border-b border-gray-300 pb-2"
+              <button
+                key={tag.id}
+                onClick={() => handleClick(tag)}
+                className="text-left text-sm hover:text-[#e30613] transition-all duration-300 border-b-2 pb-1"
               >
                 {tag.name}
-              </Link>
+              </button>
             )
           })}
         </div>
