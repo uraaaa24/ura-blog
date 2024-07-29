@@ -18,7 +18,7 @@ const About = () => {
         <Image src="/my-icon.jpeg" alt="author" width={200} height={200} className="rounded-full" />
         <div>
           <p className={`${mPlusRounded1c700.className} text-[#e30613] text-3xl mb-2`}>Ura</p>
-          <p className="text-gray-400 text-xl mb-4">
+          <p className="text-xl mb-4">
             Software Developer
             <br />
             都内で4年目エンジニアとして勤務しています ⚽️ ☕️
@@ -34,7 +34,7 @@ const About = () => {
 
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">スキルセット</h2>
-        <p className="text-gray-400">{SKILLS.join(' , ')}</p>
+        <p>{SKILLS.join(' , ')}</p>
       </div>
     </div>
   )

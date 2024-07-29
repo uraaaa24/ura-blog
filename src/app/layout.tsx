@@ -18,10 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${mPlusRounded1c400.className} min-h-screen bg-gray-100 
-      dark:bg-gray-800 dark:text-gray-100 transition-colors duration-200
-      
-      `}
+        className={`${mPlusRounded1c400.className} min-h-screen bg-gray-100  dark:bg-gray-800 dark:text-gray-200 transition-colors duration-200`}
       >
         <Header />
         <div className="max-w-7xl min-h-[82.8vh] mx-auto p-8">{children}</div>
