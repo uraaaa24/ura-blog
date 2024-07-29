@@ -42,9 +42,9 @@ const Article = async ({
       <div className="flex w-full gap-6">
         {/* TODO: SNS共有ボタンを設置する（イメージはZenn） */}
         {/* <div>SNS共有ボタン</div> */}
-        <div className="w-3/4 flex flex-col bg-white py-6 px-10">
+        <div className="w-3/4 flex flex-col bg-white dark:bg-gray-900 py-6 px-10">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
-            <p className="text-gray-500">{convertDate(data.createdAt)}</p>
+            <p className="text-gray-400">{convertDate(data.createdAt)}</p>
             <h1 className="text-4xl">{data.title}</h1>
             {data.tags && (
               <div className="flex gap-1 justify-center mt-1">

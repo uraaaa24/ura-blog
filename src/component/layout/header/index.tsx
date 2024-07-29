@@ -12,7 +12,7 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className={`${mPlusRounded1c700.className} bg-white`}>
+    <header className={`${mPlusRounded1c700.className} bg-white dark:bg-gray-900 dark:text-gray-100`}>
       <div className="max-w-7xl mx-auto flex gap-10 py-4">
         <div>
           <Link href="/">

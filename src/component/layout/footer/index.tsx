@@ -1,37 +1,15 @@
-import Image from 'next/image'
-
-import { ICON_SIZE } from '@/constant/icon'
+import SNSLink from '@/component/element/link/snsLink'
+import { SNS_LINKS } from '@/constant/about'
 
 const Footer = () => {
   return (
-    <footer className="bg-white">
+    <footer className="bg-white dark:bg-gray-900 dark:text-gray-100">
       <div className="container mx-auto h-24 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center h-full">
           <div className="flex space-x-4">
-            <a
-              href="https://github.com/uraaaa24"
-              target="_blank"
-              // className="rounded-full p-2 hover:bg-[#d4c2e8] dark:hover:bg-[#6e5b80] transition-all duration-200"
-              className="rounded-full p-2 hover:bg-[#d4c2e8] transition-all duration-200"
-            >
-              <Image src="/icons/github.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="GitHub" />
-            </a>
-            <a
-              href="https://x.com/__ars____24"
-              target="_blank"
-              // className="rounded-full p-2 hover:bg-[#cccccc] dark:hover:bg-[#4d4d4d] transition-all duration-200"
-              className="rounded-full p-2 hover:bg-[#cccccc] transition-all duration-200"
-            >
-              <Image src="/icons/x.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="X" />
-            </a>
-            <a
-              href="https://zenn.dev/uraaaa24"
-              target="_blank"
-              // className="rounded-full p-2 hover:bg-[#cce7ff] dark:hover:bg-[#3b6e99] transition-all duration-200"
-              className="rounded-full p-2 hover:bg-[#cce7ff] transition-all duration-200"
-            >
-              <Image src="/icons/zenn.svg" width={ICON_SIZE.MEDIUM} height={ICON_SIZE.MEDIUM} alt="Zenn" />
-            </a>
+            <SNSLink sns={SNS_LINKS.Github} />
+            <SNSLink sns={SNS_LINKS.X} />
+            <SNSLink sns={SNS_LINKS.Zenn} />
             {/* <a
               href="#"
               target="_self"
