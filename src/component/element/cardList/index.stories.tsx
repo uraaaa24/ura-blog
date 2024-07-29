@@ -17,7 +17,7 @@ export const Template: Story = {
       {
         id: '1',
         title: '文壇の、或る老大家が亡くなって、その告別式の終わり頃から、雨が降りはじめた。',
-        body: 'test',
+        body: 'test body',
         createdAt: '2021-01-01T00:00:00.000Z',
         updatedAt: '2021-01-01T00:00:00.000Z',
         eyeCatch: {
@@ -25,28 +25,22 @@ export const Template: Story = {
         },
         tags: [
           {
-            name: 'tag1'
-          }
-        ]
-      },
-      {
-        id: '2',
-        title: 'おわかれ致いたします。',
-        body: 'test',
-        createdAt: '2021-01-01T00:00:00.000Z',
-        updatedAt: '2021-01-01T00:00:00.000Z',
-        eyeCatch: {
-          url: 'https://placehold.jp/300x300.png'
-        },
-        tags: [
-          {
-            name: 'tag1'
+            id: '1',
+            name: '文学',
+            createdAt: '2021-01-01T00:00:00.000Z',
+            updatedAt: '2021-01-01T00:00:00.000Z'
           },
           {
-            name: 'tag2'
+            id: '2',
+            name: '小説',
+            createdAt: '2021-01-01T00:00:00.000Z',
+            updatedAt: '2021-01-01T00:00:00.000Z'
           }
         ]
       }
-    ]
+    ],
+    totalCount: 1,
+    totalPages: 1,
+    currentPage: 1
   }
 }
