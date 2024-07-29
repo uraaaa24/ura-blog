@@ -5,7 +5,7 @@ type RichTableHeaderProps = RichHtmlComponent
 
 const RichTableHeader = (props: RichTableHeaderProps) => {
   return (
-    <th className={`${mPlusRounded1c700.className} border px-4 py-2 bg-gray-100 text-left text-sm`}>
+    <th className={`${mPlusRounded1c700.className} border px-4 py-2 bg-gray-200 dark:bg-gray-700 text-left text-sm`}>
       {props.children}
     </th>
   )

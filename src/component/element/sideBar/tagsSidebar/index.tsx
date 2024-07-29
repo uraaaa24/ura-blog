@@ -29,7 +29,7 @@ const TagSidebar = () => {
               <button
                 key={tag.id}
                 onClick={() => handleClick(tag)}
-                className="text-left text-sm hover:text-[#e30613] transition-all duration-300 border-b-2 pb-1"
+                className="text-left text-sm hover:text-[#e30613] transition-all duration-300 border-b-2 dark:border-gray-700 pb-1"
               >
                 {tag.name}
               </button>

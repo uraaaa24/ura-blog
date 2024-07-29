@@ -7,30 +7,18 @@ export const SNS_LINKS = {
     name: '@uraaaa24',
     href: 'https://github.com/uraaaa24',
     iconSrc: '/icons/github.svg',
-    alt: 'GitHub',
-    color: {
-      light: '#d4c2e8',
-      dark: '#6e5b80'
-    }
+    alt: 'GitHub'
   },
   X: {
     name: '@__ars____24',
     href: 'https://x.com/__ars____24',
     iconSrc: '/icons/x.svg',
-    alt: 'X',
-    color: {
-      light: '#cccccc',
-      dark: '#4d4d4d'
-    }
+    alt: 'X'
   },
   Zenn: {
     name: '@uraaaa24',
     href: 'https://zenn.dev/uraaaa24',
     iconSrc: '/icons/zenn.svg',
-    alt: 'Zenn',
-    color: {
-      light: '#cce7ff',
-      dark: '#3b6e99'
-    }
+    alt: 'Zenn'
   }
 } as const
