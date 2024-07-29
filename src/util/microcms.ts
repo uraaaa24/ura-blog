@@ -1,6 +1,8 @@
 import { client } from '@/lib/microcms'
 import { Article, Tag } from '@/type/microcms'
 
+const REVALIDATE_TIME = 60 * 60 * 24
+
 /** 記事一覧を取得する */
 export const getArticles = async (page: number, perPage: number = 4) => {
   const data = await client.getList<Article>({
@@ -9,6 +11,11 @@ export const getArticles = async (page: number, perPage: number = 4) => {
       fields: ['id', 'title', 'eyeCatch', 'createdAt', 'tags'],
       offset: (page - 1) * perPage,
       limit: perPage
+    },
+    customRequestInit: {
+      next: {
+        revalidate: REVALIDATE_TIME
+      }
     }
   })
 
