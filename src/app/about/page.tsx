@@ -7,7 +7,7 @@ import { mPlusRounded1c700 } from '@/constant/font'
 export const generateMetadata = () => {
   return {
     title: 'About | Ura Blog',
-    icons: [{ rel: 'icon', url: '/my-icon.jpeg' }]
+    icons: [{ rel: 'icon', url: '/my-icon.png' }]
   }
 }
 
@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div className="p-8 mx-auto max-w-4xl">
       <div className="flex gap-8 items-center mb-8">
-        <Image src="/my-icon.jpeg" alt="author" width={200} height={200} className="rounded-full" />
+        <Image src="/my-icon.png" alt="author" width={200} height={200} className="rounded-full" />
         <div>
           <p className={`${mPlusRounded1c700.className} text-[#e30613] text-3xl mb-2`}>Ura</p>
           <p className="text-xl mb-4">

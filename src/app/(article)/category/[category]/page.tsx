@@ -17,7 +17,7 @@ export const generateMetadata = async ({
     icons: [
       {
         rel: 'icon',
-        url: '/my-icon.jpeg'
+        url: '/my-icon.png'
       }
     ]
   }
