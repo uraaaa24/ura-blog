@@ -27,8 +27,8 @@ export default function RootLayout({
         <Header />
         <div className="max-w-7xl min-h-[82.8vh] mx-auto p-8">{children}</div>
         <Footer />
-        <GoogleAnalytics gaId={gaId} />
       </body>
+      <GoogleAnalytics gaId={gaId} />
     </html>
   )
 }

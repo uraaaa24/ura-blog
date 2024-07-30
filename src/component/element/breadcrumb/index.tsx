@@ -4,17 +4,13 @@ import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 import { ICON_SIZE } from '@/constant/icon'
-import { useTagContext } from '@/context/tagContext'
 
-type BreadcrumbItem = {
-  label: string
-  href?: string
+type BreadcrumbProps = {
+  categoryName: string
 }
 
-const Breadcrumb = () => {
-  const { selectedTag } = useTagContext()
-
-  const breadcrumbItems: BreadcrumbItem[] = [{ label: 'Home', href: '/articles' }, { label: selectedTag.name }]
+const Breadcrumb = (props: BreadcrumbProps) => {
+  const breadcrumbItems = [{ label: 'Home', href: '/articles' }, { label: props.categoryName }]
 
   return (
     <nav>

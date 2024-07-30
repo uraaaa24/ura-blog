@@ -9,10 +9,9 @@ import SearchForm from '../../form/searchForm'
 const TagSidebar = () => {
   const router = useRouter()
 
-  const { allTags, setSelectedTag } = useTagContext()
+  const { allTags } = useTagContext()
 
   const handleClick = (tag: LabelItem) => {
-    setSelectedTag(tag)
     router.push(`/category/${encodeURIComponent(tag.id)}?page=1`)
   }
 
