@@ -1,8 +1,9 @@
 import Image from 'next/image'
 
 import SNSLink from '@/component/element/link/snsLink'
-import { SKILLS, SNS_LINKS } from '@/constant/about'
+import { SKILLS } from '@/constant/about'
 import { mPlusRounded1c700 } from '@/constant/font'
+import { SNS_LINKS_VALUES } from '@/constant/sns'
 
 export const generateMetadata = () => {
   return {
@@ -25,9 +26,9 @@ const About = () => {
           </p>
 
           <div className="flex space-x-4">
-            <SNSLink sns={SNS_LINKS.Github} />
-            <SNSLink sns={SNS_LINKS.X} />
-            <SNSLink sns={SNS_LINKS.Zenn} />
+            {SNS_LINKS_VALUES.map((sns, index) => (
+              <SNSLink key={index} sns={sns} />
+            ))}
           </div>
         </div>
       </div>

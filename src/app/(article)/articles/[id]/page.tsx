@@ -1,9 +1,11 @@
 import Image from 'next/image'
 
 import AuthorBiography from '@/component/element/biography/authorBiography'
+import SNSShareButton from '@/component/element/button/snsButton'
 import RichEditor from '@/component/element/richEditor'
 import TableOfContentsSideBar from '@/component/element/sideBar/tableOfContentsSidebar'
 import CategoryTip from '@/component/element/tip/categoryTip'
+import { generateShareUrl, SNS_SHARE_LINKS_VALUES } from '@/constant/sns'
 import { convertDate } from '@/util'
 import { getArticleById } from '@/util/microcms'
 
@@ -40,9 +42,21 @@ const Article = async ({
   return (
     <article className="rounded-md flex flex-col gap-6">
       <div className="flex w-full gap-6">
-        {/* TODO: SNS共有ボタンを設置する（イメージはZenn） */}
-        {/* <div>SNS共有ボタン</div> */}
-        <div className="w-3/4 flex flex-col bg-white dark:bg-gray-900 py-6 px-10">
+        <div>
+          <div className="sticky top-0 pt-20 flex flex-col gap-6">
+            {SNS_SHARE_LINKS_VALUES.map((sns, index) => (
+              <SNSShareButton
+                key={index}
+                url={generateShareUrl(sns.href, id, data.title)}
+                icon={sns.icon}
+                alt={sns.alt}
+                description={sns.description}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="w-3/4 flex flex-col bg-white dark:bg-gray-900 py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
             <p className="text-gray-400">{convertDate(data.createdAt)}</p>
             <h1 className="text-4xl">{data.title}</h1>
@@ -69,6 +83,7 @@ const Article = async ({
             <AuthorBiography />
           </div>
         </div>
+
         <aside className="w-1/4">
           <TableOfContentsSideBar />
         </aside>
