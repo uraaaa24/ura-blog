@@ -22,7 +22,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
                 <p>{item.label}</p>
               ) : (
                 <div className="flex gap-1 items-center">
-                  <Link href={item.href} className="hover:text-[#e30613] transition-all duration-300">
+                  <Link href={item.href} className="hover:text-primary transition-all duration-300">
                     {item.label}
                   </Link>
                   <ChevronRight size={ICON_SIZE.SMALL} />

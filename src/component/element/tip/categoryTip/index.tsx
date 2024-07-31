@@ -19,7 +19,7 @@ const CategoryTip = (props: CategoryTipProps) => {
   return (
     <button
       onClick={() => handleClick({ id: props.id, name: props.name })}
-      className="text-left text-xs rounded-full py-1 px-2 text-white bg-[#e30613] cursor-pointer"
+      className="text-left text-xs rounded-full py-1 px-2 text-white bg-primary cursor-pointer"
     >
       {props.name}
     </button>

@@ -33,7 +33,7 @@ const SearchForm = () => {
           placeholder="Search..."
           value={searchWord}
           onChange={(e) => setSearchWord(e.target.value)}
-          className="w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-md p-2 pr-8 focus:border-[#e30613] focus:outline-none focus:ring-[#e30613]"
+          className="w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-md p-2 pr-8 focus:border-primary focus:outline-none focus:ring-primary"
         />
         {searchWord && (
           <button
@@ -45,7 +45,7 @@ const SearchForm = () => {
           </button>
         )}
       </div>
-      <button className="bg-[#e30613] text-white rounded-md p-2 ">
+      <button className="bg-primary text-white rounded-md p-2 ">
         <Search size={ICON_SIZE.MEDIUM} />
       </button>
     </form>

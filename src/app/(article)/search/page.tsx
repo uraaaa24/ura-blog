@@ -36,7 +36,7 @@ const Search = async ({
     <BlogLayout>
       <div className="py-2 mb-2">
         <p className="text-xl">
-          <span className="text-[#e30613]">{q}</span> の検索結果
+          <span className="text-primary">{q}</span> の検索結果
         </p>
       </div>
       {articles.length !== 0 ? (

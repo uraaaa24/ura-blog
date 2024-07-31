@@ -32,7 +32,7 @@ const Card = (props: CardProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
           <p className="text-sm">{convertDate(props.createdAt)}</p>
-          <h2 className="text-2xl group-hover:text-[#e30613] transition-colors duration-300">{props.title}</h2>
+          <h2 className="text-2xl group-hover:text-primary transition-colors duration-300">{props.title}</h2>
           {props.tags && (
             <div className="flex gap-1 mt-1">
               {props.tags.map((tag, index) => (
