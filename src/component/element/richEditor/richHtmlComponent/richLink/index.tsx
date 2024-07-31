@@ -8,7 +8,7 @@ type RichLinkProps = RichHtmlComponent & {
 
 const RichLink = (props: RichLinkProps) => {
   return (
-    <Link href={props.href} className="text-blue-600 hover:text-blue-800 hover:underline">
+    <Link href={props.href} className="text-[#e30613] hover:underline">
       {props.children}
     </Link>
   )
