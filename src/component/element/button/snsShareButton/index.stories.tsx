@@ -1,18 +1,13 @@
 import { StoryObj } from '@storybook/react'
 
-import SNSLink from '.'
+import { SNS_SHARE_LINKS } from '@/constant/sns'
+
+import SNSShareButton from '.'
 
 const meta = {
-  title: 'Elements/SNSLink',
-  component: SNSLink,
+  title: 'Elements/Button/SNSShareButton',
+  component: SNSShareButton,
   tags: ['autodocs']
-}
-
-const github = {
-  name: '@uraaaa24',
-  href: 'https://github.com/uraaaa24',
-  iconSrc: '/icons/github.svg',
-  alt: 'GitHub'
 }
 
 export default meta
@@ -20,7 +15,10 @@ type Story = StoryObj<typeof meta>
 
 export const Template: Story = {
   args: {
-    sns: github
+    icon: SNS_SHARE_LINKS.X.icon,
+    alt: SNS_SHARE_LINKS.X.alt,
+    url: SNS_SHARE_LINKS.X.href,
+    description: SNS_SHARE_LINKS.X.description
   },
   decorators: [
     (Story) => (

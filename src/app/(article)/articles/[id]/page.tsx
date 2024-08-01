@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import AuthorBiography from '@/component/element/biography/authorBiography'
-import SNSShareButton from '@/component/element/button/snsButton'
+import SNSShareButton from '@/component/element/button/snsShareButton'
 import RichEditor from '@/component/element/richEditor'
 import TableOfContentsSideBar from '@/component/element/sideBar/tableOfContentsSidebar'
 import CategoryTip from '@/component/element/tip/categoryTip'

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import SNSLink from '@/component/element/link/snsLink'
+import SNSLink from '@/component/element/button/snsLinkButton'
 import { SKILLS } from '@/constant/about'
 import { mPlusRounded1c700 } from '@/constant/font'
 import { SNS_LINKS_VALUES } from '@/constant/sns'

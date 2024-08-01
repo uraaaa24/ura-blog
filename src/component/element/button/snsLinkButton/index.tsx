@@ -13,7 +13,7 @@ type SNSLinkProps = {
   }
 }
 
-const SNSLink = (props: SNSLinkProps) => {
+const SNSLinkButton = (props: SNSLinkProps) => {
   return (
     <Tooltip label={props.sns.name} className={`rounded-full p-2 transition-all duration-200`}>
       <a href={props.sns.href} target="_blank">
@@ -29,4 +29,4 @@ const SNSLink = (props: SNSLinkProps) => {
   )
 }
 
-export default SNSLink
+export default SNSLinkButton
