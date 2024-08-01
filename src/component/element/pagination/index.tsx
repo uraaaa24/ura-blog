@@ -24,7 +24,7 @@ const Pagination = (props: PaginationProps) => {
       <button
         disabled={props.currentPage === 1}
         onClick={() => handleClick(props.currentPage - 1)}
-        className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-[#e30613] enabled:hover:text-white disabled:opacity-50"
+        className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-primary enabled:hover:text-white disabled:opacity-50"
       >
         <ArrowLeft size={ICON_SIZE.SMALL} />
         Previous
@@ -36,8 +36,8 @@ const Pagination = (props: PaginationProps) => {
             key={page}
             className={`relative h-10 w-10 rounded-full text-xs uppercase transition-all duration-200 disabled:opacity-50 disabled:shadow-none ${
               page === props.currentPage
-                ? 'bg-[#e30613] text-white shadow-md hover:shadow-gray-900/30'
-                : 'hover:bg-[#e30613] hover:text-white '
+                ? 'bg-primary text-white shadow-md hover:shadow-gray-900/30'
+                : 'hover:bg-primary hover:text-white '
             }`}
             onClick={() => {
               if (page === props.currentPage) return
@@ -53,7 +53,7 @@ const Pagination = (props: PaginationProps) => {
       <button
         disabled={props.currentPage === props.totalPage}
         onClick={() => handleClick(props.currentPage + 1)}
-        className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-[#e30613] enabled:hover:text-white disabled:opacity-50"
+        className="flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase rounded-full transition-all duration-200 enabled:hover:bg-primary enabled:hover:text-white disabled:opacity-50"
       >
         Next
         <ArrowRight size={ICON_SIZE.SMALL} />

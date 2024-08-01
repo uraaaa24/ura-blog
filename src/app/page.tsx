@@ -6,7 +6,7 @@ export const generateMetadata = () => {
     icons: [
       {
         rel: 'icon',
-        url: '/my-icon.jpeg'
+        url: '/my-icon.png'
       }
     ]
   }

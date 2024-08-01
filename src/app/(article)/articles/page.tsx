@@ -1,5 +1,5 @@
 import CardList from '@/component/element/cardList'
-import TagSidebar from '@/component/element/sideBar/tagsSidebar'
+import BlogLayout from '@/component/layout/blogLayout'
 import { getArticles } from '@/util/microcms'
 
 export const generateMetadata = () => {
@@ -8,7 +8,7 @@ export const generateMetadata = () => {
     icons: [
       {
         rel: 'icon',
-        url: '/my-icon.jpeg'
+        url: '/my-icon.png'
       }
     ]
   }
@@ -26,14 +26,9 @@ const Articles = async ({
   const { articles, totalCount, totalPages } = await getArticles(currentPage)
 
   return (
-    <div className="flex gap-8">
-      <div className="w-3/4">
-        <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
-      </div>
-      <aside className="w-1/4">
-        <TagSidebar />
-      </aside>
-    </div>
+    <BlogLayout>
+      <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+    </BlogLayout>
   )
 }
 

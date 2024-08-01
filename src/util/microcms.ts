@@ -88,5 +88,7 @@ export const getTagNameById = async (id: string) => {
     contentId: id
   })
 
-  return data
+  return {
+    name: data.name
+  }
 }

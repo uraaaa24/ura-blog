@@ -9,14 +9,10 @@ export type LabelItem = {
 
 export type TagContext = {
   allTags: LabelItem[]
-  selectedTag: LabelItem
-  setSelectedTag: (tag: LabelItem) => void
 }
 
 export const initialTagContext: TagContext = {
-  allTags: [],
-  selectedTag: { id: '', name: '' },
-  setSelectedTag: () => console.log('setSelectedTag is not defined')
+  allTags: []
 }
 
 export const TagContext = createContext<TagContext>(initialTagContext)

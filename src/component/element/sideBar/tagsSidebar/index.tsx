@@ -9,10 +9,9 @@ import SearchForm from '../../form/searchForm'
 const TagSidebar = () => {
   const router = useRouter()
 
-  const { allTags, setSelectedTag } = useTagContext()
+  const { allTags } = useTagContext()
 
   const handleClick = (tag: LabelItem) => {
-    setSelectedTag(tag)
     router.push(`/category/${encodeURIComponent(tag.id)}?page=1`)
   }
 
@@ -29,7 +28,7 @@ const TagSidebar = () => {
               <button
                 key={tag.id}
                 onClick={() => handleClick(tag)}
-                className="text-left text-sm hover:text-[#e30613] transition-all duration-300 border-b-2 dark:border-gray-700 pb-1"
+                className="text-left text-sm hover:text-primary transition-all duration-300 border-b-2 dark:border-gray-700 pb-1"
               >
                 {tag.name}
               </button>

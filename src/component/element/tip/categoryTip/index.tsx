@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import { LabelItem, useTagContext } from '@/context/tagContext'
+import { LabelItem } from '@/context/tagContext'
 
 type CategoryTipProps = {
   id: string
@@ -12,17 +12,14 @@ type CategoryTipProps = {
 const CategoryTip = (props: CategoryTipProps) => {
   const router = useRouter()
 
-  const { setSelectedTag } = useTagContext()
-
   const handleClick = (tag: LabelItem) => {
-    setSelectedTag(tag)
     router.push(`/category/${encodeURIComponent(tag.id)}?page=1`)
   }
 
   return (
     <button
       onClick={() => handleClick({ id: props.id, name: props.name })}
-      className="text-left text-xs rounded-full py-1 px-2 text-white bg-[#e30613] cursor-pointer"
+      className="text-left text-xs rounded-full py-1 px-2 text-white bg-primary cursor-pointer"
     >
       {props.name}
     </button>
