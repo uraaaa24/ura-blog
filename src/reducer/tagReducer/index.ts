@@ -2,12 +2,10 @@ import { initialTagContext, LabelItem, TagContext } from '@/context/tagContext'
 
 export type TagReducerState = {
   tags: TagContext['allTags']
-  selectedTag: TagContext['selectedTag']
 }
 
 export const initialTagReducerState: TagReducerState = {
-  tags: initialTagContext['allTags'],
-  selectedTag: initialTagContext['selectedTag']
+  tags: initialTagContext['allTags']
 }
 
 export type TagAction =
@@ -24,19 +22,6 @@ export const tagReducer = (state: TagReducerState, action: TagAction): TagReduce
       return {
         ...state,
         tags: action.tags
-      }
-    case 'SET_SELECTED_TAG':
-      return {
-        ...state,
-        selectedTag: {
-          id: action.payload.id,
-          name: action.payload.name
-        }
-      }
-    case 'CLEAR_SELECTED_TAG':
-      return {
-        ...state,
-        selectedTag: initialTagContext.selectedTag
       }
     default:
       return state
