@@ -2,6 +2,7 @@
 
 import { Search, X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import NProgress from 'nprogress'
 import { useState } from 'react'
 
 import { ICON_SIZE } from '@/constant/icon'
@@ -17,6 +18,7 @@ const SearchForm = () => {
     const query = searchWord.trim()
 
     if (query) {
+      NProgress.start()
       router.push(`/search?q=${encodeURIComponent(query)}&page=1`)
     }
   }

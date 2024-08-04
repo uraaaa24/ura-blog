@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import NProgress from 'nprogress'
 
 import { LabelItem, useTagContext } from '@/context/tagContext'
 
@@ -12,6 +13,7 @@ const TagSidebar = () => {
   const { allTags } = useTagContext()
 
   const handleClick = (tag: LabelItem) => {
+    NProgress.start()
     router.push(`/category/${encodeURIComponent(tag.id)}?page=1`)
   }
 

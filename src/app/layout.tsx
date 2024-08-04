@@ -1,4 +1,5 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
+import NextTopLoader from 'nextjs-toploader'
 
 import Footer from '@/component/layout/footer'
 import Header from '@/component/layout/header'
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${mPlusRounded1c400.className} min-h-dvh bg-gray-100  dark:bg-gray-800 dark:text-gray-200 transition-colors duration-200`}
       >
+        <NextTopLoader color="#e30613" showSpinner={false} />
         <Header />
         <div className="max-w-7xl mx-auto p-8">{children}</div>
         <Footer />
