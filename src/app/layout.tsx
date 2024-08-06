@@ -4,7 +4,7 @@ import NextTopLoader from 'nextjs-toploader'
 import Footer from '@/component/layout/footer'
 import Header from '@/component/layout/header'
 import { gaId } from '@/config'
-import { mPlusRounded1c400 } from '@/constant/font'
+import { mPlusRounded1c300 } from '@/constant/font'
 
 import type { Metadata } from 'next'
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${mPlusRounded1c400.className} min-h-dvh max-w-7xl mx-auto bg-slate-100 dark:bg-slate-900 dark:text-gray-200 transition-colors duration-200`}
+        className={`${mPlusRounded1c300.className} min-h-dvh max-w-7xl mx-auto bg-slate-100 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-200`}
       >
         <NextTopLoader color="#e30613" showSpinner={false} />
         <Header />

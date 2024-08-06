@@ -4,12 +4,7 @@ import { ReactElement } from 'react'
 import RichBlockquote from '@/component/element/richEditor/richHtmlComponent/richBlockquote'
 import RichCode from '@/component/element/richEditor/richHtmlComponent/richCode'
 import RichEmphasis from '@/component/element/richEditor/richHtmlComponent/richEmphasis'
-import {
-  RichHeading1,
-  RichHeading2,
-  RichHeading3,
-  RichHeading4
-} from '@/component/element/richEditor/richHtmlComponent/richHeading'
+import { RichHeading2, RichHeading3, RichHeading4 } from '@/component/element/richEditor/richHtmlComponent/richHeading'
 import RichImage from '@/component/element/richEditor/richHtmlComponent/richImage'
 import RichLink from '@/component/element/richEditor/richHtmlComponent/richLink'
 import { RichOrderList, RichUnorderedList } from '@/component/element/richEditor/richHtmlComponent/richList'
@@ -55,8 +50,6 @@ const options: HTMLReactParserOptions = {
       const renderedChildren = domToReact(children as DOMNode[], options)
 
       switch (name) {
-        case 'h1':
-          return <RichHeading1 id={id}>{renderedChildren}</RichHeading1>
         case 'h2':
           return <RichHeading2 id={id}>{renderedChildren}</RichHeading2>
         case 'h3':
@@ -84,7 +77,7 @@ const options: HTMLReactParserOptions = {
         case 'blockquote':
           return <RichBlockquote>{renderedChildren}</RichBlockquote>
         case 'hr':
-          return <hr className="my-8 border-gray-300" />
+          return <hr className="my-8 border-slate-400" />
         case 'table':
           return <RichTable>{renderedChildren}</RichTable>
         case 'tbody':

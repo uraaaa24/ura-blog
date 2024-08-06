@@ -20,7 +20,7 @@ type CardProps = {
 const Card = (props: CardProps) => {
   return (
     <Link href={`/articles/${props.id}`} className="block">
-      <div className="relative bg-white rounded-md overflow-hidden h-72 transition-all duration-300 group">
+      <div className="relative bg-white rounded-md overflow-hidden h-64 transition-all duration-300 group">
         <div className="absolute inset-0">
           <Image
             src={props.eyeCatch?.url || '/static/no-image.png'}

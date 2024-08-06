@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import Container from '@/component/layout/container'
 import { mPlusRounded1c700 } from '@/constant/font'
 import { NAV_ITEMS } from '@/constant/header'
 
-import Container from '../container'
 import NavItem from './navItem'
 
 const Header = () => {

@@ -8,7 +8,7 @@ const AuthorBiography = () => {
       <Image src="/my-icon.png" alt="author" width={80} height={80} className="rounded-full" />
       <div>
         <p className={`${mPlusRounded1c700.className} text-primary text-2xl`}>Ura</p>
-        <p className="text-gray-500 dark:text-gray-400">
+        <p className="text-slate-500 dark:text-slate-400">
           Software Developer
           <br />
           都内で4年目エンジニアとして勤務しています ⚽️ ☕️

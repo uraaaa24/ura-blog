@@ -1,16 +1,16 @@
-import { M_PLUS_Rounded_1c } from 'next/font/google'
+import { Noto_Sans_JP } from 'next/font/google'
 
-export const mPlusRounded1c400 = M_PLUS_Rounded_1c({
-  weight: '400',
+export const mPlusRounded1c300 = Noto_Sans_JP({
+  weight: '300',
   subsets: ['latin'],
   display: 'swap'
 })
-export const mPlusRounded1c700 = M_PLUS_Rounded_1c({
+export const mPlusRounded1c700 = Noto_Sans_JP({
   weight: '700',
   subsets: ['latin'],
   display: 'swap'
 })
-export const mPlusRounded1c800 = M_PLUS_Rounded_1c({
+export const mPlusRounded1c800 = Noto_Sans_JP({
   weight: '800',
   subsets: ['latin'],
   display: 'swap'

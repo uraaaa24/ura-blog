@@ -11,7 +11,7 @@ const Footer = () => {
               <SNSLink key={index} sns={sns} />
             ))}
           </div>
-          <p className="text-gray-500 text-xs mt-4">© 2024 Ura-Blog. All rights reserved.</p>
+          <p className="text-slate-500 text-xs mt-4">© 2024 Ura-Blog. All rights reserved.</p>
         </div>
       </div>
     </footer>

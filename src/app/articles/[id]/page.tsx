@@ -40,24 +40,10 @@ const Article = async ({
   return (
     <article className="rounded-md flex flex-col gap-6 max-w-5xl mx-auto">
       <div className="flex w-full gap-6">
-        {/* <div>
-          <div className="sticky top-0 pt-20 flex flex-col gap-6">
-            {SNS_SHARE_LINKS_VALUES.map((sns, index) => (
-              <SNSShareButton
-                key={index}
-                url={generateShareUrl(sns.href, id, data.title)}
-                icon={sns.icon}
-                alt={sns.alt}
-                description={sns.description}
-              />
-            ))}
-          </div>
-        </div> */}
-
-        <div className="w-3/4 flex flex-col bg-white dark:bg-slate-900 py-8 px-12">
+        <div className="w-3/4 flex flex-col rounded-md py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
-            <p className="text-gray-400">{convertDate(data.createdAt)}</p>
-            <h1 className="text-4xl">{data.title}</h1>
+            <p className="text-slate-400">{convertDate(data.createdAt)}</p>
+            <h1 className="text-4xl text-white">{data.title}</h1>
             {data.tags && (
               <div className="flex gap-1 justify-center mt-1">
                 {data.tags.map((tag, index) => (
@@ -75,7 +61,7 @@ const Article = async ({
               />
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 py-8">
             <RichEditor body={data.body} />
             <hr className="my-8 border-gray-200" />
             <AuthorBiography />
