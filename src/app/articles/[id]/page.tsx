@@ -1,11 +1,9 @@
 import Image from 'next/image'
 
 import AuthorBiography from '@/component/element/biography/authorBiography'
-import SNSShareButton from '@/component/element/button/snsShareButton'
 import RichEditor from '@/component/element/richEditor'
-import TableOfContentsSideBar from '@/component/element/sideBar/tableOfContentsSidebar'
+import TableOfContents from '@/component/element/tableOfContents'
 import CategoryTip from '@/component/element/tip/categoryTip'
-import { generateShareUrl, SNS_SHARE_LINKS_VALUES } from '@/constant/sns'
 import { convertDate } from '@/util'
 import { getArticleById } from '@/util/microcms'
 
@@ -40,9 +38,9 @@ const Article = async ({
   const data = await getArticleById(id)
 
   return (
-    <article className="rounded-md flex flex-col gap-6">
+    <article className="rounded-md flex flex-col gap-6 max-w-5xl mx-auto">
       <div className="flex w-full gap-6">
-        <div>
+        {/* <div>
           <div className="sticky top-0 pt-20 flex flex-col gap-6">
             {SNS_SHARE_LINKS_VALUES.map((sns, index) => (
               <SNSShareButton
@@ -54,7 +52,7 @@ const Article = async ({
               />
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="w-3/4 flex flex-col bg-white dark:bg-slate-900 py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
@@ -85,7 +83,7 @@ const Article = async ({
         </div>
 
         <aside className="w-1/4">
-          <TableOfContentsSideBar />
+          <TableOfContents />
         </aside>
       </div>
     </article>

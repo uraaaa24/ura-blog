@@ -1,5 +1,5 @@
 import CardList from '@/component/element/cardList'
-import BlogLayout from '@/component/layout/blogLayout'
+import Container from '@/component/layout/container'
 import { getArticles } from '@/util/microcms'
 
 export const generateMetadata = () => {
@@ -26,9 +26,9 @@ const Articles = async ({
   const { articles, totalCount, totalPages } = await getArticles(currentPage)
 
   return (
-    <BlogLayout>
+    <Container>
       <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
-    </BlogLayout>
+    </Container>
   )
 }
 

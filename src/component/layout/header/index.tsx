@@ -6,28 +6,36 @@ import { usePathname } from 'next/navigation'
 import { mPlusRounded1c700 } from '@/constant/font'
 import { NAV_ITEMS } from '@/constant/header'
 
+import Container from '../container'
 import NavItem from './navItem'
 
 const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className={`${mPlusRounded1c700.className}`}>
-      <div className="flex gap-10 py-4">
-        <div>
-          <Link href="/">
-            <h1 className="text-2xl">Ura Blog</h1>
-          </Link>
+    <Container>
+      <header className={`${mPlusRounded1c700.className}`}>
+        <div className="flex gap-10 py-4">
+          <div>
+            <Link href="/">
+              <h1 className="text-2xl">Ura Blog</h1>
+            </Link>
+          </div>
+          <nav className="flex items-center justify-between">
+            <ul className="flex gap-8">
+              {NAV_ITEMS.map((item) => (
+                <NavItem
+                  key={item.href}
+                  href={item.href}
+                  label={item.label}
+                  isActive={pathname?.startsWith(item.href)}
+                />
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav className="flex items-center justify-between">
-          <ul className="flex gap-8">
-            {NAV_ITEMS.map((item) => (
-              <NavItem key={item.href} href={item.href} label={item.label} isActive={pathname?.startsWith(item.href)} />
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </header>
+      </header>
+    </Container>
   )
 }
 

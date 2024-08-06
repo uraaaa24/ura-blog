@@ -31,13 +31,15 @@ const CardList = (props: CardListProps) => {
           />
         ))}
         {Array.from({ length: emptySlots }).map((_, index) => (
-          <div key={`empty-${index}`} className="h-72"></div>
+          <div key={`empty-${index}`} className="h-72" />
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
-        <Pagination currentPage={props.currentPage} totalPage={props.totalPages} />
-      </div>
+      {props.totalPages > 4 && (
+        <div className="mt-10 flex justify-center">
+          <Pagination currentPage={props.currentPage} totalPage={props.totalPages} />
+        </div>
+      )}
     </>
   )
 }

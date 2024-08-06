@@ -3,11 +3,11 @@ import { StoryObj } from '@storybook/react'
 import { RichHeading1, RichHeading2, RichHeading3, RichHeading4 } from '../../richEditor/richHtmlComponent/richHeading'
 import RichParagraph from '../../richEditor/richHtmlComponent/richParagraph'
 
-import TableOfContentsSideBar from '.'
+import TableOfContents from '.'
 
 const meta = {
   title: 'Elements/SideBar/ContentsSidebar',
-  component: TableOfContentsSideBar,
+  component: TableOfContents,
   tags: ['autodocs']
 }
 

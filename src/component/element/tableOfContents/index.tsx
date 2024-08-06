@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
 
-const TableOfContentsSideBar = () => {
+const TableOfContents = () => {
   useEffect(() => {
     tocbot.init({
       tocSelector: '.js-toc',
@@ -22,4 +22,4 @@ const TableOfContentsSideBar = () => {
   )
 }
 
-export default TableOfContentsSideBar
+export default TableOfContents
