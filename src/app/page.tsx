@@ -13,7 +13,7 @@ export const generateMetadata = () => {
 }
 
 const Page = () => {
-  redirect('/articles')
+  redirect('/blog')
 }
 
 export default Page

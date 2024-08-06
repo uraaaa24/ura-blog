@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import Container from '@/component/layout/container'
-import { mPlusRounded1c700 } from '@/constant/font'
+import { notoSansJP700 } from '@/constant/font'
 import { NAV_ITEMS } from '@/constant/header'
 
 import NavItem from './navItem'
@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <Container>
-      <header className={`${mPlusRounded1c700.className}`}>
+      <header className={`${notoSansJP700.className}`}>
         <div className="flex gap-10 py-4">
           <div>
             <Link href="/">

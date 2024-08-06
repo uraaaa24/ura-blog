@@ -24,13 +24,13 @@ export const SNS_LINKS_VALUES = Object.values(SNS_LINKS)
 
 export const SNS_SHARE_LINKS = {
   X: {
-    href: `https://x.com/intent/tweet?url=${NextPublicBaseUrl}/articles/{{id}}&text={{title}}`,
+    href: `https://x.com/intent/tweet?url=${NextPublicBaseUrl}/blog/{{id}}&text={{title}}`,
     icon: '/icons/x.svg',
     alt: 'Twitter',
     description: 'X(Twitter)でシェア'
   },
   HatenaBookmark: {
-    href: `http://b.hatena.ne.jp/add?mode=confirm&url=${NextPublicBaseUrl}/articles/{{id}}`,
+    href: `http://b.hatena.ne.jp/add?mode=confirm&url=${NextPublicBaseUrl}/blog/{{id}}`,
     icon: '/icons/hatenabookmark.svg',
     alt: 'Hatena',
     description: 'はてなブックマークに登録'

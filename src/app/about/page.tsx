@@ -3,7 +3,7 @@ import Image from 'next/image'
 import SNSLink from '@/component/element/button/snsLinkButton'
 import Container from '@/component/layout/container'
 import { SKILLS } from '@/constant/about'
-import { mPlusRounded1c700 } from '@/constant/font'
+import { notoSansJP700 } from '@/constant/font'
 import { SNS_LINKS_VALUES } from '@/constant/sns'
 
 export const generateMetadata = () => {
@@ -16,11 +16,12 @@ export const generateMetadata = () => {
 const About = () => {
   return (
     <Container>
-      <div className="p-8">
+      <div className="px-16">
+        <h1 className="text-4xl font-bold mb-8">About</h1>
         <div className="flex gap-8 items-center mb-8">
-          <Image src="/my-icon.png" alt="author" width={200} height={200} className="rounded-full" />
+          <Image src="/my-icon.png" alt="author" width={200} height={200} className="rounded-full border-2" />
           <div>
-            <p className={`${mPlusRounded1c700.className} text-primary text-3xl mb-2`}>Ura</p>
+            <p className={`${notoSansJP700.className} text-primary text-3xl mb-2`}>Ura</p>
             <p className="text-xl mb-4">
               Software Developer
               <br />

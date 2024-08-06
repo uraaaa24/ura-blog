@@ -27,7 +27,10 @@ const Articles = async ({
 
   return (
     <Container>
-      <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+      <div className="px-16">
+        <h1 className="text-4xl font-bold mb-8">Blog</h1>
+        <CardList articleList={articles} totalCount={totalCount} totalPages={totalPages} currentPage={currentPage} />
+      </div>
     </Container>
   )
 }

@@ -28,8 +28,8 @@ export const Active: Story = {
 
 export const Inactive: Story = {
   args: {
-    href: '/articles',
-    label: 'Home',
+    href: '/blog',
+    label: 'Blog',
     isActive: false
   },
   decorators: [

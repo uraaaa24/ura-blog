@@ -10,7 +10,7 @@ type BreadcrumbProps = {
 }
 
 const Breadcrumb = (props: BreadcrumbProps) => {
-  const breadcrumbItems = [{ label: 'Home', href: '/articles' }, { label: props.categoryName }]
+  const breadcrumbItems = [{ label: 'Blog', href: '/blog' }, { label: props.categoryName }]
 
   return (
     <nav>

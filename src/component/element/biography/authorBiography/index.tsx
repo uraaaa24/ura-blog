@@ -1,13 +1,13 @@
 import Image from 'next/image'
 
-import { mPlusRounded1c700 } from '@/constant/font'
+import { notoSansJP700 } from '@/constant/font'
 
 const AuthorBiography = () => {
   return (
     <div className="flex items-center gap-6 py-4">
-      <Image src="/my-icon.png" alt="author" width={80} height={80} className="rounded-full" />
+      <Image src="/my-icon.png" alt="author" width={80} height={80} className="rounded-full border-2" />
       <div>
-        <p className={`${mPlusRounded1c700.className} text-primary text-2xl`}>Ura</p>
+        <p className={`${notoSansJP700.className} text-primary text-2xl`}>Ura</p>
         <p className="text-slate-500 dark:text-slate-400">
           Software Developer
           <br />

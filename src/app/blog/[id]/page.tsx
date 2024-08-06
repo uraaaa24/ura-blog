@@ -38,12 +38,12 @@ const Article = async ({
   const data = await getArticleById(id)
 
   return (
-    <article className="rounded-md flex flex-col gap-6 max-w-5xl mx-auto">
+    <article className="rounded-lg flex flex-col gap-6 max-w-5xl mx-auto">
       <div className="flex w-full gap-6">
-        <div className="w-3/4 flex flex-col rounded-md py-8 px-12">
+        <div className="w-9/12 flex flex-col rounded-lg bg-white dark:bg-slate-900 py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
             <p className="text-slate-400">{convertDate(data.createdAt)}</p>
-            <h1 className="text-4xl text-white">{data.title}</h1>
+            <h1 className="text-4xl dark:text-white">{data.title}</h1>
             {data.tags && (
               <div className="flex gap-1 justify-center mt-1">
                 {data.tags.map((tag, index) => (
@@ -51,13 +51,14 @@ const Article = async ({
                 ))}
               </div>
             )}
-            <div className="relative w-full mt-4 bg-white" style={{ paddingTop: '56.25%' }}>
+            <div className="relative w-full mt-4 rounded-lg bg-white" style={{ paddingTop: '56.25%' }}>
               <Image
                 src={data.eyeCatch?.url ? data.eyeCatch.url : '/static/no-image.png'}
                 alt={data.title}
                 layout="fill"
                 objectFit="cover"
                 priority
+                className="rounded-lg"
               />
             </div>
           </div>
@@ -68,7 +69,7 @@ const Article = async ({
           </div>
         </div>
 
-        <aside className="w-1/4">
+        <aside className="w-3/12">
           <TableOfContents />
         </aside>
       </div>

@@ -16,7 +16,7 @@ const Pagination = (props: PaginationProps) => {
   const pages = Array.from({ length: props.totalPage }, (_, i) => i + 1)
 
   const handleClick = (page: number) => {
-    router.push(`/articles?page=${page}`)
+    router.push(`/blog?page=${page}`)
   }
 
   return (

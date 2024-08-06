@@ -8,16 +8,18 @@ const TableOfContents = () => {
     tocbot.init({
       tocSelector: '.js-toc',
       contentSelector: '.js-toc-content',
-      headingSelector: 'h1, h2, h3, h4'
+      headingSelector: 'h2, h3, h4'
     })
 
     return () => tocbot.destroy()
   }, [])
 
   return (
-    <div className="sticky top-0 pt-8">
-      <p className="text-center text-lg font-bold mb-2">目次</p>
-      <nav className="js-toc" />
+    <div className="sticky top-10">
+      <div className="bg-white dark:bg-slate-900 p-4 rounded-lg">
+        <p className="text-center text-lg font-bold mb-2">目次</p>
+        <nav className="js-toc" />
+      </div>
     </div>
   )
 }

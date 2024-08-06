@@ -31,7 +31,7 @@ const CardList = (props: CardListProps) => {
           />
         ))}
         {Array.from({ length: emptySlots }).map((_, index) => (
-          <div key={`empty-${index}`} className="h-72" />
+          <div key={`empty-${index}`} className="h-64" />
         ))}
       </div>
 
