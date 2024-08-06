@@ -19,7 +19,7 @@ const CardList = (props: CardListProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-3 gap-8">
         {props.articleList.map((article) => (
           <Card
             key={article.id}
@@ -31,7 +31,7 @@ const CardList = (props: CardListProps) => {
           />
         ))}
         {Array.from({ length: emptySlots }).map((_, index) => (
-          <div key={`empty-${index}`} className="h-64" />
+          <div key={`empty-${index}`} className="h-60" />
         ))}
       </div>
 

@@ -16,8 +16,8 @@ export const generateMetadata = () => {
 const About = () => {
   return (
     <Container>
-      <div className="px-16">
-        <h1 className="text-4xl font-bold mb-8">About</h1>
+      <h1 className="text-4xl font-bold mb-8">About</h1>
+      <div className="max-w-3xl mx-auto">
         <div className="flex gap-8 items-center mb-8">
           <Image src="/my-icon.png" alt="author" width={200} height={200} className="rounded-full border-2" />
           <div>
