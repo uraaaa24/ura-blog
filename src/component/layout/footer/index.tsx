@@ -3,7 +3,7 @@ import { SNS_LINKS_VALUES } from '@/constant/sns'
 
 const Footer = () => {
   return (
-    <footer className="sticky top-full bg-white dark:bg-gray-900 dark:text-gray-100">
+    <footer className="sticky top-full">
       <div className="container mx-auto h-24 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center h-full">
           <div className="flex space-x-6">

@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${mPlusRounded1c400.className} min-h-dvh bg-gray-100  dark:bg-gray-800 dark:text-gray-200 transition-colors duration-200`}
+        className={`${mPlusRounded1c400.className} min-h-dvh max-w-7xl mx-auto bg-slate-100 dark:bg-slate-900 dark:text-gray-200 transition-colors duration-200`}
       >
         <NextTopLoader color="#e30613" showSpinner={false} />
         <Header />
-        <div className="max-w-7xl mx-auto p-8">{children}</div>
+        <div className="p-8">{children}</div>
         <Footer />
       </body>
       <GoogleAnalytics gaId={gaId} />

@@ -56,7 +56,7 @@ const Article = async ({
           </div>
         </div>
 
-        <div className="w-3/4 flex flex-col bg-white dark:bg-gray-900 py-8 px-12">
+        <div className="w-3/4 flex flex-col bg-white dark:bg-slate-900 py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
             <p className="text-gray-400">{convertDate(data.createdAt)}</p>
             <h1 className="text-4xl">{data.title}</h1>

@@ -35,7 +35,7 @@ const SearchForm = () => {
           placeholder="Search..."
           value={searchWord}
           onChange={(e) => setSearchWord(e.target.value)}
-          className="w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-md p-2 pr-8 focus:border-primary focus:outline-none focus:ring-primary"
+          className="w-full border border-gray-300 dark:border-gray-700 dark:bg-slate-900 rounded-md p-2 pr-8 focus:border-primary focus:outline-none focus:ring-primary"
         />
         {searchWord && (
           <button
