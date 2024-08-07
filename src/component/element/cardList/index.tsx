@@ -19,7 +19,7 @@ const CardList = (props: CardListProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 gap-1">
         {props.articleList.map((article) => (
           <Card
             key={article.id}
