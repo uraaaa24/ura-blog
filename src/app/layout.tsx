@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <NextTopLoader color="#e30613" showSpinner={false} />
         <Header />
-        <div className="p-8">{children}</div>
+        <div className="p-4">{children}</div>
         <Footer />
       </body>
       <GoogleAnalytics gaId={gaId} />

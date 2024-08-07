@@ -5,16 +5,21 @@ import Link from 'next/link'
 
 import { ICON_SIZE } from '@/constant/icon'
 
+type LabelItem = {
+  label: string
+  href?: string
+}
+
 type BreadcrumbProps = {
-  categoryName: string
+  labelList: LabelItem[]
 }
 
 const Breadcrumb = (props: BreadcrumbProps) => {
-  const breadcrumbItems = [{ label: 'Blog', href: '/blog' }, { label: props.categoryName }]
+  const breadcrumbItems = [{ label: 'Blog', href: '/blog' }, ...props.labelList]
 
   return (
     <nav>
-      <ul className="flex items-center gap-1 break-words text-xl py-2">
+      <ul className="flex items-center gap-1 break-words">
         {breadcrumbItems.map((item, index) => {
           return (
             <li key={index}>

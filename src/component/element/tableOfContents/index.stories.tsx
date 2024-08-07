@@ -1,9 +1,8 @@
 import { StoryObj } from '@storybook/react'
 
-import { RichHeading1, RichHeading2, RichHeading3, RichHeading4 } from '../../richEditor/richHtmlComponent/richHeading'
-import RichParagraph from '../../richEditor/richHtmlComponent/richParagraph'
-
 import TableOfContents from '.'
+import { RichHeading2, RichHeading3, RichHeading4 } from '../richEditor/richHtmlComponent/richHeading'
+import RichParagraph from '../richEditor/richHtmlComponent/richParagraph'
 
 const meta = {
   title: 'Elements/SideBar/ContentsSidebar',
@@ -19,10 +18,6 @@ export const Template: Story = {
     (Story) => (
       <div className="flex gap-8 max-w-4xl w-full">
         <div className="js-toc-content w-3/4">
-          <RichHeading1>test</RichHeading1>
-          <RichParagraph>
-            この文章はダミーテキストです。コンテンツの配置やレイアウトを確認するために使用されます。実際の内容が入力される前に、文章の長さや配置を確認するのに役立ちます。
-          </RichParagraph>
           <RichHeading2>test</RichHeading2>
           <RichParagraph>
             ここに表示されている文章は仮のものであり、実際の文章が決定するまでの間使用されます。デザインやレイアウトの検討において、適切なボリュームを確認するために活用されます。

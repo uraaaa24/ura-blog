@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import AuthorBiography from '@/component/element/biography/authorBiography'
+import Breadcrumb from '@/component/element/breadcrumb'
 import RichEditor from '@/component/element/richEditor'
 import TableOfContents from '@/component/element/tableOfContents'
 import CategoryTip from '@/component/element/tip/categoryTip'
@@ -38,7 +39,8 @@ const Article = async ({
   const data = await getArticleById(id)
 
   return (
-    <article className="rounded-lg flex flex-col gap-6 max-w-5xl mx-auto">
+    <article className="rounded-lg flex flex-col gap-4 max-w-5xl mx-auto">
+      <Breadcrumb labelList={[{ label: data.title }]} />
       <div className="flex w-full gap-6">
         <div className="w-9/12 flex flex-col rounded-lg bg-white dark:bg-slate-900 py-8 px-12">
           <div className="flex flex-col gap-1.5 mb-2 text-center">
