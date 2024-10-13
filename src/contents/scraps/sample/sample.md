@@ -1,8 +1,9 @@
 ---
-title: 'Quick Thoughts on MDX'
-date: '2024-10-13'
-type: 'scrap'
-tags: ['MDX', 'Thoughts']
+title: Sample Title
+date: YYY-MM-DD
+tags:
+  - MDX
+  - Thoughts
 ---
 
 ## MDX と React の統合
