@@ -1,7 +1,7 @@
 pre-commit:
   commands:
     prettier:
-      glob: '*.{tsx,ts,mts,mcs,mjs,cjs,js,json,md,yml,yaml}'
+      glob: '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css}'
       run: |
         pnpm prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
