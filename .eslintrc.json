@@ -10,9 +10,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "unused-imports"
-  ],
+  "plugins": ["unused-imports"],
   "rules": {
     "unused-imports/no-unused-imports": "error",
     "react/jsx-sort-props": "error",
@@ -30,9 +28,7 @@
           "type"
         ],
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "pathGroups": [
           {
             "pattern": "@/components/**",
