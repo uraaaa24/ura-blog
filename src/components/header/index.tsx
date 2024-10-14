@@ -1,13 +1,21 @@
 import React from 'react'
 
 import LayoutWrapper from '@/components/layoutWrapper'
+import Link from 'next/link'
 
 // TODO: ページ構成がはっきりしたら、ヘッダーのデザインを考える
 const Header = () => {
   return (
-    <div className="fixed flex h-16 w-full items-center backdrop-blur-sm">
+    <div className="fixed flex h-20 w-full items-center backdrop-blur-sm">
       <LayoutWrapper>
-        <h1>Header</h1>
+        <div className="flex justify-between">
+          <h1 className="text-xl font-bold">Ura Blog</h1>
+          <div className="flex gap-6">
+            <Link href="/about">About</Link>
+            <Link href="/article">Article</Link>
+            <Link href="/scrap">Scrap</Link>
+          </div>
+        </div>
       </LayoutWrapper>
     </div>
   )

@@ -5,7 +5,7 @@ type LayoutWrapperProps = {
 }
 
 const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
-  return <div className="mx-auto w-6/12">{children}</div>
+  return <div className="mx-auto w-1/2">{children}</div>
 }
 
 export default LayoutWrapper

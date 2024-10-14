@@ -27,7 +27,7 @@ const RootLayout = ({
       <body className={`${Murecho.className} bg-[#0D1B2A] text-[#DDE6ED]`}>
         <Header />
         <LayoutWrapper>
-          <div className="pt-16">{children}</div>
+          <div className="pt-20">{children}</div>
         </LayoutWrapper>
       </body>
     </html>
