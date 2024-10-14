@@ -10,9 +10,15 @@ const Home = () => {
   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@', allScraps)
 
   return (
-    <div>
-      <h1>Welcome to Next.js!</h1>
-      <PostList posts={allArticles} />
+    <div className="flex flex-col gap-8">
+      <div>
+        <h1 className="text-4xl font-bold text-center mb-2">Article</h1>
+        <PostList posts={allArticles} />
+      </div>
+      <div>
+        <h1 className="text-4xl font-bold text-center mb-2">Scrap</h1>
+        <PostList posts={allScraps} />
+      </div>
     </div>
   )
 }

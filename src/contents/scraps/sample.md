@@ -1,6 +1,6 @@
 ---
-title: Sample Title
-date: YYY-MM-DD
+title: サンプルタイトル
+date: '2024-10-14'
 tags:
   - MDX
   - Thoughts
