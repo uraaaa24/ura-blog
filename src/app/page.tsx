@@ -1,9 +1,11 @@
-import { getAllPosts } from '@/lib/api'
+import { getAllArticles, getAllScraps } from '@/lib/api'
 
 const Home = () => {
-  const allPosts = getAllPosts()
+  const allArticles = getAllArticles()
+  console.log('##########################', allArticles)
 
-  console.log(allPosts)
+  const allScraps = getAllScraps()
+  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@', allScraps)
 
   return (
     <div>
