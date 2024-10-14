@@ -9,11 +9,13 @@ const Header = () => {
     <div className="fixed flex h-20 w-full items-center backdrop-blur-sm">
       <LayoutWrapper>
         <div className="flex justify-between">
-          <h1 className="text-xl font-bold">Ura Blog</h1>
+          <Link href="/">
+            <h1 className="text-xl font-bold">Ura Blog</h1>
+          </Link>
           <div className="flex gap-6">
             <Link href="/about">About</Link>
-            <Link href="/article">Article</Link>
-            <Link href="/scrap">Scrap</Link>
+            <Link href="/articles">Article</Link>
+            <Link href="/scraps">Scrap</Link>
           </div>
         </div>
       </LayoutWrapper>
