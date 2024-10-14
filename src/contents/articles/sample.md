@@ -1,5 +1,5 @@
 ---
-title: 'Understanding the Power of MDX'
+title: 'Understanding the Power of MDX test test test test'
 date: '2024-10-13'
 tags: ['MDX', 'React', 'Blogging']
 ---

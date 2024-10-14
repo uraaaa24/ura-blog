@@ -1,20 +1,15 @@
-import localFont from 'next/font/local'
+import { Murecho as _Murecho } from 'next/font/google'
 
 import Header from '@/components/header'
+import LayoutWrapper from '@/components/layoutWrapper'
 
 import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900'
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900'
+const Murecho = _Murecho({
+  weight: '500',
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
@@ -29,9 +24,11 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${Murecho.className} bg-[#0D1B2A] text-[#DDE6ED]`}>
         <Header />
-        {children}
+        <LayoutWrapper>
+          <div className="pt-16">{children}</div>
+        </LayoutWrapper>
       </body>
     </html>
   )

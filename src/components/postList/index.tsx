@@ -10,7 +10,7 @@ type PostListProps = {
 
 const PostList = ({ posts }: PostListProps) => {
   return (
-    <div className="grid w-full grid-cols-3 gap-1">
+    <div className="grid w-full grid-cols-2 gap-6 py-5">
       {posts.map((post, index) => {
         return <PostCard date={post.date} key={index} slug={post.slug} title={post.title} />
       })}

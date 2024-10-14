@@ -10,7 +10,7 @@ const Home = () => {
   console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@', allScraps)
 
   return (
-    <div className="m-auto w-6/12">
+    <div>
       <h1>Welcome to Next.js!</h1>
       <PostList posts={allArticles} />
     </div>
