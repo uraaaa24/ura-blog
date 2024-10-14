@@ -11,11 +11,13 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "14.2.15",
-    "next-mdx-remote": "^5.0.0",
     "pnpm": "^9.12.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
