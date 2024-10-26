@@ -24,7 +24,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${Murecho.className} bg-[#0D1B2A] text-[#DDE6ED]`}>
+      <body className={`${Murecho.className}`}>
         <Header />
         <LayoutWrapper>
           <div className="pt-20">{children}</div>

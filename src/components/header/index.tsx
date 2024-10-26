@@ -5,11 +5,11 @@ import LayoutWrapper from '@/components/layoutWrapper'
 
 const Header = () => {
   return (
-    <div className="fixed flex h-20 w-full items-center backdrop-blur-sm">
+    <div className="fixed flex h-20 w-full items-center text-2xl backdrop-blur-sm">
       <LayoutWrapper>
         <div className="flex justify-between">
           <Link href="/">
-            <h1 className="text-xl font-bold">Ura Blog</h1>
+            <h1 className="font-bold">Ura Blog</h1>
           </Link>
           <div className="flex gap-6">
             <Link href="/about">About</Link>
