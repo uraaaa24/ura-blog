@@ -1,7 +1,6 @@
 import React from 'react'
 
-import ArticleCard from '@/components/article/articleCard'
-
+import ArticleCard from '@/app/articles/_components/articleCard'
 import { Post } from '@/types/post'
 
 type ArticleListProps = {

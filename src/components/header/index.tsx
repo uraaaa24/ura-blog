@@ -1,9 +1,8 @@
+import Link from 'next/link'
 import React from 'react'
 
 import LayoutWrapper from '@/components/layoutWrapper'
-import Link from 'next/link'
 
-// TODO: ページ構成がはっきりしたら、ヘッダーのデザインを考える
 const Header = () => {
   return (
     <div className="fixed flex h-20 w-full items-center backdrop-blur-sm">

@@ -1,6 +1,6 @@
 import { getAllArticles, getAllScraps } from '@/lib/api'
 
-import ArticleList from '../components/article/articleList'
+import ArticleList from './articles/_components/articleList'
 
 const Home = () => {
   const allArticles = getAllArticles()
@@ -12,11 +12,11 @@ const Home = () => {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-4xl font-bold text-center mb-2">Articles</h1>
+        <h1 className="mb-2 text-center text-4xl font-bold">Articles</h1>
         <ArticleList posts={allArticles} />
       </div>
       <div>
-        <h1 className="text-4xl font-bold text-center mb-2">Scraps</h1>
+        <h1 className="mb-2 text-center text-4xl font-bold">Scraps</h1>
         <ArticleList posts={allScraps} />
       </div>
     </div>
