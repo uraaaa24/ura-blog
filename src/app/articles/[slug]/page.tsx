@@ -1,7 +1,18 @@
 import React from 'react'
 
+import MarkDown from '@/components/markdown'
+
+import { getPostBySlug } from '@/lib/api'
+
 const ArticlePage = ({ params }: { params: { slug: string } }) => {
-  return <div>ArticlePage</div>
+  const { content } = getPostBySlug('article', params.slug)
+
+  return (
+    <div>
+      ArticlePage
+      <MarkDown content={content} />
+    </div>
+  )
 }
 
 export default ArticlePage

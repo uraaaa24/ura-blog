@@ -4,10 +4,8 @@ import ArticleList from './articles/_components/articleList'
 
 const Home = () => {
   const allArticles = getAllArticles()
-  console.log('##########################', allArticles)
 
   const allScraps = getAllScraps()
-  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@', allScraps)
 
   return (
     <div className="flex flex-col gap-8">
