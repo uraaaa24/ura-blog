@@ -14,6 +14,7 @@
   "rules": {
     "unused-imports/no-unused-imports": "error",
     "react/jsx-sort-props": "error",
+    "curly": ["error", "all"],
     "import/order": [
       "error",
       {
