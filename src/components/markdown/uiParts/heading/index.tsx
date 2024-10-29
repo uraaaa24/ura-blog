@@ -25,11 +25,13 @@ const Heading = ({ level, children, className, ...props }: HeadingProps) => {
 }
 
 export const Heading1 = (props: Omit<HeadingProps, 'level'>) => {
-  console.log('props', props.children)
-
   return <Heading level="h1" {...props} />
 }
 
-export const Heading2 = (props: Omit<HeadingProps, 'level'>) => <Heading level="h2" {...props} />
+export const Heading2 = (props: Omit<HeadingProps, 'level'>) => {
+  return <Heading level="h2" {...props} />
+}
 
-export const Heading3 = (props: Omit<HeadingProps, 'level'>) => <Heading level="h3" {...props} />
+export const Heading3 = (props: Omit<HeadingProps, 'level'>) => {
+  return <Heading level="h3" {...props} />
+}
