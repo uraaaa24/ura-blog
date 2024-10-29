@@ -57,6 +57,18 @@ tags: ['MDX', 'React', 'Blogging']
 function hello() {
   console.log('こんにちは、世界！')
 }
+
+function hello() {
+  console.log('こんにちは、世界！')
+}
+
+function hello() {
+  console.log('こんにちは、世界！')
+}
+
+function hello() {
+  console.log('こんにちは、世界！')
+}
 ```
 
 # おわりに

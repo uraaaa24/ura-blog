@@ -16,7 +16,9 @@ const Code = ({ children, className = '', ...props }: CodeProps) => {
     <SyntaxHighlighter
       customStyle={{
         padding: '1.5em',
-        borderRadius: '0.75em'
+        borderRadius: '0.75em',
+        fontSize: '0.8em',
+        lineHeight: '1.75em'
       }}
       language={language}
       style={oneDark}
