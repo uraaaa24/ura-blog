@@ -1,5 +1,6 @@
 import { Sawarabi_Gothic } from 'next/font/google'
 
+import Footer from '@/components/footer'
 import Header from '@/components/header'
 import LayoutWrapper from '@/components/layoutWrapper'
 
@@ -24,11 +25,12 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${SawarabiGothic.className} bg-[#eaebe8] text-[#333]`}>
+      <body className={`${SawarabiGothic.className} bg-[#f2f2f2] text-[#333]`}>
         <Header />
         <LayoutWrapper>
           <div>{children}</div>
         </LayoutWrapper>
+        <Footer />
       </body>
     </html>
   )

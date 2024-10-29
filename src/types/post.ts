@@ -3,6 +3,7 @@ export type BasePost = {
   content: string
   title: string
   date: string
+  tags: string[]
 }
 
 export type Article = BasePost & {

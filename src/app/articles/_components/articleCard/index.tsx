@@ -10,11 +10,11 @@ type ArticleCardProps = {
 const ArticleCard = ({ slug, title, date }: ArticleCardProps) => {
   return (
     <Link href={`articles/${slug}`}>
-      <div className="flex h-full flex-col gap-4 rounded-xl border-2 border-slate-200 p-10 text-center">
+      <div className="flex h-full flex-col gap-4 rounded-xl bg-[#ffffff] p-10 text-center text-[#333]">
         <h2 className="flex min-h-20 flex-1 items-center justify-center text-xl font-bold">
           <span className="inline-block text-left">{title}</span>
         </h2>
-        <p className="text-sm text-gray-400">{date}</p>
+        <p className="text-sm text-[#728d81]">{date}</p>
       </div>
     </Link>
   )
