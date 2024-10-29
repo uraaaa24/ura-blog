@@ -9,7 +9,7 @@ const Header = async () => {
   const { version } = packages[0].manifest
 
   return (
-    <div className="fixed flex h-20 w-full items-center text-xl backdrop-blur-md">
+    <div className="sticky right-0 top-0 flex h-20 w-full items-center text-xl backdrop-blur-md">
       <LayoutWrapper>
         <div className="flex justify-between">
           <Link href="/">

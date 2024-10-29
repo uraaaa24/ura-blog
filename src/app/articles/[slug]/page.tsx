@@ -9,7 +9,6 @@ const ArticlePage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <div>
-      ArticlePage
       <MarkDown content={content} />
     </div>
   )

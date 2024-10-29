@@ -1,37 +1,64 @@
 ---
-title: 'Understanding the Power of MDX'
+title: '日本語の文章'
 date: '2024-10-12'
 tags: ['MDX', 'React', 'Blogging']
 ---
 
-# GFM
+以下がマークダウン部分を全てコードブロックで提示した例です。
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+# 日本語で書かれたマークダウンの例
 
-## Autolink literals
+## はじめに
 
-www.example.com, https://example.com, and contact@example.com.
-
-## Footnote
-
-A note[^1]
-
-[^1]: Big note.
-
-## Strikethrough
-
-~one~ or ~~two~~ tildes.
-
-## Table
-
-| a   | b   |   c |  d  |
-| --- | :-- | --: | :-: |
-
-## Tasklist
-
-- [ ] to do
-- [x] done
-
-## Horizontal Rule
+このドキュメントは、マークダウン記法を使用して日本語で文章を書く際の例です。マークダウンを使えば、**簡単に装飾**や見出しを追加することができます。
 
 ---
+
+## 見出し
+
+### 小見出し
+
+マークダウンでは、`#` 記号を使って見出しを作成できます。
+
+# これは大見出し
+
+## これは中見出し
+
+### これは小見出し
+
+# リスト
+
+リストには番号付きと番号なしのものがあります。
+
+## 番号なしリスト
+
+    •	アイテム1
+    •	アイテム2
+    •	アイテム3
+
+## 番号付きリスト
+
+    1.	最初のアイテム
+    2.	次のアイテム
+    3.	最後のアイテム
+
+# 引用
+
+他の文献や文章から引用する場合には、以下のように記述します。
+
+> これは引用の例です。マークダウンでは、> 記号を使って簡単に引用ができます。
+
+# コードブロック
+
+プログラムのコードを挿入する場合には、バッククォート記号（`）を使います。
+
+```js
+// JavaScriptのコード例
+function hello() {
+  console.log('こんにちは、世界！')
+}
+```
+
+# おわりに
+
+マークダウンはシンプルな構文で多くのスタイルを表現できるため、文書作成に非常に便利です。ぜひ活用してみてください！

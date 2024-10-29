@@ -1,4 +1,4 @@
-import { Murecho as _Murecho } from 'next/font/google'
+import { Sawarabi_Gothic } from 'next/font/google'
 
 import Header from '@/components/header'
 import LayoutWrapper from '@/components/layoutWrapper'
@@ -7,8 +7,8 @@ import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 
-const Murecho = _Murecho({
-  weight: '500',
+const SawarabiGothic = Sawarabi_Gothic({
+  weight: '400',
   subsets: ['latin']
 })
 
@@ -24,10 +24,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${Murecho.className} bg-[#eaebe8] text-[#333]`}>
+      <body className={`${SawarabiGothic.className} bg-[#eaebe8] text-[#333]`}>
         <Header />
         <LayoutWrapper>
-          <div className="pt-20">{children}</div>
+          <div>{children}</div>
         </LayoutWrapper>
       </body>
     </html>
