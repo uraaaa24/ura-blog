@@ -1,15 +1,23 @@
+import { findPackages } from 'find-packages'
 import Link from 'next/link'
 import React from 'react'
 
 import LayoutWrapper from '@/components/layoutWrapper'
 
-const Header = () => {
+const Header = async () => {
+  const packages = await findPackages('./')
+  const { version } = packages[0].manifest
+
   return (
     <div className="fixed flex h-20 w-full items-center text-2xl backdrop-blur-sm">
       <LayoutWrapper>
         <div className="flex justify-between">
           <Link href="/">
-            <h1 className="font-bold">Ura Blog</h1>
+            <h1 className="flex items-center font-bold">
+              Ura Blog
+              {/* TODO: 試しにヘッダーに表示しているので、フッター場所は後々ちゃんと考える */}
+              <span className="ml-2 text-base font-normal">{version}</span>
+            </h1>
           </Link>
           <div className="flex gap-6">
             <Link href="/about">About</Link>
