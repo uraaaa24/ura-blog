@@ -1,17 +1,12 @@
-import { Sawarabi_Gothic } from 'next/font/google'
-
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import LayoutWrapper from '@/components/layoutWrapper'
 
+import { NotoSansJP } from '@/constants/font'
+
 import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
-
-const SawarabiGothic = Sawarabi_Gothic({
-  weight: '400',
-  subsets: ['latin']
-})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,7 +20,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${SawarabiGothic.className} bg-[#f2f2f2] text-[#333]`}>
+      <body className={`${NotoSansJP.className} bg-[#f2f2f2] text-[#333]`}>
         <Header />
         <LayoutWrapper>
           <div>{children}</div>
