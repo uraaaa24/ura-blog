@@ -1,6 +1,5 @@
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import LayoutWrapper from '@/components/layoutWrapper'
 
 import { NotoSansJP } from '@/constants/font'
 
@@ -22,9 +21,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={`${NotoSansJP.className} bg-[#f2f2f2] text-[#333]`}>
         <Header />
-        <LayoutWrapper>
-          <div>{children}</div>
-        </LayoutWrapper>
+        <div className="mx-auto w-1/2">{children}</div>
         <Footer />
       </body>
     </html>
