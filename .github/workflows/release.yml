@@ -6,7 +6,7 @@ on:
       - development
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-development
 
 jobs:
   release:
@@ -29,7 +29,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Create Realease Pull Request
-        run: changeset/action@v1
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          publish: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
