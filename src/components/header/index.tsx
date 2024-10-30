@@ -12,7 +12,7 @@ const Header = async () => {
         <Link href="/">
           <h1 className="flex items-center font-bold">
             Ura Blog
-            {/* TODO: 試しにヘッダーに表示しているので、バージョンの表示箇所は後々ちゃんと考える。 */}
+            {/* TODO: 試しにヘッダーに表示しているので、バージョンの表示箇所は後々ちゃんと考える */}
             <span className="ml-2 text-base font-normal">{version}</span>
           </h1>
         </Link>
