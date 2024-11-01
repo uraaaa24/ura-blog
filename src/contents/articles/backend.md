@@ -1,5 +1,5 @@
 ---
-title: 'Understanding the Power of MDX'
+title: 'Tailwind CSSのクラス属性長くなりがちな問題について'
 date: '2024-10-12'
 tags: ['MDX', 'React', 'Blogging']
 ---

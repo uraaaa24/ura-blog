@@ -7,7 +7,7 @@ const Header = async () => {
   const { version } = packages[0].manifest
 
   return (
-    <header className="sticky top-0 z-10 flex w-full items-center border-b-2 border-[#e5e5e5] bg-white/60 backdrop-blur-md dark:border-[#37464f] dark:bg-gray-800/60 dark:shadow-lg">
+    <header className="flex w-full items-center border-b-2 border-[#e5e5e5] bg-white/60 backdrop-blur-md dark:border-[#37464f] dark:bg-gray-800/60 dark:shadow-lg">
       <div className="container mx-auto flex h-20 w-full max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/">
           <h1 className="flex items-center text-xl font-bold sm:text-2xl dark:text-white">
@@ -20,20 +20,14 @@ const Header = async () => {
           </h1>
         </Link>
         <nav className="hidden gap-6 text-lg sm:flex">
-          <Link
-            className="transition-colors hover:text-red-600 dark:hover:text-red-700"
-            href="/about"
-          >
+          <Link className="transition-colors hover:text-red-600" href="/about">
             About
           </Link>
-          <Link
-            className="transition-colors hover:text-red-600 dark:hover:text-red-700"
-            href="/articles"
-          >
+          <Link className="transition-colors hover:text-red-600" href="/articles">
             Articles
           </Link>
           {/* <Link
-            className="transition-colors hover:text-red-600 dark:hover:text-red-700"
+            className="transition-colors hover:text-red-600"
             href="/scraps"
           >
             Scraps
