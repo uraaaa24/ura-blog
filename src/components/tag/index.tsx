@@ -9,7 +9,7 @@ const Tag = ({ className = '', ...props }: TagProps) => {
     <div
       {...props}
       className={cx(
-        `inline-block rounded-full px-3 py-1.5 text-xs font-medium text-white transition-colors bg-green-600`,
+        `inline-block rounded-full px-3 py-1.5 text-xs font-medium text-white transition-colors bg-red-600 dark:bg-red-700`,
         className
       )}
     />
