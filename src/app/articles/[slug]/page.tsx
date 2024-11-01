@@ -9,18 +9,20 @@ const ArticlePage = ({ params }: { params: { slug: string } }) => {
   const { title, date, tags, content } = getPostBySlug('article', params.slug)
 
   return (
-    <div className="rounded-xl bg-[#ffffff] px-8 py-12">
-      <div className="mb-10 flex flex-col gap-2 text-center">
-        <p className="text-[#728d81]">{date}</p>
+    <article className="my-8">
+      <header className="mb-10 flex flex-col items-center gap-6 text-center">
+        <p className="text-gray-500 dark:text-gray-400">{date}</p>
         <h1 className="text-4xl font-bold">{title}</h1>
-        <div className="flex justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2">
           {tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
+      </header>
+      <div className="my-8 rounded-xl border-2 border-[#e5e5e5] p-10 dark:border-[#37464f] ">
+        <MarkDown content={content} />
       </div>
-      <MarkDown content={content} />
-    </div>
+    </article>
   )
 }
 
