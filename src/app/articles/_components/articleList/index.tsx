@@ -9,10 +9,10 @@ type ArticleListProps = {
 
 const ArticleList = ({ posts }: ArticleListProps) => {
   return (
-    <div className="grid w-full grid-cols-2 gap-6 py-5">
-      {posts.map((post, index) => {
-        return <ArticleCard date={post.date} key={index} slug={post.slug} title={post.title} />
-      })}
+    <div className="grid w-full gap-6 py-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post, index) => (
+        <ArticleCard key={index} {...post} />
+      ))}
     </div>
   )
 }

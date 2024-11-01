@@ -7,22 +7,59 @@ const Header = async () => {
   const { version } = packages[0].manifest
 
   return (
-    <div className="sticky right-0 top-0 flex h-20 w-full items-center text-xl backdrop-blur-md">
-      <div className="mx-auto flex w-1/2 justify-between">
+    <header className="sticky top-0 z-10 flex w-full items-center border-b-2 border-[#e5e5e5] bg-white/60 backdrop-blur-md dark:border-[#37464f] dark:bg-gray-800/60 dark:shadow-lg">
+      <div className="container mx-auto flex h-20 w-full max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/">
-          <h1 className="flex items-center font-bold">
+          <h1 className="flex items-center text-xl font-bold text-gray-800 sm:text-2xl dark:text-white">
             Ura Blog
-            {/* TODO: 試しにヘッダーに表示しているので、バージョンの表示箇所は後々ちゃんと考える */}
-            <span className="ml-2 text-base font-normal">{version}</span>
+            {version && (
+              <span className="ml-3 text-xs font-normal text-gray-500 sm:text-sm dark:text-gray-400">
+                v{version}
+              </span>
+            )}
           </h1>
         </Link>
-        <div className="flex gap-6">
-          <Link href="/about">About</Link>
-          <Link href="/articles">Article</Link>
-          <Link href="/scraps">Scrap</Link>
+        <nav className="hidden gap-6 text-lg sm:flex">
+          <Link
+            className="text-gray-700 transition-colors hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400"
+            href="/about"
+          >
+            About
+          </Link>
+          <Link
+            className="text-gray-700 transition-colors hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400"
+            href="/articles"
+          >
+            Articles
+          </Link>
+          {/* <Link
+            className="text-gray-700 transition-colors hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400"
+            href="/scraps"
+          >
+            Scraps
+          </Link> */}
+        </nav>
+        {/* Mobile Menu Icon */}
+        <div className="sm:hidden">
+          <button aria-label="Open Menu" className="text-gray-700 dark:text-gray-300">
+            <svg
+              className="size-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 
