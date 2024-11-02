@@ -4,11 +4,11 @@ date: '2024-10-12'
 tags: ['MDX', 'React', 'Blogging']
 ---
 
-# Exploring MDX in Depth
+## Exploring MDX in Depth
 
 MDX is a powerful tool that allows developers to write JSX directly in Markdown files. In this post, we’ll dive into the various use cases of MDX and how it enhances content creation for developers and bloggers.
 
-## Why Use MDX?
+### Why Use MDX?
 
 MDX stands out because it:
 
@@ -16,7 +16,7 @@ MDX stands out because it:
 - **Leverages React components**: Reusable components make your content more dynamic.
 - **Supports custom layouts**: Create bespoke layouts for each post or page.
 
-### Example: Using a Custom Component
+#### Example: Using a Custom Component
 
 You can easily include custom React components in your content. For example:
 
@@ -30,7 +30,7 @@ const Alert = ({ message }) => {
 export default Alert
 ```
 
-## When to Use MDX
+### When to Use MDX
 
 MDX is perfect for:
 
@@ -38,7 +38,7 @@ MDX is perfect for:
 - Documentation: Mix rich media with technical explanations.
 - Interactive tutorials: Guide users with interactive UI components embedded in the content.
 
-# Conclusion
+## Conclusion
 
 With MDX, the boundary between content and interactive web applications blurs, offering a more engaging experience. It’s a valuable tool for developers looking to enhance their content strategy.
 Thanks for reading!

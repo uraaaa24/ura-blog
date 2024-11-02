@@ -1,37 +1,40 @@
+import { Link } from 'lucide-react'
 import React, { ComponentProps } from 'react'
 
 import { cx } from '@/utils'
 
-type HeadingLevel = 'h1' | 'h2' | 'h3'
+type HeadingLevel = 'h2' | 'h3' | 'h4'
 
 type HeadingProps = {
   level: HeadingLevel
 } & ComponentProps<HeadingLevel>
 
 const HEADING_STYLES = {
-  h1: 'text-4xl font-bold',
-  h2: 'text-2xl font-bold',
-  h3: 'text-xl font-bold'
+  h2: 'text-3xl',
+  h3: 'text-2xl',
+  h4: 'text-xl'
 }
 
-const Heading = ({ level, children, className, ...props }: HeadingProps) => {
+export const Heading = ({ level, children, className, ...props }: HeadingProps) => {
   const Component = level
+  const id = String(children)
 
   return (
-    <Component {...props} className={cx(HEADING_STYLES[level], className)}>
+    <Component
+      className={cx('font-bold flex items-center group', HEADING_STYLES[level], className)}
+      id={id}
+      {...props}
+    >
       {children}
+      {id && (
+        <a
+          aria-label={`Link to ${id}`}
+          className="ml-1 text-gray-500 opacity-0 transition duration-200 hover:text-gray-700 group-hover:opacity-100 dark:text-gray-400 dark:hover:text-gray-200"
+          href={`#${id}`}
+        >
+          <Link size={18} />
+        </a>
+      )}
     </Component>
   )
-}
-
-export const Heading1 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h1" {...props} />
-}
-
-export const Heading2 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h2" {...props} />
-}
-
-export const Heading3 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h3" {...props} />
 }

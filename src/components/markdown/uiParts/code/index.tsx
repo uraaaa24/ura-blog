@@ -4,7 +4,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 type CodeProps = ComponentProps<'code'>
 
-const Code = ({ children, className = '', ...props }: CodeProps) => {
+export const Code = ({ children, className = '', ...props }: CodeProps) => {
   const isInline = !/language-(\w+)/.test(className)
   const language = className.replace(/language-/, '')
 
@@ -27,5 +27,3 @@ const Code = ({ children, className = '', ...props }: CodeProps) => {
     </SyntaxHighlighter>
   )
 }
-
-export default Code
