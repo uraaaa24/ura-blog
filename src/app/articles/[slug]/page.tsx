@@ -10,7 +10,7 @@ const ArticlePage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <article className="my-8">
-      <header className="mb-10 flex flex-col items-center gap-6 text-center">
+      <header className="mb-16 flex flex-col items-center gap-6 text-center">
         <p className="text-gray-500 dark:text-gray-400">{date}</p>
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="flex flex-wrap justify-center gap-2">
