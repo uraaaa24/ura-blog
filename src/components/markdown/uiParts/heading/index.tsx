@@ -1,5 +1,5 @@
 import { Link } from 'lucide-react'
-import React, { ComponentProps } from 'react'
+import React, { ComponentProps, ElementType } from 'react'
 
 import { cx } from '@/utils'
 
@@ -9,14 +9,14 @@ type HeadingProps = {
   level: HeadingLevel
 } & ComponentProps<HeadingLevel>
 
-const HEADING_STYLES = {
-  h2: 'text-3xl',
-  h3: 'text-2xl',
-  h4: 'text-xl'
+const HEADING_STYLES: Record<HeadingLevel, string> = {
+  h2: 'py-4 pb-2 text-3xl border-b-2 border-red-500 dark:border-red-700',
+  h3: 'py-3 text-2xl',
+  h4: 'py-2 text-xl'
 }
 
 export const Heading = ({ level, children, className, ...props }: HeadingProps) => {
-  const Component = level
+  const Component = level as ElementType
   const id = String(children)
 
   return (
