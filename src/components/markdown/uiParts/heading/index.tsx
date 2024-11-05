@@ -1,7 +1,7 @@
 import { Link } from 'lucide-react'
 import React, { ComponentProps, ElementType } from 'react'
 
-import { cx } from '@/utils'
+import { cx, slugify } from '@/utils'
 
 type HeadingLevel = 'h2' | 'h3' | 'h4'
 
@@ -17,7 +17,7 @@ const HEADING_STYLES: Record<HeadingLevel, string> = {
 
 export const Heading = ({ level, children, className, ...props }: HeadingProps) => {
   const Component = level as ElementType
-  const id = String(children)
+  const id = slugify(children)
 
   return (
     <Component
@@ -26,6 +26,7 @@ export const Heading = ({ level, children, className, ...props }: HeadingProps) 
       {...props}
     >
       {children}
+
       {id && (
         <a
           aria-label={`Link to ${id}`}
