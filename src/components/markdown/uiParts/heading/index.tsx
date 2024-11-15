@@ -1,37 +1,41 @@
-import React, { ComponentProps } from 'react'
+import { Link } from 'lucide-react'
+import React, { ComponentProps, ElementType } from 'react'
 
-import { cx } from '@/utils'
+import { cx, slugify } from '@/utils'
 
-type HeadingLevel = 'h1' | 'h2' | 'h3'
+type HeadingLevel = 'h2' | 'h3' | 'h4'
 
 type HeadingProps = {
   level: HeadingLevel
 } & ComponentProps<HeadingLevel>
 
-const HEADING_STYLES = {
-  h1: 'text-4xl font-bold',
-  h2: 'text-2xl font-bold',
-  h3: 'text-xl font-bold'
+const HEADING_STYLES: Record<HeadingLevel, string> = {
+  h2: 'py-4 pb-2 text-3xl border-b-2 border-red-500 dark:border-red-700',
+  h3: 'py-3 text-2xl',
+  h4: 'py-2 text-xl'
 }
 
-const Heading = ({ level, children, className, ...props }: HeadingProps) => {
-  const Component = level
+export const Heading = ({ level, children, className, ...props }: HeadingProps) => {
+  const Component = level as ElementType
+  const id = slugify(children)
 
   return (
-    <Component {...props} className={cx(HEADING_STYLES[level], className)}>
+    <Component
+      className={cx('font-bold flex items-center group', HEADING_STYLES[level], className)}
+      id={id}
+      {...props}
+    >
       {children}
+
+      {id && (
+        <a
+          aria-label={`Link to ${id}`}
+          className="ml-1 text-gray-500 opacity-0 transition duration-200 hover:text-gray-700 group-hover:opacity-100 dark:text-gray-400 dark:hover:text-gray-200"
+          href={`#${id}`}
+        >
+          <Link size={18} />
+        </a>
+      )}
     </Component>
   )
-}
-
-export const Heading1 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h1" {...props} />
-}
-
-export const Heading2 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h2" {...props} />
-}
-
-export const Heading3 = (props: Omit<HeadingProps, 'level'>) => {
-  return <Heading level="h3" {...props} />
 }

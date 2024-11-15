@@ -2,14 +2,22 @@ import React, { ComponentProps } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
+import { cx } from '@/utils'
+
 type CodeProps = ComponentProps<'code'>
 
-const Code = ({ children, className = '', ...props }: CodeProps) => {
+export const Code = ({ children, className = '', ...props }: CodeProps) => {
   const isInline = !/language-(\w+)/.test(className)
   const language = className.replace(/language-/, '')
 
   return isInline ? (
-    <code {...props} className={className}>
+    <code
+      {...props}
+      className={cx(
+        'px-1 py-0.5 bg-gray-200 dark:bg-gray-800 text-red-500 text-sm rounded-md',
+        className
+      )}
+    >
       {children}
     </code>
   ) : (
@@ -27,5 +35,3 @@ const Code = ({ children, className = '', ...props }: CodeProps) => {
     </SyntaxHighlighter>
   )
 }
-
-export default Code
