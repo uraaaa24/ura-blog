@@ -2,6 +2,8 @@ import { findPackages } from 'find-packages'
 import Link from 'next/link'
 import React from 'react'
 
+import HeaderLink from './link'
+
 const Header = async () => {
   const packages = await findPackages('./')
   const { version } = packages[0].manifest
@@ -20,18 +22,8 @@ const Header = async () => {
           </h1>
         </Link>
         <nav className="hidden gap-6 text-lg sm:flex">
-          <Link className="transition-colors hover:text-red-600" href="/about">
-            About
-          </Link>
-          <Link className="transition-colors hover:text-red-600" href="/articles">
-            Articles
-          </Link>
-          {/* <Link
-            className="transition-colors hover:text-red-600"
-            href="/scraps"
-          >
-            Scraps
-          </Link> */}
+          <HeaderLink label="About" />
+          <HeaderLink label="Articles" />
         </nav>
         {/* TODO: ハンバーガーメニューを実装する */}
         {/* Mobile Menu Icon */}
