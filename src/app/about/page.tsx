@@ -7,8 +7,8 @@ import SnsLink from './_components/snsLink'
 
 const AboutPage = () => {
   return (
-    <div className="flex h-full flex-col gap-4 rounded-xl border-2 border-[#e5e5e5] bg-gray-50 p-8 text-center text-gray-800 shadow-sm transition-colors dark:border-[#37464f] dark:bg-gray-800 dark:text-gray-200">
-      <div className="flex h-full items-center">
+    <div className="items-center gap-4 pt-20 text-center text-gray-800 shadow-sm dark:text-gray-200">
+      <div className="flex items-center">
         <div className="flex w-3/5 flex-col items-center">
           <h1 className="text-3xl font-bold">Ura</h1>
           <p className="mt-4">uraのアウトプット記録です。</p>
