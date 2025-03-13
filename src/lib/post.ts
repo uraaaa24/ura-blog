@@ -12,9 +12,9 @@ export type Post = {
   thumbnail: string | null
   date: string
   formattedDate: string
-  excerpt: string
-  tags: string[]
   content: string
+  excerpt?: string
+  tags?: string[]
 }
 
 const extractImageSrc = (htmlString: string) => {
