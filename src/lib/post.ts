@@ -1,17 +1,26 @@
-import matter from 'gray-matter'
 import fs from 'node:fs'
 import path from 'node:path'
 
+import twemoji from '@twemoji/api'
+import matter from 'gray-matter'
+
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export interface Post {
+export type Post = {
   slug: string
   title: string
+  thumbnail: string | null
   date: string
   formattedDate: string
   excerpt: string
   tags: string[]
   content: string
+}
+
+const extractImageSrc = (htmlString: string) => {
+  const _twemoji = twemoji.parse(htmlString)
+  const match = _twemoji.match(/src="([^"]+)"/)
+  return match ? match[1] : null
 }
 
 export async function getAllPosts(): Promise<Post[]> {
@@ -42,6 +51,7 @@ export async function getAllPosts(): Promise<Post[]> {
       return {
         slug,
         title: data.title,
+        thumbnail: extractImageSrc(data.thumbnail || ''),
         date: data.date,
         formattedDate,
         excerpt: data.excerpt || '',
@@ -73,6 +83,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     return {
       slug,
       title: data.title,
+      thumbnail: extractImageSrc(data.thumbnail || ''),
       date: data.date,
       formattedDate,
       excerpt: data.excerpt || '',

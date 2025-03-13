@@ -1,5 +1,3 @@
-import path from "node:path"
-import { fileURLToPath } from "node:url"
 import { FlatCompat } from "@eslint/eslintrc"
 import pluginJs from "@eslint/js"
 import typescriptEslintParser from "@typescript-eslint/parser"
@@ -10,6 +8,8 @@ import pluginReact from "eslint-plugin-react"
 import pluginReactHooks from "eslint-plugin-react-hooks"
 import pluginUnusedImports from "eslint-plugin-unused-imports"
 import globals from "globals"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 import typescriptEslint from "typescript-eslint"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -36,7 +36,7 @@ export default [
             "eslint.config.mjs",
             "stylelint.config.mjs",
             "postcss.config.js",
-            "next.config.js",
+            "next.config.ts",
           ],
         },
         tsconfigRootDir: __dirname,
@@ -53,7 +53,6 @@ export default [
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
       "@next/next/no-img-element": "off",
-      "import/no-default-export": "error",
       "import/no-anonymous-default-export": ["error", { allowArray: false }],
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
@@ -66,7 +65,6 @@ export default [
         },
       ],
       "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "error",
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }],

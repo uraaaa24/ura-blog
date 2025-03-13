@@ -1,7 +1,9 @@
+import { notFound } from 'next/navigation'
+
 import PostContent from '@/components/postContent'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
+
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params

@@ -8,7 +8,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-interface PostContentProps {
+type PostContentProps = {
   content: string
 }
 
@@ -23,7 +23,7 @@ export default function PostContent({ content }: PostContentProps) {
             const match = /language-(\w+)/.exec(className || '')
             return match ? (
               <SyntaxHighlighter
-                // @ts-ignore - `language` is required but not recognized
+                // @ts-expect-error - `tomorrow` is a valid style
                 style={tomorrow}
                 language={match[1]}
                 PreTag="div"
