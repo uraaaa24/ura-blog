@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: 'ブログの概要と筆者について'
 }
 
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
     <>
       <h2 className="text-3xl mb-4">About</h2>

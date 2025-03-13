@@ -34,7 +34,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+const PostPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPostBySlug(params.slug)
 
   if (!post) {
@@ -67,3 +67,5 @@ export default async function PostPage({ params }: { params: { slug: string } })
     </article>
   )
 }
+
+export default PostPage

@@ -3,7 +3,7 @@ import { getZennRssFeed } from '@/lib/zenn'
 
 import PostCard from './_components/postCard'
 
-export default async function Home() {
+const Home = async () => {
   const posts = await getAllPosts()
   const zennPosts = await getZennRssFeed()
 
@@ -23,3 +23,5 @@ export default async function Home() {
     </>
   )
 }
+
+export default Home

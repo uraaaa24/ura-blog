@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: '個人ブログサイト'
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ja">
       <body
@@ -32,3 +32,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   )
 }
+
+export default RootLayout
