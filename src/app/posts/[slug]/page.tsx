@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-import PostContent from '@/components/postContent'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
+
+import PostContent from './_components/postContent'
 
 import type { Metadata } from 'next'
 

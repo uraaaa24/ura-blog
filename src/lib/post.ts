@@ -42,9 +42,9 @@ export async function getAllPosts(): Promise<Post[]> {
 
       // 日付のフォーマット
       const date = new Date(data.date)
-      const formattedDate = date.toLocaleDateString('ja-JP', {
+      const formattedDate = date.toLocaleDateString('en-GB', {
         year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric'
       })
 
@@ -74,7 +74,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
 
     // 日付のフォーマット
     const date = new Date(data.date)
-    const formattedDate = date.toLocaleDateString('ja-JP', {
+    const formattedDate = date.toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'

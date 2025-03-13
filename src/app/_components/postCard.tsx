@@ -20,7 +20,7 @@ const PostCard = ({ post }: PostCardProps) => {
             <h3 className="text-lg font-bold">{post.title}</h3>
             <div className="flex flex-wrap items-center text-sm text-gray-500">
               <time dateTime={post.date}>{post.formattedDate}</time>
-              {post.tags && post.tags.length > 0 && (
+              {/* {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap ml-4 gap-2">
                   {post.tags.map((tag) => (
                     <span key={tag} className="bg-gray-100 px-2 py-1 rounded text-xs">
@@ -28,7 +28,7 @@ const PostCard = ({ post }: PostCardProps) => {
                     </span>
                   ))}
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>
