@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 import PostContent from '@/components/postContent'
@@ -41,11 +42,16 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
   return (
     <article>
-      <header className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-3">{post.title}</h1>
-        <div className="flex flex-wrap items-center text-gray-500">
-          <time dateTime={post.date}>{post.formattedDate}</time>
-          {post.tags && post.tags.length > 0 && (
+      <header className="border-b border-gray-300 mb-12">
+        <div className="flex flex-col items-center gap-8 pb-8">
+          <Image src={post.thumbnail ?? ''} alt={post.title} width={64} height={64} />
+          <h1 className="text-3xl font-bold">{post.title}</h1>
+          <time dateTime={post.date} className="text-sm text-gray-500">
+            {post.formattedDate}
+          </time>
+        </div>
+        {/* TODO: 別の場所でタグは表示させる */}
+        {/* {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap ml-4 gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="bg-gray-100 px-2 py-1 rounded text-sm">
@@ -53,9 +59,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
                 </span>
               ))}
             </div>
-          )}
-        </div>
+          )} */}
       </header>
+
       <PostContent content={post.content} />
     </article>
   )

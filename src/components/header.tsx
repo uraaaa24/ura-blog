@@ -17,9 +17,7 @@ const Header = () => {
               <li>
                 <Link
                   href="/"
-                  className={`font-medium  hover:text-gray-600 transition-colors
-                ${isHomePath ? 'text-gray-700' : 'text-gray-400'}
-                  `}
+                  className={`font-medium  hover:text-gray-600 transition-colors ${!isHomePath && 'text-gray-400'}`}
                 >
                   Home
                 </Link>
@@ -27,9 +25,7 @@ const Header = () => {
               <li>
                 <Link
                   href="/about"
-                  className={`font-medium  hover:text-gray-600 transition-colors
-                ${!isHomePath ? 'text-gray-700' : 'text-gray-400'}
-                  `}
+                  className={`font-medium  hover:text-gray-600 transition-colors ${isHomePath && 'text-gray-400'}`}
                 >
                   About
                 </Link>

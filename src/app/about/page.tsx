@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 export const AboutPage = () => {
   return (
     <>
-      <h2 className="text-3xl mb-6">About</h2>
+      <h2 className="text-3xl mb-4">About</h2>
 
-      <section className="pb-6 mb-6">
+      <section className="pb-6 mb-4">
         <p>
           Hello, I&apos;m uraaaa24. I value a simple approach and practical coding. On this blog, I
           share my daily development journey, insights, and the little inspirations I encounter
@@ -18,8 +18,8 @@ export const AboutPage = () => {
         </p>
       </section>
 
-      <section className="pb-6 mb-6">
-        <h2 className="text-xl mb-4">What I Do</h2>
+      <section className="pb-6 mb-4">
+        <h2 className="text-xl mb-2">What I Do</h2>
         <p>
           Coding: I explore new technologies and strive to write efficient, clean code. <br />
           Learning: I embrace both technical growth and everyday discoveries.

@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <>
-      <h2 className="text-3xl mb-6">Posts</h2>
+      <h2 className="text-3xl mb-4">Posts</h2>
 
       <div className="flex flex-wrap w-full mx-auto justify-center">
         {posts.map((post) => (

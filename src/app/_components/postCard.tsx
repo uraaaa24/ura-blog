@@ -9,8 +9,8 @@ type PostCardProps = {
 
 const PostCard = ({ post }: PostCardProps) => {
   return (
-    <article key={post.slug} className="w-full border-b border-gray-300 pb-4 mb-4">
-      <Link href={`/posts/${post.slug}`} className="block h-full">
+    <Link href={`/posts/${post.slug}`} className="w-full border-b border-gray-300 py-4">
+      <article className="block h-full">
         <div className="flex items-center gap-2">
           <div className="w-20 h-20 mr-4 bg-gray-200 rounded-2xl flex-shrink-0 flex items-center justify-center">
             <Image src={post.thumbnail ?? ''} alt={post.title} width={40} height={40} />
@@ -32,8 +32,8 @@ const PostCard = ({ post }: PostCardProps) => {
             </div>
           </div>
         </div>
-      </Link>
-    </article>
+      </article>
+    </Link>
   )
 }
 

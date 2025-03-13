@@ -24,7 +24,21 @@ export default function PostContent({ content }: PostContentProps) {
             return match ? (
               <SyntaxHighlighter
                 // @ts-expect-error - `tomorrow` is a valid style
-                style={tomorrow}
+                style={{
+                  ...tomorrow,
+                  'code[class*="language-"]': {
+                    color: '#4b5563',
+                    fontSize: '0.9rem',
+                    lineHeight: '1'
+                  },
+                  'pre[class*="language-"]': {
+                    borderRadius: '1rem',
+                    border: '1px solid #e5e7eb',
+                    backgroundColor: '#f3f4f6',
+                    padding: '1.5rem',
+                    overflow: 'auto'
+                  }
+                }}
                 language={match[1]}
                 PreTag="div"
                 wrapLines={true}
