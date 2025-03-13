@@ -7,26 +7,32 @@ export const metadata: Metadata = {
 
 export const AboutPage = () => {
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">About</h1>
+    <>
+      <h2 className="text-3xl mb-6">About</h2>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">ブログについて</h2>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          このブログでは、主にプログラミングや技術に関する記事を投稿しています。
-          Next.js、React、TypeScriptなどのフロントエンド技術を中心に、
-          日々の開発で得た知見や役立つ情報を共有しています。
+      <section className="pb-6 mb-6">
+        <p>
+          Hello, I&apos;m uraaaa24. I value a simple approach and practical coding. On this blog, I
+          share my daily development journey, insights, and the little inspirations I encounter
+          along the way.
         </p>
       </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">筆者について</h2>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          フロントエンドエンジニアとして活動しています。 Webアプリケーション開発を主に行っており、
-          モダンなフロントエンド技術に関心があります。
+      <section className="pb-6 mb-6">
+        <h2 className="text-xl mb-4">What I Do</h2>
+        <p>
+          Coding: I explore new technologies and strive to write efficient, clean code. <br />
+          Learning: I embrace both technical growth and everyday discoveries.
         </p>
       </section>
-    </div>
+
+      <section>
+        <p>
+          I focus on what truly matters, keeping things straightforward and essential. Thanks for
+          stopping by!
+        </p>
+      </section>
+    </>
   )
 }
 
