@@ -61,7 +61,7 @@ export default function PostContent({ content }: PostContentProps) {
           <h3 className="relative text-xl font-semibold mt-10 mb-6 w-fit">{children}</h3>
         ),
 
-        p: ({ children }) => <p className="mb-8">{children}</p>,
+        p: ({ children }) => <p className="leading-8 mb-8">{children}</p>,
         table: ({ children }) => (
           <table className="w-full border-collapse border border-gray-300">{children}</table>
         ),

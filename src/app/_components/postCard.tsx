@@ -22,7 +22,7 @@ const PostCard = ({ post }: PostCardProps) => {
   )
 
   return (
-    <Link href={href} {...externalProps} className="w-full border-b border-gray-300 py-4 block">
+    <Link href={href} {...externalProps} className="border-b border-gray-300 py-4 block">
       <article className="h-full">
         <div className="flex items-center gap-2">
           <div className="w-20 h-20 mr-4 bg-gray-200 rounded-2xl flex-shrink-0 flex items-center justify-center">
