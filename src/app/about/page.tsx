@@ -12,7 +12,7 @@ const AboutPage = () => {
     <>
       <h2 className="text-3xl font-bold mb-6">About</h2>
 
-      <section className="pb-4 mb-4">
+      <section className="pb-6 mb-6">
         <p className="leading-8">
           Hi, I&apos;m Ura! 👋 I love building things for the web and continuously learning new
           technologies. This blog is where I share my development journey, insights, and the little
@@ -20,7 +20,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      <section className="pb-4 mb-4">
+      <section className="pb-6 mb-6">
         <h2 className="text-2xl font-semibold mb-4">What I Do</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>
@@ -42,7 +42,7 @@ const AboutPage = () => {
         </ul>
       </section>
 
-      <section className="pb-4 mb-4">
+      <section className="pb-6 mb-6">
         <h2 className="text-2xl font-semibold mb-4">Interests</h2>
         <p className="leading-8">
           I&apos;m a devoted Arsenal fan who loves playing soccer ⚽ <br />
@@ -50,7 +50,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      <section className="pb-4 mb-4">
+      <section className="pb-6 mb-6">
         <h2 className="text-2xl font-semibold mb-4">Social Links</h2>
         <div className="flex space-x-6">
           <a href="https://github.com/uraaaa24" target="_blank" rel="noopener noreferrer">
@@ -65,7 +65,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section>
+      <section className="pb-6 mb-6">
         <p className="leading-relaxed">
           I believe in simplicity and practicality in both coding and life. Thanks for stopping by!
         </p>
