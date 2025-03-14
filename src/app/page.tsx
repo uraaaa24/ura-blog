@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { SOCIAL_LINKS } from '@/constants/sns'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
@@ -15,9 +16,9 @@ const HomePage = async () => {
     .sort((a, b) => new Date(b.formattedDate).getTime() - new Date(a.formattedDate).getTime())
 
   return (
-    <div className="mx-auto max-w-2xl">
-      <section className="pb-4 mb-4">
-        <h1 className="text-3xl font-bold mb-4">Hey there, I&apos;m Ura! ⚽️</h1>
+    <>
+      <section className="pb-6 mb-6">
+        <h1 className="text-3xl font-bold mb-4">Hi there, I&apos;m Ura! ⚽️</h1>
         <div className="flex flex-col space-y-6">
           <p className="leading-8">
             I&apos;m an engineer focusing on front-end development.
@@ -30,15 +31,17 @@ const HomePage = async () => {
             <br />
           </p>
           <div className="flex space-x-6">
-            <a href="https://github.com/uraaaa24" target="_blank" rel="noopener noreferrer">
-              <Image src="/github.svg" alt="GitHub" width={24} height={24} />
-            </a>
-            <a href="https://zenn.dev/uraaaa24" target="_blank" rel="noopener noreferrer">
-              <Image src="/zenn.svg" alt="Zenn" width={24} height={24} />
-            </a>
-            <a href="https://twitter.com/__ars____24" target="_blank" rel="noopener noreferrer">
-              <Image src="/x.svg" alt="X(Twitter)" width={24} height={24} />
-            </a>
+            {SOCIAL_LINKS.map(({ href, src, alt }) => (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={24}
+                  height={24}
+                  className="hover:opacity-75 transition-opacity duration-200"
+                />
+              </a>
+            ))}
           </div>
           <Link href="/about" className="text-gray-400 transition-colors hover:text-gray-700">
             Read more about me →
@@ -46,7 +49,7 @@ const HomePage = async () => {
         </div>
       </section>
 
-      <section className="pb-4 mb-4">
+      <section className="pb-6 mb-6">
         <h2 className="text-2xl font-semibold mb-4">Latest Posts</h2>
         <div>
           {totalPosts.map((post) => (
@@ -54,7 +57,7 @@ const HomePage = async () => {
           ))}
         </div>
       </section>
-    </div>
+    </>
   )
 }
 
