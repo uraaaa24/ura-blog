@@ -13,7 +13,7 @@ export const getZennRssFeed = async () => {
     return {
       title: item.title ?? '',
       slug: item.link ?? '',
-      thumbnail: '/logo-only.svg',
+      thumbnail: '/zenn.svg',
       date: item.pubDate ?? '',
       formattedDate,
       content: item.content ?? ''
