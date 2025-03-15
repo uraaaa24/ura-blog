@@ -47,7 +47,7 @@ export default function PostContent({ content }: PostContentProps) {
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
-            <code className={`${className} bg-gray-100 px-1 py-0.5 rounded`} {...props}>
+            <code className={`${className} bg-gray-200 px-1 py-0.5 rounded-md text-sm`} {...props}>
               {children}
             </code>
           )
@@ -60,18 +60,45 @@ export default function PostContent({ content }: PostContentProps) {
         h3: ({ children }) => (
           <h3 className="relative text-xl font-semibold mt-10 mb-6 w-fit">{children}</h3>
         ),
-
         p: ({ children }) => <p className="leading-8 mb-8">{children}</p>,
         table: ({ children }) => (
-          <table className="w-full border-collapse border border-gray-300">{children}</table>
+          <table className="border-collapse border border-gray-300">{children}</table>
         ),
         th: ({ children }) => (
           <th className="border border-gray-300 bg-gray-100 p-4 text-left">{children}</th>
         ),
         td: ({ children }) => <td className="border border-gray-300 p-4">{children}</td>,
-        ul: ({ children }) => <ul className="list-disc pl-6 space-y-3 mb-8">{children}</ul>,
+        ul: ({ children }) => (
+          <ul className="list-disc pl-6 space-y-3 mb-8 [&_ul]:list-disc  [&>li>ul]:my-2">
+            {children}
+          </ul>
+        ),
         ol: ({ children }) => <ol className="list-decimal pl-6 space-y-3 mb-8">{children}</ol>,
-        img: ({ src, alt }) => <img className="max-w-full h-auto" src={src || ''} alt={alt || ''} />
+        img: ({ src, alt }) => (
+          <img className="max-w-full h-auto" src={src || ''} alt={alt || ''} />
+        ),
+        hr: () => <hr className="border-gray-300 my-12 mx-auto w-4/5" />,
+        a: ({ children, href, ...props }) => {
+          const isHeading = href && href.startsWith('#')
+          if (isHeading) {
+            return (
+              <a href={href} {...props}>
+                {children}
+              </a>
+            )
+          }
+
+          return (
+            <a href={href} className="text-blue-500 hover:underline transition-colors" {...props}>
+              {children}
+            </a>
+          )
+        },
+        blockquote: ({ children }) => (
+          <blockquote className="border-l-4 text-gray-500 border-gray-300 pl-6 mb-8">
+            {children}
+          </blockquote>
+        )
       }}
     >
       {content}
