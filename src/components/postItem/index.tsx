@@ -9,7 +9,7 @@ type PostCardProps = {
   post: Post
 }
 
-const PostCard = ({ post }: PostCardProps) => {
+const PostItem = ({ post }: PostCardProps) => {
   const isExternalPost = useMemo(() => post.slug.startsWith('https'), [post.slug])
   const href = useMemo(
     () => (isExternalPost ? post.slug : `/posts/${post.slug}`),
@@ -40,4 +40,4 @@ const PostCard = ({ post }: PostCardProps) => {
   )
 }
 
-export default PostCard
+export default PostItem

@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
-import PostCard from '../_components/postCard'
+import PostItem from '../../components/postItem'
 
 const PostsPage = async () => {
   const posts = await getAllPosts()
@@ -17,7 +17,7 @@ const PostsPage = async () => {
 
       <div className="flex flex-col w-full mx-auto justify-center">
         {totalPosts.map((post) => (
-          <PostCard key={post.slug} post={post} />
+          <PostItem key={post.slug} post={post} />
         ))}
       </div>
     </>

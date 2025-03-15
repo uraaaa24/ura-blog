@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
-import PostCard from './_components/postCard'
+import PostItem from '../components/postItem'
 
 const HomePage = async () => {
   const posts = await getAllPosts()
@@ -53,7 +53,7 @@ const HomePage = async () => {
         <h2 className="text-2xl font-semibold mb-4">Latest Posts</h2>
         <div>
           {totalPosts.map((post) => (
-            <PostCard key={post.slug} post={post} />
+            <PostItem key={post.slug} post={post} />
           ))}
         </div>
       </section>
