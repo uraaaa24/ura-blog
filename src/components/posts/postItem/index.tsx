@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,16 +8,10 @@ type PostCardProps = {
 }
 
 const PostItem = ({ post }: PostCardProps) => {
-  const isExternalPost = useMemo(() => post.slug.startsWith('https'), [post.slug])
-  const href = useMemo(
-    () => (isExternalPost ? post.slug : `/posts/${post.slug}`),
-    [isExternalPost, post.slug]
-  )
+  const isExternalPost = post.slug.startsWith('https')
+  const href = isExternalPost ? post.slug : `/posts/${post.slug}`
 
-  const externalProps = useMemo(
-    () => (isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}),
-    [isExternalPost]
-  )
+  const externalProps = isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
   return (
     <Link href={href} {...externalProps} className="border-b border-gray-300 py-4 block">
