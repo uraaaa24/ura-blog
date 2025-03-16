@@ -6,14 +6,14 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-import MDAnchor from './mdParts/mdAnchor'
-import MDBlockquote from './mdParts/mdBlockquote'
-import MDCodeBlock from './mdParts/mdCodeBlock'
-import { MDHeading2, MDHeading3 } from './mdParts/mdHeading'
-import MDHorizontalRule from './mdParts/mdHorizontalRule'
-import MDImage from './mdParts/mdImage'
-import { MDListItem, MDOrderedList, MDUnorderedList } from './mdParts/mdList'
-import MDParagraph from './mdParts/mdParagraph'
+import MDAnchor from './md-parts/md-anchor'
+import MDBlockquote from './md-parts/md-blockquote'
+import MDCodeBlock from './md-parts/md-codeBlock'
+import { MDHeading2, MDHeading3 } from './md-parts/md-heading'
+import MDHorizontalRule from './md-parts/md-horizontalRule'
+import MDImage from './md-parts/md-image'
+import { MDListItem, MDOrderedList, MDUnorderedList } from './md-parts/md-list'
+import MDParagraph from './md-parts/md-paragraph'
 import {
   MDTable,
   MDTableBody,
@@ -21,7 +21,7 @@ import {
   MDTableHead,
   MDTableHeadCell,
   MDTableRow
-} from './mdParts/mdTable'
+} from './md-parts/md-table'
 
 type PostContentProps = {
   content: string

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 
-import PostContent from './_components/postContent'
+import PostContent from './_components/post-content'
 
 import type { Metadata } from 'next'
 

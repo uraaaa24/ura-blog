@@ -1,6 +1,6 @@
 import { Heading1, Heading2 } from '@/components/heading'
 import Section from '@/components/section'
-import SocialLinks from '@/components/socialLinks'
+import SocialLinks from '@/components/social-links'
 
 import type { Metadata } from 'next'
 

@@ -2,8 +2,8 @@ import Section from '@/components/section'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
-import HeroContent from './_components/heroContent'
-import LatestPosts from './_components/latestPosts'
+import HeroContent from './_components/hero-content'
+import LatestPosts from './_components/latest-posts'
 
 const HomePage = async () => {
   const posts = await getAllPosts()

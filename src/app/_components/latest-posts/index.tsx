@@ -1,5 +1,5 @@
 import { Heading2 } from '@/components/heading'
-import PostItems from '@/components/posts/postItems'
+import PostItems from '@/components/posts/post-items'
 
 import type { Post } from '@/lib/post'
 

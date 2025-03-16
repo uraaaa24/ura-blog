@@ -1,5 +1,5 @@
 import { Heading1 } from '@/components/heading'
-import PostItems from '@/components/posts/postItems'
+import PostItems from '@/components/posts/post-items'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 

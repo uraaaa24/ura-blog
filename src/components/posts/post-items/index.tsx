@@ -1,4 +1,4 @@
-import PostItem from '../postItem'
+import PostItem from '../post-item'
 
 import type { Post } from '@/lib/post'
 

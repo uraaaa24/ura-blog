@@ -1,7 +1,7 @@
 import { Heading1 } from '@/components/heading'
-import SocialLinks from '@/components/socialLinks'
+import SocialLinks from '@/components/social-links'
 
-import AboutReadMore from './aboutReadMore'
+import AboutReadMore from './about-read-more'
 
 const HeroContent = () => {
   return (
