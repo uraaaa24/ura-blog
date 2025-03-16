@@ -1,3 +1,4 @@
+import { Heading1 } from '@/components/heading'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
@@ -13,7 +14,7 @@ const PostsPage = async () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold mb-4">Posts</h2>
+      <Heading1>Posts</Heading1>
 
       <div className="flex flex-col w-full mx-auto justify-center">
         {totalPosts.map((post) => (

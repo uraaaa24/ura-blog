@@ -37,9 +37,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
   const post = await getPostBySlug(params.slug)
 
-  if (!post) {
-    notFound()
-  }
+  if (!post) notFound()
 
   return (
     <article>

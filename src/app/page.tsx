@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
-import { SOCIAL_LINKS } from '@/constants/sns'
+import { Heading1, Heading2 } from '@/components/heading'
+import Section from '@/components/section'
+import SocialLinks from '@/components/socialLinks'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
@@ -17,10 +18,10 @@ const HomePage = async () => {
 
   return (
     <>
-      <section className="pb-6 mb-6">
-        <h1 className="text-3xl font-bold mb-4">Hi there, I&apos;m Ura! ⚽️</h1>
+      <Section>
+        <Heading1>Hi there, I&apos;m Ura! ⚽️</Heading1>
         <div className="flex flex-col space-y-6">
-          <p className="leading-8">
+          <p>
             I&apos;m an engineer focusing on front-end development.
             <br />
             I also have experience in back-end and infrastructure.
@@ -30,33 +31,21 @@ const HomePage = async () => {
             Fueled by a good cup of coffee ☕️
             <br />
           </p>
-          <div className="flex space-x-6">
-            {SOCIAL_LINKS.map(({ href, src, alt }) => (
-              <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src={src}
-                  alt={alt}
-                  width={24}
-                  height={24}
-                  className="hover:opacity-75 transition-opacity duration-200"
-                />
-              </a>
-            ))}
-          </div>
+          <SocialLinks />
           <Link href="/about" className="text-gray-400 transition-colors hover:text-gray-700">
             Read more about me →
           </Link>
         </div>
-      </section>
+      </Section>
 
-      <section className="pb-6 mb-6">
-        <h2 className="text-2xl font-semibold mb-4">Latest Posts</h2>
+      <Section>
+        <Heading2>Latest Posts</Heading2>
         <div>
           {totalPosts.map((post) => (
             <PostItem key={post.slug} post={post} />
           ))}
         </div>
-      </section>
+      </Section>
     </>
   )
 }
