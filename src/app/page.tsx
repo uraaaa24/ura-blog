@@ -1,12 +1,9 @@
-import Link from 'next/link'
-
-import { Heading1, Heading2 } from '@/components/heading'
 import Section from '@/components/section'
-import SocialLinks from '@/components/socialLinks'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
 
-import PostItem from '../components/postItem'
+import HeroContent from './_components/heroContent'
+import LatestPosts from './_components/latestPosts'
 
 const HomePage = async () => {
   const posts = await getAllPosts()
@@ -19,32 +16,11 @@ const HomePage = async () => {
   return (
     <>
       <Section>
-        <Heading1>Hi there, I&apos;m Ura! ⚽️</Heading1>
-        <div className="flex flex-col space-y-6">
-          <p>
-            I&apos;m an engineer focusing on front-end development.
-            <br />
-            I also have experience in back-end and infrastructure.
-            <br />
-            A devoted Arsenal fan who loves playing soccer.
-            <br />
-            Fueled by a good cup of coffee ☕️
-            <br />
-          </p>
-          <SocialLinks />
-          <Link href="/about" className="text-gray-400 transition-colors hover:text-gray-700">
-            Read more about me →
-          </Link>
-        </div>
+        <HeroContent />
       </Section>
 
       <Section>
-        <Heading2>Latest Posts</Heading2>
-        <div>
-          {totalPosts.map((post) => (
-            <PostItem key={post.slug} post={post} />
-          ))}
-        </div>
+        <LatestPosts totalPosts={totalPosts} />
       </Section>
     </>
   )

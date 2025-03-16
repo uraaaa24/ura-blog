@@ -1,8 +1,7 @@
 import { Heading1 } from '@/components/heading'
+import PostItems from '@/components/posts/postItems'
 import { getAllPosts } from '@/lib/post'
 import { getZennRssFeed } from '@/lib/zenn'
-
-import PostItem from '../../components/postItem'
 
 const PostsPage = async () => {
   const posts = await getAllPosts()
@@ -15,12 +14,7 @@ const PostsPage = async () => {
   return (
     <>
       <Heading1>Posts</Heading1>
-
-      <div className="flex flex-col w-full mx-auto justify-center">
-        {totalPosts.map((post) => (
-          <PostItem key={post.slug} post={post} />
-        ))}
-      </div>
+      <PostItems totalPosts={totalPosts} />
     </>
   )
 }
