@@ -59,12 +59,6 @@ const AboutPage = () => {
         <Heading2>Social Links</Heading2>
         <SocialLinks />
       </Section>
-
-      <Section>
-        <p>
-          I believe in simplicity and practicality in both coding and life. Thanks for stopping by!
-        </p>
-      </Section>
     </>
   )
 }
