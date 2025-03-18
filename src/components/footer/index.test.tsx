@@ -21,7 +21,7 @@ describe('Footer Component', () => {
     render(<Footer />)
     const footerElement = screen.getByRole('contentinfo')
     expect(footerElement).toHaveTextContent(
-      `© ${new Date().getFullYear()} Ura Blog. All rights reserved.`
+      `© ${new Date().getFullYear()} Uralog. All rights reserved.`
     )
     expect(footerElement).not.toHaveTextContent('Unexpected Text')
   })

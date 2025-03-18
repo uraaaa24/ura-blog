@@ -5,8 +5,8 @@ import SocialLinks from '@/components/social-links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About - Ura Blog',
-  description: 'ブログの概要と筆者について'
+  title: 'About - Uralog',
+  description: 'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。'
 }
 
 const AboutPage = () => {

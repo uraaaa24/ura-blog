@@ -13,8 +13,9 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Ura Blog',
-  description: '個人ブログサイト'
+  title: 'Uralog',
+  description:
+    'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
