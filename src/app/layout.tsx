@@ -13,14 +13,17 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Ura Blog',
-  description: '個人ブログサイト'
+  title: 'Uralog',
+  description:
+    'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ja">
-      <body className={`${roboto.className} bg-[#f7f7f7] text-gray-700 min-h-screen flex flex-col`}>
+      <body
+        className={`${roboto.className} bg-[#f7f7f7] leading-8 text-gray-700 min-h-screen flex flex-col`}
+      >
         <Header />
         <main className="flex-grow pt-32 px-6">
           <div className="container max-w-2xl mx-auto">{children}</div>

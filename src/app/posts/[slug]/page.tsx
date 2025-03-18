@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 
-import PostContent from './_components/postContent'
+import PostContent from './_components/post-content'
 
 import type { Metadata } from 'next'
 
@@ -37,9 +37,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
   const post = await getPostBySlug(params.slug)
 
-  if (!post) {
-    notFound()
-  }
+  if (!post) notFound()
 
   return (
     <article>

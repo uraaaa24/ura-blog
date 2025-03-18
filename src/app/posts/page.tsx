@@ -1,25 +1,21 @@
-import { getAllPosts } from '@/lib/post'
-import { getZennRssFeed } from '@/lib/zenn'
+import { Heading1 } from '@/components/heading'
+import PostItems from '@/components/posts/post-items'
+import { fetchPosts } from '@/lib/data'
 
-import PostCard from '../_components/postCard'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Posts - Uralog',
+  description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。'
+}
 
 const PostsPage = async () => {
-  const posts = await getAllPosts()
-  const zennPosts = await getZennRssFeed()
-
-  const totalPosts = Array.from(new Set([...posts, ...zennPosts])).sort(
-    (a, b) => new Date(b.formattedDate).getTime() - new Date(a.formattedDate).getTime()
-  )
+  const totalPosts = await fetchPosts()
 
   return (
     <>
-      <h2 className="text-3xl font-bold mb-4">Posts</h2>
-
-      <div className="flex flex-col w-full mx-auto justify-center">
-        {totalPosts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </div>
+      <Heading1>Posts</Heading1>
+      <PostItems totalPosts={totalPosts} />
     </>
   )
 }

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@twemoji/api": "^15.1.0",
@@ -27,18 +29,26 @@
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/ui": "^3.0.8",
     "eslint": "^9",
     "eslint-config-next": "^15.2.2",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "jsdom": "^26.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "typescript-eslint": "^8.26.1"
+    "typescript-eslint": "^8.26.1",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.8"
   }
 }
