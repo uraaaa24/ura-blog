@@ -5,7 +5,7 @@ type MDParagraphProps = {
 }
 
 const MDParagraph = ({ children }: MDParagraphProps) => {
-  return <p className="leading-8 break-words whitespace-pre-wrap mb-8">{children}</p>
+  return <p className="leading-8 break-words whitespace-pre-wrap mb-6">{children}</p>
 }
 
 export default MDParagraph
