@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react'
 
+import { GoogleTagManager } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header'
+import { GA_MEASUREMENT_ID } from '@/lib/envs'
 
 import type { Metadata } from 'next'
+
 import './globals.css'
 
 const roboto = Roboto({
@@ -21,6 +24,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ja">
+      <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
       <body
         className={`${roboto.className} bg-[#f7f7f7] leading-8 text-gray-700 min-h-screen flex flex-col`}
       >
