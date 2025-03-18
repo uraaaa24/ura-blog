@@ -21,7 +21,7 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
           lineHeight: '1'
         },
         'pre[class*="language-"]': {
-          borderRadius: '1rem',
+          borderRadius: '0.75rem',
           border: '1px solid #e5e7eb',
           backgroundColor: '#f3f4f6',
           padding: '1.5rem',
@@ -40,7 +40,7 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
       {String(children).replace(/\n$/, '')}
     </SyntaxHighlighter>
   ) : (
-    <code className={`${className} bg-gray-200 px-1 py-0.5 rounded-md text-sm`} {...props}>
+    <code className={`${className} bg-gray-200 px-1 py-0.5 rounded-lg text-sm`} {...props}>
       {children}
     </code>
   )

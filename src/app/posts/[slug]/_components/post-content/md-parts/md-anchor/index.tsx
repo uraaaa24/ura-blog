@@ -20,7 +20,7 @@ const MDAnchor = ({ href, children, ...props }: MDAnchorProps) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-semibold border-b-2 border-blue-300 hover:border-blue-500 transition-colors"
+      className="font-semibold border-b-2 border-blue-300 hover:border-blue-500 transition-colors mb-8"
       {...props}
     >
       {children}
