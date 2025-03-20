@@ -2,7 +2,7 @@
 title: "マークダウン表現チートシート"
 thumbnail: 😏
 date: "2025-03-14"
-excerpt: "Next.jsとApp Routerを使った個人ブログの作り方について解説します。"
+description: "Next.jsとApp Routerを使った個人ブログの作り方について解説します。"
 tags: ["Self"]
 ---
 

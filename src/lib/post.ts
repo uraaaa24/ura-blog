@@ -13,11 +13,11 @@ export type Post = {
   date: string
   formattedDate: string
   content: string
-  excerpt?: string
+  description?: string
   tags?: string[]
 }
 
-const extractImageSrc = (htmlString: string) => {
+export const extractImageSrc = (htmlString: string) => {
   const _twemoji = twemoji.parse(htmlString)
   const match = _twemoji.match(/src="([^"]+)"/)
   return match ? match[1] : null
@@ -54,7 +54,7 @@ export async function getAllPosts(): Promise<Post[]> {
         thumbnail: extractImageSrc(data.thumbnail || ''),
         date: data.date,
         formattedDate,
-        excerpt: data.excerpt || '',
+        description: data.description || '',
         tags: data.tags || [],
         content
       }
@@ -86,7 +86,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
       thumbnail: extractImageSrc(data.thumbnail || ''),
       date: data.date,
       formattedDate,
-      excerpt: data.excerpt || '',
+      description: data.description || '',
       tags: data.tags || [],
       content
     }

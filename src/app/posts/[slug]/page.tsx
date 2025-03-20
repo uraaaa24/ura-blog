@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
+import { getNotionPostById } from '@/lib/notion'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 
 import PostContent from './_components/post-content'
@@ -21,7 +22,7 @@ export async function generateMetadata(props: {
 
   return {
     title: post.title,
-    description: post.excerpt
+    description: post.description
   }
 }
 
@@ -35,7 +36,8 @@ export async function generateStaticParams() {
 
 const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
-  const post = await getPostBySlug(params.slug)
+  // const post = await getPostBySlug(params.slug)
+  const post = await getNotionPostById(params.slug)
 
   if (!post) notFound()
 
