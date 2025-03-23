@@ -2,29 +2,9 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 import { getNotionPostById } from '@/lib/notion'
-import { getAllPosts, getPostBySlug } from '@/lib/post'
+import { getAllPosts } from '@/lib/post'
 
 import PostContent from './_components/post-content'
-
-import type { Metadata } from 'next'
-
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
-  const params = await props.params
-  const post = await getPostBySlug(params.slug)
-
-  if (!post) {
-    return {
-      title: 'Post Not Found'
-    }
-  }
-
-  return {
-    title: post.title,
-    description: post.description
-  }
-}
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -38,8 +18,6 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
   // const post = await getPostBySlug(params.slug)
   const post = await getNotionPostById(params.slug)
-
-  console.log('@@@@@@@@@@@@@@@@@@@@', post)
 
   if (!post) notFound()
 

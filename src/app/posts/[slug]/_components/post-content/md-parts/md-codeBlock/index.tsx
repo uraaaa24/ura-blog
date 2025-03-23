@@ -4,14 +4,12 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 type CodeBlockProps = {
-  className?: string
+  language: string
   children: ReactNode
 }
 
-const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
-  const matchCode = /language-(\w+)/.exec(className || '')
-
-  return matchCode ? (
+const MDCodeBlock = ({ language, children }: CodeBlockProps) => {
+  return (
     <SyntaxHighlighter
       style={{
         ...prism,
@@ -32,17 +30,12 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
           borderCollapse: 'collapse'
         }
       }}
-      language={matchCode[1]}
+      language={language}
       PreTag="div"
       wrapLines={true}
-      {...props}
     >
       {String(children).replace(/\n$/, '')}
     </SyntaxHighlighter>
-  ) : (
-    <code className={`${className} bg-gray-200 px-1 py-0.5 rounded-md text-sm`} {...props}>
-      {children}
-    </code>
   )
 }
 
