@@ -39,6 +39,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   // const post = await getPostBySlug(params.slug)
   const post = await getNotionPostById(params.slug)
 
+  console.log('@@@@@@@@@@@@@@@@@@@@', post)
+
   if (!post) notFound()
 
   return (

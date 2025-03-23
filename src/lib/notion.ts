@@ -18,6 +18,7 @@ export const getAllNotionPosts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .map((post: any) => {
         return {
+          id: post.id,
           title: post.properties.title.title[0].plain_text,
           description: post.properties.description.rich_text[0].plain_text,
           thumbnail: extractImageSrc(post.properties.thumbnail.rich_text[0].plain_text || ''),
@@ -25,8 +26,7 @@ export const getAllNotionPosts = async () => {
           published: post.properties.published.checkbox,
           slug: post.id,
           date: post.properties.published_at.formula.string,
-          formattedDate: formattedRawDate(post.properties.published_at.formula.string),
-          id: post.id
+          formattedDate: formattedRawDate(post.properties.published_at.formula.string)
         }
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,5 +35,18 @@ export const getAllNotionPosts = async () => {
   } catch (error) {
     console.error('データの取得に失敗しました:', error)
     return []
+  }
+}
+
+export const getNotionPostById = async (id: string) => {
+  try {
+    const response = await fetch(`${API_URL}/notion/${id}`)
+    const data = await response.json()
+
+    if (!data) return null
+    return data
+  } catch (error) {
+    console.error(`Notionページ（ID: ${id}）の取得に失敗:`, error)
+    return null
   }
 }
