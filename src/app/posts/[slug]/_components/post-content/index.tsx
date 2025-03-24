@@ -11,6 +11,7 @@ import NBImage from './block-parts/nb-image'
 import { NBListItem } from './block-parts/nb-list'
 import NBMentionCard from './block-parts/nb-mention-card'
 import NBParagraph from './block-parts/nb-paragraph'
+import RichText from './rich-text'
 
 type PostContentProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,44 +29,6 @@ const isBlockElement = (node: React.ReactNode): boolean =>
   !!(node as any).props['data-block']
 
 /**
- * リッチテキスト内の単一のテキスト要素をレンダリングする
- */
-const RichTextSpan = ({
-  text
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  text: any
-}) => {
-  const {
-    annotations: { bold, italic, underline, strikethrough, code, color },
-    text: { content, link }
-  } = text
-
-  let element = <span>{content}</span>
-
-  if (link) {
-    element = <NBAnchor href={link.url}>{content}</NBAnchor>
-  }
-  if (code) {
-    element = <code className="bg-gray-200 px-1 py-0.5 rounded-md text-sm">{element}</code>
-  }
-  if (bold) {
-    element = <strong>{element}</strong>
-  }
-  if (italic) {
-    element = <em>{element}</em>
-  }
-  if (strikethrough) {
-    element = <s>{element}</s>
-  }
-  if (underline) {
-    element = <u>{element}</u>
-  }
-
-  return <span className={color !== 'default' ? `text-${color}` : ''}>{element}</span>
-}
-
-/**
  * リッチテキスト配列を適切にレンダリングする
  */
 const renderRichText = (
@@ -75,7 +38,7 @@ const renderRichText = (
   richText.map((text, index) => {
     switch (text.type) {
       case 'text':
-        return <RichTextSpan key={`text-${index}`} text={text} />
+        return <RichText key={`text-${index}`} text={text} />
       case 'mention':
         return renderMention(text, index)
       default:
