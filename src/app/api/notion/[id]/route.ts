@@ -6,13 +6,9 @@ import { formattedRawDate } from '@/lib/util'
 
 import type { NextRequest } from 'next/server'
 
-export const GET = async (request: NextRequest) => {
-  const searchParams = request.nextUrl.searchParams
-  const id = searchParams.get('id')
-
-  if (!id) {
-    return NextResponse.json({ error: 'IDが指定されていません。' }, { status: 400 })
-  }
+export const GET = async (_req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params
+  if (!id) return NextResponse.json({ error: 'IDが指定されていません。' }, { status: 400 })
 
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

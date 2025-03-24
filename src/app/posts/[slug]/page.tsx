@@ -25,7 +25,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
     <article>
       <header className="border-b border-gray-300 mb-12">
         <div className="flex flex-col items-center gap-8 pb-8">
-          <Image src={post.thumbnail ?? ''} alt={post.title} width={64} height={64} />
+          <Image src={post.thumbnail ?? null} alt={post.title} width={64} height={64} />
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <time dateTime={post.date} className="text-sm text-gray-500">
             {post.formattedDate}
