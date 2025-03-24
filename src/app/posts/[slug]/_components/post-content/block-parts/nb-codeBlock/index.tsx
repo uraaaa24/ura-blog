@@ -19,7 +19,7 @@ const NBCodeBlock = ({ language, children }: CodeBlockProps) => {
           lineHeight: '1'
         },
         'pre[class*="language-"]': {
-          borderRadius: '1rem',
+          borderRadius: '0.75rem',
           border: '1px solid #e5e7eb',
           backgroundColor: '#f3f4f6',
           padding: '1.5rem',
