@@ -4,8 +4,11 @@ import { notion } from '@/lib/notion'
 import { extractImageSrc } from '@/lib/post'
 import { formattedRawDate } from '@/lib/util'
 
-export const GET = async (_request: Request, { params }: { params: { id: string } }) => {
-  const { id } = params
+import type { NextRequest } from 'next/server'
+
+export const GET = async (request: NextRequest) => {
+  const searchParams = request.nextUrl.searchParams
+  const id = searchParams.get('id')
 
   if (!id) {
     return NextResponse.json({ error: 'IDが指定されていません。' }, { status: 400 })
@@ -16,8 +19,6 @@ export const GET = async (_request: Request, { params }: { params: { id: string 
     const post: any = await notion.pages.retrieve({ page_id: id })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const blocks: any = await notion.blocks.children.list({ block_id: id })
-
-    console.log('blocks', blocks)
 
     const postProperties = {
       title: post.properties.title.title[0].plain_text,

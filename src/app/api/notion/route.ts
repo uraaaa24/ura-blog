@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server'
 import { NOTION_DATABASE_ID } from '@/lib/envs'
 import { notion } from '@/lib/notion'
 
-// GETメソッドのハンドラ関数
-export async function GET() {
+export const GET = async () => {
   try {
     // Notionデータベースからデータをクエリして取得
     const response = await notion.databases.query({

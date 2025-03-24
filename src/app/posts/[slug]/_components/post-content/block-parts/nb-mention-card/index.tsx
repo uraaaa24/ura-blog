@@ -34,7 +34,6 @@ const NBMentionCard = ({ mention, index, fallback }: MentionCardProps) => {
               ref={(node) => {
                 // 画像がキャッシュ済みの場合、onLoad が発火しないケースに対応
                 if (node && node.complete && thumbLoading) {
-                  console.log('complete')
                   setThumbLoading(false)
                 }
               }}
