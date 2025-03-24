@@ -2,14 +2,14 @@
 
 import { Fragment } from 'react'
 
-import MDAnchor from './md-parts/md-anchor'
-import MDBlockquote from './md-parts/md-blockquote'
-import MDCodeBlock from './md-parts/md-codeBlock'
-import { MDHeading2, MDHeading3 } from './md-parts/md-heading'
-import MDHorizontalRule from './md-parts/md-horizontalRule'
-import MDImage from './md-parts/md-image'
-import { MDListItem } from './md-parts/md-list'
-import MDParagraph from './md-parts/md-paragraph'
+import NBAnchor from './block-parts/nb-anchor'
+import NBBlockquote from './block-parts/nb-blockquote'
+import NBCodeBlock from './block-parts/nb-codeBlock'
+import { NBHeading2, NBHeading3 } from './block-parts/nb-heading'
+import NBHorizontalRule from './block-parts/nb-horizontalRule'
+import NBImage from './block-parts/nb-image'
+import { NBListItem } from './block-parts/nb-list'
+import NBParagraph from './block-parts/nb-paragraph'
 
 type PostContentProps = {
   content: any[]
@@ -23,7 +23,7 @@ const RichTextSpan = ({ text }: { text: any }) => {
 
   let element = <span>{content}</span>
 
-  if (link) element = <MDAnchor href={link.url}>{content}</MDAnchor>
+  if (link) element = <NBAnchor href={link.url}>{content}</NBAnchor>
   if (code) element = <code className="bg-gray-200 px-1 py-0.5 rounded-md text-sm">{element}</code>
   if (bold) element = <strong>{element}</strong>
   if (italic) element = <em>{element}</em>
@@ -106,9 +106,9 @@ const renderMention = (text: any, index: number) => {
   const href = text.href || text.plain_text
 
   const fallback = (
-    <MDAnchor key={`fallback-${index}`} href={href}>
+    <NBAnchor key={`fallback-${index}`} href={href}>
       {text.plain_text}
-    </MDAnchor>
+    </NBAnchor>
   )
 
   if (mention.type === 'link_mention') {
@@ -155,32 +155,31 @@ const renderBlock = (block: any) => {
 
       return (
         <Fragment key={id}>
-          {inline.length > 0 && <MDParagraph>{inline}</MDParagraph>}
+          {inline.length > 0 && <NBParagraph>{inline}</NBParagraph>}
           {block}
         </Fragment>
       )
     }
     case 'heading_2':
-      return <MDHeading2 key={id}>{text}</MDHeading2>
+      return <NBHeading2 key={id}>{text}</NBHeading2>
     case 'heading_3':
-      return <MDHeading3 key={id}>{text}</MDHeading3>
+      return <NBHeading3 key={id}>{text}</NBHeading3>
     case 'bulleted_list_item':
     case 'numbered_list_item':
-      return <MDListItem key={id}>{text}</MDListItem>
+    case 'to_do':
+      return <NBListItem key={id}>{text}</NBListItem>
     case 'code':
       return (
-        <MDCodeBlock key={id} language={value.language}>
+        <NBCodeBlock key={id} language={value.language}>
           {value.rich_text[0]?.text?.content ?? ''}
-        </MDCodeBlock>
+        </NBCodeBlock>
       )
     case 'quote':
-      return <MDBlockquote key={id}>{text}</MDBlockquote>
+      return <NBBlockquote key={id}>{text}</NBBlockquote>
     case 'image':
-      return <MDImage key={id} src={value.file.url} alt={value.caption[0]?.plain_text ?? ''} />
-    case 'to_do':
-      return <MDListItem key={id}>{text}</MDListItem>
+      return <NBImage key={id} src={value.file.url} alt={value.caption[0]?.plain_text ?? ''} />
     case 'divider':
-      return <MDHorizontalRule key={id} />
+      return <NBHorizontalRule key={id} />
     default:
       console.warn(`未対応のブロックタイプ: ${type}`)
       console.log(value)

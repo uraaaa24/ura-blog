@@ -1,19 +1,19 @@
 import type { ReactNode } from 'react'
 
-type MDListProps = {
+type NBListProps = {
   children: ReactNode
 }
 
-export const MDUnorderedList = ({ children }: MDListProps) => {
+export const NBUnorderedList = ({ children }: NBListProps) => {
   return (
     <ul className="list-disc pl-6 space-y-3 mb-6 [&_ul]:list-disc [&>li>ul]:my-2">{children}</ul>
   )
 }
 
-export const MDOrderedList = ({ children }: MDListProps) => {
+export const NBOrderedList = ({ children }: NBListProps) => {
   return <ol className="list-decimal pl-6 space-y-3 mb-6">{children}</ol>
 }
 
-export const MDListItem = ({ children }: MDListProps) => {
+export const NBListItem = ({ children }: NBListProps) => {
   return <li className="leading-8">{children}</li>
 }

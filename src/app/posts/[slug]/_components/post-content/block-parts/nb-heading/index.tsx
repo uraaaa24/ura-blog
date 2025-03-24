@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
-type MDHeadingProps = {
+type NBHeadingProps = {
   children: ReactNode
 }
 
-export const MDHeading2 = ({ children }: MDHeadingProps) => {
+export const NBHeading2 = ({ children }: NBHeadingProps) => {
   return (
     <h2 className="relative text-2xl font-bold mt-14 mb-10 w-fit" id={String(children)}>
       {children}
@@ -12,6 +12,6 @@ export const MDHeading2 = ({ children }: MDHeadingProps) => {
   )
 }
 
-export const MDHeading3 = ({ children }: MDHeadingProps) => {
+export const NBHeading3 = ({ children }: NBHeadingProps) => {
   return <h3 className="relative text-xl font-semibold mt-10 mb-6 w-fit">{children}</h3>
 }

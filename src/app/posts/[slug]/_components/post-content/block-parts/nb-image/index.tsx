@@ -1,9 +1,9 @@
-type MDImageProps = {
+type NBImageProps = {
   src?: string
   alt?: string
 }
 
-const MDImage = ({ src, alt }: MDImageProps) => {
+const NBImage = ({ src, alt }: NBImageProps) => {
   return (
     <span className="w-auto flex items-center justify-center h-auto">
       <img className="max-w-full h-auto max-h-96 rounded-xl" src={src || ''} alt={alt || ''} />
@@ -11,4 +11,4 @@ const MDImage = ({ src, alt }: MDImageProps) => {
   )
 }
 
-export default MDImage
+export default NBImage

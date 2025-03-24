@@ -5,7 +5,7 @@ type MDAnchorProps = {
   children: ReactNode
 }
 
-const MDAnchor = ({ href, children, ...props }: MDAnchorProps) => {
+const NBAnchor = ({ href, children, ...props }: MDAnchorProps) => {
   const isHeading = href && href.startsWith('#')
   if (isHeading) {
     return (
@@ -28,4 +28,4 @@ const MDAnchor = ({ href, children, ...props }: MDAnchorProps) => {
   )
 }
 
-export default MDAnchor
+export default NBAnchor

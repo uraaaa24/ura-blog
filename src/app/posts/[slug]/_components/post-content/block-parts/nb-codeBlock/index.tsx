@@ -8,7 +8,7 @@ type CodeBlockProps = {
   children: ReactNode
 }
 
-const MDCodeBlock = ({ language, children }: CodeBlockProps) => {
+const NBCodeBlock = ({ language, children }: CodeBlockProps) => {
   return (
     <SyntaxHighlighter
       style={{
@@ -39,4 +39,4 @@ const MDCodeBlock = ({ language, children }: CodeBlockProps) => {
   )
 }
 
-export default MDCodeBlock
+export default NBCodeBlock
