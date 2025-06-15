@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "watch": "npx tsc --watch",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "vitest",

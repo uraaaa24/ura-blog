@@ -4,7 +4,7 @@ import path from 'node:path'
 import twemoji from '@twemoji/api'
 import matter from 'gray-matter'
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), 'contents')
 
 export type Post = {
   slug: string

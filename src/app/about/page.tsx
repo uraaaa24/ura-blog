@@ -1,8 +1,12 @@
+import Image from 'next/image'
+
 import { Heading1, Heading2 } from '@/components/heading'
 import Section from '@/components/section'
 import SocialLinks from '@/components/social-links'
 
 import type { Metadata } from 'next'
+
+const ICON_SIZE = 160
 
 export const metadata: Metadata = {
   title: 'About - Uralog',
@@ -15,14 +19,24 @@ const AboutPage = () => {
       <Heading1>About</Heading1>
 
       <Section>
-        <p>
-          Hi, I&apos;m Ura! 👋
-          <br />
-          I love building things for the web and continuously learning new technologies.
-          <br />
-          This blog is where I share my development journey, insights, and the little things that
-          inspire me every day.
-        </p>
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <Image
+            src="/ura-icon.png"
+            alt="Profile Picture"
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+            priority
+            className="rounded-full border-2 border-gray-100"
+          />
+          <p>
+            Hi, I&apos;m Ura! 👋
+            <br />
+            I love building things for the web and continuously learning new technologies.
+            <br />
+            This blog is where I share my development journey, insights, and the little things that
+            inspire me every day.
+          </p>
+        </div>
       </Section>
 
       <Section>
