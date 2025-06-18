@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "baseBranch": "development",
+  "changelog": [
+    "@changesets/cli/changelog-github",
+    {
+      "repo": "your-org/ura-blog"
+    }
+  ],
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  }
+}
