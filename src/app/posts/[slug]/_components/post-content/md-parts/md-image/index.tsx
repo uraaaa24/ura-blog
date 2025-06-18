@@ -1,5 +1,5 @@
 type MDImageProps = {
-  src?: string
+  src?: string | Blob
   alt?: string
 }
 
