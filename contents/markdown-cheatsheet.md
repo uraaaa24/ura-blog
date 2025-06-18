@@ -1,9 +1,11 @@
 ---
-title: "マークダウン表現チートシート"
 thumbnail: 😏
-date: "2025-03-14"
-excerpt: "Next.jsとApp Routerを使った個人ブログの作り方について解説します。"
-tags: ["Self"]
+title: マークダウン表現チートシート
+excerpt: Next.jsとApp Routerを使った個人ブログの作り方について解説します。
+date: 2025-03-14
+tags:
+  - Self
+published: true
 ---
 
 マークダウンがどのように表示されるかを一覧で確認する自分用のメモです。
