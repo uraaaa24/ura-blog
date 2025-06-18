@@ -1,6 +1,6 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { fetchPosts } from './data'
+import { fetchPosts } from '@/lib/data'
 
 // Mock the dependencies
 vi.mock('./post', () => ({
@@ -30,7 +30,7 @@ const mockLocalPosts = [
   },
   {
     slug: 'local-post-1',
-    title: 'Local Post 1', 
+    title: 'Local Post 1',
     thumbnail: '/thumbnail1.png',
     date: '2025-01-01',
     formattedDate: '1 Jan 2025',
@@ -65,9 +65,9 @@ describe('fetchPosts', () => {
     const posts = await fetchPosts()
 
     expect(posts).toHaveLength(3)
-    expect(posts.map(p => p.title)).toContain('Local Post 1')
-    expect(posts.map(p => p.title)).toContain('Local Post 2')
-    expect(posts.map(p => p.title)).toContain('Zenn Post 1')
+    expect(posts.map((p) => p.title)).toContain('Local Post 1')
+    expect(posts.map((p) => p.title)).toContain('Local Post 2')
+    expect(posts.map((p) => p.title)).toContain('Zenn Post 1')
   })
 
   it('sorts posts by formatted date in descending order', async () => {
@@ -124,9 +124,9 @@ describe('fetchPosts', () => {
 
     // Should have 4 posts since they are different object instances
     expect(posts).toHaveLength(4)
-    expect(posts.map(p => p.title)).toEqual([
+    expect(posts.map((p) => p.title)).toEqual([
       'Zenn Post 1', // Latest date
-      'Zenn Post 1', // Duplicate object 
+      'Zenn Post 1', // Duplicate object
       'Local Post 2',
       'Local Post 1'
     ])

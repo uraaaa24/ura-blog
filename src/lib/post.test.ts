@@ -1,5 +1,6 @@
-import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 import fs from 'node:fs'
+
+import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 
 import { getAllPosts, getPostBySlug } from './post'
 
