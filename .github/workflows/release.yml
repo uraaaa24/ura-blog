@@ -4,9 +4,9 @@ on:
   push:
     branches: [development]
 
-# bot がブランチを push する
 permissions:
   contents: write
+  pull-requests: write 
 
 jobs:
   release-pr:
