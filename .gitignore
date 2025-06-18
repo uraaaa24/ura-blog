@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Obsidian
 .obsidian/
+
+*storybook.log
+storybook-static

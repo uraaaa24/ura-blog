@@ -29,6 +29,12 @@ npm test          # Run Vitest tests
 npm test:ui       # Run Vitest with UI
 ```
 
+**Storybook:**
+```bash
+npm run storybook        # Start Storybook dev server
+npm run build-storybook  # Build Storybook for production
+```
+
 ## Architecture Overview
 
 This is a Japanese personal blog built with Next.js 15 App Router, combining local Markdown posts with external Zenn articles.
