@@ -21,7 +21,10 @@ export type Post = {
  * 画像の src 属性を抽出するヘルパー関数
  */
 const extractImageSrc = (htmlString: string) => {
-  const _twemoji = twemoji.parse(htmlString)
+  const _twemoji = twemoji.parse(htmlString, {
+    folder: 'svg',
+    ext: '.svg'
+  })
   const match = _twemoji.match(/src="([^"]+)"/)
   return match ? match[1] : null
 }
