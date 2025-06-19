@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { getAllPosts, getPostBySlug } from './post'
 
@@ -8,7 +8,10 @@ import { getAllPosts, getPostBySlug } from './post'
 vi.mock('node:fs')
 vi.mock('@twemoji/api', () => ({
   default: {
-    parse: vi.fn((input: string) => `<img src="https://twemoji.maxcdn.com/v/latest/72x72/1f3c3-200d-2642-fe0f.png" alt="${input}">`)
+    parse: vi.fn(
+      (input: string) =>
+        `<img src="https://twemoji.maxcdn.com/v/latest/72x72/1f3c3-200d-2642-fe0f.png" alt="${input}">`
+    )
   }
 }))
 
@@ -46,10 +49,9 @@ describe('Post utilities', () => {
 
       await getAllPosts()
 
-      expect(mockFs.mkdirSync).toHaveBeenCalledWith(
-        expect.stringContaining('contents'),
-        { recursive: true }
-      )
+      expect(mockFs.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('contents'), {
+        recursive: true
+      })
     })
 
     it('returns empty array when no markdown files exist', async () => {
@@ -63,7 +65,12 @@ describe('Post utilities', () => {
 
     it('filters only markdown files', async () => {
       mockFs.existsSync.mockReturnValue(true)
-      mockFs.readdirSync.mockReturnValue(['test.md', 'test.txt', 'another.MD', 'image.png'] as unknown as fs.Dirent[])
+      mockFs.readdirSync.mockReturnValue([
+        'test.md',
+        'test.txt',
+        'another.MD',
+        'image.png'
+      ] as unknown as fs.Dirent[])
       mockFs.readFileSync.mockReturnValue(mockMarkdownContent)
 
       await getAllPosts()
@@ -90,14 +97,16 @@ describe('Post utilities', () => {
     })
 
     it('sorts posts by date (newest first)', async () => {
-      const oldPost = mockMarkdownContent.replace('2025-01-01', '2024-01-01').replace('Test Post', 'Old Post')
-      const newPost = mockMarkdownContent.replace('2025-01-01', '2025-12-31').replace('Test Post', 'New Post')
+      const oldPost = mockMarkdownContent
+        .replace('2025-01-01', '2024-01-01')
+        .replace('Test Post', 'Old Post')
+      const newPost = mockMarkdownContent
+        .replace('2025-01-01', '2025-12-31')
+        .replace('Test Post', 'New Post')
 
       mockFs.existsSync.mockReturnValue(true)
       mockFs.readdirSync.mockReturnValue(['old.md', 'new.md'] as unknown as fs.Dirent[])
-      mockFs.readFileSync
-        .mockReturnValueOnce(oldPost)
-        .mockReturnValueOnce(newPost)
+      mockFs.readFileSync.mockReturnValueOnce(oldPost).mockReturnValueOnce(newPost)
 
       const posts = await getAllPosts()
 

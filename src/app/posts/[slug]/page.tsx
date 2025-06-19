@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
+import Breadcrumb from '@/components/breadcrumb'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 
 import PostContent from './_components/post-content'
@@ -39,8 +40,14 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   if (!post) notFound()
 
+  const breadcrumbItems = [
+    { label: 'Posts', href: '/posts' },
+    { label: post.title }
+  ]
+
   return (
     <article>
+      <Breadcrumb items={breadcrumbItems} />
       <header className="border-b border-gray-300 mb-12">
         <div className="flex flex-col items-center gap-8 pb-8">
           <Image src={post.thumbnail ?? ''} alt={post.title} width={64} height={64} />

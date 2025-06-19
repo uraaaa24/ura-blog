@@ -6,7 +6,7 @@ type MDAnchorProps = {
 }
 
 const MDAnchor = ({ href, children, ...props }: MDAnchorProps) => {
-  const isHeading = href && href.startsWith('#')
+  const isHeading = href?.startsWith('#')
   if (isHeading) {
     return (
       <a href={href} {...props}>
