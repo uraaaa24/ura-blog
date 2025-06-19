@@ -32,7 +32,7 @@ describe('SocialLinks', () => {
     render(<SocialLinks />)
 
     const links = screen.getAllByRole('link')
-    links.forEach((link) => {
+    links.map((link) => {
       expect(link).toHaveAttribute('target', '_blank')
       expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     })
