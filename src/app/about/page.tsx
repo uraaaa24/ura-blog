@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
+import type { Metadata } from 'next'
+
 import { Heading1, Heading2 } from '@/components/heading'
 import Section from '@/components/section'
 import SocialLinks from '@/components/social-links'
-
-import type { Metadata } from 'next'
 
 const ICON_SIZE = 160
 
@@ -30,8 +30,7 @@ const AboutPage = () => {
           />
           <p>
             Hi, I&apos;m Ura! 👋
-            <br />
-            I love building things for the web and continuously learning new technologies.
+            <br />I love building things for the web and continuously learning new technologies.
             <br />
             This blog is where I share my development journey, insights, and the little things that
             inspire me every day.

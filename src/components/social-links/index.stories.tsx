@@ -6,8 +6,8 @@ const meta: Meta<typeof SocialLinks> = {
   title: 'UI Elements/SocialLinks',
   component: SocialLinks,
   parameters: {
-    layout: 'centered',
-  },
+    layout: 'centered'
+  }
 }
 
 export default meta

@@ -6,7 +6,7 @@ const meta: Meta<typeof MDHorizontalRule> = {
   title: 'Markdown/HorizontalRule',
   component: MDHorizontalRule,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
@@ -15,13 +15,13 @@ const meta: Meta<typeof MDHorizontalRule> = {
         <Story />
         <p>下のテキスト</p>
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {}
 }

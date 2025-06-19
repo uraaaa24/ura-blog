@@ -1,19 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import { MDTable, MDTableHead, MDTableBody, MDTableRow, MDTableHeadCell, MDTableCell } from './index'
+import {
+  MDTable,
+  MDTableHead,
+  MDTableBody,
+  MDTableRow,
+  MDTableHeadCell,
+  MDTableCell
+} from './index'
 
 const meta: Meta<typeof MDTable> = {
   title: 'Markdown/Table',
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-4xl overflow-x-auto">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
@@ -41,7 +48,7 @@ export const SimpleTable: StoryObj<typeof MDTable> = {
         </MDTableRow>
       </MDTableBody>
     </MDTable>
-  ),
+  )
 }
 
 export const LargeTable: StoryObj<typeof MDTable> = {
@@ -80,7 +87,7 @@ export const LargeTable: StoryObj<typeof MDTable> = {
         </MDTableRow>
       </MDTableBody>
     </MDTable>
-  ),
+  )
 }
 
 export const SingleRowTable: StoryObj<typeof MDTable> = {
@@ -99,5 +106,5 @@ export const SingleRowTable: StoryObj<typeof MDTable> = {
         </MDTableRow>
       </MDTableBody>
     </MDTable>
-  ),
+  )
 }

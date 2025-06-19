@@ -6,15 +6,15 @@ const meta: Meta<typeof MDParagraph> = {
   title: 'Markdown/Paragraph',
   component: MDParagraph,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
@@ -22,14 +22,14 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: 'これは通常の段落です。日本語のテキストが含まれています。',
-  },
+    children: 'これは通常の段落です。日本語のテキストが含まれています。'
+  }
 }
 
 export const English: Story = {
   args: {
-    children: 'This is a regular paragraph with English text content.',
-  },
+    children: 'This is a regular paragraph with English text content.'
+  }
 }
 
 export const Long: Story = {
@@ -38,8 +38,8 @@ export const Long: Story = {
     
 Next.jsとTypeScriptを使用したブログ開発について、詳細な説明を提供します。この段落では、プロジェクトの構成、コンポーネントの設計、そしてStorybookの統合について説明しています。
 
-長い文章でも適切に表示されることを確認するために、このような例を用意しました。`,
-  },
+長い文章でも適切に表示されることを確認するために、このような例を用意しました。`
+  }
 }
 
 export const WithLineBreaks: Story = {
@@ -48,6 +48,6 @@ export const WithLineBreaks: Story = {
 行2
 行3
 
-空行の後の行4`,
-  },
+空行の後の行4`
+  }
 }

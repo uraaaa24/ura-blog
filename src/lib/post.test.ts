@@ -70,7 +70,8 @@ describe('Post utilities', () => {
         'test.txt',
         'another.MD',
         'image.png'
-      ] as unknown as fs.Dirent[])
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      ] as any)
       mockFs.readFileSync.mockReturnValue(mockMarkdownContent)
 
       await getAllPosts()
@@ -80,7 +81,8 @@ describe('Post utilities', () => {
 
     it('parses markdown files correctly', async () => {
       mockFs.existsSync.mockReturnValue(true)
-      mockFs.readdirSync.mockReturnValue(['test-post.md'] as unknown as fs.Dirent[])
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      mockFs.readdirSync.mockReturnValue(['test-post.md'] as any)
       mockFs.readFileSync.mockReturnValue(mockMarkdownContent)
 
       const posts = await getAllPosts()
@@ -105,7 +107,8 @@ describe('Post utilities', () => {
         .replace('Test Post', 'New Post')
 
       mockFs.existsSync.mockReturnValue(true)
-      mockFs.readdirSync.mockReturnValue(['old.md', 'new.md'] as unknown as fs.Dirent[])
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      mockFs.readdirSync.mockReturnValue(['old.md', 'new.md'] as any)
       mockFs.readFileSync.mockReturnValueOnce(oldPost).mockReturnValueOnce(newPost)
 
       const posts = await getAllPosts()

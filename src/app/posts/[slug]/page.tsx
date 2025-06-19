@@ -40,10 +40,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   if (!post) notFound()
 
-  const breadcrumbItems = [
-    { label: 'Posts', href: '/posts' },
-    { label: post.title }
-  ]
+  const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
   return (
     <article>

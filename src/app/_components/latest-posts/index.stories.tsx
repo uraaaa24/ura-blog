@@ -7,15 +7,15 @@ const meta: Meta<typeof LatestPosts> = {
   title: 'Blog/LatestPosts',
   component: LatestPosts,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
@@ -30,7 +30,7 @@ const mockPosts: Post[] = [
     formattedDate: '11 Mar 2025',
     content: 'Sample content',
     excerpt: 'Next.jsとApp Routerを使った個人ブログの作り方について解説します。',
-    tags: ['Self'],
+    tags: ['Self']
   },
   {
     slug: 'https://zenn.dev/uraaaa24/articles/sample-article',
@@ -40,7 +40,7 @@ const mockPosts: Post[] = [
     formattedDate: '10 Mar 2025',
     content: 'Sample Zenn content',
     excerpt: 'Zennの記事です',
-    tags: ['Tech', 'Next.js'],
+    tags: ['Tech', 'Next.js']
   },
   {
     slug: '2025-06-10',
@@ -50,24 +50,24 @@ const mockPosts: Post[] = [
     formattedDate: '9 Mar 2025',
     content: 'TypeScript learning content',
     excerpt: 'TypeScriptの基本的な型システムについて学習した内容をまとめました。',
-    tags: ['Tech', 'TypeScript'],
-  },
+    tags: ['Tech', 'TypeScript']
+  }
 ]
 
 export const Default: Story = {
   args: {
-    totalPosts: mockPosts,
-  },
+    totalPosts: mockPosts
+  }
 }
 
 export const FewPosts: Story = {
   args: {
-    totalPosts: mockPosts.slice(0, 2),
-  },
+    totalPosts: mockPosts.slice(0, 2)
+  }
 }
 
 export const Empty: Story = {
   args: {
-    totalPosts: [],
-  },
+    totalPosts: []
+  }
 }

@@ -5,15 +5,15 @@ import { MDUnorderedList, MDOrderedList, MDListItem } from './index'
 const meta: Meta<typeof MDUnorderedList> = {
   title: 'Markdown/List',
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
@@ -25,7 +25,7 @@ export const UnorderedList: StoryObj<typeof MDUnorderedList> = {
       <MDListItem>2番目のリスト項目</MDListItem>
       <MDListItem>3番目のリスト項目</MDListItem>
     </MDUnorderedList>
-  ),
+  )
 }
 
 export const OrderedList: StoryObj<typeof MDOrderedList> = {
@@ -35,7 +35,7 @@ export const OrderedList: StoryObj<typeof MDOrderedList> = {
       <MDListItem>2番目の項目</MDListItem>
       <MDListItem>3番目の項目</MDListItem>
     </MDOrderedList>
-  ),
+  )
 }
 
 export const NestedList: StoryObj<typeof MDUnorderedList> = {
@@ -50,7 +50,7 @@ export const NestedList: StoryObj<typeof MDUnorderedList> = {
       </MDListItem>
       <MDListItem>親リスト項目2</MDListItem>
     </MDUnorderedList>
-  ),
+  )
 }
 
 export const LongTextList: StoryObj<typeof MDUnorderedList> = {
@@ -63,5 +63,5 @@ export const LongTextList: StoryObj<typeof MDUnorderedList> = {
         別の長いテキスト項目。リスト項目内でのテキストの折り返しや行間隔が適切に設定されているかを確認できます。
       </MDListItem>
     </MDUnorderedList>
-  ),
+  )
 }
