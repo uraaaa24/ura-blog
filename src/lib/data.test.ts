@@ -1,5 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { getAllPosts } from './post'
+import { getZennRssFeed } from './zenn'
+
 import { fetchPosts } from '@/lib/data'
 
 // Mock the dependencies
@@ -10,9 +13,6 @@ vi.mock('./post', () => ({
 vi.mock('./zenn', () => ({
   getZennRssFeed: vi.fn()
 }))
-
-import { getAllPosts } from './post'
-import { getZennRssFeed } from './zenn'
 
 const mockAllPosts = vi.mocked(getAllPosts)
 const mockGetZennRssFeed = vi.mocked(getZennRssFeed)
