@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-import Breadcrumb from '@/components/breadcrumb'
-import { getAllPosts, getPostBySlug } from '@/lib/post'
-
 import PostContent from './_components/post-content'
 
 import type { Metadata } from 'next'
+
+import Breadcrumb from '@/components/breadcrumb'
+import { getAllPosts, getPostBySlug } from '@/lib/post'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>

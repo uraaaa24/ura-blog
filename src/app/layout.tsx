@@ -3,11 +3,11 @@ import type { ReactNode } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 
+import type { Metadata } from 'next'
+
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { GA_MEASUREMENT_ID } from '@/lib/envs'
-
-import type { Metadata } from 'next'
 
 import './globals.css'
 

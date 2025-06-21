@@ -24,14 +24,15 @@
     }
   },
   "include": [
-    "@types",
-    ".storybook/**/*",
     "**/*.js",
     "**/*.jsx",
+    "**/*.mjs",
+    "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mjs",
-    "**/*.mts"
+    ".storybook/**/*",
+    "@types",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
