@@ -10,7 +10,8 @@
       "node_modules/**",
       "**/*.css.d.ts",
       "**/*.css.d.ts.map",
-      "storybook-static/**"
+      "storybook-static/**",
+      "contents/.obsidian/**"
     ]
   },
   "linter": {
