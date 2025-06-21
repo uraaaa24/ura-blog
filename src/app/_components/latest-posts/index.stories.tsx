@@ -25,7 +25,8 @@ const mockPosts: Post[] = [
   {
     slug: '2025-06-15',
     title: 'ブログ始めました',
-    thumbnail: '🏃‍♂️',
+    thumbnail:
+      'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3-200d-2642-fe0f.svg',
     date: '2025-03-11',
     formattedDate: '11 Mar 2025',
     content: 'Sample content',
@@ -45,7 +46,8 @@ const mockPosts: Post[] = [
   {
     slug: '2025-06-10',
     title: 'TypeScriptの基礎を学ぶ',
-    thumbnail: '📝',
+    thumbnail:
+      'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3-200d-2642-fe0f.svg',
     date: '2025-03-09',
     formattedDate: '9 Mar 2025',
     content: 'TypeScript learning content',
