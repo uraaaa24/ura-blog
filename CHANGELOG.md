@@ -1,5 +1,15 @@
 # ura-blog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`97753fc`](https://github.com/uraaaa24/ura-blog/commit/97753fc06823d347f1d354f56909cff6ba6f5f88) Thanks [@uraaaa24](https://github.com/uraaaa24)! - add support for additional Markdown elements
+
+- [#4](https://github.com/uraaaa24/ura-blog/pull/4) [`73c0089`](https://github.com/uraaaa24/ura-blog/commit/73c008964489ec761948e15bdc0d3ffd73161af4) Thanks [@github-actions](https://github.com/apps/github-actions)! - add separator in README.md
+
+- [#4](https://github.com/uraaaa24/ura-blog/pull/4) [`c9027d3`](https://github.com/uraaaa24/ura-blog/commit/c9027d37fc44db0c784350ca7528fd865779e5f9) Thanks [@github-actions](https://github.com/apps/github-actions)! - Refactor and clean up code across multiple components and tests
+
 ## 1.0.0
 
 ### Major Changes
