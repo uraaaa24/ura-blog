@@ -27,5 +27,6 @@ jobs:
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
+          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
