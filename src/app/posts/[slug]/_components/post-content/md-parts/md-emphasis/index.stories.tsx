@@ -39,7 +39,11 @@ export const InSentence: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
-        <p>この文章には<Story />部分があります。</p>
+        <p>
+          この文章には
+          <Story />
+          部分があります。
+        </p>
       </div>
     )
   ]
@@ -52,7 +56,9 @@ export const Technical: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
-        <p>The <Story /> should be defined before use.</p>
+        <p>
+          The <Story /> should be defined before use.
+        </p>
       </div>
     )
   ]

@@ -39,7 +39,11 @@ export const InSentence: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
-        <p>これは<Story />新しい情報に更新されました。</p>
+        <p>
+          これは
+          <Story />
+          新しい情報に更新されました。
+        </p>
       </div>
     )
   ]
@@ -52,7 +56,9 @@ export const Correction: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
-        <p>The report contained <Story /> correct information after review.</p>
+        <p>
+          The report contained <Story /> correct information after review.
+        </p>
       </div>
     )
   ]

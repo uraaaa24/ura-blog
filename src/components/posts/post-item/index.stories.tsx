@@ -24,7 +24,8 @@ type Story = StoryObj<typeof meta>
 const mockLocalPost: Post = {
   slug: '2025-06-15',
   title: 'ブログ始めました',
-  thumbnail: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3-200d-2642-fe0f.svg',
+  thumbnail:
+    'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3c3-200d-2642-fe0f.svg',
   date: '2025-03-11',
   formattedDate: '11 Mar 2025',
   content: 'Sample content',
