@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import { MDHeading2, MDHeading3 } from './index'
+import { MDHeading1, MDHeading2, MDHeading3, MDHeading4, MDHeading5, MDHeading6 } from './index'
 
 const meta2: Meta<typeof MDHeading2> = {
   title: 'Markdown/Heading2',
@@ -52,4 +52,32 @@ export const Heading3English: Story3 = {
     ...meta3.parameters
   },
   render: (args) => <MDHeading3 {...args} />
+}
+
+export const Heading1: StoryObj<typeof MDHeading1> = {
+  args: {
+    children: 'ページタイトル'
+  },
+  render: (args) => <MDHeading1 {...args} />
+}
+
+export const Heading4: StoryObj<typeof MDHeading4> = {
+  args: {
+    children: '小見出し'
+  },
+  render: (args) => <MDHeading4 {...args} />
+}
+
+export const Heading5: StoryObj<typeof MDHeading5> = {
+  args: {
+    children: '詳細見出し'
+  },
+  render: (args) => <MDHeading5 {...args} />
+}
+
+export const Heading6: StoryObj<typeof MDHeading6> = {
+  args: {
+    children: '最小見出し'
+  },
+  render: (args) => <MDHeading6 {...args} />
 }
