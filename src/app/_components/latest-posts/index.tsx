@@ -11,7 +11,7 @@ const LatestPosts = ({ totalPosts }: LatestPostsProps) => {
   return (
     <>
       <Heading2>Latest Posts</Heading2>
-      <PostItems totalPosts={totalPosts} />
+      <PostItems posts={totalPosts} />
     </>
   )
 }

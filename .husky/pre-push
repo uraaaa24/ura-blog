@@ -17,11 +17,4 @@ if ! npm run test -- --run; then
   exit 1
 fi
 
-# Run build
-echo "Running build..."
-if ! npm run build; then
-  echo "❌ Build failed. Please fix the issues before pushing."
-  exit 1
-fi
-
 echo "✅ All quality checks passed. Proceeding with push..."

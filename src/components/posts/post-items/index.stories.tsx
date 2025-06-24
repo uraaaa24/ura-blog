@@ -11,7 +11,7 @@ const meta: Meta<typeof PostItems> = {
   },
   decorators: [
     (Story) => (
-      <div className="max-w-2xl">
+      <div className="w-full max-w-2xl">
         <Story />
       </div>
     )
@@ -58,18 +58,25 @@ const mockPosts: Post[] = [
 
 export const Default: Story = {
   args: {
-    totalPosts: mockPosts
+    posts: mockPosts
+  }
+}
+
+export const WithSearch: Story = {
+  args: {
+    posts: mockPosts,
+    showSearch: true
   }
 }
 
 export const SinglePost: Story = {
   args: {
-    totalPosts: [mockPosts[0]]
+    posts: [mockPosts[0]]
   }
 }
 
 export const Empty: Story = {
   args: {
-    totalPosts: []
+    posts: []
   }
 }

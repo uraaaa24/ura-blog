@@ -15,7 +15,7 @@ const PostsPage = async () => {
   return (
     <>
       <Heading1>Posts</Heading1>
-      <PostItems totalPosts={totalPosts} />
+      <PostItems posts={totalPosts} showSearch />
     </>
   )
 }
