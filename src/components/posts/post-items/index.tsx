@@ -6,6 +6,8 @@ import PostItem from '../post-item'
 
 import type { Post } from '@/lib/post'
 
+import Input from '@/components/input'
+
 type PostItemsProps = {
   posts: Post[]
   showSearch?: boolean
@@ -28,12 +30,10 @@ const PostItems = ({ posts, showSearch = false }: PostItemsProps) => {
     <>
       {showSearch && (
         <div className="mb-8">
-          <input
-            type="text"
-            placeholder="Search posts"
+          <Input
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full py-2.5 px-4 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-300"
+            onChange={(value) => setSearchQuery(value)}
+            placeholder="Search posts"
           />
         </div>
       )}
