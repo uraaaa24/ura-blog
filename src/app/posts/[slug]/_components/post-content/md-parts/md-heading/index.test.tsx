@@ -24,12 +24,12 @@ describe('MD Heading Components', () => {
       render(<MDHeading level={2}>Section Title</MDHeading>)
 
       const heading = screen.getByRole('heading', { level: 2 })
-      expect(heading).toHaveAttribute('id', 'Section Title')
+      expect(heading).toHaveAttribute('id', 'section-title')
     })
 
     it('handles Japanese content', () => {
       const japaneseTitle = 'セクションタイトル'
-      render(<MDHeading2>{japaneseTitle}</MDHeading2>)
+      render(<MDHeading level={2}>{japaneseTitle}</MDHeading>)
 
       const heading = screen.getByRole('heading', { level: 2 })
       expect(heading).toHaveTextContent(japaneseTitle)
@@ -53,7 +53,7 @@ describe('MD Heading Components', () => {
       expect(heading).toHaveClass(
         'relative',
         'text-xl',
-        'font-semibold',
+        'font-bold',
         'mt-10',
         'mb-6',
         'w-fit',
