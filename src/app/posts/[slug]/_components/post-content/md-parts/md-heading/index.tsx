@@ -1,37 +1,57 @@
 import type { ReactNode } from 'react'
 
+/**
+ * 見出しテキスト → URL-safe な slug を生成
+ * NFC正規化で日本語の濁点・半濁点を結合状態に統一し、記号類を除外
+ */
+const toSlug = (src: string) => {
+  return src
+    .normalize('NFC')
+    .replace(/[^\p{L}\p{N}\s-]+/gu, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .toLowerCase()
+}
+
+const headingClassName = (level: number) => {
+  const base = 'relative font-bold w-fit group'
+  switch (level) {
+    case 1:
+      return `${base} text-4xl mt-16 mb-12`
+    case 2:
+      return `${base} text-2xl mt-14 mb-10`
+    case 3:
+      return `${base} text-xl mt-10 mb-6`
+    case 4:
+      return `${base} text-lg mt-8  mb-4`
+    case 5:
+      return `${base} text-base mt-6 mb-3`
+    default:
+      return `${base} text-sm mt-4 mb-2`
+  }
+}
+
 type MDHeadingProps = {
+  level: 2 | 3 | 4 | 5 | 6
   children: ReactNode
 }
 
-export const MDHeading2 = ({ children }: MDHeadingProps) => {
+export const MDHeading = ({ level, children }: MDHeadingProps) => {
+  const text = String(children)
+  const slug = toSlug(text)
+
+  const Tag = `h${level}` as const
+
   return (
-    <h2 className="relative text-2xl font-bold mt-14 mb-10 w-fit" id={String(children)}>
-      {children}
-    </h2>
+    <Tag id={slug} className={headingClassName(level)}>
+      <a
+        href={`#${slug}`}
+        aria-label={`To heading: ${text}`}
+        className="no-underline hover:opacity-80 transition-opacity duration-200"
+      >
+        {children}
+      </a>
+    </Tag>
   )
-}
-
-export const MDHeading1 = ({ children }: MDHeadingProps) => {
-  return (
-    <h1 className="relative text-4xl font-bold mt-16 mb-12 w-fit" id={String(children)}>
-      {children}
-    </h1>
-  )
-}
-
-export const MDHeading3 = ({ children }: MDHeadingProps) => {
-  return <h3 className="relative text-xl font-semibold mt-10 mb-6 w-fit">{children}</h3>
-}
-
-export const MDHeading4 = ({ children }: MDHeadingProps) => {
-  return <h4 className="relative text-lg font-semibold mt-8 mb-4 w-fit">{children}</h4>
-}
-
-export const MDHeading5 = ({ children }: MDHeadingProps) => {
-  return <h5 className="relative text-base font-semibold mt-6 mb-3 w-fit">{children}</h5>
-}
-
-export const MDHeading6 = ({ children }: MDHeadingProps) => {
-  return <h6 className="relative text-sm font-semibold mt-4 mb-2 w-fit">{children}</h6>
 }
