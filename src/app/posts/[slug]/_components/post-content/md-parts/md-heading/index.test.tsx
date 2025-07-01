@@ -50,7 +50,15 @@ describe('MD Heading Components', () => {
       render(<MDHeading level={3}>Test Heading</MDHeading>)
 
       const heading = screen.getByRole('heading', { level: 3 })
-      expect(heading).toHaveClass('relative', 'text-xl', 'font-semibold', 'mt-10', 'mb-6', 'w-fit')
+      expect(heading).toHaveClass(
+        'relative',
+        'text-xl',
+        'font-semibold',
+        'mt-10',
+        'mb-6',
+        'w-fit',
+        'group'
+      )
     })
 
     it('handles nested content', () => {
