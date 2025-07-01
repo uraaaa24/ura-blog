@@ -2,9 +2,9 @@
 
 import { usePathname } from 'next/navigation'
 
-import { navLinks } from '@/constants/nav-links'
-
 import LinkItem from './link-item'
+
+import { navLinks } from '@/constants/nav-links'
 
 const Header = () => {
   const pathName = usePathname()

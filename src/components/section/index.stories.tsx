@@ -6,8 +6,8 @@ const meta: Meta<typeof Section> = {
   title: 'Layout/Section',
   component: Section,
   parameters: {
-    layout: 'centered',
-  },
+    layout: 'centered'
+  }
 }
 
 export default meta
@@ -20,8 +20,8 @@ export const Default: Story = {
         <h2 className="text-2xl font-semibold mb-4">セクションタイトル</h2>
         <p>このセクションにはコンテンツが含まれています。</p>
       </div>
-    ),
-  },
+    )
+  }
 }
 
 export const WithMultipleContent: Story = {
@@ -37,6 +37,6 @@ export const WithMultipleContent: Story = {
           <li>リストアイテム3</li>
         </ul>
       </div>
-    ),
-  },
+    )
+  }
 }

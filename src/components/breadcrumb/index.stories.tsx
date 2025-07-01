@@ -39,7 +39,9 @@ export const LongTitle: Story = {
   args: {
     items: [
       { label: 'Posts', href: '/posts' },
-      { label: 'This is a Very Long Article Title That Might Wrap to Multiple Lines in Some Cases' }
+      {
+        label: 'This is a Very Long Article Title That Might Wrap to Multiple Lines in Some Cases'
+      }
     ]
   }
 }

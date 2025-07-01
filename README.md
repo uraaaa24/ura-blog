@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ura Blog
 
-## Getting Started
+A modern personal tech blog built with **Next.js 15**, integrating local Markdown posts and external Zenn articles to showcase full‑stack skills and performance‑focused React patterns.
 
-First, run the development server:
+---
+
+## ✨ Key Features
+
+| Area                     | Highlights                                                                                              |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Architecture**         | Next.js 15 App Router · Hybrid CMS (Markdown + Zenn RSS) · TypeScript strict · Modular component design |
+| **Developer Experience** | Turbopack HMR · Vitest + Testing Library · Storybook · ESLint/Prettier                                  |
+| **UI / UX**              | Tailwind CSS · Responsive mobile‑first layouts · Japanese typography tuning · Image & font optimization |
+
+---
+
+## ⚙️ Getting Started
 
 ```bash
+# Install deps
+npm install
+
+# Dev server with HMR
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Production build & start
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Useful Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint         # Lint & type‑check
+npm run lint:fix     # Auto‑fix
+npm test             # Vitest suite
+npm test:ui          # Vitest UI
+npm run storybook    # Storybook dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 What I Learned
 
-To learn more about Next.js, take a look at the following resources:
+* Demonstrates modern **React Server Components**, Suspense & streaming
+* Shows **performance engineering** with bundle splitting & asset optimization
+* Implements **strict type safety** end‑to‑end with TypeScript
+* Follows **test‑driven** and component‑driven development practices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built as a portfolio project to highlight modern web development techniques.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

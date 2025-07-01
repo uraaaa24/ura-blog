@@ -5,10 +5,7 @@ import Breadcrumb from './index'
 
 describe('Breadcrumb', () => {
   it('renders breadcrumb navigation', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
@@ -17,10 +14,7 @@ describe('Breadcrumb', () => {
   })
 
   it('renders all breadcrumb items', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
@@ -29,10 +23,7 @@ describe('Breadcrumb', () => {
   })
 
   it('renders links for items with href', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
@@ -42,10 +33,7 @@ describe('Breadcrumb', () => {
   })
 
   it('renders span for items without href', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
@@ -68,22 +56,21 @@ describe('Breadcrumb', () => {
   })
 
   it('applies correct CSS classes to links', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
     const link = screen.getByRole('link', { name: 'Posts' })
-    expect(link).toHaveClass('text-gray-400', 'font-medium', 'hover:text-gray-600', 'transition-colors')
+    expect(link).toHaveClass(
+      'text-gray-400',
+      'font-medium',
+      'hover:text-gray-600',
+      'transition-colors'
+    )
   })
 
   it('applies correct CSS classes to current page', () => {
-    const items = [
-      { label: 'Posts', href: '/posts' },
-      { label: 'Sample Article' }
-    ]
+    const items = [{ label: 'Posts', href: '/posts' }, { label: 'Sample Article' }]
 
     render(<Breadcrumb items={items} />)
 
@@ -92,9 +79,7 @@ describe('Breadcrumb', () => {
   })
 
   it('handles single item breadcrumb', () => {
-    const items = [
-      { label: 'Current Page' }
-    ]
+    const items = [{ label: 'Current Page' }]
 
     render(<Breadcrumb items={items} />)
 

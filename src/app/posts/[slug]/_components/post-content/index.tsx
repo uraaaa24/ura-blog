@@ -9,11 +9,21 @@ import remarkGfm from 'remark-gfm'
 import MDAnchor from './md-parts/md-anchor'
 import MDBlockquote from './md-parts/md-blockquote'
 import MDCodeBlock from './md-parts/md-codeBlock'
-import { MDHeading2, MDHeading3 } from './md-parts/md-heading'
+import MDDelete from './md-parts/md-delete'
+import MDEmphasis from './md-parts/md-emphasis'
+import {
+  MDHeading1,
+  MDHeading2,
+  MDHeading3,
+  MDHeading4,
+  MDHeading5,
+  MDHeading6
+} from './md-parts/md-heading'
 import MDHorizontalRule from './md-parts/md-horizontalRule'
 import MDImage from './md-parts/md-image'
 import { MDListItem, MDOrderedList, MDUnorderedList } from './md-parts/md-list'
 import MDParagraph from './md-parts/md-paragraph'
+import MDStrong from './md-parts/md-strong'
 import {
   MDTable,
   MDTableBody,
@@ -31,8 +41,12 @@ const components: Components | null | undefined = {
       {children}
     </MDCodeBlock>
   ),
+  h1: ({ children }) => <MDHeading1>{children}</MDHeading1>,
   h2: ({ children }) => <MDHeading2>{children}</MDHeading2>,
   h3: ({ children }) => <MDHeading3>{children}</MDHeading3>,
+  h4: ({ children }) => <MDHeading4>{children}</MDHeading4>,
+  h5: ({ children }) => <MDHeading5>{children}</MDHeading5>,
+  h6: ({ children }) => <MDHeading6>{children}</MDHeading6>,
   p: ({ children }) => <MDParagraph>{children}</MDParagraph>,
   table: ({ children }) => <MDTable>{children}</MDTable>,
   tbody: ({ children }) => <MDTableBody>{children}</MDTableBody>,
@@ -50,7 +64,10 @@ const components: Components | null | undefined = {
       {children}
     </MDAnchor>
   ),
-  blockquote: ({ children }) => <MDBlockquote>{children}</MDBlockquote>
+  blockquote: ({ children }) => <MDBlockquote>{children}</MDBlockquote>,
+  strong: ({ children }) => <MDStrong>{children}</MDStrong>,
+  em: ({ children }) => <MDEmphasis>{children}</MDEmphasis>,
+  del: ({ children }) => <MDDelete>{children}</MDDelete>
 }
 
 type PostContentProps = {

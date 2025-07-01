@@ -6,15 +6,15 @@ const meta: Meta<typeof HeroContent> = {
   title: 'Pages/HeroContent',
   component: HeroContent,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-2xl">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta

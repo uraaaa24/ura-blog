@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-import Breadcrumb from '@/components/breadcrumb'
-import { getAllPosts, getPostBySlug } from '@/lib/post'
-
 import PostContent from './_components/post-content'
 
 import type { Metadata } from 'next'
+
+import Breadcrumb from '@/components/breadcrumb'
+import { getAllPosts, getPostBySlug } from '@/lib/post'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
@@ -40,10 +40,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   if (!post) notFound()
 
-  const breadcrumbItems = [
-    { label: 'Posts', href: '/posts' },
-    { label: post.title }
-  ]
+  const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
   return (
     <article>

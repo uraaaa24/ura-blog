@@ -1,8 +1,8 @@
+import type { Metadata } from 'next'
+
 import { Heading1 } from '@/components/heading'
 import PostItems from '@/components/posts/post-items'
 import { fetchPosts } from '@/lib/data'
-
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Posts - Uralog',
@@ -15,7 +15,7 @@ const PostsPage = async () => {
   return (
     <>
       <Heading1>Posts</Heading1>
-      <PostItems totalPosts={totalPosts} />
+      <PostItems posts={totalPosts} showSearch />
     </>
   )
 }

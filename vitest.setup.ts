@@ -5,8 +5,7 @@ import { vi } from 'vitest'
 
 // Mock Next.js Image component
 vi.mock('next/image', () => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  default: ({ src, alt, ...props }: any) => {
+  default: ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => {
     return React.createElement('img', { src, alt, ...props })
   }
 }))

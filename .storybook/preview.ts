@@ -5,24 +5,16 @@ const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
-      },
+        color: /(background|color)$/i,
+        date: /Date$/i
+      }
     },
     options: {
       storySort: {
-        order: [
-          'Layout',
-          'Typography', 
-          'UI Elements',
-          'Markdown',
-          'Blog',
-          'Pages',
-          '*'
-        ],
-      },
-    },
-  },
-};
+        order: ['Layout', 'Typography', 'UI Elements', 'Markdown', 'Blog', 'Pages', '*']
+      }
+    }
+  }
+}
 
-export default preview;
+export default preview

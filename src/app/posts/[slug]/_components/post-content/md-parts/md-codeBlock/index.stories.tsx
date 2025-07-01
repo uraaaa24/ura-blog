@@ -6,15 +6,15 @@ const meta: Meta<typeof MDCodeBlock> = {
   title: 'Markdown/CodeBlock',
   component: MDCodeBlock,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   decorators: [
     (Story) => (
       <div className="max-w-3xl">
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 }
 
 export default meta
@@ -31,8 +31,8 @@ function add(a, b) {
 }
 
 const result = add(2, 3);
-console.log(result);`,
-  },
+console.log(result);`
+  }
 }
 
 export const TypeScript: Story = {
@@ -51,14 +51,14 @@ const createUser = (userData: Omit<User, 'id'>): User => {
   };
 };
 
-const user = createUser({ name: 'John Doe' });`,
-  },
+const user = createUser({ name: 'John Doe' });`
+  }
 }
 
 export const InlineCode: Story = {
   args: {
-    children: 'npm install',
-  },
+    children: 'npm install'
+  }
 }
 
 export const Bash: Story = {
@@ -67,6 +67,6 @@ export const Bash: Story = {
     children: `npm install
 npm run dev
 git add .
-git commit -m "Add new feature"`,
-  },
+git commit -m "Add new feature"`
+  }
 }

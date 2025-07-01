@@ -6,16 +6,16 @@ const meta1: Meta<typeof Heading1> = {
   title: 'Typography/Heading1',
   component: Heading1,
   parameters: {
-    layout: 'centered',
-  },
+    layout: 'centered'
+  }
 }
 
 const meta2: Meta<typeof Heading2> = {
   title: 'Typography/Heading2',
   component: Heading2,
   parameters: {
-    layout: 'centered',
-  },
+    layout: 'centered'
+  }
 }
 
 export default meta1
@@ -24,32 +24,32 @@ type Story2 = StoryObj<typeof meta2>
 
 export const Default: Story1 = {
   args: {
-    children: 'メインタイトル',
-  },
+    children: 'メインタイトル'
+  }
 }
 
 export const English: Story1 = {
   args: {
-    children: 'Main Title',
-  },
+    children: 'Main Title'
+  }
 }
 
 export const Heading2Default: Story2 = {
   args: {
-    children: 'セクションタイトル',
+    children: 'セクションタイトル'
   },
   parameters: {
-    ...meta2.parameters,
+    ...meta2.parameters
   },
-  render: (args) => <Heading2 {...args} />,
+  render: (args) => <Heading2 {...args} />
 }
 
 export const Heading2English: Story2 = {
   args: {
-    children: 'Section Title',
+    children: 'Section Title'
   },
   parameters: {
-    ...meta2.parameters,
+    ...meta2.parameters
   },
-  render: (args) => <Heading2 {...args} />,
+  render: (args) => <Heading2 {...args} />
 }
