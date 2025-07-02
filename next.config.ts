@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.jsdelivr.net'
       }
     ]
+  },
+  experimental: {
+    viewTransition: true
   }
 }
 

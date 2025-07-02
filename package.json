@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "app": "next build && next start",
     "watch": "npx tsc --watch",
     "lint": "biome check . && next lint",
     "lint:fix": "biome check --write . && next lint --fix",
