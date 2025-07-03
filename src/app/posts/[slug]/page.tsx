@@ -6,6 +6,7 @@ import PostContent from './_components/post-content'
 import type { Metadata } from 'next'
 
 import Breadcrumb from '@/components/breadcrumb'
+import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 
 export async function generateMetadata(props: {
@@ -20,10 +21,8 @@ export async function generateMetadata(props: {
     }
   }
 
-  return {
-    title: post.title,
-    description: post.excerpt
-  }
+  // OGP画像を含む完全なメタデータを生成
+  return generateOGPMetadata(post)
 }
 
 export async function generateStaticParams() {
