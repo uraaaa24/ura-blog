@@ -1,16 +1,23 @@
 import Link from 'next/link'
 
+import { Heading1 } from '@/components/heading'
+import Section from '@/components/section'
+
 export default function NotFound() {
   return (
-    <div className="text-center py-16">
-      <h1 className="text-4xl font-bold mb-4">404 - ページが見つかりません</h1>
-      <p className="text-gray-600 mb-8">お探しのページは存在しないか、移動した可能性があります。</p>
-      <Link
-        href="/"
-        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition-colors"
-      >
-        ホームに戻る
-      </Link>
-    </div>
+    <Section>
+      <div className="text-center py-4">
+        <Heading1>🤔 ページが見つかりません</Heading1>
+        <div className="flex flex-col space-y-6">
+          <p>お探しのページは存在しないか、移動した可能性があります。</p>
+          <Link
+            href="/"
+            className="text-gray-400 transition-colors hover:text-gray-700 font-medium"
+          >
+            ホームに戻る
+          </Link>
+        </div>
+      </div>
+    </Section>
   )
 }
