@@ -14,7 +14,11 @@ const PostItem = ({ post }: PostCardProps) => {
   const externalProps = isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
   return (
-    <Link href={href} {...externalProps} className="border-b border-gray-300 dark:border-gray-600 py-4 block hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors duration-200">
+    <Link
+      href={href}
+      {...externalProps}
+      className="border-b border-gray-300 dark:border-gray-600 py-4 block hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors duration-200"
+    >
       <article className="h-full">
         <div className="flex items-center gap-2">
           <div className="w-20 h-20 mr-4 bg-gray-200 dark:bg-gray-700 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden">

@@ -36,14 +36,18 @@ h6 {
 
 ::view-transition-new(root) {
   z-index: 1;
-  animation: theme-expand 1s cubic-bezier(.4, .7, .5, 1) both;
-  mask-image: radial-gradient(circle var(--theme-mask-size) at var(--theme-toggle-x) var(--theme-toggle-y),
-      black 0%, black 60%, transparent 100%);
+  animation: theme-expand 1s cubic-bezier(0.4, 0.7, 0.5, 1) both;
+  mask-image: radial-gradient(
+    circle var(--theme-mask-size) at var(--theme-toggle-x) var(--theme-toggle-y),
+    black 0%,
+    black 60%,
+    transparent 100%
+  );
 }
 
 ::view-transition-old(root) {
   z-index: -1;
-  animation: theme-contract 1s cubic-bezier(.4, 0, .2, 1) both;
+  animation: theme-contract 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 /* -------- キーフレーム -------- */
@@ -56,7 +60,6 @@ h6 {
     --theme-mask-size: calc(var(--theme-toggle-radius) * 1.75);
   }
 }
-
 
 @keyframes theme-contract {
   0% {
