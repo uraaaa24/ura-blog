@@ -29,12 +29,12 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="text-gray-400 font-medium hover:text-gray-600 transition-colors"
+                  className="font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
                 >
                   {label}
                 </Link>
               ) : (
-                <span className="text-black font-bold">{label}</span>
+                <span className="font-bold">{label}</span>
               )}
             </li>
           )

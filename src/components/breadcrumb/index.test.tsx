@@ -75,7 +75,7 @@ describe('Breadcrumb', () => {
     render(<Breadcrumb items={items} />)
 
     const currentPage = screen.getByText('Sample Article')
-    expect(currentPage).toHaveClass('text-black', 'font-bold')
+    expect(currentPage).toHaveClass('font-bold')
   })
 
   it('handles single item breadcrumb', () => {

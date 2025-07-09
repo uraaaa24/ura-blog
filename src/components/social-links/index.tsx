@@ -5,14 +5,14 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 const SocialLinks = () => {
   return (
     <div className="flex space-x-6">
-      {SOCIAL_LINKS.map(({ href, src, alt }) => (
+      {Object.entries(SOCIAL_LINKS).map(([key, { href, src, alt }]) => (
         <a key={href} href={href} target="_blank" rel="noopener noreferrer">
           <Image
             src={src}
             alt={alt}
             width={24}
             height={24}
-            className="hover:opacity-75 transition-opacity duration-200"
+            className={`hover:opacity-75 transition-opacity duration-200 ${key !== 'zenn' ? 'dark:invert' : ''}`}
           />
         </a>
       ))}

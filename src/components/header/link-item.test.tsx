@@ -10,7 +10,7 @@ describe('LinkItem', () => {
     const link = screen.getByRole('link', { name: 'Home' })
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '/')
-    expect(link).toHaveClass('text-black', 'font-bold')
+    expect(link).toHaveClass('text-gray-900', 'font-bold')
   })
 
   it('renders inactive link with correct styling', () => {
@@ -26,6 +26,6 @@ describe('LinkItem', () => {
     render(<LinkItem isActive={false} href="/about" label="About" />)
 
     const link = screen.getByRole('link', { name: 'About' })
-    expect(link).toHaveClass('hover:text-gray-600', 'transition-colors')
+    expect(link).toHaveClass('hover:text-gray-800', 'transition-colors')
   })
 })
