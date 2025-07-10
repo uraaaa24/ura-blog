@@ -4,6 +4,18 @@ A modern personal tech blog built with **Next.js 15**, integrating local Markdo
 
 ---
 
+## 📚 Table of Contents
+
+- [Ura Blog](#ura-blog)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [✨ Key Features](#-key-features)
+  - [🚀 Technologies Used](#-technologies-used)
+  - [⚙️ Getting Started](#️-gettingstarted)
+    - [Useful Scripts](#useful-scripts)
+  - [🎯 What I Learned](#-what-i-learned)
+
+---
+
 ## ✨ Key Features
 
 | Area                     | Highlights                                                                                              |
@@ -11,6 +23,20 @@ A modern personal tech blog built with **Next.js 15**, integrating local Markdo
 | **Architecture**         | Next.js 15 App Router · Hybrid CMS (Markdown + Zenn RSS) · TypeScript strict · Modular component design |
 | **Developer Experience** | Turbopack HMR · Vitest + Testing Library · Storybook · ESLint/Prettier                                  |
 | **UI / UX**              | Tailwind CSS · Responsive mobile‑first layouts · Japanese typography tuning · Image & font optimization |
+
+---
+
+## 🚀 Technologies Used
+
+| Category           | Technologies                                                                                                                                                           |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework**      | [Next.js](https://nextjs.org/) 15                                                                                                                                      |
+| **Language**       | [TypeScript](https://www.typescriptlang.org/)                                                                                                                          |
+| **UI**             | [React](https://react.dev/) 19, [Tailwind CSS](https://tailwindcss.com/), [Storybook](https://storybook.js.org/)                                                        |
+| **Testing**        | [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)                                                    |
+| **Linting**        | [Biome](https://biomejs.dev/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)                                                                          |
+| **Content**        | [Markdown](https://daringfireball.net/projects/markdown/), [Zenn RSS](https://zenn.dev/)                                                                                |
+| **Deployment**     | [Vercel](https://vercel.com/)                                                                                                                                          |
 
 ---
 
@@ -49,5 +75,3 @@ npm run storybook    # Storybook dev
 ---
 
 Built as a portfolio project to highlight modern web development techniques.
-
----
