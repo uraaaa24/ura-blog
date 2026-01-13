@@ -2,13 +2,14 @@ import type { ReactNode } from 'react'
 
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
-import { cookies } from 'next/headers'
+import Script from 'next/script'
 
 import type { Metadata } from 'next'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { GA_MEASUREMENT_ID } from '@/lib/envs'
+import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
 
 import './globals.css'
@@ -18,14 +19,47 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Uralog',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000'),
+  title: {
+    default: 'Uralog',
+    template: '%s | Uralog'
+  },
   description:
-    'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
+    'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。',
+  keywords: ['フロントエンド', 'プログラミング', 'ブログ', 'エンジニア', 'Web開発', 'JavaScript'],
+  authors: [{ name: 'Ura' }],
+  creator: 'Ura',
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/',
+    siteName: 'Uralog',
+    title: 'Uralog',
+    description:
+      'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Uralog',
+    description:
+      'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  }
 }
 
-const RootLayout = async ({ children }: { children: ReactNode }) => {
-  const cookieStore = await cookies()
-  const theme = cookieStore.get('theme')?.value
+const RootLayout = ({ children }: { children: ReactNode }) => {
+  // サイト全体の構造化データ
+  const webSiteStructuredData = generateWebSiteStructuredData()
 
   return (
     <html lang="ja" className="dark" suppressHydrationWarning>
@@ -38,6 +72,11 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           transition-colors duration-300
         `}
       >
+        {/* サイト全体の構造化データ (JSON-LD) */}
+        <Script id="website-structured-data" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(webSiteStructuredData)}
+        </Script>
+
         <ThemeProvider>
           <Header />
           <main className="flex-grow pt-32 px-6">

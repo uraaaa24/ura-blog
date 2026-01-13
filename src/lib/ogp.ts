@@ -50,13 +50,20 @@ export function generateOGPImageUrl(post: Post, baseUrl = ''): string {
  */
 export function generateOGPMetadata(post: Post, baseUrl = '') {
   const ogImageUrl = generateOGPImageUrl(post, baseUrl)
+  const actualBaseUrl = baseUrl || process.env.NEXT_PUBLIC_APP_BASE_URL || ''
+  const canonicalUrl = `${actualBaseUrl}/posts/${post.slug}`
 
   return {
     title: post.title,
     description: post.excerpt || `${post.title}について書いた記事です。`,
+    alternates: {
+      canonical: canonicalUrl
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt || `${post.title}について書いた記事です。`,
+      url: canonicalUrl,
+      siteName: 'Uralog',
       images: [
         {
           url: ogImageUrl,
@@ -65,6 +72,7 @@ export function generateOGPMetadata(post: Post, baseUrl = '') {
           alt: post.title
         }
       ],
+      locale: 'ja_JP',
       type: 'article',
       publishedTime: post.date,
       tags: post.tags

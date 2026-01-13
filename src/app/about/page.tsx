@@ -9,8 +9,15 @@ import SocialLinks from '@/components/social-links'
 const ICON_SIZE = 160
 
 export const metadata: Metadata = {
-  title: 'About - Uralog',
-  description: 'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。'
+  title: 'About',
+  description:
+    'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。Uraについての紹介ページです。',
+  openGraph: {
+    title: 'About - Uralog',
+    description:
+      'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。Uraについての紹介ページです。',
+    type: 'website'
+  }
 }
 
 const AboutPage = () => {

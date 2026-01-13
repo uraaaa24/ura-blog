@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Script from 'next/script'
 import { notFound } from 'next/navigation'
 
 import PostContent from './_components/post-content'
@@ -8,6 +9,10 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/breadcrumb'
 import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
+import {
+  generateArticleStructuredData,
+  generateBreadcrumbStructuredData
+} from '@/lib/structured-data'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
@@ -41,9 +46,22 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
+  // 構造化データを生成
+  const articleStructuredData = generateArticleStructuredData(post)
+  const breadcrumbStructuredData = generateBreadcrumbStructuredData(breadcrumbItems)
+
   return (
-    <article>
-      <Breadcrumb items={breadcrumbItems} />
+    <>
+      {/* 構造化データ (JSON-LD) */}
+      <Script id="article-structured-data" type="application/ld+json">
+        {JSON.stringify(articleStructuredData)}
+      </Script>
+      <Script id="breadcrumb-structured-data" type="application/ld+json">
+        {JSON.stringify(breadcrumbStructuredData)}
+      </Script>
+
+      <article>
+        <Breadcrumb items={breadcrumbItems} />
       <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
         <div className="flex flex-col items-center gap-8 pb-8">
           <Image src={post.thumbnail ?? ''} alt={post.title} width={64} height={64} />
@@ -66,6 +84,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
       <PostContent content={post.content} />
     </article>
+    </>
   )
 }
 

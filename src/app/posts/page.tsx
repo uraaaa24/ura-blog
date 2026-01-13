@@ -5,8 +5,13 @@ import PostItems from '@/components/posts/post-items'
 import { fetchPosts } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Posts - Uralog',
-  description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。'
+  title: 'Posts',
+  description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
+  openGraph: {
+    title: 'Posts - Uralog',
+    description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
+    type: 'website'
+  }
 }
 
 const PostsPage = async () => {
