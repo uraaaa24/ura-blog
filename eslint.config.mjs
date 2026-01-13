@@ -10,6 +10,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({ baseDirectory: __dirname })
 
+const trimGlobalKeys = (g) => Object.fromEntries(Object.entries(g).map(([k, v]) => [k.trim(), v]))
+
 export default [
   {
     ignores: ['.next', 'dist/**', '**/*.css.d.ts', '**/*.css.d.ts.map', 'storybook-static/**']
@@ -17,16 +19,11 @@ export default [
   {
     files: ['**/*.{js,ts,tsx}'],
     languageOptions: {
-      globals: { ...globals.browser, ...globals.node },
+      globals: { ...trimGlobalKeys(globals.browser), ...trimGlobalKeys(globals.node) },
       parser: typescriptEslintParser,
       parserOptions: {
         projectService: {
-          allowDefaultProject: [
-            'eslint.config.mjs',
-            'stylelint.config.mjs',
-            'postcss.config.mjs',
-            'next.config.ts'
-          ]
+          allowDefaultProject: ['eslint.config.mjs', 'stylelint.config.mjs', 'postcss.config.mjs']
         },
         tsconfigRootDir: __dirname,
         project: './tsconfig.json',

@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import { Rss } from 'lucide-react'
+import Image from 'next/image'
 
 import { SOCIAL_LINKS } from '@/constants/sns'
 
