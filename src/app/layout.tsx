@@ -82,7 +82,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         `}
       >
         {/* サイト全体の構造化データ (JSON-LD) */}
-        <Script id="website-structured-data" type="application/ld+json" strategy="beforeInteractive">
+        <Script
+          id="website-structured-data"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+        >
           {JSON.stringify(webSiteStructuredData)}
         </Script>
 

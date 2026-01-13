@@ -18,11 +18,7 @@ const SocialLinks = () => {
             className="hover:opacity-75 transition-opacity duration-200"
           >
             {key === 'rss' ? (
-              <Rss
-                size={24}
-                className="text-orange-500 dark:text-orange-400"
-                aria-label={alt}
-              />
+              <Rss size={24} className="text-orange-500 dark:text-orange-400" aria-label={alt} />
             ) : (
               <Image
                 src={src}

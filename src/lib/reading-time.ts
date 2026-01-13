@@ -14,8 +14,7 @@ export function calculateReadingTime(content: string): number {
     .replace(/\n+/g, ' ') // 改行を空白に置き換え
 
   // 日本語文字（ひらがな、カタカナ、漢字）をカウント
-  const japaneseChars = (plainText.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/g) || [])
-    .length
+  const japaneseChars = (plainText.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/g) || []).length
 
   // 英単語をカウント
   const englishWords = (plainText.match(/[a-zA-Z]+/g) || []).length
