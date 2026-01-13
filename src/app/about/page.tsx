@@ -29,7 +29,7 @@ const AboutPage = () => {
         <div className="flex flex-col items-center gap-4 mb-6">
           <Image
             src="/ura-icon.png"
-            alt="Profile Picture"
+            alt="Profile picture"
             width={ICON_SIZE}
             height={ICON_SIZE}
             priority
@@ -53,15 +53,13 @@ const AboutPage = () => {
             focus on creating clean and efficient user experiences.
           </li>
           <li>
-            <strong className="text-gray-900 dark:text-gray-100">
-              Backend & Infrastructure:
-            </strong>{' '}
+            <strong className="text-gray-900 dark:text-gray-100">Backend & Infrastructure:</strong>{' '}
             I also have experience in backend development and infrastructure.
           </li>
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Learning:</strong> I&apos;m
-            actively studying English to improve my communication skills and broaden my opportunities
-            as an engineer.
+            actively studying English to improve my communication skills and broaden my
+            opportunities as an engineer.
           </li>
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Continuous Growth:</strong> I enjoy

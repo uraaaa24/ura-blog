@@ -29,6 +29,12 @@ export const metadata: Metadata = {
   keywords: ['フロントエンド', 'プログラミング', 'ブログ', 'エンジニア', 'Web開発', 'JavaScript'],
   authors: [{ name: 'Ura' }],
   creator: 'Ura',
+  alternates: {
+    types: {
+      'application/rss+xml': '/feed.xml',
+      'application/atom+xml': '/atom.xml'
+    }
+  },
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
@@ -63,6 +69,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <html lang="ja" className="dark" suppressHydrationWarning>
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+      </head>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
       <body
         className={`${roboto.className} 
