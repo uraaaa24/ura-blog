@@ -4,9 +4,9 @@ import { SOCIAL_LINKS } from './sns'
 
 describe('SOCIAL_LINKS', () => {
   it('contains expected social media links', () => {
-    expect(Object.keys(SOCIAL_LINKS)).toHaveLength(3)
+    expect(Object.keys(SOCIAL_LINKS)).toHaveLength(4)
 
-    const { github, zenn, x } = SOCIAL_LINKS
+    const { github, zenn, x, rss } = SOCIAL_LINKS
 
     expect(github).toMatchObject({
       href: 'https://github.com/uraaaa24',
@@ -25,12 +25,18 @@ describe('SOCIAL_LINKS', () => {
       src: '/x.svg',
       alt: 'X(Twitter)'
     })
+
+    expect(rss).toMatchObject({
+      href: '/feed.xml',
+      src: '/rss.svg',
+      alt: 'RSS Feed'
+    })
   })
 
   it('all links have valid URLs', () => {
     for (const link of Object.values(SOCIAL_LINKS)) {
-      expect(() => new URL(link.href)).not.toThrow()
-      expect(link.href).toMatch(/^https:\/\//)
+      expect(() => new URL(link.href, 'https://example.com')).not.toThrow()
+      expect(link.href).toMatch(/^(https:\/\/|\/)/)
     }
   })
 

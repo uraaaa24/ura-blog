@@ -7,14 +7,12 @@ const SocialLinks = () => {
   return (
     <div className="flex space-x-6">
       {Object.entries(SOCIAL_LINKS).map(([key, { href, src, alt }]) => {
-        const isExternal = !href.startsWith('/')
-
         return (
           <a
             key={href}
             href={href}
-            target={isExternal ? '_blank' : undefined}
-            rel={isExternal ? 'noopener noreferrer' : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:opacity-75 transition-opacity duration-200"
           >
             {key === 'rss' ? (

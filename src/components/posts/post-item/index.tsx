@@ -27,7 +27,7 @@ const PostItem = ({ post }: PostCardProps) => {
           <div className="w-20 h-20 mr-4 bg-gray-200 dark:bg-gray-700 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden">
             <Image
               src={post.thumbnail ?? ''}
-              alt={`${post.title}'s thumbnail`}
+              alt={post.title}
               width={50}
               height={50}
               unoptimized

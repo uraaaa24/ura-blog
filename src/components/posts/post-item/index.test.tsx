@@ -73,6 +73,6 @@ describe('PostItem', () => {
 
     const timeElement = screen.getByText('11 Mar 2025')
     expect(timeElement.tagName).toBe('TIME')
-    expect(timeElement).toHaveAttribute('dateTime', '2025-03-11')
+    expect(timeElement).toHaveAttribute('dateTime', '2025-03-11T00:00:00.000Z')
   })
 })
