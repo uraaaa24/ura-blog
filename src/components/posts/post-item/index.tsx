@@ -11,6 +11,9 @@ const PostItem = ({ post }: PostCardProps) => {
   const isExternalPost = post.slug.startsWith('https')
   const href = isExternalPost ? post.slug : `/posts/${post.slug}`
 
+  const parsedDate = new Date(post.date)
+  const dateTime = Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString()
+
   const externalProps = isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
   return (
@@ -33,7 +36,7 @@ const PostItem = ({ post }: PostCardProps) => {
           <div className="flex-1 flex flex-col gap-1">
             <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">{post.title}</h3>
             <div className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
-              <time dateTime={post.date}>{post.formattedDate}</time>
+              <time dateTime={dateTime}>{post.formattedDate}</time>
             </div>
           </div>
         </div>

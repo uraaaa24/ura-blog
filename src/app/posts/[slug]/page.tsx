@@ -49,6 +49,9 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
+  const parsedDate = new Date(post.date)
+  const dateTime = Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString()
+
   // 構造化データを生成
   const articleStructuredData = generateArticleStructuredData(post)
   const breadcrumbStructuredData = generateBreadcrumbStructuredData(breadcrumbItems)
@@ -77,7 +80,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
             <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" />
-                <time dateTime={post.date}>{post.formattedDate}</time>
+                <time dateTime={dateTime}>{post.formattedDate}</time>
               </div>
 
               {post.readingTime && (

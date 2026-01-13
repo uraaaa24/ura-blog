@@ -22,6 +22,20 @@ export type Post = {
   toc?: TocItem[]
 }
 
+const toValidDate = (value: unknown): Date | null => {
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? null : value
+  }
+
+  const date = new Date(
+    typeof value === 'string' || typeof value === 'number' ? value : String(value)
+  )
+  return Number.isNaN(date.getTime()) ? null : date
+}
+
+const formatDate = (date: Date, opts: Intl.DateTimeFormatOptions) =>
+  new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', ...opts }).format(date)
+
 /**
  * 画像の src 属性を抽出するヘルパー関数
  */
@@ -125,18 +139,21 @@ export async function getAllPosts(): Promise<Post[]> {
       let processed = convertObsidianImages(slug, content)
       processed = processContentImages(slug, processed)
 
-      const date = new Date(data.date)
-      const formattedDate = date.toLocaleDateString('en-GB', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      })
+      const parsedDate = toValidDate(data.date)
+      const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
+      const formattedDate = parsedDate
+        ? formatDate(parsedDate, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })
+        : String(data.date)
 
       return {
         slug,
         title: data.title,
         thumbnail: extractImageSrc(data.thumbnail || ''),
-        date: data.date,
+        date: dateIso,
         formattedDate,
         excerpt: data.excerpt || '',
         tags: data.tags || [],
@@ -158,18 +175,21 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     let processed = convertObsidianImages(slug, content)
     processed = processContentImages(slug, processed)
 
-    const date = new Date(data.date)
-    const formattedDate = date.toLocaleDateString('en-GB', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    const parsedDate = toValidDate(data.date)
+    const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
+    const formattedDate = parsedDate
+      ? formatDate(parsedDate, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      : String(data.date)
 
     return {
       slug,
       title: data.title,
       thumbnail: extractImageSrc(data.thumbnail || ''),
-      date: data.date,
+      date: dateIso,
       formattedDate,
       excerpt: data.excerpt || '',
       tags: data.tags || [],

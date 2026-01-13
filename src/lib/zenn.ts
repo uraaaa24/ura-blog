@@ -52,17 +52,18 @@ export const getZennRssFeed = async () => {
 
     return feed.items.map((item) => {
       const date = item.pubDate ? new Date(item.pubDate) : new Date()
-      const formattedDate = date.toLocaleDateString('en-GB', {
+      const formattedDate = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'UTC',
         year: 'numeric',
         month: 'short',
         day: 'numeric'
-      })
+      }).format(date)
 
       return {
         title: item.title,
         slug: item.link,
         thumbnail: '/zenn.svg',
-        date: item.pubDate,
+        date: date.toISOString(),
         formattedDate,
         content: item.content
       }

@@ -1,18 +1,19 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
+
+set -e
 
 echo "🔍 Running quality checks before push..."
 
 # Run lint check
 echo "Running lint check..."
-if ! npm run lint; then
+if ! pnpm run lint; then
   echo "❌ Lint check failed. Please fix the issues before pushing."
   exit 1
 fi
 
 # Run tests
 echo "Running tests..."
-if ! npm run test -- --run; then
+if ! pnpm run test -- --run; then
   echo "❌ Tests failed. Please fix the issues before pushing."
   exit 1
 fi
