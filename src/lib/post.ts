@@ -4,6 +4,9 @@ import path from 'node:path'
 import twemoji from '@twemoji/api'
 import matter from 'gray-matter'
 
+import { calculateReadingTime } from './reading-time'
+import { generateToc, type TocItem } from './toc'
+
 const postsDirectory = path.join(process.cwd(), 'contents')
 
 export type Post = {
@@ -15,6 +18,8 @@ export type Post = {
   content: string
   excerpt?: string
   tags?: string[]
+  readingTime?: number
+  toc?: TocItem[]
 }
 
 /**
@@ -168,7 +173,9 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
       formattedDate,
       excerpt: data.excerpt || '',
       tags: data.tags || [],
-      content: processed
+      content: processed,
+      readingTime: calculateReadingTime(processed),
+      toc: generateToc(processed)
     }
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error)

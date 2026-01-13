@@ -1,14 +1,17 @@
+import { Calendar, Clock } from 'lucide-react'
 import Image from 'next/image'
-import Script from 'next/script'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 
 import PostContent from './_components/post-content'
 
 import type { Metadata } from 'next'
 
 import Breadcrumb from '@/components/breadcrumb'
+import TableOfContents from '@/components/table-of-contents'
 import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
+import { formatReadingTime } from '@/lib/reading-time'
 import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
@@ -62,21 +65,31 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
       <article>
         <Breadcrumb items={breadcrumbItems} />
-      <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
-        <div className="flex flex-col items-center gap-8 pb-8">
-          <Image
-            src={post.thumbnail ?? ''}
-            alt={`${post.title}の記事サムネイル`}
-            width={64}
-            height={64}
-          />
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{post.title}</h1>
-          <time dateTime={post.date} className="text-sm text-gray-500 dark:text-gray-400">
-            {post.formattedDate}
-          </time>
-        </div>
-        {/* TODO: 別の場所でタグは表示させる */}
-        {/* {post.tags && post.tags.length > 0 && (
+        <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
+          <div className="flex flex-col items-center gap-8 pb-8">
+            <Image
+              src={post.thumbnail ?? ''}
+              alt={`${post.title}の記事サムネイル`}
+              width={64}
+              height={64}
+            />
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{post.title}</h1>
+            <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4" />
+                <time dateTime={post.date}>{post.formattedDate}</time>
+              </div>
+
+              {post.readingTime && (
+                <div className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  <span>{formatReadingTime(post.readingTime)}</span>
+                </div>
+              )}
+            </div>
+          </div>
+          {/* TODO: 別の場所でタグは表示させる */}
+          {/* {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap ml-4 gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="bg-gray-100 px-2 py-1 rounded text-sm">
@@ -85,10 +98,12 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
               ))}
             </div>
           )} */}
-      </header>
+        </header>
 
-      <PostContent content={post.content} />
-    </article>
+        {post.toc && post.toc.length > 0 && <TableOfContents items={post.toc} />}
+
+        <PostContent content={post.content} />
+      </article>
     </>
   )
 }
