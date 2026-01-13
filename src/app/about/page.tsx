@@ -26,7 +26,7 @@ const AboutPage = () => {
             width={ICON_SIZE}
             height={ICON_SIZE}
             priority
-            className="rounded-full border-2 border-gray-100"
+            className="rounded-full border-2 border-gray-100 dark:border-gray-700"
           />
           <p>
             Hi, I&apos;m Ura! 👋
@@ -40,22 +40,25 @@ const AboutPage = () => {
 
       <Section>
         <Heading2>What I Do</Heading2>
-        <ul className="list-disc pl-6 space-y-2">
+        <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
           <li>
-            <strong>Frontend Development:</strong> I focus on creating clean and efficient user
-            experiences.
+            <strong className="text-gray-900 dark:text-gray-100">Frontend Development:</strong> I
+            focus on creating clean and efficient user experiences.
           </li>
           <li>
-            <strong>Backend & Infrastructure:</strong> I also have experience in backend development
-            and infrastructure.
+            <strong className="text-gray-900 dark:text-gray-100">
+              Backend & Infrastructure:
+            </strong>{' '}
+            I also have experience in backend development and infrastructure.
           </li>
           <li>
-            <strong>Learning:</strong> I&apos;m actively studying English to improve my
-            communication skills and broaden my opportunities as an engineer.
+            <strong className="text-gray-900 dark:text-gray-100">Learning:</strong> I&apos;m
+            actively studying English to improve my communication skills and broaden my opportunities
+            as an engineer.
           </li>
           <li>
-            <strong>Continuous Growth:</strong> I enjoy exploring new technologies and refining my
-            skills every day.
+            <strong className="text-gray-900 dark:text-gray-100">Continuous Growth:</strong> I enjoy
+            exploring new technologies and refining my skills every day.
           </li>
         </ul>
       </Section>

@@ -5,7 +5,7 @@ type MDDeleteProps = {
 }
 
 const MDDelete = ({ children }: MDDeleteProps) => {
-  return <del className="line-through opacity-75">{children}</del>
+  return <del className="line-through opacity-75 text-gray-600 dark:text-gray-400">{children}</del>
 }
 
 export default MDDelete

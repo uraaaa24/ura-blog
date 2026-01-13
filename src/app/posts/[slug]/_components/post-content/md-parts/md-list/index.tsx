@@ -15,5 +15,5 @@ export const MDOrderedList = ({ children }: MDListProps) => {
 }
 
 export const MDListItem = ({ children }: MDListProps) => {
-  return <li className="leading-8">{children}</li>
+  return <li className="leading-8 text-gray-800 dark:text-gray-200">{children}</li>
 }

@@ -12,7 +12,7 @@ export default function NotFound() {
           <p>お探しのページは存在しないか、移動した可能性があります。</p>
           <Link
             href="/"
-            className="text-gray-400 transition-colors hover:text-gray-700 font-medium"
+            className="text-gray-400 transition-colors hover:text-gray-700 dark:hover:text-gray-300 font-medium"
           >
             ホームに戻る
           </Link>

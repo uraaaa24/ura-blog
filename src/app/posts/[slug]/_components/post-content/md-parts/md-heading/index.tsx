@@ -15,7 +15,7 @@ const toSlug = (src: string) => {
 }
 
 const headingClassName = (level: number) => {
-  const base = 'relative font-bold w-fit group'
+  const base = 'relative font-bold w-fit group text-gray-900 dark:text-gray-100'
   switch (level) {
     case 2:
       return `${base} text-2xl mt-14 mb-10`

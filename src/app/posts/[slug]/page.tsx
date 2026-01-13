@@ -44,11 +44,11 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   return (
     <article>
       <Breadcrumb items={breadcrumbItems} />
-      <header className="border-b border-gray-300 mb-12">
+      <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
         <div className="flex flex-col items-center gap-8 pb-8">
           <Image src={post.thumbnail ?? ''} alt={post.title} width={64} height={64} />
-          <h1 className="text-3xl font-bold">{post.title}</h1>
-          <time dateTime={post.date} className="text-sm text-gray-500">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{post.title}</h1>
+          <time dateTime={post.date} className="text-sm text-gray-500 dark:text-gray-400">
             {post.formattedDate}
           </time>
         </div>

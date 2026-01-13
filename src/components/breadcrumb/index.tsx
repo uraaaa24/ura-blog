@@ -21,7 +21,7 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
           return (
             <li key={key} className="flex items-center">
               {index > 0 && (
-                <span className="mx-2 text-gray-400" aria-hidden="true">
+                <span className="mx-2 text-gray-400 dark:text-gray-500" aria-hidden="true">
                   /
                 </span>
               )}
@@ -34,7 +34,7 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
                   {label}
                 </Link>
               ) : (
-                <span className="font-bold">{label}</span>
+                <span className="font-bold text-gray-900 dark:text-gray-100">{label}</span>
               )}
             </li>
           )
