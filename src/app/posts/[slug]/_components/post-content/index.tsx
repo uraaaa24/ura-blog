@@ -33,11 +33,31 @@ const components: Components | null | undefined = {
       {children}
     </MDCodeBlock>
   ),
-  h2: ({ children, id }) => <MDHeading level={2} id={id}>{children}</MDHeading>,
-  h3: ({ children, id }) => <MDHeading level={3} id={id}>{children}</MDHeading>,
-  h4: ({ children, id }) => <MDHeading level={4} id={id}>{children}</MDHeading>,
-  h5: ({ children, id }) => <MDHeading level={5} id={id}>{children}</MDHeading>,
-  h6: ({ children, id }) => <MDHeading level={6} id={id}>{children}</MDHeading>,
+  h2: ({ children, id }) => (
+    <MDHeading level={2} id={id}>
+      {children}
+    </MDHeading>
+  ),
+  h3: ({ children, id }) => (
+    <MDHeading level={3} id={id}>
+      {children}
+    </MDHeading>
+  ),
+  h4: ({ children, id }) => (
+    <MDHeading level={4} id={id}>
+      {children}
+    </MDHeading>
+  ),
+  h5: ({ children, id }) => (
+    <MDHeading level={5} id={id}>
+      {children}
+    </MDHeading>
+  ),
+  h6: ({ children, id }) => (
+    <MDHeading level={6} id={id}>
+      {children}
+    </MDHeading>
+  ),
   p: ({ children }) => <MDParagraph>{children}</MDParagraph>,
   table: ({ children }) => <MDTable>{children}</MDTable>,
   tbody: ({ children }) => <MDTableBody>{children}</MDTableBody>,
