@@ -1,4 +1,3 @@
-import { Calendar, Clock } from 'lucide-react'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
@@ -12,7 +11,6 @@ import ScrollToTop from '@/components/scroll-to-top'
 import TableOfContents from '@/components/table-of-contents'
 import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
-import { formatReadingTime } from '@/lib/reading-time'
 import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
@@ -79,17 +77,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
             />
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{post.title}</h1>
             <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-              <div className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4" />
-                <time dateTime={dateTime}>{post.formattedDate}</time>
-              </div>
-
-              {post.readingTime && (
-                <div className="flex items-center gap-1.5">
-                  <Clock size={14} />
-                  <span>{formatReadingTime(post.readingTime)}</span>
-                </div>
-              )}
+              <time dateTime={dateTime}>{post.formattedDate}</time>
             </div>
           </div>
           {/* TODO: 別の場所でタグは表示させる */}
