@@ -5,7 +5,11 @@ type MDTableProps = {
 }
 
 export const MDTable = ({ children }: MDTableProps) => {
-  return <table className="border-collapse">{children}</table>
+  return (
+    <div className="overflow-x-auto my-6">
+      <table className="border-collapse min-w-full">{children}</table>
+    </div>
+  )
 }
 
 export const MDTableBody = ({ children }: MDTableProps) => {

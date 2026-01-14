@@ -6,7 +6,7 @@ type MDBlockquoteProps = {
 
 const MDBlockquote = ({ children }: MDBlockquoteProps) => {
   return (
-    <blockquote className="border-l-4 text-gray-500 dark:text-gray-400 border-gray-300 dark:border-gray-600 pl-6">
+    <blockquote className="border-l-4 text-gray-500 dark:text-gray-400 border-gray-300 dark:border-gray-600 pl-6 my-6">
       {children}
     </blockquote>
   )
