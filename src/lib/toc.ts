@@ -22,16 +22,30 @@ function toSlug(text: string): string {
  * Markdownコンテンツから目次を生成
  */
 export function generateToc(content: string): TocItem[] {
+  // コードブロックを除外
+  const codeBlockRegex = /```[\s\S]*?```/g
+  const contentWithoutCodeBlocks = content.replace(codeBlockRegex, '')
+
   const headingRegex = /^(#{2,3})\s+(.+)$/gm
   const toc: TocItem[] = []
+  const idCounts = new Map<string, number>()
 
   let match: RegExpExecArray | null = null
 
-  match = headingRegex.exec(content)
+  match = headingRegex.exec(contentWithoutCodeBlocks)
   while (match !== null) {
     const level = match[1].length // ## = 2, ### = 3
     const text = match[2].trim()
-    const id = toSlug(text)
+    let id = toSlug(text)
+
+    // IDが重複する場合は連番を付ける
+    if (idCounts.has(id)) {
+      const count = idCounts.get(id)! + 1
+      idCounts.set(id, count)
+      id = `${id}-${count}`
+    } else {
+      idCounts.set(id, 1)
+    }
 
     toc.push({
       id,
@@ -39,7 +53,7 @@ export function generateToc(content: string): TocItem[] {
       level
     })
 
-    match = headingRegex.exec(content)
+    match = headingRegex.exec(contentWithoutCodeBlocks)
   }
 
   return toc

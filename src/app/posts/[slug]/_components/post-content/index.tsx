@@ -1,8 +1,8 @@
 'use client'
 
 import ReactMarkdown from 'react-markdown'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
 import MDAnchor from './md-parts/md-anchor'
@@ -33,11 +33,11 @@ const components: Components | null | undefined = {
       {children}
     </MDCodeBlock>
   ),
-  h2: ({ children }) => <MDHeading level={2}>{children}</MDHeading>,
-  h3: ({ children }) => <MDHeading level={3}>{children}</MDHeading>,
-  h4: ({ children }) => <MDHeading level={4}>{children}</MDHeading>,
-  h5: ({ children }) => <MDHeading level={5}>{children}</MDHeading>,
-  h6: ({ children }) => <MDHeading level={6}>{children}</MDHeading>,
+  h2: ({ children, id }) => <MDHeading level={2} id={id}>{children}</MDHeading>,
+  h3: ({ children, id }) => <MDHeading level={3} id={id}>{children}</MDHeading>,
+  h4: ({ children, id }) => <MDHeading level={4} id={id}>{children}</MDHeading>,
+  h5: ({ children, id }) => <MDHeading level={5} id={id}>{children}</MDHeading>,
+  h6: ({ children, id }) => <MDHeading level={6} id={id}>{children}</MDHeading>,
   p: ({ children }) => <MDParagraph>{children}</MDParagraph>,
   table: ({ children }) => <MDTable>{children}</MDTable>,
   tbody: ({ children }) => <MDTableBody>{children}</MDTableBody>,
@@ -69,7 +69,7 @@ const PostContent = ({ content }: PostContentProps) => {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]}
+      rehypePlugins={[rehypeRaw, rehypeSlug]}
       components={components}
     >
       {content}

@@ -33,11 +33,13 @@ const headingClassName = (level: number) => {
 type MDHeadingProps = {
   level: 2 | 3 | 4 | 5 | 6
   children: ReactNode
+  id?: string
 }
 
-export const MDHeading = ({ level, children }: MDHeadingProps) => {
+export const MDHeading = ({ level, children, id }: MDHeadingProps) => {
   const text = String(children)
-  const slug = toSlug(text)
+  // rehype-slugから渡されたIDがあればそれを使う、なければ自分で生成
+  const slug = id || toSlug(text)
 
   const Tag = `h${level}` as const
 
