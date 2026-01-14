@@ -5,6 +5,6 @@ export const navLinks = [
     label: 'Posts',
     match: (path: string) => path === '/posts' || path.startsWith('/posts/')
   },
-  { href: '/library', label: 'Books', match: (path: string) => path === '/library' },
+  { href: '/books', label: 'Books', match: (path: string) => path === '/books' },
   { href: '/about', label: 'About', match: (path: string) => path === '/about' }
 ]
