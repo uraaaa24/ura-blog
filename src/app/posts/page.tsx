@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 
-import { Heading1 } from '@/components/heading'
 import PostItems from '@/components/posts/post-items'
 import { fetchPosts } from '@/lib/data'
 
@@ -19,7 +18,10 @@ const PostsPage = async () => {
 
   return (
     <>
-      <Heading1>Posts</Heading1>
+      <div className="flex items-baseline gap-4 mb-6">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Posts</h1>
+        <p className="text-gray-600 dark:text-gray-400 text-sm">Articles and technical writings</p>
+      </div>
       <PostItems posts={totalPosts} showSearch />
     </>
   )
