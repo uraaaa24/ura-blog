@@ -8,6 +8,7 @@ import PostContent from './_components/post-content'
 import type { Metadata } from 'next'
 
 import Breadcrumb from '@/components/breadcrumb'
+import ScrollToTop from '@/components/scroll-to-top'
 import TableOfContents from '@/components/table-of-contents'
 import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
@@ -107,6 +108,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
         <PostContent content={post.content} />
       </article>
+
+      <ScrollToTop />
     </>
   )
 }
