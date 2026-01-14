@@ -4,9 +4,9 @@ import { navLinks } from './nav-links'
 
 describe('navLinks', () => {
   it('contains expected navigation items', () => {
-    expect(navLinks).toHaveLength(3)
+    expect(navLinks).toHaveLength(4)
 
-    const [home, posts, about] = navLinks
+    const [home, posts, books, about] = navLinks
 
     expect(home).toMatchObject({
       href: '/',
@@ -18,6 +18,11 @@ describe('navLinks', () => {
       label: 'Posts'
     })
 
+    expect(books).toMatchObject({
+      href: '/books',
+      label: 'Books'
+    })
+
     expect(about).toMatchObject({
       href: '/about',
       label: 'About'
@@ -25,7 +30,7 @@ describe('navLinks', () => {
   })
 
   it('has working match functions', () => {
-    const [home, posts, about] = navLinks
+    const [home, posts, books, about] = navLinks
 
     // Test home match function
     expect(home.match('/')).toBe(true)
@@ -37,6 +42,12 @@ describe('navLinks', () => {
     expect(posts.match('/posts/some-post')).toBe(true)
     expect(posts.match('/')).toBe(false)
     expect(posts.match('/about')).toBe(false)
+
+    // Test books match function
+    expect(books.match('/books')).toBe(true)
+    expect(books.match('/books/some-book')).toBe(true)
+    expect(books.match('/')).toBe(false)
+    expect(books.match('/posts')).toBe(false)
 
     // Test about match function
     expect(about.match('/about')).toBe(true)

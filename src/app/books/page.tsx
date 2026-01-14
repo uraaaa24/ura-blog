@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Books I have read'
 }
 
-const LibraryPage = async () => {
+const BooksPage = async () => {
   const books = await getAllBooks()
 
   return (
@@ -25,4 +25,4 @@ const LibraryPage = async () => {
   )
 }
 
-export default LibraryPage
+export default BooksPage
