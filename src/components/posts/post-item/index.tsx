@@ -20,7 +20,7 @@ const PostItem = ({ post }: PostCardProps) => {
     <Link
       href={href}
       {...externalProps}
-      className="border-b border-gray-300 dark:border-gray-600 py-4 block hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors duration-200"
+      className="border-b border-gray-300 dark:border-gray-600 py-4 block"
     >
       <article className="h-full">
         <div className="flex items-center gap-2">
