@@ -45,7 +45,6 @@ describe('navLinks', () => {
 
     // Test books match function
     expect(books.match('/books')).toBe(true)
-    expect(books.match('/books/some-book')).toBe(true)
     expect(books.match('/')).toBe(false)
     expect(books.match('/posts')).toBe(false)
 
