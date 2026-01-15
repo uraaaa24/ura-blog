@@ -49,8 +49,8 @@ export function generateOGPImageUrl(post: Post, baseUrl = ''): string {
  * 記事データからOGPメタデータを生成
  */
 export function generateOGPMetadata(post: Post, baseUrl = '') {
-  const ogImageUrl = generateOGPImageUrl(post, baseUrl)
   const actualBaseUrl = baseUrl || process.env.NEXT_PUBLIC_APP_BASE_URL || ''
+  const ogImageUrl = generateOGPImageUrl(post, actualBaseUrl)
   const canonicalUrl = `${actualBaseUrl}/posts/${post.slug}`
 
   return {
