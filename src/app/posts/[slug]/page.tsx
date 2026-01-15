@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 
 import Breadcrumb from '@/components/breadcrumb'
 import ScrollToTop from '@/components/scroll-to-top'
+import ShareButton from '@/components/share-button'
 import TableOfContents from '@/components/table-of-contents'
 import { generateOGPMetadata } from '@/lib/ogp'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
@@ -95,6 +96,10 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         {post.toc && post.toc.length > 0 && <TableOfContents items={post.toc} />}
 
         <PostContent content={post.content} />
+
+        <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center">
+          <ShareButton title={post.title} slug={post.slug} />
+        </div>
       </article>
 
       <ScrollToTop />

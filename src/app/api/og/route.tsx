@@ -37,79 +37,98 @@ const generateOGPImage = (title: string, date: string, emoji: string) => {
     <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
         height: '100%',
         backgroundColor: '#f7f7f7',
-        padding: '80px',
+        padding: '100px 120px',
         position: 'relative'
       }}
     >
-      {/* メインコンテンツエリア */}
+      {/* Main Content - Same structure as post-item */}
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'white',
-          borderRadius: '24px',
-          width: '100%',
-          maxWidth: '1000px',
-          height: '450px',
-          border: '1px solid #d1d5db',
-          position: 'relative'
+          gap: '40px',
+          width: '100%'
         }}
       >
-        {/* Thumbnail */}
-        <img
-          width={80}
-          height={80}
-          src={emoji}
-          alt="Uralog Logo"
-          style={{
-            borderRadius: 128
-          }}
-        />
-        {/* Title */}
-        <h1
-          style={{
-            fontSize: '48px',
-            fontWeight: 700,
-            color: '#374151',
-            textAlign: 'center',
-            maxWidth: '100%',
-            wordBreak: 'break-word'
-          }}
-        >
-          {title}
-        </h1>
-        {/* Date */}
-        {date && (
-          <span
-            style={{
-              fontSize: '24px',
-              color: '#6b7280'
-            }}
-          >
-            {date}
-          </span>
-        )}
-
+        {/* Thumbnail with rounded background */}
         <div
           style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '30px',
-            fontSize: '24px',
-            color: '#9ca3af',
-            fontWeight: 500
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '160px',
+            height: '160px',
+            backgroundColor: '#e5e7eb',
+            borderRadius: '24px',
+            flexShrink: 0
           }}
         >
-          Uralog
+          <img
+            width={100}
+            height={100}
+            src={emoji}
+            alt="Post thumbnail"
+            style={{
+              borderRadius: 128
+            }}
+          />
         </div>
+
+        {/* Title and Date Column */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+            flex: 1
+          }}
+        >
+          {/* Title */}
+          <h1
+            style={{
+              fontSize: '56px',
+              fontWeight: 700,
+              color: '#111827',
+              lineHeight: 1.2,
+              margin: 0,
+              wordBreak: 'break-word'
+            }}
+          >
+            {title}
+          </h1>
+
+          {/* Date */}
+          {date && (
+            <span
+              style={{
+                fontSize: '24px',
+                color: '#6b7280',
+                fontWeight: 400
+              }}
+            >
+              {date}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Site Name */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '60px',
+          right: '120px',
+          fontSize: '28px',
+          color: '#9ca3af',
+          fontWeight: 600
+        }}
+      >
+        Uralog
       </div>
     </div>,
     {
