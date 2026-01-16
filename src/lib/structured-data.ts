@@ -31,7 +31,9 @@ export function generateArticleStructuredData(post: Post) {
       '@type': 'WebPage',
       '@id': `${BASE_URL}/posts/${post.slug}`
     },
-    keywords: post.tags?.join(', ')
+    keywords: post.tags?.join(', '),
+    inLanguage: 'ja-JP',
+    articleSection: post.tags?.[0] || 'プログラミング'
   }
 }
 
@@ -44,7 +46,7 @@ export function generateWebSiteStructuredData() {
     '@type': 'WebSite',
     name: 'Uralog',
     description:
-      'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。',
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
     url: BASE_URL,
     author: {
       '@type': 'Person',
@@ -58,7 +60,9 @@ export function generateWebSiteStructuredData() {
         urlTemplate: `${BASE_URL}/posts?q={search_term_string}`
       },
       'query-input': 'required name=search_term_string'
-    }
+    },
+    inLanguage: 'ja-JP',
+    keywords: 'React, Next.js, TypeScript, フロントエンド開発, Web開発, プログラミング'
   }
 }
 

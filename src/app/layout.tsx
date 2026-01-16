@@ -25,8 +25,19 @@ export const metadata: Metadata = {
     template: '%s | Uralog'
   },
   description:
-    'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。',
-  keywords: ['フロントエンド', 'プログラミング', 'ブログ', 'エンジニア', 'Web開発', 'JavaScript'],
+    'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。Web開発の実践的なTipsや学びを共有しています。',
+  keywords: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'フロントエンド開発',
+    'Web開発',
+    'プログラミング',
+    'エンジニアブログ',
+    'JavaScript',
+    'TailwindCSS',
+    '技術ブログ'
+  ],
   authors: [{ name: 'Ura' }],
   creator: 'Ura',
   alternates: {
@@ -42,13 +53,13 @@ export const metadata: Metadata = {
     siteName: 'Uralog',
     title: 'Uralog',
     description:
-      'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Uralog',
     description:
-      'Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
   },
   robots: {
     index: true,

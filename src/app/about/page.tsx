@@ -11,13 +11,22 @@ const ICON_SIZE = 160
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。Uraについての紹介ページです。',
+    'React、Next.js、TypeScriptを使ったフロントエンド開発を中心に、Web開発の技術や知識を発信するエンジニアブログ。Uraについての紹介ページです。',
   openGraph: {
     title: 'About - Uralog',
     description:
-      'フロントエンド開発を中心に、プログラミングや技術に関する知識を発信するブログ。Uraについての紹介ページです。',
+      'React、Next.js、TypeScriptを使ったフロントエンド開発を中心に、Web開発の技術や知識を発信するエンジニアブログ。Uraについての紹介ページです。',
     type: 'website'
-  }
+  },
+  keywords: [
+    'フロントエンド開発',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Web開発',
+    'エンジニアブログ',
+    'プログラミング'
+  ]
 }
 
 const AboutPage = () => {
@@ -50,11 +59,13 @@ const AboutPage = () => {
         <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Frontend Development:</strong> I
-            focus on creating clean and efficient user experiences.
+            focus on creating clean and efficient user experiences using React, Next.js, and
+            TypeScript.
           </li>
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Backend & Infrastructure:</strong>{' '}
-            I also have experience in backend development and infrastructure.
+            I also have experience in backend development and infrastructure, working with Node.js
+            and cloud platforms.
           </li>
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Learning:</strong> I&apos;m
@@ -64,6 +75,27 @@ const AboutPage = () => {
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Continuous Growth:</strong> I enjoy
             exploring new technologies and refining my skills every day.
+          </li>
+        </ul>
+      </Section>
+
+      <Section>
+        <Heading2>Tech Stack</Heading2>
+        <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
+          <li>
+            <strong className="text-gray-900 dark:text-gray-100">Frontend:</strong> React, Next.js,
+            TypeScript, TailwindCSS
+          </li>
+          <li>
+            <strong className="text-gray-900 dark:text-gray-100">Backend:</strong> Node.js, Hono,
+            Express
+          </li>
+          <li>
+            <strong className="text-gray-900 dark:text-gray-100">Database:</strong> Supabase,
+            PostgreSQL
+          </li>
+          <li>
+            <strong className="text-gray-900 dark:text-gray-100">Tools:</strong> Git, GitHub, Vercel
           </li>
         </ul>
       </Section>
