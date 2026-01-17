@@ -11,7 +11,7 @@ type LikeButtonProps = {
 
 const LikeButton = ({ slug }: LikeButtonProps) => {
   const [count, setCount] = useState<number>(0)
-  const [isAnimating, setIsAnimating] = useState(false)
+
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null)
   const pendingCountRef = useRef<number>(0)
 
@@ -47,10 +47,6 @@ const LikeButton = ({ slug }: LikeButtonProps) => {
     setCount((prev) => prev + 1)
     pendingCountRef.current += 1
 
-    // アニメーション
-    setIsAnimating(true)
-    setTimeout(() => setIsAnimating(false), 300)
-
     // 既存のタイマーをクリア
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current)
@@ -58,15 +54,22 @@ const LikeButton = ({ slug }: LikeButtonProps) => {
 
     // 600ms後にAPIリクエストを送信
     debounceTimerRef.current = setTimeout(async () => {
+      const incrementAmount = pendingCountRef.current
       try {
-        const res = await fetch(`/api/likes/${slug}`, { method: 'POST' })
+        const res = await fetch(`/api/likes/${slug}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ increment: incrementAmount })
+        })
         const data = await res.json()
         setCount(data.likes)
         pendingCountRef.current = 0
       } catch (error) {
         console.error('Failed to cheer:', error)
         // エラー時は楽観的更新を元に戻す
-        setCount((prev) => prev - pendingCountRef.current)
+        setCount((prev) => prev - incrementAmount)
         pendingCountRef.current = 0
       }
     }, 600)
@@ -86,25 +89,16 @@ const LikeButton = ({ slug }: LikeButtonProps) => {
       type="button"
       onClick={handleCheer}
       className={`
-        group relative inline-flex flex-col items-center gap-1.5 px-4 py-2.5
+        cursor-pointer relative inline-flex items-center gap-2.5 px-4 py-2
         bg-transparent border-2 border-gray-300 dark:border-gray-600 rounded-lg
-        hover:border-gray-400 dark:hover:border-gray-500
         transition-all duration-200
-        ${isAnimating ? 'scale-110' : 'scale-100'}
       `}
       aria-label="応援する"
     >
       {emojiSrc && (
-        <Image
-          src={emojiSrc}
-          alt="💪"
-          width={32}
-          height={32}
-          className="select-none transition-transform duration-200 group-hover:scale-110"
-          unoptimized
-        />
+        <Image src={emojiSrc} alt="💪" width={24} height={24} className="select-none" unoptimized />
       )}
-      <span className="text-xs font-medium text-gray-600 dark:text-gray-400">{count}</span>
+      <span className="text-xs font-medium text-gray-500 dark:text-gray-200">{count}</span>
     </button>
   )
 }

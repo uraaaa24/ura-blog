@@ -5,7 +5,16 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { getAllPosts, getPostBySlug } from './post'
 
 // Mock fs module
-vi.mock('node:fs')
+vi.mock('node:fs', () => ({
+  __esModule: true,
+  default: {
+    existsSync: vi.fn(),
+    mkdirSync: vi.fn(),
+    readdirSync: vi.fn(),
+    readFileSync: vi.fn(),
+    copyFileSync: vi.fn()
+  }
+}))
 vi.mock('@twemoji/api', () => ({
   default: {
     parse: vi.fn(

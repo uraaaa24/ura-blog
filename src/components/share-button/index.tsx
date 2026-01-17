@@ -27,10 +27,10 @@ const ShareButton = ({ title, slug }: ShareButtonProps) => {
       href={twitterUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity duration-200"
+      className="inline-flex items-center gap-2.5 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg transition-opacity duration-200"
       aria-label="Xでシェア"
     >
-      <Image src="/x.svg" alt="X" width={18} height={18} className="invert dark:invert-0" />
+      <Image src="/x.svg" alt="X" width={24} height={24} className="invert dark:invert-0" />
       <span className="text-sm font-medium">Share</span>
     </a>
   )
