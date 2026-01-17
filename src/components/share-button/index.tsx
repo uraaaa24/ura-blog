@@ -1,7 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 type ShareButtonProps = {
   title: string
@@ -27,10 +27,10 @@ const ShareButton = ({ title, slug }: ShareButtonProps) => {
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity duration-200"
-      aria-label="Xでポスト"
+      aria-label="Xでシェア"
     >
-      <Image src="/x.svg" alt="X icon" width={18} height={18} className="invert dark:invert-0" />
-      <span className="text-sm font-medium">Post</span>
+      <Image src="/x.svg" alt="X" width={18} height={18} className="invert dark:invert-0" />
+      <span className="text-sm font-medium">Share</span>
     </a>
   )
 }

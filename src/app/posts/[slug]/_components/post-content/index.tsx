@@ -1,10 +1,10 @@
 'use client'
 
+import type { Components } from 'react-markdown'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-
 import MDAnchor from './md-parts/md-anchor'
 import MDBlockquote from './md-parts/md-blockquote'
 import MDCodeBlock from './md-parts/md-codeBlock'
@@ -24,8 +24,6 @@ import {
   MDTableHeadCell,
   MDTableRow
 } from './md-parts/md-table'
-
-import type { Components } from 'react-markdown'
 
 const components: Components | null | undefined = {
   code: ({ className, children, ...props }) => (

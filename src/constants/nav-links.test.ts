@@ -65,13 +65,13 @@ describe('navLinks', () => {
   })
 
   it('all nav items have required properties', () => {
-    navLinks.map((link) => {
+    for (const link of navLinks) {
       expect(link).toHaveProperty('href')
       expect(link).toHaveProperty('label')
       expect(link).toHaveProperty('match')
       expect(typeof link.href).toBe('string')
       expect(typeof link.label).toBe('string')
       expect(typeof link.match).toBe('function')
-    })
+    }
   })
 })

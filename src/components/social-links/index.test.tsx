@@ -32,10 +32,10 @@ describe('SocialLinks', () => {
     render(<SocialLinks />)
 
     const links = screen.getAllByRole('link')
-    links.map((link) => {
+    for (const link of links) {
       expect(link).toHaveAttribute('target', '_blank')
       expect(link).toHaveAttribute('rel', 'noopener noreferrer')
-    })
+    }
   })
 
   it('renders with correct container styling', () => {

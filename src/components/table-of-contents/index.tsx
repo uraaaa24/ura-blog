@@ -1,8 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 import { ChevronDown, ChevronRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 import type { TocItem } from '@/lib/toc'
 

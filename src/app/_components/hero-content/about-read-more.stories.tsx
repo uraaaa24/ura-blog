@@ -1,6 +1,5 @@
-import AboutReadMore from './about-read-more'
-
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import AboutReadMore from './about-read-more'
 
 const meta: Meta<typeof AboutReadMore> = {
   title: 'Pages/HeroContent/AboutReadMore',

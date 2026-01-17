@@ -1,12 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-
-import PostItem from '../post-item'
+import Input from '@/components/input'
 
 import type { Post } from '@/lib/post'
-
-import Input from '@/components/input'
+import PostItem from '../post-item'
 
 type PostItemsProps = {
   posts: Post[]

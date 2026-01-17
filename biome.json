@@ -1,18 +1,12 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": false
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   },
   "files": {
-    "ignore": [
-      ".next/**",
-      "dist/**",
-      "node_modules/**",
-      "**/*.css.d.ts",
-      "**/*.css.d.ts.map",
-      "storybook-static/**",
-      "contents/.obsidian/**"
-    ]
+    "ignoreUnknown": false
   },
   "linter": {
     "enabled": true,
@@ -42,6 +36,12 @@
       "quoteStyle": "single",
       "trailingCommas": "none",
       "semicolons": "asNeeded"
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": false,
+      "allowWrongLineComments": false
     }
   }
 }

@@ -1,14 +1,13 @@
 // ESLint configuration focused only on import ordering
-import { FlatCompat } from '@eslint/eslintrc'
+
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import typescriptEslintParser from '@typescript-eslint/parser'
 import pluginImport from 'eslint-plugin-import'
 import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({ baseDirectory: __dirname })
 
 const trimGlobalKeys = (g) => Object.fromEntries(Object.entries(g).map(([k, v]) => [k.trim(), v]))
 

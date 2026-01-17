@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import {
   MDTable,
-  MDTableHead,
   MDTableBody,
-  MDTableRow,
+  MDTableCell,
+  MDTableHead,
   MDTableHeadCell,
-  MDTableCell
+  MDTableRow
 } from './index'
 
 const meta: Meta<typeof MDTable> = {

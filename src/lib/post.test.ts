@@ -70,7 +70,7 @@ describe('Post utilities', () => {
         'test.txt',
         'another.MD',
         'image.png'
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        // biome-ignore lint/suspicious/noExplicitAny: Mock return type needs any for test compatibility
       ] as any)
       mockFs.readFileSync.mockReturnValue(mockMarkdownContent)
 
@@ -81,7 +81,7 @@ describe('Post utilities', () => {
 
     it('parses markdown files correctly', async () => {
       mockFs.existsSync.mockReturnValue(true)
-      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      // biome-ignore lint/suspicious/noExplicitAny: Mock return type needs any for test compatibility
       mockFs.readdirSync.mockReturnValue(['test-post.md'] as any)
       mockFs.readFileSync.mockReturnValue(mockMarkdownContent)
 
@@ -107,7 +107,7 @@ describe('Post utilities', () => {
         .replace('Test Post', 'New Post')
 
       mockFs.existsSync.mockReturnValue(true)
-      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      // biome-ignore lint/suspicious/noExplicitAny: Mock return type needs any for test compatibility
       mockFs.readdirSync.mockReturnValue(['old.md', 'new.md'] as any)
       mockFs.readFileSync.mockReturnValueOnce(oldPost).mockReturnValueOnce(newPost)
 

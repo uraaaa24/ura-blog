@@ -1,12 +1,9 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
-
-import PostContent from './_components/post-content'
-
-import type { Metadata } from 'next'
-
 import Breadcrumb from '@/components/breadcrumb'
+import LikeButton from '@/components/like-button'
 import ScrollToTop from '@/components/scroll-to-top'
 import ShareButton from '@/components/share-button'
 import TableOfContents from '@/components/table-of-contents'
@@ -16,6 +13,7 @@ import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
 } from '@/lib/structured-data'
+import PostContent from './_components/post-content'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
@@ -97,7 +95,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
         <PostContent content={post.content} />
 
-        <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center">
+        <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
+          <LikeButton slug={post.slug} />
           <ShareButton title={post.title} slug={post.slug} />
         </div>
       </article>

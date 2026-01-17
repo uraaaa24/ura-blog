@@ -1,5 +1,5 @@
-import type { Post } from '@/lib/post'
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import type { Post } from '@/lib/post'
 
 import PostItem from './index'
 
