@@ -41,6 +41,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Ura' }],
   creator: 'Ura',
   alternates: {
+    canonical: '/',
     types: {
       'application/rss+xml': '/feed.xml',
       'application/atom+xml': '/atom.xml'
@@ -53,13 +54,22 @@ export const metadata: Metadata = {
     siteName: 'Uralog',
     title: 'Uralog',
     description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    images: [
+      {
+        url: '/api/og',
+        width: 1200,
+        height: 630,
+        alt: 'Uralog'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Uralog',
     description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    images: ['/api/og']
   },
   robots: {
     index: true,
