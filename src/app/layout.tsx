@@ -113,7 +113,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 
         <ThemeProvider>
           <Header />
-          <main className="flex-grow pt-32 px-6">
+          <main className="grow pt-32 px-6">
             <div className="container max-w-2xl mx-auto">{children}</div>
           </main>
           <Footer />

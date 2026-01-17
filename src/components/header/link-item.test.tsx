@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import LinkItem from './link-item'
+
+vi.mock('next/navigation', () => ({
+  usePathname: vi.fn(() => '/')
+}))
 
 describe('LinkItem', () => {
   it('renders active link with correct styling', () => {
