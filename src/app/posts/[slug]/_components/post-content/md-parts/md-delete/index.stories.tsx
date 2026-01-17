@@ -1,6 +1,7 @@
+import MDDelete from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDDelete from './index'
 
 const meta: Meta<typeof MDDelete> = {
   title: 'Markdown/Delete',

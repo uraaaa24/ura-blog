@@ -1,7 +1,8 @@
 'use client'
 
-import { ArrowUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
+
+import { ArrowUp } from 'lucide-react'
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)

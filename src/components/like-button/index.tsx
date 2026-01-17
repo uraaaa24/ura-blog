@@ -1,8 +1,9 @@
 'use client'
 
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
 import twemoji from '@twemoji/api'
 import Image from 'next/image'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 type LikeButtonProps = {
   slug: string

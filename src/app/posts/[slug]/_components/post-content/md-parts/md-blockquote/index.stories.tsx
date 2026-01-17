@@ -1,6 +1,7 @@
+import MDBlockquote from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDBlockquote from './index'
 
 const meta: Meta<typeof MDBlockquote> = {
   title: 'Markdown/Blockquote',

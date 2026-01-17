@@ -4,13 +4,13 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 import Script from 'next/script'
 
-import type { Metadata } from 'next'
-
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { GA_MEASUREMENT_ID } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
+
+import type { Metadata } from 'next'
 
 import './globals.css'
 

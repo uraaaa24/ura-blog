@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { Heading1, Heading2 } from '@/components/heading'
 import Section from '@/components/section'
 import SocialLinks from '@/components/social-links'
+
+import type { Metadata } from 'next'
 
 const ICON_SIZE = 160
 

@@ -1,5 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { fetchPosts } from '@/lib/data'
+
 import { getAllPosts } from './post'
 import { getZennRssFeed } from './zenn'
 

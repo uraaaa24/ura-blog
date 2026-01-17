@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
-
 import PostItems from '@/components/posts/post-items'
 import { fetchPosts } from '@/lib/data'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Posts',

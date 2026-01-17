@@ -1,6 +1,7 @@
+import MDAnchor from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDAnchor from './index'
 
 const meta: Meta<typeof MDAnchor> = {
   title: 'Markdown/Anchor',

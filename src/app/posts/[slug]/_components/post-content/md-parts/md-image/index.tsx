@@ -21,6 +21,7 @@ const MDImage = ({ src, alt }: MDImageProps) => {
   if (isExternalUrl) {
     return (
       <span className="w-auto flex items-center justify-center h-auto my-6">
+        {/* biome-ignore lint/performance/noImgElement: external URLs are not optimized to avoid remotePatterns config */}
         <img
           className="max-w-full h-auto max-h-96 rounded-xl shadow-sm"
           src={processedSrc || ''}

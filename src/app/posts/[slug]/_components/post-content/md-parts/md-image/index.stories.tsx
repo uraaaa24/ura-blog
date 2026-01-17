@@ -1,6 +1,7 @@
+import MDImage from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDImage from './index'
 
 const meta: Meta<typeof MDImage> = {
   title: 'Markdown/Image',

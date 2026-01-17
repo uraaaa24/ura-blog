@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
 import LinkItem from './link-item'
+
+import type { Meta, StoryObj } from '@storybook/nextjs'
 
 const meta: Meta<typeof LinkItem> = {
   title: 'Layout/Header/LinkItem',

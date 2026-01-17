@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
 import type { Post } from '@/lib/post'
 
 import LatestPosts from './index'
+
+import type { Meta, StoryObj } from '@storybook/nextjs'
+
 
 const meta: Meta<typeof LatestPosts> = {
   title: 'Blog/LatestPosts',

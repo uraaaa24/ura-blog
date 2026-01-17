@@ -1,5 +1,7 @@
 import { SOCIAL_LINKS } from '@/constants/sns'
+
 import { BASE_URL } from './envs'
+
 import type { Post } from './post'
 
 /**

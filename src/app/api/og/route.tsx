@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og'
 
-import type { NextRequest } from 'next/server'
-
 import { getPostBySlug } from '@/lib/post'
+
+import type { NextRequest } from 'next/server'
 
 export const runtime = 'nodejs'
 
@@ -68,6 +68,7 @@ const generateOGPImage = (title: string, date: string, emoji: string) => {
             flexShrink: 0
           }}
         >
+          {/* biome-ignore lint/performance/noImgElement: next/og supports only standard img elements */}
           <img
             width={100}
             height={100}

@@ -1,5 +1,3 @@
-import type { Meta, StoryObj } from '@storybook/nextjs'
-
 import {
   MDTable,
   MDTableBody,
@@ -8,6 +6,9 @@ import {
   MDTableHeadCell,
   MDTableRow
 } from './index'
+
+import type { Meta, StoryObj } from '@storybook/nextjs'
+
 
 const meta: Meta<typeof MDTable> = {
   title: 'Markdown/Table',

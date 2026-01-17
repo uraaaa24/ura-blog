@@ -1,6 +1,7 @@
+import Footer from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import Footer from './index'
 
 const meta: Meta<typeof Footer> = {
   title: 'Layout/Footer',

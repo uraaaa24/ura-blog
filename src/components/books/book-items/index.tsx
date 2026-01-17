@@ -1,9 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import Input from '@/components/input'
 
+import Input from '@/components/input'
 import type { Book } from '@/lib/books'
+
 import BookItem from '../book-item'
 
 type BookItemsProps = {

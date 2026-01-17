@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {

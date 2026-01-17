@@ -1,6 +1,7 @@
+import MDParagraph from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDParagraph from './index'
 
 const meta: Meta<typeof MDParagraph> = {
   title: 'Markdown/Paragraph',

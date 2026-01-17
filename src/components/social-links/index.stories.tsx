@@ -1,6 +1,7 @@
+import SocialLinks from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import SocialLinks from './index'
 
 const meta: Meta<typeof SocialLinks> = {
   title: 'UI Elements/SocialLinks',

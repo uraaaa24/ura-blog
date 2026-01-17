@@ -1,7 +1,7 @@
-import type { MetadataRoute } from 'next'
-
 import { fetchPosts } from '@/lib/data'
 import { BASE_URL } from '@/lib/envs'
+
+import type { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const defaultPages: MetadataRoute.Sitemap = [

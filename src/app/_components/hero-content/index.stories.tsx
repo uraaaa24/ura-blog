@@ -1,6 +1,7 @@
+import HeroContent from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import HeroContent from './index'
 
 const meta: Meta<typeof HeroContent> = {
   title: 'Pages/HeroContent',

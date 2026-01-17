@@ -1,8 +1,8 @@
-import type { Metadata } from 'next'
-
 import BookItems from '@/components/books/book-items'
 import Section from '@/components/section'
 import { getAllBooks } from '@/lib/books'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Books',

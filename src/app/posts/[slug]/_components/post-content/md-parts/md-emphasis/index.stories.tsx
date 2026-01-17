@@ -1,6 +1,7 @@
+import MDEmphasis from './index'
+
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import MDEmphasis from './index'
 
 const meta: Meta<typeof MDEmphasis> = {
   title: 'Markdown/Emphasis',

@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
+
 import Breadcrumb from '@/components/breadcrumb'
 import LikeButton from '@/components/like-button'
 import ScrollToTop from '@/components/scroll-to-top'
@@ -13,7 +13,10 @@ import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
 } from '@/lib/structured-data'
+
 import PostContent from './_components/post-content'
+
+import type { Metadata } from 'next'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
