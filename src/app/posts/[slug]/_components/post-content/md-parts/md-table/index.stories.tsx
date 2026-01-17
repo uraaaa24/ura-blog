@@ -9,7 +9,6 @@ import {
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDTable> = {
   title: 'Markdown/Table',
   parameters: {

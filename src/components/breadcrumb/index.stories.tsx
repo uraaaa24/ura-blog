@@ -2,7 +2,6 @@ import Breadcrumb from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof Breadcrumb> = {
   title: 'UI Elements/Breadcrumb',
   component: Breadcrumb,

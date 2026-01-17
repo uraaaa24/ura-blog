@@ -2,7 +2,6 @@ import MDStrong from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDStrong> = {
   title: 'Markdown/Strong',
   component: MDStrong,

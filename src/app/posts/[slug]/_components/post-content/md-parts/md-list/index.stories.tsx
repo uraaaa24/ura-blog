@@ -2,7 +2,6 @@ import { MDListItem, MDOrderedList, MDUnorderedList } from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDUnorderedList> = {
   title: 'Markdown/List',
   parameters: {

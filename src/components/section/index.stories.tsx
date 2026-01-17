@@ -2,7 +2,6 @@ import Section from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof Section> = {
   title: 'Layout/Section',
   component: Section,

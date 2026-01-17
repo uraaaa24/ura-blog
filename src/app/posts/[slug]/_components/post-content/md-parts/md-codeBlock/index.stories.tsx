@@ -2,7 +2,6 @@ import MDCodeBlock from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDCodeBlock> = {
   title: 'Markdown/CodeBlock',
   component: MDCodeBlock,

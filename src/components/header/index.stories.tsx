@@ -2,7 +2,6 @@ import Header from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof Header> = {
   title: 'Layout/Header',
   component: Header,

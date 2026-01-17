@@ -2,7 +2,6 @@ import { Heading1, Heading2 } from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta1: Meta<typeof Heading1> = {
   title: 'Typography/Heading1',
   component: Heading1,

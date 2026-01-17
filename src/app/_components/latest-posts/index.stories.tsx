@@ -4,7 +4,6 @@ import LatestPosts from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof LatestPosts> = {
   title: 'Blog/LatestPosts',
   component: LatestPosts,

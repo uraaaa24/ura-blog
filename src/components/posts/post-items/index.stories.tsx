@@ -4,7 +4,6 @@ import PostItems from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof PostItems> = {
   title: 'Blog/PostItems',
   component: PostItems,

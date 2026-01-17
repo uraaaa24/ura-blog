@@ -2,7 +2,6 @@ import { MDHeading } from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDHeading> = {
   title: 'Markdown/Heading',
   component: MDHeading,

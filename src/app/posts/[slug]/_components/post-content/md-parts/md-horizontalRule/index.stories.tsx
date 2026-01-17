@@ -2,7 +2,6 @@ import MDHorizontalRule from './index'
 
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-
 const meta: Meta<typeof MDHorizontalRule> = {
   title: 'Markdown/HorizontalRule',
   component: MDHorizontalRule,
