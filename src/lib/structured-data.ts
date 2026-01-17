@@ -1,3 +1,5 @@
+import { SOCIAL_LINKS } from '@/constants/sns'
+
 import { BASE_URL } from './envs'
 
 import type { Post } from './post'
@@ -53,6 +55,16 @@ export function generateWebSiteStructuredData() {
       name: 'Ura',
       url: BASE_URL
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Uralog',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/ura-icon.png`
+      }
+    },
+    image: `${BASE_URL}/api/og`,
+    sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href],
     potentialAction: {
       '@type': 'SearchAction',
       target: {
