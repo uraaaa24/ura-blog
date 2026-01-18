@@ -46,7 +46,7 @@ describe('PostItems', () => {
   it('renders with empty posts array', () => {
     const { container } = render(<PostItems posts={[]} />)
 
-    expect(container.firstChild).toBeNull()
+    expect(container.firstChild).toHaveProperty('tagName', 'UL')
   })
 
   it('renders single post correctly', () => {

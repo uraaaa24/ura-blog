@@ -114,19 +114,17 @@ describe('fetchPosts', () => {
   })
 
   it('handles posts from different sources correctly', async () => {
-    // Array.from(new Set()) only removes exact object references, not deep duplicates
-    // Since the posts are different object instances, all will be kept
+    // Dedupes posts by slug to avoid duplicates across sources.
     const duplicatePost = { ...mockZennPosts[0] }
     mockAllPosts.mockResolvedValue([...mockLocalPosts, duplicatePost])
     mockGetZennRssFeed.mockResolvedValue(mockZennPosts)
 
     const posts = await fetchPosts()
 
-    // Should have 4 posts since they are different object instances
-    expect(posts).toHaveLength(4)
+    // Should have 3 posts since duplicates are removed by slug
+    expect(posts).toHaveLength(3)
     expect(posts.map((p) => p.title)).toEqual([
       'Zenn Post 1', // Latest date
-      'Zenn Post 1', // Duplicate object
       'Local Post 2',
       'Local Post 1'
     ])
