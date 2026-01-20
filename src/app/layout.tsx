@@ -54,13 +54,22 @@ export const metadata: Metadata = {
     siteName: 'Uralog',
     title: 'Uralog',
     description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Uralog'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Uralog',
     description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。'
+      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    images: ['/opengraph-image']
   },
   robots: {
     index: true,
