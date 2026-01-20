@@ -42,7 +42,9 @@ const parseRSSXML = (xmlText: string): ZennRSSFeed => {
  */
 export const getZennRssFeed = async () => {
   try {
-    const response = await fetch('https://zenn.dev/uraaaa24/feed?all=1')
+    const response = await fetch('https://zenn.dev/uraaaa24/feed?all=1', {
+      next: { revalidate: 3600 }
+    })
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }

@@ -33,12 +33,17 @@ const PostItems = ({ posts, showSearch = false }: PostItemsProps) => {
             value={searchQuery}
             onChange={(value) => setSearchQuery(value)}
             placeholder="Search posts"
+            ariaLabel="Search posts"
           />
         </div>
       )}
-      {filteredPosts.map((post) => (
-        <PostItem key={post.slug} post={post} />
-      ))}
+      <ul>
+        {filteredPosts.map((post) => (
+          <li key={post.slug}>
+            <PostItem post={post} />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }

@@ -8,7 +8,7 @@ const HeroContent = () => {
     <>
       <Heading1>Hi there, I&apos;m Ura! ⚽️</Heading1>
       <div className="flex flex-col space-y-6">
-        <p>
+        <p className="text-gray-700 dark:text-gray-300">
           I&apos;m an engineer focusing on front-end development.
           <br />I also have experience in back-end and infrastructure.
           <br />A devoted Arsenal fan who loves playing soccer.
