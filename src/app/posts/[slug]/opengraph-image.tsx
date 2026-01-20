@@ -2,141 +2,88 @@ import { ImageResponse } from 'next/og'
 
 import { getPostBySlug } from '@/lib/post'
 
-// Image metadata
 export const alt = 'Uralog - 記事'
-export const size = {
-  width: 1200,
-  height: 630
-}
-
+export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-const defaultOGPData = {
+type OGP = {
+  title: string
+  date?: string
+  thumb: string // emoji でも URL でもOK
+}
+
+const FALLBACK: OGP = {
   title: 'Uralog - 技術ブログ',
   date: '',
-  emoji: '📝'
+  thumb: '📝'
 }
 
-// Image generation
-export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default async function Image({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug)
 
-  // 記事データを取得
-  const post = await getPostBySlug(slug)
+  const data: OGP = post
+    ? {
+        title: post.title.slice(0, 20),
+        date: post.formattedDate,
+        thumb: post.thumbnail || FALLBACK.thumb
+      }
+    : FALLBACK
 
-  if (!post) {
-    return generateOGPImage(defaultOGPData.title, defaultOGPData.date, defaultOGPData.emoji)
-  }
-
-  return generateOGPImage(
-    post.title.slice(0, 20),
-    post.formattedDate,
-    post.thumbnail || defaultOGPData.emoji
-  )
+  return ogpImage(data)
 }
 
-const generateOGPImage = (title: string, date: string, emoji: string) => {
-  return new ImageResponse(
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#f7f7f7',
-        padding: '100px 120px',
-        position: 'relative'
-      }}
-    >
-      {/* Main Content - Same structure as post-item */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '40px',
-          width: '100%'
-        }}
-      >
-        {/* Thumbnail with rounded background */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '160px',
-            height: '160px',
-            backgroundColor: '#e5e7eb',
-            borderRadius: '24px',
-            flexShrink: 0
-          }}
-        >
+const ogpImage = ({ title, date, thumb }: OGP) =>
+  new ImageResponse(
+    <div style={styles.root}>
+      <div style={styles.row}>
+        <div style={styles.thumbWrap}>
           {/* biome-ignore lint/performance/noImgElement: next/og supports only standard img elements */}
-          <img
-            width={100}
-            height={100}
-            src={emoji}
-            alt="Post thumbnail"
-            style={{
-              borderRadius: 128
-            }}
-          />
+          <img src={thumb} width={100} height={100} alt="" style={styles.thumb} />
         </div>
 
-        {/* Title and Date Column */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-            flex: 1
-          }}
-        >
-          {/* Title */}
-          <h1
-            style={{
-              fontSize: '56px',
-              fontWeight: 700,
-              color: '#111827',
-              lineHeight: 1.2,
-              margin: 0,
-              wordBreak: 'break-word'
-            }}
-          >
-            {title}
-          </h1>
-
-          {/* Date */}
-          {date && (
-            <span
-              style={{
-                fontSize: '24px',
-                color: '#6b7280',
-                fontWeight: 400
-              }}
-            >
-              {date}
-            </span>
-          )}
+        <div style={styles.text}>
+          <h1 style={styles.title}>{title}</h1>
+          {date ? <span style={styles.date}>{date}</span> : null}
         </div>
       </div>
 
-      {/* Site Name */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '60px',
-          right: '120px',
-          fontSize: '28px',
-          color: '#9ca3af',
-          fontWeight: 600
-        }}
-      >
-        Uralog
-      </div>
+      <div style={styles.brand}>Uralog</div>
     </div>,
-    {
-      ...size
-    }
+    size
   )
+
+const styles: Record<string, React.CSSProperties> = {
+  root: {
+    width: '100%',
+    height: '100%',
+    padding: '100px 120px',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f7f7f7'
+  },
+  row: { width: '100%', display: 'flex', alignItems: 'center', gap: 40 },
+  thumbWrap: {
+    width: 160,
+    height: 160,
+    borderRadius: 24,
+    background: '#e5e7eb',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0
+  },
+  thumb: { borderRadius: 128 },
+  text: { flex: 1, display: 'flex', flexDirection: 'column', gap: 16 },
+  title: { margin: 0, fontSize: 56, fontWeight: 700, color: '#111827', lineHeight: 1.2 },
+  date: { fontSize: 24, color: '#6b7280' },
+  brand: {
+    position: 'absolute',
+    right: 120,
+    bottom: 60,
+    fontSize: 28,
+    fontWeight: 600,
+    color: '#9ca3af'
+  }
 }
