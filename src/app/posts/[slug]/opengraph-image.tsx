@@ -2,9 +2,14 @@ import { ImageResponse } from 'next/og'
 
 import { getPostBySlug } from '@/lib/post'
 
-import type { NextRequest } from 'next/server'
+// Image metadata
+export const alt = 'Uralog - 記事'
+export const size = {
+  width: 1200,
+  height: 630
+}
 
-export const runtime = 'nodejs'
+export const contentType = 'image/png'
 
 const defaultOGPData = {
   title: 'Uralog - 技術ブログ',
@@ -12,18 +17,16 @@ const defaultOGPData = {
   emoji: '📝'
 }
 
-export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url)
+// Image generation
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
 
-  // slugから記事データを取得
-  const slug = searchParams.get('slug')
-
-  if (!slug)
-    return generateOGPImage(defaultOGPData.title, defaultOGPData.date, defaultOGPData.emoji)
-
+  // 記事データを取得
   const post = await getPostBySlug(slug)
-  if (!post)
+
+  if (!post) {
     return generateOGPImage(defaultOGPData.title, defaultOGPData.date, defaultOGPData.emoji)
+  }
 
   return generateOGPImage(
     post.title.slice(0, 20),
@@ -133,8 +136,7 @@ const generateOGPImage = (title: string, date: string, emoji: string) => {
       </div>
     </div>,
     {
-      width: 1200,
-      height: 630
+      ...size
     }
   )
 }
