@@ -9,6 +9,7 @@
     "start": "next start",
     "app": "pnpm run build && pnpm run start",
     "watch": "pnpm exec tsc --watch",
+    "add:book": "pnpm exec tsc --pretty false --target es2020 --module commonjs --outDir /tmp/ura-blog-add-book scripts/add-book.ts && node /tmp/ura-blog-add-book/add-book.js",
     "lint": "biome check . && eslint .",
     "lint:fix": "biome check --write . && eslint . --fix",
     "test": "pnpm exec vitest",
