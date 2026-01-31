@@ -15,7 +15,9 @@ const BooksPage = async () => {
   return (
     <>
       <div className="flex items-baseline gap-4 mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Books</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 font-(family-name:--font-bungee)">
+          Books
+        </h1>
         <p className="text-gray-600 dark:text-gray-400 text-sm">Books I have read</p>
       </div>
       <Section>

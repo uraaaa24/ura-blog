@@ -16,7 +16,9 @@ const SectionHeader = ({
   return (
     <div className="flex items-start justify-between gap-4 mb-4">
       <div className="space-y-1">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">{title}</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-(family-name:--font-bungee)">
+          {title}
+        </h2>
         {description ? (
           <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
         ) : null}
