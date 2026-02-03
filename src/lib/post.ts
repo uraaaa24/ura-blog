@@ -20,6 +20,11 @@ export type Post = {
   toc?: TocItem[]
 }
 
+const normalizeTitle = (title: unknown, slug: string): string => {
+  const safe = String(title ?? '').trim()
+  return safe.length > 0 ? safe : slug
+}
+
 const toValidDate = (value: unknown): Date | null => {
   if (value instanceof Date) {
     return Number.isNaN(value.getTime()) ? null : value
@@ -149,7 +154,7 @@ export async function getAllPosts(): Promise<Post[]> {
 
       return {
         slug,
-        title: data.title,
+        title: normalizeTitle(data.title, slug),
         thumbnail: extractImageSrc(data.thumbnail || ''),
         date: dateIso,
         formattedDate,
@@ -185,7 +190,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
 
     return {
       slug,
-      title: data.title,
+      title: normalizeTitle(data.title, slug),
       thumbnail: extractImageSrc(data.thumbnail || ''),
       date: dateIso,
       formattedDate,

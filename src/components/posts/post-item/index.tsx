@@ -10,7 +10,7 @@ type PostCardProps = {
 const PostItem = ({ post }: PostCardProps) => {
   const isExternalPost = post.slug.startsWith('https')
   const href = isExternalPost ? post.slug : `/posts/${post.slug}`
-  const fallbackLetter = post.title.trim().charAt(0) || '?'
+  const fallbackLetter = post.title?.trim().charAt(0) || '?'
 
   const parsedDate = new Date(post.date)
   const dateTime = Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString()
