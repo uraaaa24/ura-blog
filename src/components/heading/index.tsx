@@ -5,7 +5,11 @@ type HeadingProps = {
 }
 
 export const Heading1 = ({ children }: HeadingProps) => {
-  return <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">{children}</h1>
+  return (
+    <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100 font-(family-name:--font-bungee)">
+      {children}
+    </h1>
+  )
 }
 
 export const Heading2 = ({ children }: HeadingProps) => {
