@@ -19,9 +19,7 @@ const PostsPage = async () => {
   return (
     <>
       <div className="flex items-baseline gap-4 mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-          Posts
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Posts</h1>
         <p className="text-gray-600 dark:text-gray-400 text-sm">Articles and technical writings</p>
       </div>
       <PostItems posts={totalPosts} showSearch />
