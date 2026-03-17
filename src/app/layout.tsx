@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { GoogleTagManager } from '@next/third-parties/google'
-import { Roboto } from 'next/font/google'
+import { Bungee, Roboto } from 'next/font/google'
 import Script from 'next/script'
 
 import Footer from '@/components/footer'
@@ -16,6 +16,12 @@ import './globals.css'
 
 const roboto = Roboto({
   subsets: ['latin']
+})
+
+const bungee = Bungee({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bungee'
 })
 
 export const metadata: Metadata = {
@@ -95,7 +101,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       </head>
       <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
       <body
-        className={`${roboto.className} 
+        className={`${roboto.className} ${bungee.variable} 
           bg-[#f7f7f7] dark:bg-[#1a1a1a]
           text-gray-900 dark:text-gray-100
           leading-8 min-h-screen flex flex-col
