@@ -22,6 +22,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9
+    },
+    {
+      url: `${BASE_URL}/books`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7
     }
   ]
 
