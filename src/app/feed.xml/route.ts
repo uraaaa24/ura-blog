@@ -1,9 +1,8 @@
-import { fetchPosts } from '@/lib/data'
 import { generateRSSFeed } from '@/lib/feed'
+import { getAllPosts } from '@/lib/post'
 
 export async function GET() {
-  const posts = await fetchPosts()
-
+  const posts = await getAllPosts()
   const rss = generateRSSFeed(posts)
 
   return new Response(rss, {

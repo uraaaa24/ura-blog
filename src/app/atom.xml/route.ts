@@ -1,9 +1,8 @@
-import { fetchPosts } from '@/lib/data'
 import { generateAtomFeed } from '@/lib/feed'
+import { getAllPosts } from '@/lib/post'
 
 export async function GET() {
-  const posts = await fetchPosts()
-
+  const posts = await getAllPosts()
   const atom = generateAtomFeed(posts)
 
   return new Response(atom, {

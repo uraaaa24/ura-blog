@@ -19,7 +19,9 @@ export function generateArticleStructuredData(post: Post) {
     author: {
       '@type': 'Person',
       name: 'Ura',
-      url: BASE_URL
+      url: BASE_URL,
+      image: `${BASE_URL}/ura-icon.png`,
+      sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href]
     },
     publisher: {
       '@type': 'Organization',
@@ -53,7 +55,18 @@ export function generateWebSiteStructuredData() {
     author: {
       '@type': 'Person',
       name: 'Ura',
-      url: BASE_URL
+      url: BASE_URL,
+      image: `${BASE_URL}/ura-icon.png`,
+      sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href],
+      knowsAbout: [
+        'React',
+        'Next.js',
+        'TypeScript',
+        'フロントエンド開発',
+        'Web開発',
+        'JavaScript',
+        'TailwindCSS'
+      ]
     },
     publisher: {
       '@type': 'Organization',
