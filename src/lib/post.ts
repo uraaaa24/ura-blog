@@ -208,10 +208,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
 /**
  * 関連記事を取得する関数（タグベースでの類似度計算）
  */
-export async function getRelatedPosts(
-  currentPost: Post,
-  limit: number = 3
-): Promise<Post[]> {
+export async function getRelatedPosts(currentPost: Post, limit: number = 3): Promise<Post[]> {
   const allPosts = await getAllPosts()
   const currentTags = currentPost.tags || []
 
