@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 
 import Breadcrumb from '@/components/breadcrumb'
-import LikeButton from '@/components/like-button'
 import ScrollToTop from '@/components/scroll-to-top'
 import ShareButton from '@/components/share-button'
 import TableOfContents from '@/components/table-of-contents'
@@ -131,7 +130,6 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         <PostContent content={post.content} />
 
         <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
-          <LikeButton slug={post.slug} />
           <ShareButton title={post.title} slug={post.slug} />
         </div>
       </article>
