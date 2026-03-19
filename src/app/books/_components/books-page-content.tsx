@@ -1,0 +1,104 @@
+'use client'
+
+import { useMemo } from 'react'
+
+import BookItem from '@/components/books/book-item'
+import PageHeader from '@/components/page-header'
+import SearchInput from '@/components/search-input'
+import { useSearch } from '@/hooks/useSearch'
+import type { Book } from '@/lib/books'
+
+type BooksPageContentProps = {
+  books: Book[]
+}
+
+const BooksPageContent = ({ books }: BooksPageContentProps) => {
+  const {
+    searchQuery,
+    setSearchQuery,
+    filteredItems: filteredBooks
+  } = useSearch({
+    items: books,
+    searchKey: 'title'
+  })
+
+  // 年・月ごとにグループ化
+  const groupedByYearMonth = useMemo(() => {
+    const yearGroups = new Map<number, Map<number, Book[]>>()
+
+    for (const book of filteredBooks) {
+      const date = new Date(book.completedDate)
+      const year = date.getFullYear()
+      const month = date.getMonth()
+
+      if (!yearGroups.has(year)) {
+        yearGroups.set(year, new Map())
+      }
+
+      const monthGroups = yearGroups.get(year)!
+      const existing = monthGroups.get(month) || []
+      monthGroups.set(month, [...existing, book])
+    }
+
+    // 年の降順、月の降順でソート
+    return Array.from(yearGroups.entries())
+      .sort(([yearA], [yearB]) => yearB - yearA)
+      .map(([year, monthGroups]) => ({
+        year,
+        months: Array.from(monthGroups.entries()).sort(([monthA], [monthB]) => monthB - monthA)
+      }))
+  }, [filteredBooks])
+
+  const getMonthName = (monthIndex: number) => {
+    return new Date(2000, monthIndex).toLocaleString('en-US', { month: 'long' })
+  }
+
+  if (books.length === 0) {
+    return (
+      <>
+        <PageHeader title="Books" />
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          <p>まだ本が登録されていません</p>
+        </div>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <PageHeader
+        title="Books"
+        action={<SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search books" />}
+      />
+      {filteredBooks.length === 0 ? (
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          <p>No books found</p>
+        </div>
+      ) : (
+        <div className="space-y-12">
+          {groupedByYearMonth.map(({ year, months }) => (
+            <div key={year}>
+              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">{year}</h2>
+              <div className="space-y-10">
+                {months.map(([month, monthBooks]) => (
+                  <div key={month}>
+                    <h3 className="text-base font-semibold mb-4 text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                      {getMonthName(month)}
+                    </h3>
+                    <div className="space-y-0">
+                      {monthBooks.map((book) => (
+                        <BookItem key={book.id} book={book} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  )
+}
+
+export default BooksPageContent
