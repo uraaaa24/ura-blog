@@ -6,7 +6,7 @@ import Script from 'next/script'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import { GA_MEASUREMENT_ID } from '@/lib/envs'
+import { GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
 
@@ -81,6 +81,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1
     }
+  },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION
   }
 }
 
