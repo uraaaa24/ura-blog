@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Roboto } from 'next/font/google'
 import Script from 'next/script'
 
@@ -93,7 +93,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
       </head>
-      <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <body
         className={`${roboto.className} 
           bg-[#f7f7f7] dark:bg-[#1a1a1a]
