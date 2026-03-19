@@ -1,8 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 import Input from '@/components/input'
+import { useSearch } from '@/hooks/useSearch'
 import type { Book } from '@/lib/books'
 
 import BookItem from '../book-item'
@@ -13,17 +14,14 @@ type BookItemsProps = {
 }
 
 const BookItems = ({ books, showSearch = false }: BookItemsProps) => {
-  const [searchQuery, setSearchQuery] = useState<string>('')
-
-  const filteredBooks = useMemo(
-    () =>
-      books.filter((book) => {
-        if (!searchQuery) return true
-
-        return book.title.toLowerCase().includes(searchQuery.toLowerCase())
-      }),
-    [books, searchQuery]
-  )
+  const {
+    searchQuery,
+    setSearchQuery,
+    filteredItems: filteredBooks
+  } = useSearch({
+    items: books,
+    searchKey: 'title'
+  })
 
   // 年・月ごとにグループ化
   const groupedByYearMonth = useMemo(() => {

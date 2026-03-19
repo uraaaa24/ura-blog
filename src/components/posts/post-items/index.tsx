@@ -1,8 +1,7 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-
 import Input from '@/components/input'
+import { useSearch } from '@/hooks/useSearch'
 import type { Post } from '@/lib/post'
 
 import PostItem from '../post-item'
@@ -13,17 +12,14 @@ type PostItemsProps = {
 }
 
 const PostItems = ({ posts, showSearch = false }: PostItemsProps) => {
-  const [searchQuery, setSearchQuery] = useState<string>('')
-
-  const filteredPosts = useMemo(
-    () =>
-      posts.filter((post) => {
-        if (!searchQuery) return true
-
-        return post.title.toLowerCase().includes(searchQuery.toLowerCase())
-      }),
-    [posts, searchQuery]
-  )
+  const {
+    searchQuery,
+    setSearchQuery,
+    filteredItems: filteredPosts
+  } = useSearch({
+    items: posts,
+    searchKey: 'title'
+  })
 
   return (
     <>
