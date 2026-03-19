@@ -3,6 +3,8 @@ import path from 'node:path'
 
 import { cache } from 'react'
 
+import { formatDate, toValidDate } from './date-utils'
+
 const booksDataPath = path.join(process.cwd(), 'data', 'books.json')
 
 export type Book = {
@@ -12,26 +14,6 @@ export type Book = {
   formattedDate: string
   url: string
 }
-
-/**
- * Convert value to valid Date or null if invalid
- */
-const toValidDate = (value: unknown): Date | null => {
-  if (value instanceof Date) {
-    return Number.isNaN(value.getTime()) ? null : value
-  }
-
-  const date = new Date(
-    typeof value === 'string' || typeof value === 'number' ? value : String(value)
-  )
-  return Number.isNaN(date.getTime()) ? null : date
-}
-
-/**
- * Format date to string with given options
- */
-const formatDate = (date: Date, opts: Intl.DateTimeFormatOptions) =>
-  new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', ...opts }).format(date)
 
 export const getAllBooks = cache(async (limit?: number): Promise<Book[]> => {
   try {

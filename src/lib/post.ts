@@ -4,6 +4,7 @@ import path from 'node:path'
 import twemoji from '@twemoji/api'
 import matter from 'gray-matter'
 
+import { formatDate, toValidDate } from './date-utils'
 import { generateToc, type TocItem } from './toc'
 
 const postsDirectory = path.join(process.cwd(), 'contents')
@@ -24,20 +25,6 @@ const normalizeTitle = (title: unknown, slug: string): string => {
   const safe = String(title ?? '').trim()
   return safe.length > 0 ? safe : slug
 }
-
-const toValidDate = (value: unknown): Date | null => {
-  if (value instanceof Date) {
-    return Number.isNaN(value.getTime()) ? null : value
-  }
-
-  const date = new Date(
-    typeof value === 'string' || typeof value === 'number' ? value : String(value)
-  )
-  return Number.isNaN(date.getTime()) ? null : date
-}
-
-const formatDate = (date: Date, opts: Intl.DateTimeFormatOptions) =>
-  new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', ...opts }).format(date)
 
 /**
  * 画像の src 属性を抽出するヘルパー関数
@@ -79,28 +66,6 @@ const copyImageToPublic = (slug: string, imagePath: string): void => {
 }
 
 /**
- * Obsidian の画像リンクを Markdown 形式に変換するヘルパー関数
- * ![[filename]] → ![](/contents/slug/filename)
- */
-const convertObsidianImages = (slug: string, content: string): string => {
-  return content.replace(/!\[\[([^\]]+)\]\]/g, (_match, filename) => {
-    const possiblePaths = [filename, `_images/${filename}`]
-
-    const found = possiblePaths
-      .map((rel) => ({ rel, abs: path.join(postsDirectory, rel) }))
-      .find(({ abs }) => fs.existsSync(abs))
-
-    const relPath = found?.rel ?? filename
-    const imageName = path.basename(relPath)
-
-    copyImageToPublic(slug, relPath)
-
-    // Markdown には slug フォルダ付きで書き込む
-    return `![](/contents/${slug}/${imageName})`
-  })
-}
-
-/**
  * コンテンツ内の画像リンクを処理するヘルパー関数
  * ![alt](path/to/image) → ![](/contents/slug/image)
  */
@@ -139,8 +104,7 @@ export async function getAllPosts(): Promise<Post[]> {
       const fullPath = path.join(postsDirectory, fileName)
       const { data, content } = matter(fs.readFileSync(fullPath, 'utf8'))
 
-      let processed = convertObsidianImages(slug, content)
-      processed = processContentImages(slug, processed)
+      const processed = processContentImages(slug, content)
 
       const parsedDate = toValidDate(data.date)
       const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
@@ -175,8 +139,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     const { data, content } = matter(fs.readFileSync(fullPath, 'utf8'))
 
-    let processed = convertObsidianImages(slug, content)
-    processed = processContentImages(slug, processed)
+    const processed = processContentImages(slug, content)
 
     const parsedDate = toValidDate(data.date)
     const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
