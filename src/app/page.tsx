@@ -15,9 +15,9 @@ const HomePage = async () => {
 
   return (
     <>
-      <Section>
+      <div className="min-h-[90vh] flex items-start justify-center pt-32">
         <HeroContent />
-      </Section>
+      </div>
 
       <Section>
         <SectionHeader title="Posts" href="/posts" />
