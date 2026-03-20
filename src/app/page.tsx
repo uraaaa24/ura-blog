@@ -15,7 +15,7 @@ const HomePage = async () => {
 
   return (
     <>
-      <div className="min-h-[90vh] flex items-start justify-center pt-32">
+      <div className="min-h-[90vh] flex items-start justify-center pt-20 md:pt-32">
         <HeroContent />
       </div>
 

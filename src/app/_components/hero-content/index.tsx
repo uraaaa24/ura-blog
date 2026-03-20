@@ -5,12 +5,12 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 
 const HeroContent = () => {
   return (
-    <div className="flex flex-col items-center justify-center space-y-14">
+    <div className="flex flex-col items-center justify-center space-y-8 md:space-y-14">
       <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-gray-300 dark:border-gray-600">
         <Image src="/ura-icon.png" alt="Ura's avatar" fill className="object-cover" priority />
       </div>
 
-      <div className="space-y-8 text-center max-w-2xl">
+      <div className="space-y-6 md:space-y-8 text-center max-w-2xl">
         <div className="relative inline-block">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100 tracking-tight -rotate-1">
             Ura
@@ -30,7 +30,7 @@ const HeroContent = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-6 pt-4">
+      <div className="flex items-center gap-6 pt-2 md:pt-4">
         <Link
           href={SOCIAL_LINKS.github.href}
           target="_blank"
