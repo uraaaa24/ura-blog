@@ -68,7 +68,9 @@ const BooksPageContent = ({ books }: BooksPageContentProps) => {
     <>
       <PageHeader
         title="Books"
-        action={<SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search books" />}
+        action={
+          <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search books" />
+        }
       />
       {filteredBooks.length === 0 ? (
         <div className="text-center py-12 text-gray-500 dark:text-gray-400">
