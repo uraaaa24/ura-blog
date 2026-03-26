@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Roboto } from 'next/font/google'
+import { Zen_Kaku_Gothic_New } from 'next/font/google'
 import Script from 'next/script'
 
 import Footer from '@/components/footer'
@@ -14,8 +14,10 @@ import type { Metadata } from 'next'
 
 import './globals.css'
 
-const roboto = Roboto({
-  subsets: ['latin']
+const zenKakuGothicNew = Zen_Kaku_Gothic_New({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  display: 'swap'
 })
 
 export const metadata: Metadata = {
@@ -98,7 +100,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       </head>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <body
-        className={`${roboto.className} 
+        className={`${zenKakuGothicNew.className}
           bg-[#f7f7f7] dark:bg-[#1a1a1a]
           text-gray-900 dark:text-gray-100
           leading-8 min-h-screen flex flex-col

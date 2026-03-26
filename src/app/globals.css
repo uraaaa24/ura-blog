@@ -7,6 +7,21 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-weight: 400;
+}
+
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
 h2,
 h3,
 h4,
@@ -38,12 +53,10 @@ h6 {
 ::view-transition-new(root) {
   z-index: 1;
   animation: theme-expand 1s cubic-bezier(0.4, 0.7, 0.5, 1) both;
-  mask-image: radial-gradient(
-    circle var(--theme-mask-size) at var(--theme-toggle-x) var(--theme-toggle-y),
-    black 0%,
-    black 60%,
-    transparent 100%
-  );
+  mask-image: radial-gradient(circle var(--theme-mask-size) at var(--theme-toggle-x) var(--theme-toggle-y),
+      black 0%,
+      black 60%,
+      transparent 100%);
 }
 
 ::view-transition-old(root) {
