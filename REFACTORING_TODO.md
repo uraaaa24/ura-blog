@@ -3,8 +3,8 @@
 ## 進捗管理
 
 - [x] Phase 1: Shared Layer Setup ✅ (Commit: ee2df1d)
-- [x] Phase 2: Posts Feature ✅ (Ready to commit)
-- [ ] Phase 3: Books Feature
+- [x] Phase 2: Posts Feature ✅ (Commit: 7a6741b)
+- [x] Phase 3: Books Feature ✅ (Ready to commit)
 - [ ] Phase 4: About Feature
 - [ ] Phase 5: ESLint Enforcement
 - [ ] Phase 6: Documentation & Cleanup
@@ -246,66 +246,49 @@ npm run build        # ✅ Build successful
 
 ---
 
-## Phase 3: Books Feature
+## Phase 3: Books Feature ✅
 
-### 3.1 フィーチャー構造作成
-
-```bash
-mkdir -p src/features/books/{api,components,types,utils}
-```
-
-### 3.2 型定義の作成
-
-- [ ] `src/features/books/types/index.ts` 作成
-  ```typescript
-  export type Book = {
-    id: string
-    title: string
-    completedDate: string
-    formattedDate: string
-    url: string
-  }
-  ```
-
-### 3.3 API層の移行
-
-- [ ] `src/features/books/api/get-books.ts` 作成
-  - `lib/books.ts` の内容をコピー
-  - `cache()` を使用
-
-### 3.4 コンポーネントの移行
-
-- [ ] `src/components/books/book-item/index.tsx` → `src/features/books/components/book-item.tsx`
-- [ ] `src/app/books/_components/books-page-content.tsx` → `src/features/books/components/books-page-content.tsx`
-
-### 3.5 App ルートの更新
-
-- [ ] `src/app/books/page.tsx` 更新
-  ```typescript
-  import { getBooks } from '@/features/books/api/get-books'
-  import { BooksPageContent } from '@/features/books/components/books-page-content'
-  ```
-
-- [ ] `src/app/page.tsx` 更新 (ホームページ books セクション)
-  ```typescript
-  import { getBooks } from '@/features/books/api/get-books'
-  ```
-
-### 3.6 古いファイルの削除
+### 3.1 フィーチャー構造作成 ✅
 
 ```bash
-rm src/lib/books.ts
-rm -rf src/app/books/_components
-rm -rf src/components/books
+mkdir -p src/features/books/{api,components,types,utils}  # ✅ 完了
 ```
 
-### 3.7 検証
+### 3.2 型定義の作成 ✅
+
+- [x] `src/features/books/types/index.ts` 作成
+
+### 3.3 API層の移行 ✅
+
+- [x] `src/features/books/api/get-books.ts` 作成
+
+### 3.4 コンポーネントの移行 ✅
+
+- [x] `src/features/books/components/book-item.tsx`
+- [x] `src/features/books/components/books-page-content.tsx`
+
+### 3.5 App ルートの更新 ✅
+
+- [x] `src/app/books/page.tsx` 更新
+- [x] `src/app/page.tsx` 更新 (ホームページ books セクション)
+
+### 3.6 古いファイルの削除 ✅
 
 ```bash
-npm run dev
-# Test: /books, / (books section)
-npm run build
+rm src/lib/books.ts                       # ✅ 削除完了
+rm -rf src/app/books/_components          # ✅ 削除完了
+rm -rf src/components/books               # ✅ 削除完了
 ```
+
+### 3.7 検証 ✅
+
+```bash
+npm run build        # ✅ Build successful
+```
+
+**Routes verified:**
+- ✅ `/` (home page books section)
+- ✅ `/books` (list page with year/month grouping)
 
 ---
 

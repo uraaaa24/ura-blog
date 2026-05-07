@@ -1,6 +1,5 @@
-import { getAllBooks } from '@/lib/books'
-
-import BooksPageContent from './_components/books-page-content'
+import { getBooks } from '@/features/books/api/get-books'
+import BooksPageContent from '@/features/books/components/books-page-content'
 
 import type { Metadata } from 'next'
 
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 const BooksPage = async () => {
-  const books = await getAllBooks()
+  const books = await getBooks()
 
   return <BooksPageContent books={books} />
 }

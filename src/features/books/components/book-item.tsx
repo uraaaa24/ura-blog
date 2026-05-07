@@ -1,7 +1,7 @@
 import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 
-import type { Book } from '@/lib/books'
+import type { Book } from '../types'
 
 type BookItemProps = {
   book: Book

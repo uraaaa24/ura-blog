@@ -3,19 +3,13 @@ import path from 'node:path'
 
 import { cache } from 'react'
 
-import { formatDate, toValidDate } from './date-utils'
+import { formatDate, toValidDate } from '@/lib/date-utils'
+
+import type { Book } from '../types'
 
 const booksDataPath = path.join(process.cwd(), 'data', 'books.json')
 
-export type Book = {
-  id: string
-  title: string
-  completedDate: string
-  formattedDate: string
-  url: string
-}
-
-export const getAllBooks = cache(async (limit?: number): Promise<Book[]> => {
+export const getBooks = cache(async (limit?: number): Promise<Book[]> => {
   try {
     if (!fs.existsSync(booksDataPath)) {
       const dataDir = path.dirname(booksDataPath)

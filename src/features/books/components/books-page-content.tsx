@@ -2,11 +2,12 @@
 
 import { useMemo } from 'react'
 
-import BookItem from '@/components/books/book-item'
 import PageHeader from '@/components/layouts/page-header'
 import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
-import type { Book } from '@/lib/books'
+
+import type { Book } from '../types'
+import BookItem from './book-item'
 
 type BooksPageContentProps = {
   books: Book[]

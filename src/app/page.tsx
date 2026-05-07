@@ -1,9 +1,9 @@
-import BookItem from '@/components/books/book-item'
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
+import { getBooks } from '@/features/books/api/get-books'
+import BookItem from '@/features/books/components/book-item'
 import { getPosts } from '@/features/posts/api/get-posts'
 import LatestPosts from '@/features/posts/components/latest-posts'
-import { getAllBooks } from '@/lib/books'
 
 import HeroContent from './_components/hero-content'
 
@@ -11,7 +11,7 @@ const LATEST_ITEMS_COUNT = 3
 
 const HomePage = async () => {
   const latestPosts = await getPosts(LATEST_ITEMS_COUNT)
-  const latestBooks = await getAllBooks(LATEST_ITEMS_COUNT)
+  const latestBooks = await getBooks(LATEST_ITEMS_COUNT)
 
   return (
     <>
