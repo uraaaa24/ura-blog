@@ -1,10 +1,11 @@
 'use client'
 
 import PageHeader from '@/components/layouts/page-header'
-import PostItem from '@/components/posts/post-item'
 import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
-import type { Post } from '@/lib/post'
+
+import type { Post } from '../types'
+import PostItem from './post-item'
 
 type PostsPageContentProps = {
   posts: Post[]

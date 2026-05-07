@@ -1,4 +1,4 @@
-import { fetchPosts } from '@/lib/data'
+import { getPosts } from '@/features/posts/api/get-posts'
 import { BASE_URL } from '@/lib/envs'
 
 import type { MetadataRoute } from 'next'
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   ]
 
-  const allPosts = await fetchPosts()
+  const allPosts = await getPosts()
   // Zenn記事（外部リンク）をサイトマップから除外
   const localPosts = allPosts.filter((post) => !post.slug.startsWith('https://'))
   const postPages: MetadataRoute.Sitemap = localPosts.map((post) => ({

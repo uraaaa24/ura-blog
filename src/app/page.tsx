@@ -1,16 +1,16 @@
 import BookItem from '@/components/books/book-item'
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
+import { getPosts } from '@/features/posts/api/get-posts'
+import LatestPosts from '@/features/posts/components/latest-posts'
 import { getAllBooks } from '@/lib/books'
-import { fetchPosts } from '@/lib/data'
 
 import HeroContent from './_components/hero-content'
-import LatestPosts from './_components/latest-posts'
 
 const LATEST_ITEMS_COUNT = 3
 
 const HomePage = async () => {
-  const latestPosts = await fetchPosts(LATEST_ITEMS_COUNT)
+  const latestPosts = await getPosts(LATEST_ITEMS_COUNT)
   const latestBooks = await getAllBooks(LATEST_ITEMS_COUNT)
 
   return (

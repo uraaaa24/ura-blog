@@ -1,8 +1,8 @@
-import { fetchPosts } from '@/lib/data'
+import { getPosts } from '@/features/posts/api/get-posts'
 import { generateLLMSTxt } from '@/lib/llms-txt'
 
 export async function GET() {
-  const posts = await fetchPosts()
+  const posts = await getPosts()
 
   const llmsTxt = generateLLMSTxt(posts)
 

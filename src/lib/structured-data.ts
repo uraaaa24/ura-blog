@@ -2,7 +2,7 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 
 import { BASE_URL } from './envs'
 
-import type { Post } from './post'
+import type { Post } from '@/features/posts/types'
 
 /**
  * 記事用の構造化データ (Article) を生成

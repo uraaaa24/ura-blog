@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-import { getPostBySlug } from '@/lib/post'
+import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
 
 export const runtime = 'nodejs'
 

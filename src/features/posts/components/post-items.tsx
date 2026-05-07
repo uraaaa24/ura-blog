@@ -2,9 +2,9 @@
 
 import Input from '@/components/ui/input'
 import { useSearch } from '@/hooks/useSearch'
-import type { Post } from '@/lib/post'
 
-import PostItem from '../post-item'
+import type { Post } from '../types'
+import PostItem from './post-item'
 
 type PostItemsProps = {
   posts: Post[]

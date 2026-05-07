@@ -5,13 +5,14 @@ import Script from 'next/script'
 import Breadcrumb from '@/components/layouts/breadcrumb'
 import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
-import { getAllPosts, getPostBySlug } from '@/lib/post'
+import { getLocalPosts } from '@/features/posts/api/get-local-posts'
+import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
 import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
 } from '@/lib/structured-data'
 
-import PostContent from './_components/post-content'
+import PostContent from '@/features/posts/components/post-content'
 
 import type { Metadata } from 'next'
 
@@ -65,7 +66,7 @@ export async function generateMetadata(props: {
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts()
+  const posts = await getLocalPosts()
 
   return posts.map((post) => ({
     slug: post.slug

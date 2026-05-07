@@ -1,9 +1,6 @@
-type ZennRSSItem = {
-  title: string
-  link: string
-  pubDate: string
-  content: string
-}
+import { cache } from 'react'
+
+import type { Post, ZennRSSItem } from '../types'
 
 type ZennRSSFeed = {
   items: ZennRSSItem[]
@@ -40,7 +37,7 @@ const parseRSSXML = (xmlText: string): ZennRSSFeed => {
 /**
  * ZennのRSSフィードを取得してパースする関数
  */
-export const getZennRssFeed = async () => {
+export const getZennPosts = cache(async (): Promise<Post[]> => {
   try {
     const response = await fetch('https://zenn.dev/uraaaa24/feed?all=1', {
       next: { revalidate: 3600 }
@@ -74,4 +71,4 @@ export const getZennRssFeed = async () => {
     console.error('Failed to fetch Zenn RSS feed:', error)
     return []
   }
-}
+})

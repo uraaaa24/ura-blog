@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import type { Post } from '@/lib/post'
+import type { Post } from '../types'
 
 type PostCardProps = {
   post: Post

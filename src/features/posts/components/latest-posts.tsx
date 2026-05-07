@@ -1,5 +1,5 @@
-import PostItems from '@/components/posts/post-items'
-import type { Post } from '@/lib/post'
+import type { Post } from '../types'
+import PostItems from './post-items'
 
 type LatestPostsProps = {
   totalPosts: Post[]

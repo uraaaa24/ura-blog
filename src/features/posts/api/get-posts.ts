@@ -1,11 +1,14 @@
 import { cache } from 'react'
 
-import { getAllPosts } from './post'
-import { getZennRssFeed } from './zenn'
+import type { Post } from '../types'
+import { getLocalPosts } from './get-local-posts'
+import { getZennPosts } from './get-zenn-posts'
 
-export const fetchPosts = cache(async (limit?: number) => {
-  const posts = await getAllPosts()
-  const zennPosts = await getZennRssFeed()
+/**
+ * ローカル投稿とZenn投稿を統合して取得する
+ */
+export const getPosts = cache(async (limit?: number): Promise<Post[]> => {
+  const [localPosts, zennPosts] = await Promise.all([getLocalPosts(), getZennPosts()])
 
   /**
    * Sort posts by date or formattedDate in descending order
@@ -19,8 +22,8 @@ export const fetchPosts = cache(async (limit?: number) => {
   }
 
   // Duplicate posts (based on slug or title+date) are removed
-  const deduped = new Map<string, (typeof posts)[number]>()
-  for (const post of [...posts, ...zennPosts]) {
+  const deduped = new Map<string, Post>()
+  for (const post of [...localPosts, ...zennPosts]) {
     const key = post.slug || `${post.title}-${post.date}`
     if (!deduped.has(key)) {
       deduped.set(key, post)

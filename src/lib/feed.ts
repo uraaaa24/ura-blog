@@ -1,6 +1,6 @@
 import { BASE_URL } from './envs'
 
-import type { Post } from './post'
+import type { Post } from '@/features/posts/types'
 
 /**
  * RSS 2.0フィードを生成

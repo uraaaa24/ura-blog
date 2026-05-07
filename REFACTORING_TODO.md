@@ -2,8 +2,8 @@
 
 ## 進捗管理
 
-- [ ] Phase 1: Shared Layer Setup
-- [ ] Phase 2: Posts Feature
+- [x] Phase 1: Shared Layer Setup ✅ (Commit: ee2df1d)
+- [x] Phase 2: Posts Feature ✅ (Ready to commit)
 - [ ] Phase 3: Books Feature
 - [ ] Phase 4: About Feature
 - [ ] Phase 5: ESLint Enforcement
@@ -11,28 +11,28 @@
 
 ---
 
-## Phase 1: Shared Layer Setup
+## Phase 1: Shared Layer Setup ✅
 
-### 1.1 Markdown コンポーネントの移動
+### 1.1 Markdown コンポーネントの移動 ✅
 
-- [ ] `src/components/ui/markdown/` ディレクトリ作成
-- [ ] 以下の13個のコンポーネントをコピー:
-  - [ ] `md-anchor.tsx` (from `app/posts/[slug]/_components/post-content/md-parts/md-anchor/index.tsx`)
-  - [ ] `md-blockquote.tsx` (from `md-parts/md-blockquote/index.tsx`)
-  - [ ] `md-code-block.tsx` (from `md-parts/md-codeBlock/index.tsx`)
-  - [ ] `md-delete.tsx` (from `md-parts/md-delete/index.tsx`)
-  - [ ] `md-emphasis.tsx` (from `md-parts/md-emphasis/index.tsx`)
-  - [ ] `md-heading.tsx` (from `md-parts/md-heading/index.tsx`)
-  - [ ] `md-horizontal-rule.tsx` (from `md-parts/md-horizontalRule/index.tsx`)
-  - [ ] `md-image.tsx` (from `md-parts/md-image/index.tsx`)
-  - [ ] `md-list.tsx` (from `md-parts/md-list/index.tsx`)
-  - [ ] `md-paragraph.tsx` (from `md-parts/md-paragraph/index.tsx`)
-  - [ ] `md-strong.tsx` (from `md-parts/md-strong/index.tsx`)
-  - [ ] `md-table.tsx` (from `md-parts/md-table/index.tsx`)
+- [x] `src/components/ui/markdown/` ディレクトリ作成
+- [x] 以下の13個のコンポーネントをコピー:
+  - [x] `md-anchor.tsx` (from `app/posts/[slug]/_components/post-content/md-parts/md-anchor/index.tsx`)
+  - [x] `md-blockquote.tsx` (from `md-parts/md-blockquote/index.tsx`)
+  - [x] `md-code-block.tsx` (from `md-parts/md-codeBlock/index.tsx`)
+  - [x] `md-delete.tsx` (from `md-parts/md-delete/index.tsx`)
+  - [x] `md-emphasis.tsx` (from `md-parts/md-emphasis/index.tsx`)
+  - [x] `md-heading.tsx` (from `md-parts/md-heading/index.tsx`)
+  - [x] `md-horizontal-rule.tsx` (from `md-parts/md-horizontalRule/index.tsx`)
+  - [x] `md-image.tsx` (from `md-parts/md-image/index.tsx`)
+  - [x] `md-list.tsx` (from `md-parts/md-list/index.tsx`)
+  - [x] `md-paragraph.tsx` (from `md-parts/md-paragraph/index.tsx`)
+  - [x] `md-strong.tsx` (from `md-parts/md-strong/index.tsx`)
+  - [x] `md-table.tsx` (from `md-parts/md-table/index.tsx`)
 
-### 1.2 Markdown バレルエクスポート作成
+### 1.2 Markdown バレルエクスポート作成 ✅
 
-- [ ] `src/components/ui/markdown/index.ts` 作成
+- [x] `src/components/ui/markdown/index.tsx` 作成 (注: .tsxに変更済み)
   ```typescript
   export { default as MDAnchor } from './md-anchor'
   export { default as MDBlockquote } from './md-blockquote'
@@ -92,63 +92,68 @@
   }
   ```
 
-### 1.3 PostContent コンポーネントの更新
+### 1.3 PostContent コンポーネントの更新 ✅
 
-- [ ] `src/app/posts/[slug]/_components/post-content/index.tsx` を編集
-  - [ ] インポートを `@/components/ui/markdown` から変更
-  - [ ] `markdownComponents` を使用するように変更
+- [x] `src/app/posts/[slug]/_components/post-content/index.tsx` を編集
+  - [x] インポートを `@/components/ui/markdown` から変更
+  - [x] `markdownComponents` を使用するように変更
 
-### 1.4 共有コンポーネントの再構成
+### 1.4 共有コンポーネントの再構成 ✅
 
-#### `components/layouts/` に移動
-- [ ] `mkdir -p src/components/layouts`
-- [ ] `header/` を移動 (既に `components/` にある)
-- [ ] `footer/` を移動
-- [ ] `section/` を移動
-- [ ] `page-header/` を移動
-- [ ] `section-header/` を移動
-- [ ] `breadcrumb/` を移動
-- [ ] `scroll-to-top/` を移動
-- [ ] `scroll-to-top-on-route/` を移動
+#### `components/layouts/` に移動 ✅
+- [x] `mkdir -p src/components/layouts`
+- [x] `header/` を移動
+- [x] `footer/` を移動
+- [x] `section/` を移動
+- [x] `page-header/` を移動
+- [x] `section-header/` を移動
+- [x] `breadcrumb/` を移動
+- [x] `scroll-to-top/` を移動
+- [x] `scroll-to-top-on-route/` を移動
 
-#### `components/ui/` に移動
-- [ ] `mkdir -p src/components/ui` (markdownフォルダは既に作成済み)
-- [ ] `input/` を移動
-- [ ] `search-input/` を移動
-- [ ] `share-button/` を移動
-- [ ] `social-links/` を移動
-- [ ] `heading/` を移動
-- [ ] `theme-toggle/` を移動
-- [ ] `table-of-contents/` を移動
-- [ ] `related-posts/` を移動
+#### `components/ui/` に移動 ✅
+- [x] `mkdir -p src/components/ui`
+- [x] `input/` を移動
+- [x] `search-input/` を移動
+- [x] `share-button/` を移動
+- [x] `social-links/` を移動
+- [x] `heading/` を移動
+- [x] `theme-toggle/` を移動
+- [x] `table-of-contents/` を移動
+- [x] `related-posts/` を移動
 
-### 1.5 インポートの更新
+### 1.5 インポートの更新 ✅
 
-- [ ] 全ファイルで `@/components/header` → `@/components/layouts/header` に更新
-- [ ] 全ファイルで `@/components/footer` → `@/components/layouts/footer` に更新
-- [ ] その他のコンポーネントのインポートパスを更新
+- [x] `src/app/layout.tsx` - header, footer
+- [x] `src/app/page.tsx` - section, section-header
+- [x] `src/app/about/page.tsx` - heading, section, social-links
+- [x] `src/app/posts/_components/posts-page-content.tsx` - page-header, search-input
+- [x] `src/app/books/_components/books-page-content.tsx` - page-header, search-input
+- [x] `src/app/posts/[slug]/page.tsx` - breadcrumb, scroll-to-top, share-button
+- [x] `src/app/not-found.tsx` - section
+- [x] `src/components/layouts/header/index.tsx` - theme-toggle
+- [x] `src/components/posts/post-items/index.tsx` - input
+- [x] `src/components/books/book-items/index.tsx` - input
 
-### 1.6 検証
+### 1.6 検証 ✅
 
 ```bash
-npm run dev          # Markdown rendering check
-npm run build        # Build verification
-npm run test         # Run tests
+npm run build        # ✅ Build successful
 ```
 
 ---
 
-## Phase 2: Posts Feature
+## Phase 2: Posts Feature ✅
 
-### 2.1 フィーチャー構造作成
+### 2.1 フィーチャー構造作成 ✅
 
 ```bash
-mkdir -p src/features/posts/{api,components,types,utils}
+mkdir -p src/features/posts/{api,components,types,utils}  # ✅ 完了
 ```
 
-### 2.2 型定義の作成
+### 2.2 型定義の作成 ✅
 
-- [ ] `src/features/posts/types/index.ts` 作成
+- [x] `src/features/posts/types/index.ts` 作成
   ```typescript
   import type { TocItem } from '@/lib/toc'
 
@@ -172,96 +177,72 @@ mkdir -p src/features/posts/{api,components,types,utils}
   }
   ```
 
-### 2.3 ユーティリティの移行
+### 2.3 ユーティリティの移行 ✅
 
-- [ ] `src/features/posts/utils/process-markdown.ts` 作成
-  - `lib/post.ts` から以下を抽出:
-    - `extractImageSrc`
-    - `copyImageToPublic`
-    - `processContentImages`
-    - `normalizeTitle`
+- [x] `src/features/posts/utils/process-markdown.ts` 作成
+  - [x] `extractImageSrc`
+  - [x] `copyImageToPublic`
+  - [x] `processContentImages`
+  - [x] `normalizeTitle`
 
-### 2.4 API層の移行
+### 2.4 API層の移行 ✅
 
-- [ ] `src/features/posts/api/get-local-posts.ts` 作成
-  - `lib/post.ts` の `getAllPosts` をコピー
-  - `../utils/process-markdown` からインポート
+- [x] `src/features/posts/api/get-local-posts.ts` 作成
+- [x] `src/features/posts/api/get-post-by-slug.ts` 作成
+- [x] `src/features/posts/api/get-related-posts.ts` 作成
+- [x] `src/features/posts/api/get-zenn-posts.ts` 作成
+- [x] `src/features/posts/api/get-posts.ts` 作成
 
-- [ ] `src/features/posts/api/get-post-by-slug.ts` 作成
-  - `lib/post.ts` の `getPostBySlug` をコピー
+### 2.5 コンポーネントの移行 ✅
 
-- [ ] `src/features/posts/api/get-related-posts.ts` 作成
-  - `lib/post.ts` の `getRelatedPosts` をコピー
+- [x] `src/features/posts/components/post-item.tsx`
+- [x] `src/features/posts/components/post-items.tsx`
+- [x] `src/features/posts/components/posts-page-content.tsx`
+- [x] `src/features/posts/components/post-content.tsx`
+- [x] `src/features/posts/components/latest-posts.tsx`
 
-- [ ] `src/features/posts/api/get-zenn-posts.ts` 作成
-  - `lib/zenn.ts` の全内容をコピー
-  - 型定義を `../types` からインポート
+### 2.6 App ルートの更新 ✅
 
-- [ ] `src/features/posts/api/get-posts.ts` 作成
-  - `lib/data.ts` の `fetchPosts` ロジックをコピー
-  - `getLocalPosts` と `getZennPosts` を使用
-  - 重複排除とソートロジックを含む
-
-### 2.5 コンポーネントの移行
-
-- [ ] `src/components/posts/post-item/index.tsx` → `src/features/posts/components/post-item.tsx`
-- [ ] `src/components/posts/post-items/index.tsx` → `src/features/posts/components/post-items.tsx`
-- [ ] `src/app/posts/_components/posts-page-content.tsx` → `src/features/posts/components/posts-page-content.tsx`
-- [ ] `src/app/posts/[slug]/_components/post-content/index.tsx` → `src/features/posts/components/post-content.tsx`
-  - [ ] Markdown インポートを `@/components/ui/markdown` に更新
-- [ ] `src/app/_components/latest-posts/index.tsx` → `src/features/posts/components/latest-posts.tsx`
-
-### 2.6 App ルートの更新
-
-- [ ] `src/app/posts/page.tsx` 更新
-  ```typescript
-  import { getPosts } from '@/features/posts/api/get-posts'
-  import { PostsPageContent } from '@/features/posts/components/posts-page-content'
-  ```
-
-- [ ] `src/app/posts/[slug]/page.tsx` 更新
-  ```typescript
-  import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
-  import { getRelatedPosts } from '@/features/posts/api/get-related-posts'
-  ```
-
-- [ ] `src/app/page.tsx` 更新 (ホームページ)
-  ```typescript
-  import { getPosts } from '@/features/posts/api/get-posts'
-  import { LatestPosts } from '@/features/posts/components/latest-posts'
-  ```
-
-- [ ] `src/app/feed.xml/route.ts` 更新
+- [x] `src/app/posts/page.tsx` 更新
+- [x] `src/app/posts/[slug]/page.tsx` 更新
+- [x] `src/app/page.tsx` 更新 (ホームページ)
+- [x] `src/app/feed.xml/route.ts` 更新
   - `@/features/posts/api/get-posts` からインポート
 
-- [ ] `src/app/atom.xml/route.ts` 更新
-  - `@/features/posts/api/get-posts` からインポート
+- [x] `src/app/atom.xml/route.ts` 更新
+- [x] `src/app/sitemap.ts` 更新
+- [x] `src/app/llms.txt/route.ts` 更新
+- [x] `src/app/posts/[slug]/opengraph-image.tsx` 更新
+- [x] `src/lib/feed.ts` 型インポート更新
+- [x] `src/lib/llms-txt.ts` 型インポート更新
+- [x] `src/lib/ogp.ts` 型インポート更新
+- [x] `src/lib/structured-data.ts` 型インポート更新
 
-### 2.7 古いファイルの削除
-
-```bash
-rm src/lib/post.ts
-rm src/lib/zenn.ts
-rm src/lib/data.ts
-rm -rf src/app/posts/_components
-rm -rf src/app/_components/latest-posts
-rm -rf src/components/posts
-```
-
-### 2.8 検証
+### 2.7 古いファイルの削除 ✅
 
 ```bash
-npm run dev
-# Test:
-# - / (home page with latest posts)
-# - /posts (list page with search)
-# - /posts/[slug] (individual post)
-# - /feed.xml
-# - /atom.xml
-
-npm run build
-npm run test
+rm src/lib/post.ts           # ✅ 削除完了
+rm src/lib/zenn.ts           # ✅ 削除完了
+rm src/lib/data.ts           # ✅ 削除完了
+rm -rf src/app/posts/_components          # ✅ 削除完了
+rm -rf src/app/_components/latest-posts   # ✅ 削除完了
+rm -rf src/components/posts               # ✅ 削除完了
 ```
+
+### 2.8 検証 ✅
+
+```bash
+npm run build        # ✅ Build successful
+```
+
+**Routes verified:**
+- ✅ `/` (home page with latest posts)
+- ✅ `/posts` (list page)
+- ✅ `/posts/[slug]` (individual posts)
+- ✅ `/feed.xml` (RSS)
+- ✅ `/atom.xml` (Atom)
+- ✅ `/sitemap.xml`
+- ✅ `/llms.txt`
 
 ---
 

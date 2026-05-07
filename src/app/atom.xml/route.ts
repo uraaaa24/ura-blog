@@ -1,8 +1,8 @@
+import { getLocalPosts } from '@/features/posts/api/get-local-posts'
 import { generateAtomFeed } from '@/lib/feed'
-import { getAllPosts } from '@/lib/post'
 
 export async function GET() {
-  const posts = await getAllPosts()
+  const posts = await getLocalPosts()
   const atom = generateAtomFeed(posts)
 
   return new Response(atom, {

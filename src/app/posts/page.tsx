@@ -1,6 +1,5 @@
-import { fetchPosts } from '@/lib/data'
-
-import PostsPageContent from './_components/posts-page-content'
+import { getPosts } from '@/features/posts/api/get-posts'
+import PostsPageContent from '@/features/posts/components/posts-page-content'
 
 import type { Metadata } from 'next'
 
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 const PostsPage = async () => {
-  const totalPosts = await fetchPosts()
+  const totalPosts = await getPosts()
 
   return <PostsPageContent posts={totalPosts} />
 }
