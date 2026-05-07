@@ -2,9 +2,9 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
 
-import Breadcrumb from '@/components/breadcrumb'
-import ScrollToTop from '@/components/scroll-to-top'
-import ShareButton from '@/components/share-button'
+import Breadcrumb from '@/components/layouts/breadcrumb'
+import ScrollToTop from '@/components/layouts/scroll-to-top'
+import ShareButton from '@/components/ui/share-button'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 import {
   generateArticleStructuredData,

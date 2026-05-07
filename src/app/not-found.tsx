@@ -2,7 +2,7 @@ import twemoji from '@twemoji/api'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Section from '@/components/section'
+import Section from '@/components/layouts/section'
 
 import type { Metadata } from 'next'
 

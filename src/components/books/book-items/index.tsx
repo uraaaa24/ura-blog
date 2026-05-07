@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 
-import Input from '@/components/input'
+import Input from '@/components/ui/input'
 import { useSearch } from '@/hooks/useSearch'
 import type { Book } from '@/lib/books'
 

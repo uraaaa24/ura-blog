@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import { Heading1, Heading2 } from '@/components/heading'
-import Section from '@/components/section'
-import SocialLinks from '@/components/social-links'
+import { Heading1, Heading2 } from '@/components/ui/heading'
+import Section from '@/components/layouts/section'
+import SocialLinks from '@/components/ui/social-links'
 
 import type { Metadata } from 'next'
 

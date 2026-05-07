@@ -1,0 +1,15 @@
+import type { ReactNode } from 'react'
+
+type MDBlockquoteProps = {
+  children: ReactNode
+}
+
+const MDBlockquote = ({ children }: MDBlockquoteProps) => {
+  return (
+    <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-6 **:text-gray-500! dark:**:text-gray-400!">
+      {children}
+    </blockquote>
+  )
+}
+
+export default MDBlockquote

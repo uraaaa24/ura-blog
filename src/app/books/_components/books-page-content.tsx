@@ -3,8 +3,8 @@
 import { useMemo } from 'react'
 
 import BookItem from '@/components/books/book-item'
-import PageHeader from '@/components/page-header'
-import SearchInput from '@/components/search-input'
+import PageHeader from '@/components/layouts/page-header'
+import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
 import type { Book } from '@/lib/books'
 

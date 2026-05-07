@@ -1,6 +1,6 @@
 import BookItem from '@/components/books/book-item'
-import Section from '@/components/section'
-import SectionHeader from '@/components/section-header'
+import Section from '@/components/layouts/section'
+import SectionHeader from '@/components/layouts/section-header'
 import { getAllBooks } from '@/lib/books'
 import { fetchPosts } from '@/lib/data'
 

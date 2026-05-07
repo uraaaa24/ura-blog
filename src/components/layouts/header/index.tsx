@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import { navLinks } from '@/constants/nav-links'
 
-import ThemeToggle from '../theme-toggle'
+import ThemeToggle from '@/components/ui/theme-toggle'
 import LinkItem from './link-item'
 
 const Header = () => {
