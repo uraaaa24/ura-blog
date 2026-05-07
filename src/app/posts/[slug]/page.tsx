@@ -5,7 +5,6 @@ import Script from 'next/script'
 import Breadcrumb from '@/components/breadcrumb'
 import ScrollToTop from '@/components/scroll-to-top'
 import ShareButton from '@/components/share-button'
-import TableOfContents from '@/components/table-of-contents'
 import { getAllPosts, getPostBySlug } from '@/lib/post'
 import {
   generateArticleStructuredData,
@@ -125,7 +124,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
           )} */}
         </header>
 
-        {post.toc && post.toc.length > 0 && <TableOfContents items={post.toc} />}
+        {/* NOTE: デザイン調整のため一時的に非表示 */}
+        {/* {post.toc && post.toc.length > 0 && <TableOfContents items={post.toc} />} */}
 
         <PostContent content={post.content} />
 
