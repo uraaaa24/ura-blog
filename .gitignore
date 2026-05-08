@@ -49,3 +49,6 @@ storybook-static
 
 # Obsidian
 .obsidian/
+
+# Claude
+.claude/
