@@ -10,7 +10,14 @@ import MDImage from './md-image'
 import { MDUnorderedList, MDOrderedList, MDListItem } from './md-list'
 import MDParagraph from './md-paragraph'
 import MDStrong from './md-strong'
-import { MDTable, MDTableBody, MDTableRow, MDTableHead, MDTableHeadCell, MDTableCell } from './md-table'
+import {
+  MDTable,
+  MDTableBody,
+  MDTableRow,
+  MDTableHead,
+  MDTableHeadCell,
+  MDTableCell
+} from './md-table'
 
 // Individual exports
 export { default as MDAnchor } from './md-anchor'
@@ -24,7 +31,14 @@ export { default as MDImage } from './md-image'
 export { MDUnorderedList, MDOrderedList, MDListItem } from './md-list'
 export { default as MDParagraph } from './md-paragraph'
 export { default as MDStrong } from './md-strong'
-export { MDTable, MDTableBody, MDTableRow, MDTableHead, MDTableHeadCell, MDTableCell } from './md-table'
+export {
+  MDTable,
+  MDTableBody,
+  MDTableRow,
+  MDTableHead,
+  MDTableHeadCell,
+  MDTableCell
+} from './md-table'
 
 // Markdown components map for ReactMarkdown
 export const markdownComponents: Components = {

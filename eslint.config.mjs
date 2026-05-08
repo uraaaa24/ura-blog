@@ -32,34 +32,42 @@ export default [
       import: pluginImport
     },
     rules: {
-      // Only import ordering rules
-      'import/order': [
-        'warn',
+      // Architectural boundaries enforcement
+      'import/no-restricted-paths': [
+        'error',
         {
-          groups: [
-            'builtin', // fs, path など
-            'external', // react, next, lodash など
-            'internal', // @/...
-            ['parent', 'sibling'], // ../, ./
-            'index', // ./index
-            'type' // import type
-          ],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true
-          },
-          pathGroupsExcludedImportTypes: ['builtin'],
-          pathGroups: [
+          zones: [
+            // Prevent cross-feature imports
             {
-              pattern: 'react',
-              group: 'external',
-              position: 'before'
+              target: './src/features/posts',
+              from: './src/features',
+              except: ['./posts']
             },
             {
-              pattern: '@/**',
-              group: 'internal',
-              position: 'before'
+              target: './src/features/books',
+              from: './src/features',
+              except: ['./books']
+            },
+            {
+              target: './src/features/about',
+              from: './src/features',
+              except: ['./about']
+            },
+            // Features can't import from app
+            {
+              target: './src/features',
+              from: './src/app'
+            },
+            // Shared layer can't import from features or app
+            {
+              target: [
+                './src/components',
+                './src/hooks',
+                './src/lib',
+                './src/types',
+                './src/utils'
+              ],
+              from: ['./src/features', './src/app']
             }
           ]
         }
