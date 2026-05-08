@@ -1,11 +1,10 @@
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
+import AboutHero from '@/features/about/components/about-hero'
 import { getBooks } from '@/features/books/api/get-books'
 import BookItem from '@/features/books/components/book-item'
 import { getPosts } from '@/features/posts/api/get-posts'
 import LatestPosts from '@/features/posts/components/latest-posts'
-
-import HeroContent from './_components/hero-content'
 
 const LATEST_ITEMS_COUNT = 3
 
@@ -16,7 +15,7 @@ const HomePage = async () => {
   return (
     <>
       <div className="min-h-[90vh] flex items-start justify-center pt-20 md:pt-32">
-        <HeroContent />
+        <AboutHero />
       </div>
 
       <Section>
