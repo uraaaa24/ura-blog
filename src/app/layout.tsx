@@ -12,7 +12,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 
 import type { Metadata } from 'next'
 
-import './globals.css'
+import '@/styles/globals.css'
 
 const zenKakuGothicNew = Zen_Kaku_Gothic_New({
   weight: ['400', '500'],
