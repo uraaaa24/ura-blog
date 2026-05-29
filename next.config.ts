@@ -11,7 +11,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     viewTransition: true
-  }
+  },
+  transpilePackages: ['three']
 }
 
 export default nextConfig

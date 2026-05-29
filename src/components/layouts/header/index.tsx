@@ -10,6 +10,8 @@ import LinkItem from './link-item'
 const Header = () => {
   const pathName = usePathname()
 
+  if (pathName.startsWith('/games')) return null
+
   return (
     <header>
       <nav className="fixed top-0 left-0 right-0 z-10 mt-10 flex justify-center transition-all duration-300 ease-out">
