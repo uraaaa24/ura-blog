@@ -6,13 +6,18 @@ import Player from '@/features/crossing-game/components/player'
 import Result from '@/features/crossing-game/components/result'
 import Scene from '@/features/crossing-game/components/scene'
 import Score from '@/features/crossing-game/components/score'
-import './game.css'
+import { Press_Start_2P } from 'next/font/google'
+
+const pressStart2P = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin']
+})
 
 const CrossingGamePage = () => {
   return (
     <div className="relative left-1/2 right-1/2 -mt-32 -mx-[50vw] flex h-screen w-screen items-center">
       <div className="mx-auto h-full w-full max-h-10/12 max-w-10/12 overflow-hidden border-2 border-gray-300">
-        <div className="game">
+        <div className={`relative h-full w-full ${pressStart2P.className}`}>
           <Scene>
             <Player />
             <GameMap />
