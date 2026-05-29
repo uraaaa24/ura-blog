@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber'
-import type { RefObject } from 'react'
+import { useRef, type RefObject } from 'react'
 import * as THREE from 'three'
 import { tileSize } from '../constants'
 import { state, stepCompleted } from '../stores/player'
@@ -59,25 +59,30 @@ const setRotation = (player: THREE.Group, progress: number) => {
 }
 
 export const usePlayerAnimation = (ref: RefObject<THREE.Group | null>) => {
-  const moveClock = new THREE.Clock(false)
+  const moveStartTime = useRef<number | null>(null)
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (!ref.current) return
     if (!state.movesQueue.length) return
     const player = ref.current
 
-    if (!moveClock.running) moveClock.start()
+    // 移動開始時刻を記録
+    if (moveStartTime.current === null) {
+      moveStartTime.current = 0
+    }
+
+    moveStartTime.current += delta
 
     // Seconds it takes to take a step
     const stepTime = 0.2
-    const progress = Math.min(1, moveClock.getElapsedTime() / stepTime)
+    const progress = Math.min(1, moveStartTime.current / stepTime)
 
     setPosition(player, progress)
     setRotation(player, progress)
 
     if (progress >= 1) {
       stepCompleted()
-      moveClock.stop()
+      moveStartTime.current = null
     }
   })
 }
