@@ -4,7 +4,7 @@ const Scene = ({ children }: { children: React.ReactNode }) => {
   return (
     <Canvas
       orthographic
-      shadows
+      shadows="percentage"
       camera={{
         up: [0, 0, 1],
         position: [100, -300, 200]
