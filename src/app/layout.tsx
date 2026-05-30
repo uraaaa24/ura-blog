@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Zen_Kaku_Gothic_New } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Script from 'next/script'
 
 import Footer from '@/components/layouts/footer'
@@ -14,8 +14,8 @@ import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 
-const zenKakuGothicNew = Zen_Kaku_Gothic_New({
-  weight: ['400', '500'],
+const inter = Inter({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap'
 })
@@ -100,7 +100,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       </head>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <body
-        className={`${zenKakuGothicNew.className}
+        className={`${inter.className}
           bg-[#f7f7f7] dark:bg-[#1a1a1a]
           text-gray-900 dark:text-gray-100
           leading-8 min-h-screen flex flex-col
