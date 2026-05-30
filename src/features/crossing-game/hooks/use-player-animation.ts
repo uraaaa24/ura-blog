@@ -5,27 +5,25 @@ import { tileSize } from '../constants'
 import { state, stepCompleted } from '../stores/player'
 import { MOVE_DIRECTIONS } from '../types'
 
+const getEndPosition = (direction: string, startX: number, startY: number) => {
+  switch (direction) {
+    case MOVE_DIRECTIONS.FORWARD:
+      return { endX: startX, endY: startY + tileSize }
+    case MOVE_DIRECTIONS.BACKWARD:
+      return { endX: startX, endY: startY - tileSize }
+    case MOVE_DIRECTIONS.LEFT:
+      return { endX: startX - tileSize, endY: startY }
+    case MOVE_DIRECTIONS.RIGHT:
+      return { endX: startX + tileSize, endY: startY }
+    default:
+      return { endX: startX, endY: startY }
+  }
+}
+
 const setPosition = (player: THREE.Group, progress: number) => {
   const startX = state.currentTile * tileSize
   const startY = state.currentRow * tileSize
-
-  let endX = startX
-  let endY = startY
-
-  switch (state.movesQueue[0]) {
-    case MOVE_DIRECTIONS.FORWARD:
-      endY += tileSize
-      break
-    case MOVE_DIRECTIONS.BACKWARD:
-      endY -= tileSize
-      break
-    case MOVE_DIRECTIONS.LEFT:
-      endX -= tileSize
-      break
-    case MOVE_DIRECTIONS.RIGHT:
-      endX += tileSize
-      break
-  }
+  const { endX, endY } = getEndPosition(state.movesQueue[0], startX, startY)
 
   player.position.x = THREE.MathUtils.lerp(startX, endX, progress)
   player.position.y = THREE.MathUtils.lerp(startY, endY, progress)
@@ -33,23 +31,23 @@ const setPosition = (player: THREE.Group, progress: number) => {
   player.children[0].position.z = 10 + Math.sin(progress * Math.PI) * 8
 }
 
-const setRotation = (player: THREE.Group, progress: number) => {
-  let endRotation = 0
-
-  switch (state.movesQueue[0]) {
+const getEndRotation = (direction: string) => {
+  switch (direction) {
     case MOVE_DIRECTIONS.FORWARD:
-      endRotation = 0
-      break
+      return 0
     case MOVE_DIRECTIONS.BACKWARD:
-      endRotation = Math.PI
-      break
+      return Math.PI
     case MOVE_DIRECTIONS.LEFT:
-      endRotation = Math.PI / 2
-      break
+      return Math.PI / 2
     case MOVE_DIRECTIONS.RIGHT:
-      endRotation = -Math.PI / 2
-      break
+      return -Math.PI / 2
+    default:
+      return 0
   }
+}
+
+const setRotation = (player: THREE.Group, progress: number) => {
+  const endRotation = getEndRotation(state.movesQueue[0])
 
   player.children[0].rotation.z = THREE.MathUtils.lerp(
     player.children[0].rotation.z,

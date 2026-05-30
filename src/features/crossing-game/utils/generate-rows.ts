@@ -28,13 +28,15 @@ const randomElement = <T>(array: T[]): T => {
   return array[randomIndex]
 }
 
+const generateUniqueTileIndex = (occupiedTiles: Set<number>): number => {
+  const tileIndex = THREE.MathUtils.randInt(mintileIndex, maxtileIndex)
+  return occupiedTiles.has(tileIndex) ? generateUniqueTileIndex(occupiedTiles) : tileIndex
+}
+
 const generateForestMetaData = (): Extract<Row, { type: typeof ROW_TYPES.FOREST }> => {
   const occupiedTiles = new Set<number>()
   const trees = Array.from({ length: 4 }, () => {
-    let tileIndex: number
-    do {
-      tileIndex = THREE.MathUtils.randInt(mintileIndex, maxtileIndex)
-    } while (occupiedTiles.has(tileIndex))
+    const tileIndex = generateUniqueTileIndex(occupiedTiles)
     occupiedTiles.add(tileIndex)
 
     const height = randomElement([20, 45, 60])
@@ -52,10 +54,7 @@ const generateCarLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.CAR }>
   const occupiedTiles = new Set<number>()
 
   const vehicles = Array.from({ length: 3 }, () => {
-    let initialtileIndex: number
-    do {
-      initialtileIndex = THREE.MathUtils.randInt(mintileIndex, maxtileIndex)
-    } while (occupiedTiles.has(initialtileIndex))
+    const initialtileIndex = generateUniqueTileIndex(occupiedTiles)
     occupiedTiles.add(initialtileIndex - 1)
     occupiedTiles.add(initialtileIndex)
     occupiedTiles.add(initialtileIndex + 1)
@@ -75,10 +74,7 @@ const generateTruckLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.TRUC
   const occupiedTiles = new Set<number>()
 
   const vehicles = Array.from({ length: 2 }, () => {
-    let initialtileIndex: number
-    do {
-      initialtileIndex = THREE.MathUtils.randInt(mintileIndex, maxtileIndex)
-    } while (occupiedTiles.has(initialtileIndex))
+    const initialtileIndex = generateUniqueTileIndex(occupiedTiles)
     occupiedTiles.add(initialtileIndex - 2)
     occupiedTiles.add(initialtileIndex - 1)
     occupiedTiles.add(initialtileIndex)
