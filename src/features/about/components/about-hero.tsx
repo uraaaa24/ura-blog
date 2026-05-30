@@ -6,9 +6,14 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 const HeroContent = () => {
   return (
     <div className="flex flex-col items-center justify-center space-y-8 md:space-y-14">
-      <div className="relative w-28 h-28 rounded-full overflow-hidden border border-gray-300 dark:border-gray-600">
-        <Image src="/ura-icon.png" alt="Ura's avatar" fill className="object-cover" priority />
-      </div>
+      <Image
+        priority
+        src="/ura-icon.png"
+        alt="Ura's avatar"
+        width={112}
+        height={112}
+        className="rounded-full border border-gray-300 dark:border-gray-600 object-cover"
+      />
 
       <div className="space-y-6 md:space-y-8 text-center max-w-2xl">
         <div className="relative inline-block">
