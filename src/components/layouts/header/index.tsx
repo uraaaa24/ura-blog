@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation'
 
-import { navLinks } from '@/constants/nav-links'
+import { navLinks, normalizePath } from '@/constants/nav-links'
 
 import ThemeToggle from '@/components/ui/theme-toggle'
 import LinkItem from './link-item'
 
 const Header = () => {
-  const pathName = usePathname()
+  const pathName = normalizePath(usePathname())
 
   if (pathName.startsWith('/games')) return null
 

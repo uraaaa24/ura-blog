@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
-import { navLinks } from './nav-links'
+import { navLinks, normalizePath } from './nav-links'
 
 describe('navLinks', () => {
   it('contains expected navigation items', () => {
     expect(navLinks).toHaveLength(4)
 
-    const [home, posts, books, about] = navLinks
+    const [home, posts, dev, about] = navLinks
 
     expect(home).toMatchObject({
       href: '/',
@@ -18,9 +18,9 @@ describe('navLinks', () => {
       label: 'Posts'
     })
 
-    expect(books).toMatchObject({
-      href: '/books',
-      label: 'Books'
+    expect(dev).toMatchObject({
+      href: '/dev',
+      label: 'Dev'
     })
 
     expect(about).toMatchObject({
@@ -30,7 +30,7 @@ describe('navLinks', () => {
   })
 
   it('has working match functions', () => {
-    const [home, posts, books, about] = navLinks
+    const [home, posts, dev, about] = navLinks
 
     // Test home match function
     expect(home.match('/')).toBe(true)
@@ -43,10 +43,11 @@ describe('navLinks', () => {
     expect(posts.match('/')).toBe(false)
     expect(posts.match('/about')).toBe(false)
 
-    // Test books match function
-    expect(books.match('/books')).toBe(true)
-    expect(books.match('/')).toBe(false)
-    expect(books.match('/posts')).toBe(false)
+    // Test dev match function
+    expect(dev.match('/dev')).toBe(true)
+    expect(dev.match('/dev/crossy-road')).toBe(true)
+    expect(dev.match('/')).toBe(false)
+    expect(dev.match('/posts')).toBe(false)
 
     // Test about match function
     expect(about.match('/about')).toBe(true)
@@ -62,6 +63,25 @@ describe('navLinks', () => {
     expect(postsMatch('/posts/blog-post-1')).toBe(true)
     expect(postsMatch('/posts/blog-post-1/edit')).toBe(true)
     expect(postsMatch('/posts-archive')).toBe(false)
+  })
+
+  it('normalizes path variations for stable active states', () => {
+    expect(normalizePath(null)).toBe('/')
+    expect(normalizePath(undefined)).toBe('/')
+    expect(normalizePath('')).toBe('/')
+    expect(normalizePath('/posts/')).toBe('/posts')
+    expect(normalizePath('/posts?from=home')).toBe('/posts')
+    expect(normalizePath('/posts#latest')).toBe('/posts')
+  })
+
+  it('home match function works with initial empty path values', () => {
+    const homeMatch = navLinks[0].match
+
+    expect(homeMatch(null)).toBe(true)
+    expect(homeMatch(undefined)).toBe(true)
+    expect(homeMatch('')).toBe(true)
+    expect(homeMatch('/')).toBe(true)
+    expect(homeMatch('/posts')).toBe(false)
   })
 
   it('all nav items have required properties', () => {

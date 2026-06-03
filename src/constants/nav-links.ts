@@ -1,17 +1,26 @@
-const normalizePath = (path: string) => {
-  if (!path) return '/'
+type NavPath = string | null | undefined
 
-  return path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path
+export const normalizePath = (path: NavPath) => {
+  const pathname = path?.split(/[?#]/)[0] ?? '/'
+
+  if (!pathname || pathname === '/') return '/'
+
+  return pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
 }
 
 export const navLinks = [
-  { href: '/', label: 'Home', match: (path: string) => normalizePath(path) === '/' },
+  { href: '/', label: 'Home', match: (path: NavPath) => normalizePath(path) === '/' },
   {
     href: '/posts',
     label: 'Posts',
-    match: (path: string) =>
+    match: (path: NavPath) =>
       normalizePath(path) === '/posts' || normalizePath(path).startsWith('/posts/')
   },
-  { href: '/books', label: 'Books', match: (path: string) => normalizePath(path) === '/books' },
-  { href: '/about', label: 'About', match: (path: string) => normalizePath(path) === '/about' }
+  {
+    href: '/dev',
+    label: 'Dev',
+    match: (path: NavPath) =>
+      normalizePath(path) === '/dev' || normalizePath(path).startsWith('/dev/')
+  },
+  { href: '/about', label: 'About', match: (path: NavPath) => normalizePath(path) === '/about' }
 ]
