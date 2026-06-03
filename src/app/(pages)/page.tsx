@@ -19,12 +19,12 @@ const HomePage = async () => {
       </div>
 
       <Section>
-        <SectionHeader title="Posts" href="/posts" />
+        <SectionHeader title="Posts" />
         <LatestPosts totalPosts={latestPosts} />
       </Section>
 
       <Section>
-        <SectionHeader title="Books" href="/books" />
+        <SectionHeader title="Books" />
         {latestBooks.length ? (
           <div>
             {latestBooks.map((book) => (
