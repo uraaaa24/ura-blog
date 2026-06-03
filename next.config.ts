@@ -6,6 +6,22 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.jsdelivr.net'
+      },
+      {
+        protocol: 'https',
+        hostname: 'gdb.voanews.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'ichef.bbci.co.uk'
+      },
+      {
+        protocol: 'https',
+        hostname: 'sprudge.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.perfectdailygrind.com'
       }
     ]
   },
