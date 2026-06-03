@@ -15,8 +15,8 @@ const pressStart2P = Press_Start_2P({
 
 const CrossingGamePage = () => {
   return (
-    <div className="relative left-1/2 right-1/2 -mt-32 -mx-[50vw] flex h-screen w-screen items-center">
-      <div className="mx-auto h-full w-full max-h-10/12 max-w-10/12 overflow-hidden border-2 border-gray-300">
+    <div className="relative left-1/2 flex min-h-0 w-dvw max-w-6xl flex-1 -translate-x-1/2 justify-center px-4">
+      <div className="min-h-0 w-full flex-1 overflow-hidden border border-gray-300 rounded-lg">
         <div className={`relative h-full w-full ${pressStart2P.className}`}>
           <Scene>
             <Player />
