@@ -7,16 +7,16 @@ import MDEmphasis from './md-emphasis'
 import { MDHeading } from './md-heading'
 import MDHorizontalRule from './md-horizontal-rule'
 import MDImage from './md-image'
-import { MDUnorderedList, MDOrderedList, MDListItem } from './md-list'
+import { MDListItem, MDOrderedList, MDUnorderedList } from './md-list'
 import MDParagraph from './md-paragraph'
 import MDStrong from './md-strong'
 import {
   MDTable,
   MDTableBody,
-  MDTableRow,
+  MDTableCell,
   MDTableHead,
   MDTableHeadCell,
-  MDTableCell
+  MDTableRow
 } from './md-table'
 
 // Individual exports
@@ -28,17 +28,18 @@ export { default as MDEmphasis } from './md-emphasis'
 export { MDHeading } from './md-heading'
 export { default as MDHorizontalRule } from './md-horizontal-rule'
 export { default as MDImage } from './md-image'
-export { MDUnorderedList, MDOrderedList, MDListItem } from './md-list'
+export { MDListItem, MDOrderedList, MDUnorderedList } from './md-list'
 export { default as MDParagraph } from './md-paragraph'
 export { default as MDStrong } from './md-strong'
 export {
   MDTable,
   MDTableBody,
-  MDTableRow,
+  MDTableCell,
   MDTableHead,
   MDTableHeadCell,
-  MDTableCell
+  MDTableRow
 } from './md-table'
+export { default as MDYouTubeEmbed } from './md-youtube-embed'
 
 // Markdown components map for ReactMarkdown
 export const markdownComponents: Components = {

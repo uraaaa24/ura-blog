@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import path from 'node:path'
 
 import { cache } from 'react'
 
@@ -13,18 +12,19 @@ import { generateToc } from '@/lib/toc'
 
 import type { Post } from '../types'
 import { extractImageSrc, normalizeTitle, processContentImages } from '../utils/process-markdown'
-
-const postsDirectory = path.join(process.cwd(), 'contents')
+import { findLocalPostFile } from './local-post-files'
 
 /**
  * 指定されたスラッグのポストを取得する関数
  */
 export const getPostBySlug = cache(async (slug: string): Promise<Post | undefined> => {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`)
-    const { data, content } = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'))
+    const postFile = findLocalPostFile(slug)
+    if (!postFile) return undefined
 
-    const processed = processContentImages(slug, content)
+    const { data, content } = parseFrontmatter(fs.readFileSync(postFile.fullPath, 'utf8'))
+
+    const processed = processContentImages(slug, content, { sourceDir: postFile.sourceDir })
 
     const date = getFrontmatterString(data, 'date')
     const parsedDate = toValidDate(date)

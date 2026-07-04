@@ -17,53 +17,62 @@ export const extractImageSrc = (htmlString: string) => {
   return match ? match[1] : null
 }
 
-/** contents ディレクトリ内の posts フォルダ */
-const publicSlugDir = (slug: string) => path.join(process.cwd(), 'public', 'contents', slug)
+type ProcessContentImagesOptions = {
+  sourceDir?: string
+}
 
-/**
- * 画像を public ディレクトリにコピーするヘルパー関数
- */
-export const copyImageToPublic = (slug: string, imagePath: string): void => {
-  try {
-    const sourcePath = path.join(postsDirectory, imagePath)
-    const imagesDir = publicSlugDir(slug)
+const isExternalOrPublicPath = (src: string) =>
+  src.startsWith('/') || /^[a-z][a-z0-9+.-]*:/i.test(src)
 
-    if (!fs.existsSync(imagesDir)) {
-      fs.mkdirSync(imagesDir, { recursive: true })
-    }
-
-    const fileName = path.basename(imagePath)
-    const publicPath = path.join(imagesDir, fileName)
-
-    if (fs.existsSync(sourcePath) && !fs.existsSync(publicPath)) {
-      fs.copyFileSync(sourcePath, publicPath)
-      console.log(`Copied image: ${imagePath} → contents/${slug}/${fileName}`)
-    }
-  } catch (error) {
-    console.error(`Failed to copy image ${imagePath}:`, error)
+const splitImagePath = (src: string) => {
+  const match = src.match(/^([^?#]*)([?#].*)?$/)
+  return {
+    pathname: match?.[1] ?? src,
+    suffix: match?.[2] ?? ''
   }
+}
+
+const toPublicContentPath = (slug: string, relativePath: string) =>
+  `/contents/${slug}/${relativePath.split(path.sep).join('/')}`
+
+const resolveLocalImage = (src: string, sourceDir: string) => {
+  const { pathname, suffix } = splitImagePath(src)
+  const absolutePath = path.resolve(sourceDir, pathname)
+  const relativePath = path.relative(sourceDir, absolutePath)
+
+  if (
+    !relativePath.startsWith('..') &&
+    !path.isAbsolute(relativePath) &&
+    fs.existsSync(absolutePath)
+  ) {
+    return {
+      relativePath,
+      suffix
+    }
+  }
+
+  return undefined
 }
 
 /**
  * コンテンツ内の画像リンクを処理するヘルパー関数
- * ![alt](path/to/image) → ![](/contents/slug/image)
+ * ![alt](./image.png) → ![alt](/contents/slug/image.png)
  */
-export const processContentImages = (slug: string, content: string): string => {
+export const processContentImages = (
+  slug: string,
+  content: string,
+  options: ProcessContentImagesOptions = {}
+): string => {
+  const sourceDir = options.sourceDir ?? postsDirectory
   const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
-  return content.replace(imageRegex, (match, _alt, p1) => {
-    if (p1.startsWith('/') || p1.startsWith('http')) return match
+  return content.replace(imageRegex, (match, alt, src) => {
+    if (isExternalOrPublicPath(src)) return match
 
-    const possiblePaths = p1.includes('/') ? [p1] : [p1, `_images/${p1}`]
+    const image = resolveLocalImage(src, sourceDir)
+    if (!image) return match
 
-    for (const rel of possiblePaths) {
-      const abs = path.join(postsDirectory, rel)
-      if (fs.existsSync(abs)) {
-        copyImageToPublic(slug, rel)
-        const fileName = path.basename(rel)
-        return `![](/contents/${slug}/${fileName})`
-      }
-    }
-    return match
+    const publicPath = toPublicContentPath(slug, image.relativePath)
+    return `![${alt}](${publicPath}${image.suffix})`
   })
 }
 

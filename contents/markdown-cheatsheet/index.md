@@ -25,6 +25,7 @@ published: true
 ### H3 見出し
 #### H4 見出し
 ##### H5 見出し
+###### H6 見出し
 
 ---
 
@@ -35,12 +36,24 @@ published: true
 これが*イタリック*です
 これが~~打ち消し線~~です
 これが`インラインコード`です
+**太字の中に`コード`**を入れます
+***太字とイタリック***を同時に使います
 ```
 
 これが**太字**です
 これが*イタリック*です
 これが~~打ち消し線~~です
 これが`インラインコード`です
+**太字の中に`コード`**を入れます
+***太字とイタリック***を同時に使います
+
+```md
+1行目  
+2行目
+```
+
+1行目  
+2行目
 
 ---
 
@@ -86,39 +99,83 @@ published: true
 
 ```md
 [Google](https://www.google.com)
+[見出しへ戻る](#見出し)
+https://example.com
 
-![サンプル画像](https://placehold.jp/150x150.png)
-![サンプル画像](https://placehold.jp/500x500.png)
-![サンプル画像](https://placehold.jp/1000x1000.png)
+![ローカル画像](./example.jpeg)
+![外部画像](https://placehold.jp/500x300.png)
 ```
 
 [Google](https://www.google.com)
+[見出しへ戻る](#見出し)
+https://example.com
 
-![サンプル画像](https://placehold.jp/150x150.png)
-![サンプル画像](https://placehold.jp/500x500.png)
-![サンプル画像](https://placehold.jp/1000x500.png)
+![ローカル画像](./example.jpeg)
+![外部画像](https://placehold.jp/500x300.png)
+
+---
+
+## YouTube
+
+```md
+https://www.youtube.com/watch?v=QJO3ROT-A4E
+```
+
+https://www.youtube.com/watch?v=QJO3ROT-A4E
 
 ---
 
 ## コードブロック
 
 ````md
-```javascript
-console.log("Hello, World!");
+```ts
+type User = {
+  id: string
+  name: string
+}
+
+const user: User = {
+  id: "1",
+  name: "Ura"
+}
 ```
 
-```python
-print("Hello, World!")
+```json
+{
+  "name": "ura-blog",
+  "private": true
+}
+```
+
+```diff
+- const title = "old"
++ const title = "new"
 ```
 
 ````
 
-```js
-console.log("Hello, World!");
+```ts
+type User = {
+  id: string
+  name: string
+}
+
+const user: User = {
+  id: "1",
+  name: "Ura"
+}
 ```
 
-```python
-print("Hello, World!")
+```json
+{
+  "name": "ura-blog",
+  "private": true
+}
+```
+
+```diff
+- const title = "old"
++ const title = "new"
 ```
 
 ---
@@ -142,16 +199,16 @@ print("Hello, World!")
 ## テーブル
 
 ```md
-| Head1 | Head2 | Head3 |
-| ----- | ----- | ----- |
-| Data1 | Data2 | Data3 |
-| Data4 | Data5 | Data6 |
+| Left | Center | Right |
+| :--- | :----: | ----: |
+| Data1 | Data2 | 100 |
+| Data4 | **Data5** | 200 |
 ```
 
-| Head1 | Head2 | Head3 |
-| ----- | ----- | ----- |
-| Data1 | Data2 | Data3 |
-| Data4 | Data5 | Data6 |
+| Left | Center | Right |
+| :--- | :----: | ----: |
+| Data1 | Data2 | 100 |
+| Data4 | **Data5** | 200 |
 
 ---
 
