@@ -23,11 +23,6 @@ overrides:
   next@>=16.0.0-beta.0 <16.2.3: '>=16.2.3'
   picomatch@<2.3.2: '>=2.3.2'
   picomatch@>=4.0.0 <4.0.4: '>=4.0.4'
-  pnpm@<10.33.4: '>=10.33.4'
-  pnpm@<10.34.0: '>=10.34.0'
-  pnpm@<10.34.1: '>=10.34.1'
-  pnpm@<10.34.2: '>=10.34.2'
-  pnpm@<10.34.4: '>=10.34.4'
   postcss@<8.5.10: '>=8.5.10'
   qs@>=6.11.1 <=6.15.1: '>=6.15.2'
   undici@>=7.0.0 <7.28.0: '>=7.28.0'
@@ -64,9 +59,6 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      pnpm:
-        specifier: '>=10.34.4'
-        version: 11.9.0
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -4831,11 +4823,6 @@ packages:
   pkg-dir@7.0.0:
     resolution: {integrity: sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==}
     engines: {node: '>=14.16'}
-
-  pnpm@11.9.0:
-    resolution: {integrity: sha512-vWgtXQP+Ul73yf1ngMaITR51asTJyf4AxTh4KCQxDc+Q493E9Tg18G3669UIXkGFXgvLs7YN4qxburieUDbwOw==}
-    engines: {node: '>=22.13'}
-    hasBin: true
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -11371,8 +11358,6 @@ snapshots:
   pkg-dir@7.0.0:
     dependencies:
       find-up: 6.3.0
-
-  pnpm@11.9.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
