@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { navLinks, normalizePath } from './nav-links'
+import { navLinks } from './nav-links'
 
 describe('navLinks', () => {
   it('contains expected navigation items', () => {
@@ -66,12 +66,14 @@ describe('navLinks', () => {
   })
 
   it('normalizes path variations for stable active states', () => {
-    expect(normalizePath(null)).toBe('/')
-    expect(normalizePath(undefined)).toBe('/')
-    expect(normalizePath('')).toBe('/')
-    expect(normalizePath('/posts/')).toBe('/posts')
-    expect(normalizePath('/posts?from=home')).toBe('/posts')
-    expect(normalizePath('/posts#latest')).toBe('/posts')
+    const [home, posts] = navLinks
+
+    expect(home.match(null)).toBe(true)
+    expect(home.match(undefined)).toBe(true)
+    expect(home.match('')).toBe(true)
+    expect(posts.match('/posts/')).toBe(true)
+    expect(posts.match('/posts?from=home')).toBe(true)
+    expect(posts.match('/posts#latest')).toBe(true)
   })
 
   it('home match function works with initial empty path values', () => {

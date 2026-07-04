@@ -10,13 +10,6 @@ export const metadata: Metadata = {
 
 const devProjects = [
   {
-    id: 'e-news',
-    title: 'English News',
-    description: 'Read English news articles from various sources',
-    href: '/dev/e-news',
-    thumbnail: '/english-news-icon.png'
-  },
-  {
     id: 'crossy-road',
     title: 'Crossy Road Game',
     description: 'A simple browser-based game inspired by Crossy Road',

@@ -49,7 +49,6 @@ src/
 ├── app/                    # Next.js App Router (composition only)
 ├── features/               # Feature modules (self-contained)
 │   ├── posts/             # Blog posts feature
-│   ├── books/             # Reading list feature
 │   └── about/             # About page feature
 ├── components/            # Shared components
 │   ├── ui/               # UI primitives (buttons, inputs, markdown)
@@ -154,7 +153,7 @@ import { processMarkdown } from '../utils/process-markdown'
 **❌ Forbidden:**
 ```typescript
 // Cross-feature imports
-import { getBooks } from '@/features/books/api/get-books' // In posts feature
+import { getPostBySlug } from '@/features/posts/api/get-post-by-slug' // In another feature
 
 // Features importing from app
 import Component from '@/app/_components/something' // In any feature

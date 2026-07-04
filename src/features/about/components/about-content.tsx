@@ -65,8 +65,8 @@ const AboutContent = () => {
       <Section>
         <Heading2>Blog</Heading2>
         <p className="text-gray-800 dark:text-gray-200">
-          On this blog, I write about software development, personal projects, English learning,
-          books, and daily reflections.
+          On this blog, I write about software development, personal projects, English learning, and
+          daily reflections.
           <br />
           This is a place where I organize what I learn and keep small records of what I think about
           over time.
