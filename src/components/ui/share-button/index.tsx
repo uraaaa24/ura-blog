@@ -1,24 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 import Image from 'next/image'
 
 type ShareButtonProps = {
   title: string
-  slug: string
+  url: string
 }
 
-const ShareButton = ({ title, slug }: ShareButtonProps) => {
-  const [url, setUrl] = useState('')
-
-  useEffect(() => {
-    // クライアントサイドで現在のURLを取得
-    const currentUrl = `${window.location.origin}/posts/${slug}`
-    setUrl(currentUrl)
-  }, [slug])
-
-  // タイトルの後に改行を入れてURLを表示
+const ShareButton = ({ title, url }: ShareButtonProps) => {
   const shareText = `${title}\n${url}`
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`
 

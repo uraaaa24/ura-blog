@@ -46,21 +46,12 @@ export async function generateMetadata(props: {
       locale: 'ja_JP',
       type: 'article',
       publishedTime: post.date,
-      tags: post.tags,
-      images: [
-        {
-          url: `/posts/${post.slug}/opengraph-image`,
-          width: 1200,
-          height: 630,
-          alt: post.title
-        }
-      ]
+      tags: post.tags
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description,
-      images: [`/posts/${post.slug}/opengraph-image`]
+      description
     }
   }
 }
@@ -133,7 +124,10 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         <PostContent content={post.content} />
 
         <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
-          <ShareButton title={post.title} slug={post.slug} />
+          <ShareButton
+            title={post.title}
+            url={new URL(`/posts/${post.slug}`, BASE_URL).toString()}
+          />
         </div>
       </article>
 
