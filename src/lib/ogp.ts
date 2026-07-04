@@ -1,12 +1,13 @@
 import type { Post } from '@/features/posts/types'
 
+import { BASE_URL } from './envs'
+
 /**
  * 記事データからOGPメタデータを生成
  * Next.js の opengraph-image.tsx を使用するため、OG画像URLは自動生成される
  */
 export function generateOGPMetadata(post: Post) {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || ''
-  const canonicalUrl = `${baseUrl}/posts/${post.slug}`
+  const canonicalUrl = `${BASE_URL}/posts/${post.slug}`
 
   return {
     title: post.title,

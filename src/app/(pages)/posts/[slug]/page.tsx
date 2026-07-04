@@ -7,6 +7,7 @@ import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
 import { getLocalPosts } from '@/features/posts/api/get-local-posts'
 import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
+import { BASE_URL } from '@/lib/envs'
 import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
@@ -28,8 +29,7 @@ export async function generateMetadata(props: {
     }
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000'
-  const canonicalUrl = new URL(`/posts/${post.slug}`, baseUrl)
+  const canonicalUrl = new URL(`/posts/${post.slug}`, BASE_URL)
   const description = post.excerpt || `${post.title}について書いた記事です。`
 
   return {

@@ -76,16 +76,8 @@ export function generateWebSiteStructuredData() {
         url: `${BASE_URL}/ura-icon.png`
       }
     },
-    image: `${BASE_URL}/api/og`,
+    image: `${BASE_URL}/opengraph-image`,
     sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/posts?q={search_term_string}`
-      },
-      'query-input': 'required name=search_term_string'
-    },
     inLanguage: 'ja-JP',
     keywords: 'React, Next.js, TypeScript, フロントエンド開発, Web開発, プログラミング'
   }

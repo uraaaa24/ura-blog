@@ -6,7 +6,7 @@ import Script from 'next/script'
 
 import Footer from '@/components/layouts/footer'
 import Header from '@/components/layouts/header'
-import { GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
+import { BASE_URL, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
 
@@ -21,7 +21,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'Uralog',
     template: '%s | Uralog'
