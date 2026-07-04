@@ -45,6 +45,7 @@ const LinkItem = ({ isActive, href, label }: LinkItemProps) => {
     <Link
       href={href}
       scroll={false}
+      aria-current={isActive ? 'page' : undefined}
       className={`
         font-medium transition-colors duration-200
         ${

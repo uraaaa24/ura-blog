@@ -1,6 +1,9 @@
 type NavPath = string | null | undefined
 
-export const normalizePath = (path: NavPath) => {
+/**
+ * Normalize the path by removing query parameters, hash fragments, and trailing slashes.
+ */
+const normalizePath = (path: NavPath) => {
   const pathname = path?.split(/[?#]/)[0] ?? '/'
 
   if (!pathname || pathname === '/') return '/'
