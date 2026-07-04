@@ -2,9 +2,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { cache } from 'react'
-import matter from 'gray-matter'
 
 import { formatDate, toValidDate } from '@/lib/date-utils'
+import {
+  getFrontmatterString,
+  getFrontmatterStringArray,
+  parseFrontmatter
+} from '@/lib/frontmatter'
 import { generateToc } from '@/lib/toc'
 
 import type { Post } from '../types'
@@ -18,28 +22,29 @@ const postsDirectory = path.join(process.cwd(), 'contents')
 export const getPostBySlug = cache(async (slug: string): Promise<Post | undefined> => {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
-    const { data, content } = matter(fs.readFileSync(fullPath, 'utf8'))
+    const { data, content } = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'))
 
     const processed = processContentImages(slug, content)
 
-    const parsedDate = toValidDate(data.date)
-    const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
+    const date = getFrontmatterString(data, 'date')
+    const parsedDate = toValidDate(date)
+    const dateIso = parsedDate ? parsedDate.toISOString() : date
     const formattedDate = parsedDate
       ? formatDate(parsedDate, {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         })
-      : String(data.date)
+      : date
 
     return {
       slug,
-      title: normalizeTitle(data.title, slug),
-      thumbnail: extractImageSrc(data.thumbnail || ''),
+      title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
+      thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
       date: dateIso,
       formattedDate,
-      excerpt: data.excerpt || '',
-      tags: data.tags || [],
+      excerpt: getFrontmatterString(data, 'excerpt'),
+      tags: getFrontmatterStringArray(data, 'tags'),
       content: processed,
       toc: generateToc(processed)
     }

@@ -1,9 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import matter from 'gray-matter'
-
 import { formatDate, toValidDate } from '@/lib/date-utils'
+import {
+  getFrontmatterString,
+  getFrontmatterStringArray,
+  parseFrontmatter
+} from '@/lib/frontmatter'
 
 import type { Post } from '../types'
 import { extractImageSrc, normalizeTitle, processContentImages } from '../utils/process-markdown'
@@ -24,28 +27,29 @@ export async function getLocalPosts(): Promise<Post[]> {
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, '')
       const fullPath = path.join(postsDirectory, fileName)
-      const { data, content } = matter(fs.readFileSync(fullPath, 'utf8'))
+      const { data, content } = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'))
 
       const processed = processContentImages(slug, content)
 
-      const parsedDate = toValidDate(data.date)
-      const dateIso = parsedDate ? parsedDate.toISOString() : String(data.date)
+      const date = getFrontmatterString(data, 'date')
+      const parsedDate = toValidDate(date)
+      const dateIso = parsedDate ? parsedDate.toISOString() : date
       const formattedDate = parsedDate
         ? formatDate(parsedDate, {
             year: 'numeric',
             month: 'short',
             day: 'numeric'
           })
-        : String(data.date)
+        : date
 
       return {
         slug,
-        title: normalizeTitle(data.title, slug),
-        thumbnail: extractImageSrc(data.thumbnail || ''),
+        title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
+        thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
         date: dateIso,
         formattedDate,
-        excerpt: data.excerpt || '',
-        tags: data.tags || [],
+        excerpt: getFrontmatterString(data, 'excerpt'),
+        tags: getFrontmatterStringArray(data, 'tags'),
         content: processed
       }
     })
