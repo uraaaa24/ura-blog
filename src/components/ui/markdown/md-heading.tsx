@@ -15,7 +15,8 @@ const toSlug = (src: string) => {
 }
 
 const headingClassName = (level: number) => {
-  const base = 'relative font-bold w-fit group text-gray-900 dark:text-gray-100'
+  const base =
+    'relative -ml-6 w-[calc(100%+1.5rem)] font-bold group text-gray-900 dark:text-gray-100'
   switch (level) {
     case 2:
       return `${base} text-2xl mt-14 mb-10`
@@ -48,7 +49,7 @@ export const MDHeading = ({ level, children, id }: MDHeadingProps) => {
       <a
         href={`#${slug}`}
         aria-label={`To heading: ${text}`}
-        className="no-underline hover:opacity-80 transition-opacity duration-200"
+        className="block pl-6 no-underline transition-opacity duration-200 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-gray-400 before:opacity-0 before:transition-opacity before:duration-200 before:content-['#'] hover:opacity-80 group-hover:before:opacity-100 group-focus-within:before:opacity-100 dark:before:text-gray-500"
       >
         {children}
       </a>
