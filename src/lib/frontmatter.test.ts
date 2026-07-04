@@ -1,10 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import {
-  getFrontmatterString,
-  getFrontmatterStringArray,
-  parseFrontmatter
-} from './frontmatter'
+import { getFrontmatterString, getFrontmatterStringArray, parseFrontmatter } from './frontmatter'
 
 describe('parseFrontmatter', () => {
   it('parses string, boolean, and array frontmatter values', () => {

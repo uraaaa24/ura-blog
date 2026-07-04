@@ -71,10 +71,7 @@ export const getFrontmatterString = (
   return typeof value === 'string' ? value : fallback
 }
 
-export const getFrontmatterStringArray = (
-  data: Record<string, FrontmatterValue>,
-  key: string
-) => {
+export const getFrontmatterStringArray = (data: Record<string, FrontmatterValue>, key: string) => {
   const value = data[key]
   return Array.isArray(value) ? value : []
 }
