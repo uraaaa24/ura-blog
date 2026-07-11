@@ -1,18 +1,6 @@
 import type { ReactNode } from 'react'
 
-/**
- * 見出しテキスト → URL-safe な slug を生成
- * NFC正規化で日本語の濁点・半濁点を結合状態に統一し、記号類を除外
- */
-const toSlug = (src: string) => {
-  return src
-    .normalize('NFC')
-    .replace(/[^\p{L}\p{N}\s-]+/gu, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .toLowerCase()
-}
+import { toHashHref, toHeadingId } from '@/lib/heading'
 
 const headingClassName = (level: number) => {
   const base =
@@ -40,14 +28,14 @@ type MDHeadingProps = {
 export const MDHeading = ({ level, children, id }: MDHeadingProps) => {
   const text = String(children)
   // rehype-slugから渡されたIDがあればそれを使う、なければ自分で生成
-  const slug = id || toSlug(text)
+  const slug = id || toHeadingId(text)
 
   const Tag = `h${level}` as const
 
   return (
     <Tag id={slug} className={headingClassName(level)}>
       <a
-        href={`#${slug}`}
+        href={toHashHref(slug)}
         aria-label={`To heading: ${text}`}
         className="block pl-6 no-underline transition-opacity duration-200 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-gray-400 before:opacity-0 before:transition-opacity before:duration-200 before:content-['#'] hover:opacity-80 group-hover:before:opacity-100 group-focus-within:before:opacity-100 dark:before:text-gray-500"
       >

@@ -5,6 +5,7 @@ import Script from 'next/script'
 import Breadcrumb from '@/components/layouts/breadcrumb'
 import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
+import TableOfContents from '@/components/ui/table-of-contents'
 import { getLocalPosts } from '@/features/posts/api/get-local-posts'
 import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
 import { BASE_URL } from '@/lib/envs'
@@ -118,16 +119,23 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
           )} */}
         </header>
 
-        {/* NOTE: デザイン調整のため一時的に非表示 */}
-        {/* {post.toc && post.toc.length > 0 && <TableOfContents items={post.toc} />} */}
+        <div className="relative">
+          {post.toc && post.toc.length > 0 && (
+            <aside className="absolute top-0 bottom-0 left-full ml-20 w-80 hidden xl:block">
+              <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto">
+                <TableOfContents items={post.toc} />
+              </div>
+            </aside>
+          )}
 
-        <PostContent content={post.content} />
+          <PostContent content={post.content} />
 
-        <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
-          <ShareButton
-            title={post.title}
-            url={new URL(`/posts/${post.slug}`, BASE_URL).toString()}
-          />
+          <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
+            <ShareButton
+              title={post.title}
+              url={new URL(`/posts/${post.slug}`, BASE_URL).toString()}
+            />
+          </div>
         </div>
       </article>
 

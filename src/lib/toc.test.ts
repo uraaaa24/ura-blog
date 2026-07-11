@@ -52,8 +52,24 @@ describe('generateToc', () => {
 
     expect(result).toEqual([
       { id: 'heading', text: 'Heading', level: 2 },
-      { id: 'heading-2', text: 'Heading', level: 2 },
-      { id: 'heading-3', text: 'Heading', level: 2 }
+      { id: 'heading-1', text: 'Heading', level: 2 },
+      { id: 'heading-2', text: 'Heading', level: 2 }
+    ])
+  })
+
+  it('should avoid ID collisions with existing numbered headings', () => {
+    const content = `
+## Heading
+## Heading 1
+## Heading
+`
+
+    const result = generateToc(content)
+
+    expect(result).toEqual([
+      { id: 'heading', text: 'Heading', level: 2 },
+      { id: 'heading-1', text: 'Heading 1', level: 2 },
+      { id: 'heading-2', text: 'Heading', level: 2 }
     ])
   })
 
@@ -81,7 +97,23 @@ describe('generateToc', () => {
 
     expect(result).toEqual([
       { id: 'hello-world', text: 'Hello, World!', level: 2 },
-      { id: 'test-review', text: 'Test & Review', level: 3 }
+      { id: 'test--review', text: 'Test & Review', level: 3 }
+    ])
+  })
+
+  it('should match rehype-slug style IDs for punctuation-heavy headings', () => {
+    const content = `
+### 1. ステアリング (Steering / コンテキスト収集)
+`
+
+    const result = generateToc(content)
+
+    expect(result).toEqual([
+      {
+        id: '1-ステアリング-steering--コンテキスト収集',
+        text: '1. ステアリング (Steering / コンテキスト収集)',
+        level: 3
+      }
     ])
   })
 

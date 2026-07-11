@@ -1,21 +1,28 @@
+import { toHeadingId } from './heading'
+
 export type TocItem = {
   id: string
   text: string
   level: number
 }
 
-/**
- * 見出しテキストからスラッグ（ID）を生成
- * MDHeadingコンポーネントと同じロジック
- */
-function toSlug(text: string): string {
-  return text
-    .normalize('NFC')
-    .replace(/[^\p{L}\p{N}\s-]+/gu, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .toLowerCase()
+const getUniqueHeadingId = (baseId: string, idCounts: Map<string, number>): string => {
+  const count = idCounts.get(baseId)
+
+  if (count === undefined) {
+    idCounts.set(baseId, 0)
+    return baseId
+  }
+
+  const nextCount = count + 1
+  const nextId = `${baseId}-${nextCount}`
+
+  idCounts.set(baseId, nextCount)
+
+  if (idCounts.has(nextId)) return getUniqueHeadingId(baseId, idCounts)
+
+  idCounts.set(nextId, 0)
+  return nextId
 }
 
 /**
@@ -36,16 +43,7 @@ export function generateToc(content: string): TocItem[] {
   while (match !== null) {
     const level = match[1].length // ## = 2, ### = 3
     const text = match[2].trim()
-    let id = toSlug(text)
-
-    // IDが重複する場合は連番を付ける
-    if (idCounts.has(id)) {
-      const count = idCounts.get(id)! + 1
-      idCounts.set(id, count)
-      id = `${id}-${count}`
-    } else {
-      idCounts.set(id, 1)
-    }
+    const id = getUniqueHeadingId(toHeadingId(text), idCounts)
 
     toc.push({
       id,

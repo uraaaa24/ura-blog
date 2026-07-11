@@ -1,89 +1,136 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-import { ChevronDown, ChevronRight } from 'lucide-react'
-
+import { toHashHref } from '@/lib/heading'
 import type { TocItem } from '@/lib/toc'
 
 type TableOfContentsProps = {
   items: TocItem[]
 }
 
+type TocDomEntry = {
+  id: string
+  heading: HTMLElement
+  item: HTMLElement
+  link: HTMLAnchorElement
+}
+
+type TocPosition = {
+  entry: TocDomEntry
+  activationTop: number
+}
+
+const getScrollMarginTop = (element: HTMLElement): number => {
+  return Number.parseFloat(window.getComputedStyle(element).scrollMarginTop) || 0
+}
+
+const buildTocEntries = (nav: HTMLElement, items: TocItem[]): TocDomEntry[] => {
+  // 目次リンクと本文見出しをIDで紐づけ、スクロール中にDOM探索しなくて済むようにする。
+  const tocItems = new Map(
+    Array.from(nav.querySelectorAll<HTMLAnchorElement>('[data-toc-id]')).flatMap((link) => {
+      const id = link.dataset.tocId
+      const item = link.closest('li')
+
+      if (!id || !item) return []
+
+      return [[id, { item, link }]] as const
+    })
+  )
+
+  return items.flatMap((item) => {
+    const heading = document.getElementById(item.id)
+    const tocItem = tocItems.get(item.id)
+
+    if (!heading || !tocItem) return []
+
+    return [{ id: item.id, heading, item: tocItem.item, link: tocItem.link }]
+  })
+}
+
+const getTocPositions = (entries: TocDomEntry[]): TocPosition[] =>
+  // 見出し位置はスクロール中に毎回DOMから読まず、初期化時とレイアウト変化時に再計算する。
+  // scroll-margin-top を差し引き、アンカー遷移で見出しが止まる位置とactive判定を揃える。
+  entries.map((entry) => ({
+    entry,
+    activationTop:
+      entry.heading.getBoundingClientRect().top + window.scrollY - getScrollMarginTop(entry.heading)
+  }))
+
 const TableOfContents = ({ items }: TableOfContentsProps) => {
-  const [activeId, setActiveId] = useState<string>('')
-  const [isOpen, setIsOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
+  const activeEntryRef = useRef<TocDomEntry | undefined>(undefined)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        }
-      },
-      {
-        rootMargin: '-80px 0px -80% 0px'
+    const nav = navRef.current
+    if (!nav) return
+
+    const entries = buildTocEntries(nav, items)
+    if (entries.length === 0) return
+
+    // 記事遷移時に前の記事のactive DOM参照が残らないように初期化する。
+    activeEntryRef.current = undefined
+    const positionsRef: { current: TocPosition[] } = { current: getTocPositions(entries) }
+
+    const updateActiveItem = () => {
+      // アンカー遷移時と同じスクロール位置を通過済みの最後の見出しをactiveにする。
+      const nextEntry =
+        positionsRef.current.findLast((position) => position.activationTop <= window.scrollY)
+          ?.entry ?? entries[0]
+
+      if (activeEntryRef.current?.id === nextEntry.id) return
+
+      if (activeEntryRef.current) {
+        activeEntryRef.current.item.dataset.active = 'false'
+        activeEntryRef.current.link.removeAttribute('aria-current')
       }
-    )
 
-    const headings = items.map((item) => document.getElementById(item.id)).filter(Boolean)
-
-    for (const heading of headings) {
-      if (heading) observer.observe(heading)
+      nextEntry.item.dataset.active = 'true'
+      nextEntry.link.setAttribute('aria-current', 'location')
+      activeEntryRef.current = nextEntry
     }
 
+    const refreshPositions = () => {
+      // 画像読み込みやリサイズで見出し位置が動くため、必要なタイミングで位置キャッシュを更新する。
+      positionsRef.current = getTocPositions(entries)
+      updateActiveItem()
+    }
+
+    updateActiveItem()
+    window.addEventListener('scroll', updateActiveItem, { passive: true })
+    window.addEventListener('resize', refreshPositions)
+    window.addEventListener('load', refreshPositions)
+
     return () => {
-      for (const heading of headings) {
-        if (heading) observer.unobserve(heading)
-      }
+      window.removeEventListener('scroll', updateActiveItem)
+      window.removeEventListener('resize', refreshPositions)
+      window.removeEventListener('load', refreshPositions)
     }
   }, [items])
 
   if (items.length === 0) return null
 
-  const listId = 'table-of-contents-list'
-
   return (
-    <nav className="mb-8 p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700">
-      <button
-        type="button"
-        aria-expanded={isOpen}
-        aria-controls={listId}
-        aria-label={isOpen ? '目次を閉じる' : '目次を開く'}
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="cursor-pointer flex w-full items-center justify-between text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
-      >
-        <span className="inline-flex items-center gap-2">
-          {isOpen ? (
-            <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-300" aria-hidden="true" />
-          ) : (
-            <ChevronRight className="h-5 w-5 text-gray-500 dark:text-gray-300" aria-hidden="true" />
-          )}
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">目次</h2>
-        </span>
-      </button>
+    <nav ref={navRef} aria-label="目次" className="text-xs">
+      <p className="mb-3 text-gray-400">ON THIS PAGE</p>
 
-      <div
-        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
-          isOpen ? 'grid-rows-[1fr] mt-4' : 'grid-rows-[0fr]'
-        }`}
-      >
-        <ul id={listId} className="min-h-0 overflow-hidden space-y-2">
-          {items.map((item) => (
-            <li key={item.id} className={item.level === 3 ? 'pl-3' : ''}>
-              <a
-                href={`#${item.id}`}
-                aria-current={activeId === item.id ? 'location' : undefined}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors block"
-              >
-                {item.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id} data-active="false" className="group">
+            <a
+              href={toHashHref(item.id)}
+              data-toc-id={item.id}
+              className="relative block py-0.5 pl-4 leading-6 text-gray-400 transition-colors duration-150 ease-out hover:text-gray-950 group-data-[active=true]:text-gray-900 dark:hover:text-gray-100 dark:group-data-[active=true]:text-gray-100"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute top-0.5 bottom-0.5 left-0 w-0.5 rounded-full bg-gray-950 opacity-0 transition-opacity duration-150 ease-out group-data-[active=true]:opacity-100 dark:bg-gray-100"
+              />
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   )
 }
