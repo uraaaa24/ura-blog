@@ -15,8 +15,10 @@ import { getLocalPostFiles } from './local-post-files'
  * posts ディレクトリ内の全ての Markdown ファイルを取得し、Post オブジェクトの配列を返す
  */
 export async function getLocalPosts(): Promise<Post[]> {
-  const allPostsData = getLocalPostFiles().map(({ slug, fullPath, sourceDir }) => {
+  const allPostsData = getLocalPostFiles().flatMap(({ slug, fullPath, sourceDir }) => {
     const { data, content } = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'))
+
+    if (data.published !== true) return []
 
     const processed = processContentImages(slug, content, { sourceDir })
 
@@ -31,16 +33,18 @@ export async function getLocalPosts(): Promise<Post[]> {
         })
       : date
 
-    return {
-      slug,
-      title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
-      thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
-      date: dateIso,
-      formattedDate,
-      excerpt: getFrontmatterString(data, 'excerpt'),
-      tags: getFrontmatterStringArray(data, 'tags'),
-      content: processed
-    }
+    return [
+      {
+        slug,
+        title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
+        thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
+        date: dateIso,
+        formattedDate,
+        excerpt: getFrontmatterString(data, 'excerpt'),
+        tags: getFrontmatterStringArray(data, 'tags'),
+        content: processed
+      }
+    ]
   })
 
   return allPostsData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

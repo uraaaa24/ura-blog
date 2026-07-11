@@ -24,6 +24,8 @@ export const getPostBySlug = cache(async (slug: string): Promise<Post | undefine
 
     const { data, content } = parseFrontmatter(fs.readFileSync(postFile.fullPath, 'utf8'))
 
+    if (data.published !== true) return undefined
+
     const processed = processContentImages(slug, content, { sourceDir: postFile.sourceDir })
 
     const date = getFrontmatterString(data, 'date')
