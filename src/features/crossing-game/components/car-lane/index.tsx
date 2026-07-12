@@ -5,11 +5,12 @@ import Car from './car'
 type CarLaneProps = {
   rowIndex: number
   row: Extract<Row, { type: typeof ROW_TYPES.CAR }>
+  isDark: boolean
 }
 
-const CarLane = ({ rowIndex, row }: CarLaneProps) => {
+const CarLane = ({ rowIndex, row, isDark }: CarLaneProps) => {
   return (
-    <Road rowIndex={rowIndex}>
+    <Road rowIndex={rowIndex} isDark={isDark}>
       {row.vehicles.map((vehicle, index) => {
         const key = `vehicle-${index}`
         return (

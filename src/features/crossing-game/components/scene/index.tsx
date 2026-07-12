@@ -1,6 +1,11 @@
 import { Canvas } from '@react-three/fiber'
 
-const Scene = ({ children }: { children: React.ReactNode }) => {
+type SceneProps = {
+  children: React.ReactNode
+  isDark: boolean
+}
+
+const Scene = ({ children, isDark }: SceneProps) => {
   return (
     <Canvas
       orthographic
@@ -10,7 +15,8 @@ const Scene = ({ children }: { children: React.ReactNode }) => {
         position: [100, -300, 200]
       }}
     >
-      <ambientLight />
+      <color attach="background" args={[isDark ? '#111827' : '#d7f7ff']} />
+      <ambientLight intensity={isDark ? 0.55 : 1} />
       {children}
     </Canvas>
   )

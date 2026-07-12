@@ -7,7 +7,7 @@ const Controls = () => {
   useEventListeners()
 
   const buttonClass =
-    'h-10 w-full cursor-pointer border border-gray-300 bg-white shadow-[3px_5px_0px_0px_rgba(0,0,0,0.75)] outline-none flex items-center justify-center'
+    'h-10 w-full cursor-pointer border border-gray-300 bg-white text-gray-900 shadow-[3px_5px_0px_0px_rgba(0,0,0,0.75)] outline-none flex items-center justify-center dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 dark:shadow-[3px_5px_0px_0px_rgba(255,255,255,0.22)]'
 
   return (
     <div className="absolute bottom-5 flex min-w-full items-end justify-center">

@@ -6,16 +6,17 @@ import TruckLane from '../track-lane'
 type RowProps = {
   rowIndex: number
   row: RowType
+  isDark: boolean
 }
 
-const Row = ({ rowIndex, row }: RowProps) => {
+const Row = ({ rowIndex, row, isDark }: RowProps) => {
   switch (row.type) {
     case ROW_TYPES.FOREST:
-      return <Forest rowIndex={rowIndex} row={row} />
+      return <Forest rowIndex={rowIndex} row={row} isDark={isDark} />
     case ROW_TYPES.CAR:
-      return <CarLane rowIndex={rowIndex} row={row} />
+      return <CarLane rowIndex={rowIndex} row={row} isDark={isDark} />
     case ROW_TYPES.TRUCK:
-      return <TruckLane rowIndex={rowIndex} row={row} />
+      return <TruckLane rowIndex={rowIndex} row={row} isDark={isDark} />
   }
 }
 
