@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 import type { Post } from '../types'
-import PostItems from './post-items'
+import PostList from './post-list'
 
 type LatestPostsProps = {
   totalPosts: Post[]
@@ -11,7 +11,7 @@ type LatestPostsProps = {
 const LatestPosts = ({ totalPosts }: LatestPostsProps) => {
   return (
     <>
-      <PostItems posts={totalPosts} />
+      <PostList posts={totalPosts} />
       <div className="mt-6 flex justify-center">
         <Link
           href="/posts"

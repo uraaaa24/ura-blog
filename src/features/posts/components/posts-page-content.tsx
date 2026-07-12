@@ -5,7 +5,7 @@ import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
 
 import type { Post } from '../types'
-import PostItem from './post-item'
+import PostList from './post-list'
 
 type PostsPageContentProps = {
   posts: Post[]
@@ -29,13 +29,12 @@ const PostsPageContent = ({ posts }: PostsPageContentProps) => {
           <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search posts" />
         }
       />
-      <ul>
-        {filteredPosts.map((post) => (
-          <li key={post.slug}>
-            <PostItem post={post} />
-          </li>
-        ))}
-      </ul>
+      <PostList posts={filteredPosts} />
+      {filteredPosts.length === 0 && (
+        <p className="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
+          No posts found.
+        </p>
+      )}
     </>
   )
 }

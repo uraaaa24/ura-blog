@@ -18,34 +18,29 @@ const PostItem = ({ post }: PostCardProps) => {
   const externalProps = isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
   return (
-    <Link
-      href={href}
-      {...externalProps}
-      className="border-b border-gray-300 dark:border-gray-600 py-4 block"
-    >
-      <article className="h-full">
-        <div className="flex items-center gap-2">
-          <div className="w-16 h-16 mr-4 bg-gray-200 dark:bg-gray-700 rounded-xl shrink-0 flex items-center justify-center overflow-hidden">
+    <article>
+      <Link href={href} {...externalProps} className="group block py-4">
+        <div className="flex items-start gap-4">
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-700">
             {post.thumbnail ? (
-              <Image src={post.thumbnail} alt={post.title} width={40} height={40} unoptimized />
+              <Image src={post.thumbnail} alt="" width={40} height={40} unoptimized />
             ) : (
-              <span
-                className="text-gray-600 dark:text-gray-200 text-lg font-semibold uppercase"
-                aria-hidden
-              >
+              <span className="text-lg font-semibold uppercase text-gray-600 dark:text-gray-200">
                 {fallbackLetter}
               </span>
             )}
           </div>
-          <div className="flex-1 flex flex-col gap-1">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">{post.title}</h3>
-            <div className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex min-w-0 flex-1 flex-col gap-2">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
               <time dateTime={dateTime}>{post.formattedDate}</time>
             </div>
+            <h3 className="text-lg font-bold leading-7 text-gray-900 transition-colors group-hover:text-gray-600 dark:text-gray-100 dark:group-hover:text-gray-300">
+              {post.title}
+            </h3>
           </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   )
 }
 

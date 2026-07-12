@@ -20,18 +20,18 @@ type UseSearchReturn<T> = {
 export const useSearch = <T>({ items, searchKey }: UseSearchOptions<T>): UseSearchReturn<T> => {
   const [searchQuery, setSearchQuery] = useState<string>('')
 
-  const filteredItems = useMemo(
-    () =>
-      items.filter((item) => {
-        if (!searchQuery) return true
+  const filteredItems = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLowerCase()
 
-        const value = item[searchKey]
-        if (typeof value !== 'string') return false
+    return items.filter((item) => {
+      if (!normalizedQuery) return true
 
-        return value.toLowerCase().includes(searchQuery.toLowerCase())
-      }),
-    [items, searchQuery, searchKey]
-  )
+      const value = item[searchKey]
+      if (typeof value !== 'string') return false
+
+      return value.toLowerCase().includes(normalizedQuery)
+    })
+  }, [items, searchQuery, searchKey])
 
   return {
     searchQuery,

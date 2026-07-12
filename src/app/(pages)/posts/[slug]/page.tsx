@@ -8,6 +8,7 @@ import ShareButton from '@/components/ui/share-button'
 import TableOfContents from '@/components/ui/table-of-contents'
 import { getLocalPosts } from '@/features/posts/api/get-local-posts'
 import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
+import { getRelatedPosts } from '@/features/posts/api/get-related-posts'
 import { BASE_URL } from '@/lib/envs'
 import {
   generateArticleStructuredData,
@@ -15,6 +16,7 @@ import {
 } from '@/lib/structured-data'
 
 import PostContent from '@/features/posts/components/post-content'
+import PostList from '@/features/posts/components/post-list'
 
 import type { Metadata } from 'next'
 
@@ -71,6 +73,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   if (!post) notFound()
 
+  const postUrl = new URL(`/posts/${post.slug}`, BASE_URL).toString()
   const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
   const parsedDate = new Date(post.date)
@@ -79,6 +82,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   // 構造化データを生成
   const articleStructuredData = generateArticleStructuredData(post)
   const breadcrumbStructuredData = generateBreadcrumbStructuredData(breadcrumbItems)
+  const relatedPosts = await getRelatedPosts(post)
 
   return (
     <>
@@ -94,12 +98,14 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         <Breadcrumb items={breadcrumbItems} />
         <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
           <div className="flex flex-col items-center gap-8 pb-8">
-            <Image
-              src={post.thumbnail ?? ''}
-              alt={`${post.title}の記事サムネイル`}
-              width={64}
-              height={64}
-            />
+            {post.thumbnail ? (
+              <Image
+                src={post.thumbnail}
+                alt={`${post.title}の記事サムネイル`}
+                width={64}
+                height={64}
+              />
+            ) : null}
             <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
               {post.title}
             </h1>
@@ -107,16 +113,6 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
               <time dateTime={dateTime}>{post.formattedDate}</time>
             </div>
           </div>
-          {/* TODO: 別の場所でタグは表示させる */}
-          {/* {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap ml-4 gap-2">
-              {post.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 px-2 py-1 rounded text-sm">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )} */}
         </header>
 
         <div className="relative">
@@ -130,12 +126,21 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
           <PostContent content={post.content} />
 
-          <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-600 flex justify-center items-center gap-4">
-            <ShareButton
-              title={post.title}
-              url={new URL(`/posts/${post.slug}`, BASE_URL).toString()}
-            />
+          <div className="mt-8 flex justify-center items-center gap-4">
+            <ShareButton title={post.title} url={postUrl} />
           </div>
+
+          {relatedPosts.length > 0 && (
+            <section className="mt-16" aria-labelledby="related-posts-heading">
+              <h2
+                id="related-posts-heading"
+                className="mb-4 text-xl font-semibold text-gray-900 dark:text-gray-100"
+              >
+                Related posts
+              </h2>
+              <PostList posts={relatedPosts} />
+            </section>
+          )}
         </div>
       </article>
 
