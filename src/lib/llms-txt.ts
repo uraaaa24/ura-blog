@@ -19,11 +19,11 @@ export function generateLLMSTxt(posts: Post[]): string {
     })
     .join('\n')
 
-  return `# Uralog
+  return `# Gana
 
-フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。
+GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。
 
-> Author: Ura
+> Author: Gana
 > Language: Japanese
 > Last Updated: ${currentDate}
 
@@ -47,7 +47,7 @@ ${recentPosts}
 
 # Technical Details
 
-- Framework: Next.js 15 (App Router)
+- Framework: Next.js 16 (App Router)
 - Styling: Tailwind CSS
 - Content: Markdown with frontmatter
 - Features: Dark mode, RSS feed, Search
@@ -63,8 +63,8 @@ ${recentPosts}
 
 # Contact & Social
 
-- GitHub: https://github.com/uraaaa24
-- X (Twitter): https://twitter.com/__ars____24
+- GitHub: https://github.com/gananana24
+- X (Twitter): https://twitter.com/____gana24
 - Zenn: https://zenn.dev/uraaaa24
 `
 }

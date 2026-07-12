@@ -19,7 +19,7 @@ export function generateOGPMetadata(post: Post) {
       title: post.title,
       description: post.excerpt || `${post.title}について書いた記事です。`,
       url: canonicalUrl,
-      siteName: 'Uralog',
+      siteName: 'Gana',
       locale: 'ja_JP',
       type: 'article' as const,
       publishedTime: post.date,

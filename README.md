@@ -1,10 +1,10 @@
-# Uralog
+# Gana
 
-Uralog is a personal blog about frontend development, programming, and the things I learn along the way.
+Gana is a personal blog about frontend development, programming, and the things I learn along the way.
 
-- Website: https://uralog.me/
-- RSS: https://uralog.me/feed.xml
-- Atom: https://uralog.me/atom.xml
+- Website: https://gananana.me/
+- RSS: https://gananana.me/feed.xml
+- Atom: https://gananana.me/atom.xml
 
 ---
 
@@ -43,5 +43,5 @@ npm run build && npm start
 
 ## Links
 
-- GitHub: https://github.com/uraaaa24
+- GitHub: https://github.com/gananana24
 - Zenn: https://zenn.dev/uraaaa24

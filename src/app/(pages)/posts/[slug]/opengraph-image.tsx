@@ -15,7 +15,7 @@ export default async function OpenGraphImage(props: { params: Promise<{ slug: st
   const { slug } = await props.params
   const post = await getPostBySlug(slug)
 
-  const title = post?.title ?? 'Uralog'
+  const title = post?.title ?? 'Gana'
   const date = post?.formattedDate
 
   return new ImageResponse(
@@ -33,7 +33,7 @@ export default async function OpenGraphImage(props: { params: Promise<{ slug: st
     >
       <div style={{ fontSize: 44, fontWeight: 700, lineHeight: 1.15 }}>{title}</div>
       {date ? <div style={{ marginTop: 24, fontSize: 22, opacity: 0.8 }}>{date}</div> : null}
-      <div style={{ marginTop: 44, fontSize: 20, opacity: 0.7 }}>Uralog</div>
+      <div style={{ marginTop: 44, fontSize: 20, opacity: 0.7 }}>Gana</div>
     </div>,
     {
       ...size

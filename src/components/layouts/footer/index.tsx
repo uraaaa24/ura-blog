@@ -28,7 +28,7 @@ const Footer = () => {
             ))}
           </ul>
         </nav>
-        <p>© {currentYear} Uralog. All rights reserved.</p>
+        <p>© {currentYear} Gana. All rights reserved.</p>
       </div>
     </footer>
   )

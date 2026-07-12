@@ -33,7 +33,7 @@ describe('Footer Component', () => {
     render(<Footer />)
     const footerElement = screen.getByRole('contentinfo')
     expect(footerElement).toHaveTextContent(
-      `© ${new Date().getFullYear()} Uralog. All rights reserved.`
+      `© ${new Date().getFullYear()} Gana. All rights reserved.`
     )
   })
 })

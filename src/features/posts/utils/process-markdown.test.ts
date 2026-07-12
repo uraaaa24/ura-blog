@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 
 import { processContentImages } from './process-markdown'
 
-const createTempPostDir = () => fs.mkdtempSync(path.join(os.tmpdir(), 'ura-blog-post-'))
+const createTempPostDir = () => fs.mkdtempSync(path.join(os.tmpdir(), 'gana-blog-post-'))
 
 describe('processContentImages', () => {
   it('rewrites images relative to the post directory', () => {

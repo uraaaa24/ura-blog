@@ -30,9 +30,9 @@ export function generateRSSFeed(posts: Post[]): string {
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Uralog</title>
+    <title>Gana</title>
     <link>${BASE_URL}</link>
-    <description>Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。</description>
+    <description>Ganaがフロントエンド開発や日々の学びを記録する個人ブログです。</description>
     <language>ja</language>
     <lastBuildDate>${buildDate}</lastBuildDate>
     <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
@@ -61,7 +61,7 @@ export function generateAtomFeed(posts: Post[]): string {
     <published>${published}</published>
     <summary type="html"><![CDATA[${post.excerpt || `${post.title}について書いた記事です。`}]]></summary>
     <author>
-      <name>Ura</name>
+      <name>Gana</name>
     </author>
     ${post.tags ? post.tags.map((tag) => `<category term="${tag}"/>`).join('\n    ') : ''}
   </entry>`
@@ -70,14 +70,14 @@ export function generateAtomFeed(posts: Post[]): string {
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Uralog</title>
+  <title>Gana</title>
   <link href="${BASE_URL}" />
   <link href="${BASE_URL}/atom.xml" rel="self" type="application/atom+xml"/>
   <id>${BASE_URL}</id>
   <updated>${updatedDate}</updated>
-  <subtitle>Uralogは、フロントエンド開発やプログラミングを中心に、興味のあることを気ままに記録する個人ブログです。</subtitle>
+  <subtitle>Ganaがフロントエンド開発や日々の学びを記録する個人ブログです。</subtitle>
   <author>
-    <name>Ura</name>
+    <name>Gana</name>
     <uri>${BASE_URL}</uri>
   </author>
   ${atomEntries}

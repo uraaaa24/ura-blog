@@ -45,7 +45,7 @@ export async function generateMetadata(props: {
       title: post.title,
       description,
       url: canonicalUrl,
-      siteName: 'Uralog',
+      siteName: 'Gana',
       locale: 'ja_JP',
       type: 'article',
       publishedTime: post.date,

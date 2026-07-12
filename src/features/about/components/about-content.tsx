@@ -14,7 +14,7 @@ const AboutContent = () => {
       <Section>
         <div className="flex flex-col items-center gap-4 mb-6">
           <Image
-            src="/ura-icon.png"
+            src="/gana-icon.png"
             alt="Profile picture"
             width={ICON_SIZE}
             height={ICON_SIZE}

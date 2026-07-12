@@ -8,8 +8,8 @@ const HeroContent = () => {
     <div className="flex flex-col items-center justify-center space-y-8 md:space-y-14">
       <Image
         priority
-        src="/ura-icon.png"
-        alt="Ura's avatar"
+        src="/gana-icon.png"
+        alt="Gana's avatar"
         width={112}
         height={112}
         className="rounded-full border border-gray-300 dark:border-gray-600 object-cover"
@@ -18,7 +18,7 @@ const HeroContent = () => {
       <div className="space-y-6 md:space-y-8 text-center max-w-2xl">
         <div className="relative inline-block">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100 tracking-tight -rotate-1">
-            Ura
+            Gana
           </h1>
         </div>
 

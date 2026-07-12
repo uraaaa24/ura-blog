@@ -2,22 +2,22 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Uralog - フロントエンド開発ブログ',
-    short_name: 'Uralog',
+    name: 'Gana - フロントエンド開発ブログ',
+    short_name: 'Gana',
     description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+      'GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。',
     start_url: '/',
     display: 'standalone',
     background_color: '#1a1a1a',
     theme_color: '#1a1a1a',
     icons: [
       {
-        src: '/ura-icon.png',
+        src: '/gana-icon.png',
         sizes: '192x192',
         type: 'image/png'
       },
       {
-        src: '/ura-icon.png',
+        src: '/gana-icon.png',
         sizes: '512x512',
         type: 'image/png'
       }

@@ -23,9 +23,9 @@ describe('SocialLinks', () => {
     const zennLink = screen.getByRole('link', { name: 'Zenn' })
     const twitterLink = screen.getByRole('link', { name: 'X(Twitter)' })
 
-    expect(githubLink).toHaveAttribute('href', 'https://github.com/uraaaa24')
+    expect(githubLink).toHaveAttribute('href', 'https://github.com/gananana24')
     expect(zennLink).toHaveAttribute('href', 'https://zenn.dev/uraaaa24')
-    expect(twitterLink).toHaveAttribute('href', 'https://twitter.com/__ars____24')
+    expect(twitterLink).toHaveAttribute('href', 'https://twitter.com/____gana24')
   })
 
   it('opens links in new tab', () => {

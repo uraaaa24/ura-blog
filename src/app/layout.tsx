@@ -20,14 +20,16 @@ const inter = Inter({
   display: 'swap'
 })
 
+const siteDescription =
+  'GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。'
+
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Uralog',
-    template: '%s | Uralog'
+    default: 'Gana',
+    template: '%s | Gana'
   },
-  description:
-    'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。Web開発の実践的なTipsや学びを共有しています。',
+  description: siteDescription,
   keywords: [
     'React',
     'Next.js',
@@ -40,8 +42,8 @@ export const metadata: Metadata = {
     'TailwindCSS',
     '技術ブログ'
   ],
-  authors: [{ name: 'Ura' }],
-  creator: 'Ura',
+  authors: [{ name: 'Gana' }],
+  creator: 'Gana',
   alternates: {
     canonical: '/',
     types: {
@@ -53,24 +55,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ja_JP',
     url: '/',
-    siteName: 'Uralog',
-    title: 'Uralog',
-    description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    siteName: 'Gana',
+    title: 'Gana',
+    description: siteDescription,
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Uralog'
+        alt: 'Gana'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Uralog',
-    description:
-      'React、Next.js、TypeScriptを使ったフロントエンド開発の技術記事やプログラミングに関する知識を発信するエンジニアブログです。',
+    title: 'Gana',
+    description: siteDescription,
     images: ['/opengraph-image']
   },
   robots: {
