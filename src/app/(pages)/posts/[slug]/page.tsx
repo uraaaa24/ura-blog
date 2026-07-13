@@ -117,7 +117,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
         <div className="relative">
           {post.toc && post.toc.length > 0 && (
-            <aside className="absolute top-0 bottom-0 left-full ml-20 w-80 hidden xl:block">
+            <aside className="absolute top-0 bottom-0 left-full ml-16 w-80 hidden xl:block">
               <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <TableOfContents items={post.toc} />
               </div>
