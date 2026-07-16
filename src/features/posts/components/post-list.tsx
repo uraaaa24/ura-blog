@@ -1,8 +1,8 @@
-import type { Post } from '../types'
+import type { PostSummary } from '../types'
 import PostItem from './post-item'
 
 type PostListProps = {
-  posts: Post[]
+  posts: PostSummary[]
 }
 
 const PostList = ({ posts }: PostListProps) => {
@@ -13,7 +13,7 @@ const PostList = ({ posts }: PostListProps) => {
 
         return (
           <li
-            key={post.slug}
+            key={`${post.source}:${post.href}`}
             className={showDivider ? 'border-b border-gray-300 dark:border-gray-600' : ''}
           >
             <PostItem post={post} />

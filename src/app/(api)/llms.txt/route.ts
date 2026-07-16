@@ -1,4 +1,4 @@
-import { getPosts } from '@/features/posts/api/get-posts'
+import { getPosts } from '@/features/posts/server/posts'
 import { generateLLMSTxt } from '@/lib/llms-txt'
 
 export async function GET() {

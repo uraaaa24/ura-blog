@@ -1,25 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import type { Post } from '../types'
+import type { PostSummary } from '../types'
 
 type PostCardProps = {
-  post: Post
+  post: PostSummary
 }
 
 const PostItem = ({ post }: PostCardProps) => {
-  const isExternalPost = post.slug.startsWith('https')
-  const href = isExternalPost ? post.slug : `/posts/${post.slug}`
   const fallbackLetter = post.title?.trim().charAt(0) || '?'
 
-  const parsedDate = new Date(post.date)
+  const parsedDate = new Date(post.publishedAt)
   const dateTime = Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString()
 
-  const externalProps = isExternalPost ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+  const externalProps =
+    post.source === 'zenn' ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 
   return (
     <article>
-      <Link href={href} {...externalProps} className="group block py-4">
+      <Link href={post.href} {...externalProps} className="group block py-4">
         <div className="flex items-start gap-4">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-700">
             {post.thumbnail ? (

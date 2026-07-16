@@ -1,4 +1,4 @@
-import { getPosts } from '@/features/posts/api/get-posts'
+import { getLocalPosts } from '@/features/posts/server/posts'
 import { BASE_URL } from '@/lib/envs'
 
 import type { MetadataRoute } from 'next'
@@ -27,12 +27,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   ]
 
-  const allPosts = await getPosts()
-  // Zenn記事（外部リンク）をサイトマップから除外
-  const localPosts = allPosts.filter((post) => !post.slug.startsWith('https://'))
+  const localPosts = await getLocalPosts()
   const postPages: MetadataRoute.Sitemap = localPosts.map((post) => ({
-    url: `${BASE_URL}/posts/${post.slug}`,
-    lastModified: new Date(post.date),
+    url: new URL(post.href, BASE_URL).toString(),
+    lastModified: new Date(post.publishedAt),
     changeFrequency: 'monthly',
     priority: 0.7
   }))

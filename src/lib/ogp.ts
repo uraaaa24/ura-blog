@@ -1,13 +1,19 @@
-import type { Post } from '@/features/posts/types'
-
 import { BASE_URL } from './envs'
+
+type OGPPost = {
+  href: string
+  title: string
+  publishedAt: string
+  excerpt?: string
+  tags?: string[]
+}
 
 /**
  * 記事データからOGPメタデータを生成
  * Next.js の opengraph-image.tsx を使用するため、OG画像URLは自動生成される
  */
-export function generateOGPMetadata(post: Post) {
-  const canonicalUrl = `${BASE_URL}/posts/${post.slug}`
+export function generateOGPMetadata(post: OGPPost) {
+  const canonicalUrl = new URL(post.href, BASE_URL).toString()
 
   return {
     title: post.title,
@@ -22,7 +28,7 @@ export function generateOGPMetadata(post: Post) {
       siteName: 'Gana',
       locale: 'ja_JP',
       type: 'article' as const,
-      publishedTime: post.date,
+      publishedTime: post.publishedAt,
       tags: post.tags
     },
     twitter: {

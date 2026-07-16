@@ -1,19 +1,23 @@
 import { BASE_URL } from './envs'
 
-import type { Post } from '@/features/posts/types'
+type LLMPost = {
+  href: string
+  title: string
+  excerpt?: string
+}
 
 /**
  * llms.txt形式のコンテンツを生成
  * LLMがウェブサイトのコンテンツを理解しやすくするための標準フォーマット
  */
-export function generateLLMSTxt(posts: Post[]): string {
+export function generateLLMSTxt(posts: LLMPost[]): string {
   const currentDate = new Date().toISOString().split('T')[0]
 
   // 最新の記事（最大10件）
   const recentPosts = posts
     .slice(0, 10)
     .map((post) => {
-      const url = `${BASE_URL}/posts/${post.slug}`
+      const url = new URL(post.href, BASE_URL).toString()
       const description = post.excerpt || post.title
       return `- ${url}: ${description}`
     })

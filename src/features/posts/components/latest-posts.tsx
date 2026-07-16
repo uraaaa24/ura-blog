@@ -1,11 +1,11 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
-import type { Post } from '../types'
+import type { PostSummary } from '../types'
 import PostList from './post-list'
 
 type LatestPostsProps = {
-  totalPosts: Post[]
+  totalPosts: PostSummary[]
 }
 
 const LatestPosts = ({ totalPosts }: LatestPostsProps) => {

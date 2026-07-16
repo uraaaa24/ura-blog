@@ -6,9 +6,7 @@ import Breadcrumb from '@/components/layouts/breadcrumb'
 import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
 import TableOfContents from '@/components/ui/table-of-contents'
-import { getLocalPosts } from '@/features/posts/api/get-local-posts'
-import { getPostBySlug } from '@/features/posts/api/get-post-by-slug'
-import { getRelatedPosts } from '@/features/posts/api/get-related-posts'
+import { getLocalPosts, getPostBySlug, getRelatedPosts } from '@/features/posts/server/posts'
 import { BASE_URL } from '@/lib/envs'
 import {
   generateArticleStructuredData,
@@ -32,7 +30,7 @@ export async function generateMetadata(props: {
     }
   }
 
-  const canonicalUrl = new URL(`/posts/${post.slug}`, BASE_URL)
+  const canonicalUrl = new URL(post.href, BASE_URL)
   const description = post.excerpt || `${post.title}について書いた記事です。`
 
   return {
@@ -48,7 +46,7 @@ export async function generateMetadata(props: {
       siteName: 'Gana',
       locale: 'ja_JP',
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: post.publishedAt,
       tags: post.tags
     },
     twitter: {
@@ -73,10 +71,10 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   if (!post) notFound()
 
-  const postUrl = new URL(`/posts/${post.slug}`, BASE_URL).toString()
+  const postUrl = new URL(post.href, BASE_URL).toString()
   const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
-  const parsedDate = new Date(post.date)
+  const parsedDate = new Date(post.publishedAt)
   const dateTime = Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString()
 
   // 構造化データを生成
@@ -116,8 +114,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         </header>
 
         <div className="relative">
-          {post.toc && post.toc.length > 0 && (
-            <aside className="absolute top-0 bottom-0 left-full ml-16 w-80 hidden xl:block">
+          {post.toc.length > 0 && (
+            <aside className="absolute top-0 bottom-0 left-full ml-14 w-64 hidden xl:block">
               <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <TableOfContents items={post.toc} />
               </div>

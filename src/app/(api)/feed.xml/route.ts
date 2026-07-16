@@ -1,4 +1,4 @@
-import { getLocalPosts } from '@/features/posts/api/get-local-posts'
+import { getLocalPosts } from '@/features/posts/server/posts'
 import { generateRSSFeed } from '@/lib/feed'
 
 export async function GET() {

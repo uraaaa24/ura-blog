@@ -2,20 +2,27 @@ import { SOCIAL_LINKS } from '@/constants/sns'
 
 import { BASE_URL } from './envs'
 
-import type { Post } from '@/features/posts/types'
+type ArticleStructuredData = {
+  href: string
+  title: string
+  publishedAt: string
+  excerpt?: string
+  thumbnail: string | null
+  tags?: string[]
+}
 
 /**
  * 記事用の構造化データ (Article) を生成
  */
-export function generateArticleStructuredData(post: Post) {
+export function generateArticleStructuredData(post: ArticleStructuredData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || `${post.title}について書いた記事です。`,
     image: post.thumbnail || `${BASE_URL}/gana-icon.png`,
-    datePublished: post.date,
-    dateModified: post.date,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     author: {
       '@type': 'Person',
       name: 'Gana',
@@ -33,7 +40,7 @@ export function generateArticleStructuredData(post: Post) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${BASE_URL}/posts/${post.slug}`
+      '@id': new URL(post.href, BASE_URL).toString()
     },
     keywords: post.tags?.join(', '),
     inLanguage: 'ja-JP',

@@ -1,7 +1,7 @@
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
 import AboutHero from '@/features/about/components/about-hero'
-import { getPosts } from '@/features/posts/api/get-posts'
+import { getPosts } from '@/features/posts/server/posts'
 import LatestPosts from '@/features/posts/components/latest-posts'
 
 const LATEST_ITEMS_COUNT = 5

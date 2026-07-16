@@ -1,17 +1,23 @@
 import { BASE_URL } from './envs'
 
-import type { Post } from '@/features/posts/types'
+type FeedPost = {
+  href: string
+  title: string
+  publishedAt: string
+  excerpt?: string
+  tags?: string[]
+}
 
 /**
  * RSS 2.0フィードを生成
  */
-export function generateRSSFeed(posts: Post[]): string {
+export function generateRSSFeed(posts: FeedPost[]): string {
   const buildDate = new Date().toUTCString()
 
   const rssItems = posts
     .map((post) => {
-      const postUrl = `${BASE_URL}/posts/${post.slug}`
-      const pubDate = new Date(post.date).toUTCString()
+      const postUrl = new URL(post.href, BASE_URL).toString()
+      const pubDate = new Date(post.publishedAt).toUTCString()
 
       return `
     <item>
@@ -44,13 +50,13 @@ export function generateRSSFeed(posts: Post[]): string {
 /**
  * Atom 1.0フィードを生成
  */
-export function generateAtomFeed(posts: Post[]): string {
+export function generateAtomFeed(posts: FeedPost[]): string {
   const updatedDate = new Date().toISOString()
 
   const atomEntries = posts
     .map((post) => {
-      const postUrl = `${BASE_URL}/posts/${post.slug}`
-      const published = new Date(post.date).toISOString()
+      const postUrl = new URL(post.href, BASE_URL).toString()
+      const published = new Date(post.publishedAt).toISOString()
 
       return `
   <entry>

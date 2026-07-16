@@ -1,20 +1,29 @@
 import type { TocItem } from '@/lib/toc'
 
-export type Post = {
-  slug: string
+type PostSummaryFields = {
   title: string
+  href: string
   thumbnail: string | null
-  date: string
+  publishedAt: string
   formattedDate: string
-  content: string
-  excerpt?: string
-  tags?: string[]
-  toc?: TocItem[]
+  excerpt: string
+  tags: string[]
 }
 
-export type ZennRSSItem = {
-  title: string
-  link: string
-  pubDate: string
+export type LocalPostSummary = PostSummaryFields & {
+  source: 'local'
+  slug: string
+  href: `/posts/${string}`
+}
+
+export type ZennPostSummary = PostSummaryFields & {
+  source: 'zenn'
+  articleUrl: string
+}
+
+export type PostSummary = LocalPostSummary | ZennPostSummary
+
+export type LocalPost = LocalPostSummary & {
   content: string
+  toc: TocItem[]
 }

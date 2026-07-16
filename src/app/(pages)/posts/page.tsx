@@ -1,4 +1,4 @@
-import { getPosts } from '@/features/posts/api/get-posts'
+import { getPosts } from '@/features/posts/server/posts'
 import PostsPageContent from '@/features/posts/components/posts-page-content'
 
 import type { Metadata } from 'next'

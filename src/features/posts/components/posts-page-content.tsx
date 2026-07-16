@@ -4,11 +4,11 @@ import PageHeader from '@/components/layouts/page-header'
 import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
 
-import type { Post } from '../types'
+import type { PostSummary } from '../types'
 import PostList from './post-list'
 
 type PostsPageContentProps = {
-  posts: Post[]
+  posts: PostSummary[]
 }
 
 const PostsPageContent = ({ posts }: PostsPageContentProps) => {
