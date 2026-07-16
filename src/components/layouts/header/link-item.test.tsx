@@ -1,13 +1,21 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import LinkItem from './link-item'
 
+const mockUsePathname = vi.hoisted(() => vi.fn(() => '/'))
+
 vi.mock('next/navigation', () => ({
-  usePathname: vi.fn(() => '/')
+  usePathname: mockUsePathname
 }))
 
 describe('LinkItem', () => {
+  beforeEach(() => {
+    mockUsePathname.mockReturnValue('/')
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  })
+
   it('renders active link with correct styling', () => {
     render(<LinkItem isActive={true} href="/" label="Home" />)
 
@@ -31,5 +39,27 @@ describe('LinkItem', () => {
 
     const link = screen.getByRole('link', { name: 'About' })
     expect(link).toHaveClass('hover:text-gray-800', 'transition-colors')
+  })
+
+  it('preserves the scroll position on the initial render', () => {
+    document.documentElement.scrollTop = 120
+    document.body.scrollTop = 120
+
+    render(<LinkItem isActive={true} href="/" label="Home" />)
+
+    expect(document.documentElement.scrollTop).toBe(120)
+    expect(document.body.scrollTop).toBe(120)
+  })
+
+  it('resets the scroll position when the pathname changes', () => {
+    const { rerender } = render(<LinkItem isActive={true} href="/" label="Home" />)
+    document.documentElement.scrollTop = 120
+    document.body.scrollTop = 120
+    mockUsePathname.mockReturnValue('/posts')
+
+    rerender(<LinkItem isActive={false} href="/" label="Home" />)
+
+    expect(document.documentElement.scrollTop).toBe(0)
+    expect(document.body.scrollTop).toBe(0)
   })
 })

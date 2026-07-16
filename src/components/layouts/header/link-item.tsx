@@ -30,14 +30,12 @@ const resetScrollPosition = () => {
 
 const LinkItem = ({ isActive, href, label }: LinkItemProps) => {
   const pathName = usePathname()
-  const isFirstRender = useRef(true)
+  const previousPathName = useRef(pathName)
 
   useLayoutEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-      return
-    }
+    if (previousPathName.current === pathName) return
 
+    previousPathName.current = pathName
     resetScrollPosition()
   }, [pathName])
 
