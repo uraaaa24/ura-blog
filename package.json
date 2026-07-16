@@ -12,6 +12,7 @@
     "watch": "tsc --watch",
     "lint": "biome check . && eslint .",
     "lint:fix": "biome check --write . && eslint . --fix",
+    "check:staged": "biome check --staged --no-errors-on-unmatched",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
