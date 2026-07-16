@@ -6,33 +6,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Start development server:**
 ```bash
-npm run dev
+pnpm dev
 ```
 Uses Next.js with Turbopack for fast development mode.
 
 **Build and production:**
 ```bash
-npm run build    # Build for production
-npm start        # Start production server
+pnpm build    # Build for production
+pnpm start    # Start production server
 ```
 
 **Code quality:**
 ```bash
-npm run lint       # Run ESLint
-npm run lint:fix   # Auto-fix linting issues
-npm run watch      # TypeScript compiler in watch mode
+pnpm lint       # Run Biome and ESLint
+pnpm lint:fix   # Auto-fix linting issues
+pnpm watch      # TypeScript compiler in watch mode
 ```
 
 **Testing:**
 ```bash
-npm test          # Run Vitest tests
-npm test:ui       # Run Vitest with UI
+pnpm test          # Run Vitest tests
+pnpm test:ui       # Run Vitest with UI
 ```
 
 **Storybook:**
 ```bash
-npm run storybook        # Start Storybook dev server
-npm run build-storybook  # Build Storybook for production
+pnpm storybook        # Start Storybook dev server
+pnpm build-storybook  # Build Storybook for production
 ```
 
 ## Architecture Overview

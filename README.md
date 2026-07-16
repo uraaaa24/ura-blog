@@ -30,13 +30,18 @@ Gana is a personal blog about frontend development, programming, and the things 
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Development server
-npm run dev
+pnpm dev
 
 # Production build & start
-npm run build && npm start
+pnpm build && pnpm start
+
+# Quality checks
+pnpm lint
+pnpm exec tsc --noEmit
+pnpm test --run
 ```
 
 ---
