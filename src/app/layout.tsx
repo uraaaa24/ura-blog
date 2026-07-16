@@ -94,7 +94,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
   const webSiteStructuredData = generateWebSiteStructuredData()
 
   return (
-    <html lang="ja" className="dark" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning>
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
       </head>
@@ -104,7 +104,6 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           bg-[#f7f7f7] dark:bg-[#1a1a1a]
           text-gray-900 dark:text-gray-100
           leading-8 min-h-screen flex flex-col
-          transition-colors duration-300
         `}
       >
         {/* サイト全体の構造化データ (JSON-LD) */}
