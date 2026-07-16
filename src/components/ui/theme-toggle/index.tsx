@@ -1,19 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { flushSync } from 'react-dom'
 
+import { useIsClient } from '@/hooks/use-is-client'
+
 const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme()
+  const isClient = useIsClient()
 
-  const [mounted, setMounted] = useState(false)
-
-  /* Hydration ミスマッチ対策 */
-  useEffect(() => setMounted(true), [])
-  if (!mounted) return <div className="w-8 h-8" />
+  if (!isClient) return <div className="w-8 h-8" />
 
   const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     /* ★ 1) ボタン中心座標と半径を計算 → CSS 変数に流し込む */
