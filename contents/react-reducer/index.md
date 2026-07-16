@@ -7,7 +7,7 @@ tags:
   - Development
   - React
   - Frontend
-published: true
+published: false
 ---
 
 useReducerについて改めて考えた時に、何となく使っているなーと思い、公式ドキュメントを読んでみました。
@@ -36,4 +36,3 @@ Stateを扱うHookとしては、`useState`が思い浮かぶと思います。
 ## 参考資料
 
 - [state ロジックをリデューサに抽出する](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer)
-

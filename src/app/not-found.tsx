@@ -47,6 +47,7 @@ export default function NotFound() {
           alt={notFoundMessage.emoji}
           width={128}
           height={128}
+          loading="eager"
           className="mb-8"
         />
 
