@@ -5,7 +5,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-import { markdownComponents } from '@/components/ui/markdown'
+import { markdownComponents } from './markdown'
 
 type PostContentProps = {
   content: string

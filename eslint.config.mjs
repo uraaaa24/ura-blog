@@ -69,7 +69,7 @@ const eslintConfig = [
     }
   },
   {
-    files: ['src/components/ui/markdown/md-image.tsx'],
+    files: ['src/features/posts/components/markdown/md-image.tsx'],
     rules: {
       // Markdown images accept arbitrary sources and preserve their intrinsic dimensions.
       '@next/next/no-img-element': 'off'
