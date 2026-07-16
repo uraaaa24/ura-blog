@@ -1,77 +1,80 @@
-// ESLint configuration focused only on import ordering
-
-import typescriptEslintParser from '@typescript-eslint/parser'
-import pluginImport from 'eslint-plugin-import'
-import globals from 'globals'
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const trimGlobalKeys = (g) => Object.fromEntries(Object.entries(g).map(([k, v]) => [k.trim(), v]))
-
-export default [
+const eslintConfig = [
   {
-    ignores: ['.next', 'dist/**', '**/*.css.d.ts', '**/*.css.d.ts.map', 'storybook-static/**']
+    ignores: ['dist/**', '**/*.css.d.ts', '**/*.css.d.ts.map', 'storybook-static/**']
+  },
+  ...nextCoreWebVitals,
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: __dirname
+      }
+    }
   },
   {
-    files: ['**/*.{js,ts,tsx}'],
-    languageOptions: {
-      globals: { ...trimGlobalKeys(globals.browser), ...trimGlobalKeys(globals.node) },
-      parser: typescriptEslintParser,
-      parserOptions: {
-        projectService: {
-          allowDefaultProject: ['eslint.config.mjs', 'stylelint.config.mjs', 'postcss.config.mjs']
-        },
-        tsconfigRootDir: __dirname,
-        ecmaFeatures: { jsx: true }
-      }
-    },
-    plugins: {
-      import: pluginImport
-    },
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
     rules: {
-      // Architectural boundaries enforcement
       'import/no-restricted-paths': [
         'error',
         {
+          basePath: __dirname,
           zones: [
-            // Prevent cross-feature imports
             {
               target: './src/features/posts',
               from: './src/features',
-              except: ['./posts']
-            },
-            {
-              target: './src/features/books',
-              from: './src/features',
-              except: ['./books']
+              except: ['./posts'],
+              message: 'Posts must not depend on another feature.'
             },
             {
               target: './src/features/about',
               from: './src/features',
-              except: ['./about']
+              except: ['./about'],
+              message: 'About must not depend on another feature.'
             },
-            // Features can't import from app
+            {
+              target: './src/features/crossing-game',
+              from: './src/features',
+              except: ['./crossing-game'],
+              message: 'Crossing game must not depend on another feature.'
+            },
             {
               target: './src/features',
-              from: './src/app'
+              from: './src/app',
+              message: 'Features must not depend on the app layer.'
             },
-            // Shared layer can't import from features or app
             {
               target: [
                 './src/components',
+                './src/constants',
                 './src/hooks',
                 './src/lib',
+                './src/providers',
                 './src/types',
                 './src/utils'
               ],
-              from: ['./src/features', './src/app']
+              from: ['./src/features', './src/app'],
+              message: 'Shared modules must not depend on features or the app layer.'
             }
           ]
         }
       ]
     }
+  },
+  {
+    files: ['src/components/ui/markdown/md-image.tsx'],
+    rules: {
+      // Markdown images accept arbitrary sources and preserve their intrinsic dimensions.
+      '@next/next/no-img-element': 'off'
+    }
   }
 ]
+
+export default eslintConfig
