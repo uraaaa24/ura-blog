@@ -4,8 +4,6 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 
-import Footer from '@/components/layouts/footer'
-import Header from '@/components/layouts/header'
 import { BASE_URL, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
@@ -115,13 +113,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           {JSON.stringify(webSiteStructuredData)}
         </Script>
 
-        <ThemeProvider>
-          <Header />
-          <main className="flex grow flex-col px-6 pt-32">
-            <div className="container mx-auto flex w-full max-w-2xl grow flex-col">{children}</div>
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )
