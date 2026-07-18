@@ -15,6 +15,8 @@ import {
 
 import PostContent from '@/features/posts/components/post-content'
 import PostList from '@/features/posts/components/post-list'
+import ReadPostTracker from '@/features/posts/components/read-post-tracker'
+import { createPostReadKey } from '@/features/posts/utils/post-read-key'
 
 import type { Metadata } from 'next'
 
@@ -84,6 +86,8 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <>
+      <ReadPostTracker postKey={createPostReadKey(post)} />
+
       {/* 構造化データ (JSON-LD) */}
       <Script id="article-structured-data" type="application/ld+json">
         {JSON.stringify(articleStructuredData)}

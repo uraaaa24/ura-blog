@@ -1,4 +1,8 @@
+'use client'
+
+import { useReadPostKeys } from '../stores/read-posts'
 import type { PostSummary } from '../types'
+import { createPostReadKey } from '../utils/post-read-key'
 import PostItem from './post-item'
 
 type PostListProps = {
@@ -6,17 +10,16 @@ type PostListProps = {
 }
 
 const PostList = ({ posts }: PostListProps) => {
+  const readPostKeys = useReadPostKeys()
+
   return (
-    <ul>
-      {posts.map((post, index) => {
-        const showDivider = index < posts.length - 1
+    <ul className="isolate border-b border-gray-300 dark:border-gray-600">
+      {posts.map((post) => {
+        const postKey = createPostReadKey(post)
 
         return (
-          <li
-            key={`${post.source}:${post.href}`}
-            className={showDivider ? 'border-b border-gray-300 dark:border-gray-600' : ''}
-          >
-            <PostItem post={post} />
+          <li key={postKey}>
+            <PostItem post={post} postKey={postKey} isRead={readPostKeys.has(postKey)} />
           </li>
         )
       })}
