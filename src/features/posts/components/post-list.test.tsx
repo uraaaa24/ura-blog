@@ -24,13 +24,13 @@ describe('PostList', () => {
   it('shows the read dog-ear after the post is clicked', () => {
     render(<PostList posts={[post]} />)
 
-    expect(screen.queryByText('（既読）')).not.toBeInTheDocument()
+    expect(screen.queryByText('Read')).not.toBeInTheDocument()
 
     const link = screen.getByRole('link', { name: /Testing post/ })
     link.addEventListener('click', (event) => event.preventDefault())
     fireEvent.click(link)
 
-    expect(screen.getByRole('link', { name: /Testing post.*既読/ })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Testing post.*Read/ })).toBeInTheDocument()
   })
 
   it('shows the dog-ear for a previously read post', () => {
@@ -38,6 +38,6 @@ describe('PostList', () => {
 
     render(<PostList posts={[post]} />)
 
-    expect(screen.getByRole('link', { name: /Testing post.*既読/ })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Testing post.*Read/ })).toBeInTheDocument()
   })
 })
