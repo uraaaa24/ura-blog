@@ -40,7 +40,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
           className={`absolute left-0 top-0 h-px bg-gray-300 dark:bg-gray-600 ${isRead ? 'right-4.5' : 'right-0'}`}
         />
         {isRead && <ReadDogEar />}
-        <div className="flex items-start gap-4 px-2">
+        <div className="flex items-center gap-4 px-2">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-700">
             {post.thumbnail ? (
               <Image src={post.thumbnail} alt="" width={40} height={40} unoptimized />
@@ -50,7 +50,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
               </span>
             )}
           </div>
-          <div className="flex min-w-0 flex-1 flex-col gap-2">
+          <div className="flex min-w-0 flex-1 flex-col gap-1">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
               <time dateTime={dateTime}>{post.formattedDate}</time>
             </div>
