@@ -1,21 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import twemoji from '@twemoji/api'
-
 const postsDirectory = path.join(process.cwd(), 'contents')
-
-/**
- * 画像の src 属性を抽出するヘルパー関数
- */
-export const extractImageSrc = (htmlString: string) => {
-  const _twemoji = twemoji.parse(htmlString, {
-    folder: 'svg',
-    ext: '.svg'
-  })
-  const match = _twemoji.match(/src="([^"]+)"/)
-  return match ? match[1] : null
-}
 
 type ProcessContentImagesOptions = {
   sourceDir?: string

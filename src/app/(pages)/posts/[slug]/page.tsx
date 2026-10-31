@@ -16,7 +16,7 @@ import {
 import PostContent from '@/features/posts/components/post-content'
 import ReadPostTracker from '@/features/posts/components/read-post-tracker'
 import { createPostReadKey } from '@/features/posts/utils/post-read-key'
-import { extractImageSrc } from '@/features/posts/utils/process-markdown'
+import { extractImageSrc } from '@/lib/emoji'
 
 import type { Metadata } from 'next'
 

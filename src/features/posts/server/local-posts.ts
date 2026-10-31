@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import { cache } from 'react'
 
 import { formatDate, toValidDate } from '@/lib/date-utils'
+import { extractImageSrc } from '@/lib/emoji'
 import {
   getFrontmatterString,
   getFrontmatterStringArray,
@@ -11,7 +12,7 @@ import {
 import { generateToc } from '@/lib/toc'
 
 import type { LocalPost, LocalPostSummary } from '../types'
-import { extractImageSrc, normalizeTitle, processContentImages } from '../utils/process-markdown'
+import { normalizeTitle, processContentImages } from '../utils/process-markdown'
 import { findLocalPostFile, getLocalPostFiles } from './local-post-files'
 
 const createLocalPostHref = (slug: string): `/posts/${string}` => `/posts/${slug}`

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Section from '@/components/layouts/section'
 import { Heading1, Heading2 } from '@/components/ui/heading'
 import SocialLinks from '@/components/ui/social-links'
-import { extractImageSrc } from '@/features/posts/utils/process-markdown'
+import { extractImageSrc } from '@/lib/emoji'
 
 const ICON_SIZE = 120
 
