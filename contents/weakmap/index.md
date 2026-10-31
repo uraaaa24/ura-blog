@@ -6,7 +6,7 @@ date: 2026-10-31
 tags:
   - Development
   - JavaScript
-published: false
+published: true
 ---
 
 仕事でAIが生成したコードを読んでいたとき、`WeakMap`を初めて見かけました。気になって調べると、`Map`との違いの一つは、キーにしたオブジェクトの回収を妨げないことでした。
@@ -19,7 +19,7 @@ published: false
 
 例えば、ユーザー情報を持つオブジェクトに対して、ログイン状態を保存したい場合を考えてみます。
 
-```ts
+```js
 const user = { id: 1, name: "Taro" }
 
 const weakMap = new WeakMap()
@@ -57,7 +57,7 @@ console.log(weakMap.get(user)) // { isLoggedIn: true }
 
 `Map`では、文字列や数値など、さまざまな値をキーにできます。
 
-```ts
+```js
 const map = new Map()
 
 map.set("name", "Taro")
@@ -67,17 +67,17 @@ map.set({ id: 1 }, "user")
 
 一方、`WeakMap`では文字列や数値をキーにできません。オブジェクトのほか、`Symbol()`で作った未登録のSymbolも使えます。
 
-```ts
+```js
 const weakMap = new WeakMap()
 
 weakMap.set({ id: 1 }, "user") // OK
 
-weakMap.set("name", "Taro") // TypeScriptでは型エラー。JavaScriptで実行するとTypeError
+weakMap.set("name", "Taro") // エラー
 ```
 
 オブジェクトの中身が同じでも、別々に作られたものは異なるキーです。これは`Map`でも同じです。
 
-```ts
+```js
 const weakMap = new WeakMap()
 
 const user1 = { id: 1 }
@@ -93,7 +93,7 @@ console.log(weakMap.get(user2)) // undefined
 
 Mapでは、保存したデータをまとめて取り出せます。
 
-```ts
+```js
 const map = new Map([
   ["apple", 100],
   ["banana", 200],
@@ -123,7 +123,7 @@ JavaScriptでは、オブジェクトなどを作成すると、メモリを自�
 
 例えば、次のコードを見てください。
 
-```ts
+```js
 const createUser = () => {
   const user = { name: "Taro" }
 
@@ -141,7 +141,7 @@ createUser()
 
 今度は`Map`にオブジェクトを保存します。
 
-```ts
+```js
 const map = new Map()
 
 const registerUser = () => {
@@ -163,7 +163,7 @@ registerUser()
 
 同じ処理を`WeakMap`で書いてみます。
 
-```ts
+```js
 const weakMap = new WeakMap()
 
 const registerUser = () => {
@@ -185,28 +185,11 @@ registerUser()
 
 ### ボタンの状態を管理する
 
-例えば、ボタンがクリックされたかどうかを記録したい場合です。
+例えば、ボタンのクリック状態を要素自身のプロパティに保存する代わりに、`WeakMap`で要素と状態を関連付けられます。
 
-HTML要素の`data-*`属性に、クリック状態を保存できます。
-
-```ts
-const button = document.querySelector<HTMLButtonElement>("#button")
-if (!button) throw new Error("ボタンが見つかりません")
-
-button.dataset.clicked = "false"
-
-button.addEventListener("click", () => {
-  button.dataset.clicked = "true"
-})
-```
-
-これでも動作しますが、HTML要素に`data-clicked`属性を追加することになります。
-
-元の要素を変更せずにクリック状態を管理したい場合は、`WeakMap`を使う方法があります。
-
-```ts
-const clicked = new WeakMap<HTMLButtonElement, boolean>()
-const button = document.querySelector<HTMLButtonElement>("#button")
+```js
+const clicked = new WeakMap()
+const button = document.querySelector("#button")
 if (!button) throw new Error("ボタンが見つかりません")
 
 clicked.set(button, false)
@@ -218,18 +201,13 @@ button.addEventListener("click", () => {
 })
 ```
 
-`clicked`には、ボタンのHTML要素をキーとして、クリックされたかどうかを保存しています。
+`clicked`には、ボタンのHTML要素をキーとして、クリックされたかどうかを保存しています。クリック前は`false`、クリック後は`true`です。状態は要素のプロパティに追加されず、`clicked`への参照を持つコードから読み書きできます。
 
-クリック前は`false`、クリック後は`true`。元のHTML要素に属性を追加する必要はありません。
+これ自体は`Map`でも実現できます。違いが出るのは、画面の切り替えなどでボタンを削除した後です。
 
-これ自体は`Map`でも実現できますが、`WeakMap`とはボタンが不要になったときに違いが出ます。
+```js
+const clicked = new WeakMap()
 
-例えば、Webアプリケーションでは、画面の切り替えなどでHTML要素が削除されることがあります。
-
-まずは`Map`を使って、ボタンを作成・削除する処理を書いてみます。
-
-```ts
-const clicked = new Map()
 const createButton = () => {
   const button = document.createElement("button")
 
@@ -242,29 +220,7 @@ const createButton = () => {
 createButton()
 ```
 
-ボタンは画面から削除されていますが、`Map`にはキーとして登録されたままです。
-`Map`が残っている限り、ボタンへの参照も残るため、不要になったHTML要素がメモリに保持され続けます。
-
-同じ処理を`WeakMap`で書くと、次のようになります。
-
-```ts
-const clicked = new WeakMap()
-
-const createButton = () => {
-  const button = document.createElement("button")
-
-  document.body.append(button)
-  clicked.set(button, false)
-
-  button.remove()
-}
-
-createButton()
-```
-
-違いは`new Map()`を`new WeakMap()`に変更しただけです。
-
-`WeakMap`は、キーとなるボタンを強く参照しません。関数の実行が終わり、他にボタンへの参照が残っていなければ、ガベージコレクションによって回収できる状態になります。
+`clicked`が`Map`なら、画面から削除したボタンもキーとして保持し続けます。`WeakMap`ならボタンを強く参照しないため、関数の実行が終わり、ほかに参照が残っていなければ回収できる状態になります。
 
 ボタンがなくなれば、そのクリック状態も必要なくなります。
 
@@ -278,10 +234,8 @@ createButton()
 
 例えば、カートに入っている商品の合計金額を計算する関数です。
 
-```ts
-type Cart = { items: { price: number }[] }
-
-const calculateTotal = (cart: Cart) => {
+```js
+const calculateTotal = (cart) => {
   const total = cart.items.reduce(
     (sum, item) => sum + item.price,
     0
@@ -292,12 +246,10 @@ const calculateTotal = (cart: Cart) => {
 ```
 この関数は、呼び出すたびに合計金額を計算します。同じカートに対して何度も呼び出すなら、計算結果を保存して再利用できます。
 
-```ts
-type Cart = { items: { price: number }[] }
+```js
+const cache = new WeakMap()
 
-const cache = new WeakMap<Cart, number>()
-
-const calculateTotal = (cart: Cart) => {
+const calculateTotal = (cart) => {
   const cachedTotal = cache.get(cart)
   if (cachedTotal !== undefined) return cachedTotal
 
@@ -313,7 +265,7 @@ const calculateTotal = (cart: Cart) => {
 ```
 この関数を実行すると、次のようになります。
 
-```ts
+```js
 const cart = {
   items: [
     { price: 100 },
@@ -339,7 +291,7 @@ console.log(calculateTotal(cart)) // 300
 
 そのため、保存した後にオブジェクトの内容を変更しても、キャッシュは自動的には更新されません。
 
-```ts
+```js
 const cart = {
   items: [
     { price: 100 },
@@ -355,11 +307,11 @@ calculateTotal(cart) // 300
 // 本来の合計は600
 ```
 
-商品を追加したので本来の合計は600ですが、結果は300が出力されます。
+商品を追加したので本来の合計は600ですが、キャッシュに残った300が返されます。
 
 なので、内容を変更する場合は、キャッシュを削除するか、新しいオブジェクトを作成する必要があります。
 
-```ts
+```js
 const cart = {
   items: [
     { price: 100 },
@@ -386,7 +338,7 @@ calculateTotal(updatedCart) // 600
 
 例えば、次のコードです。
 
-```ts
+```js
 const elements = []
 const metadata = new WeakMap()
 
