@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/layouts/breadcrumb'
 import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
 import TableOfContents from '@/components/ui/table-of-contents'
-import { getLocalPosts, getPostBySlug, getRelatedPosts } from '@/features/posts/server/posts'
+import { getLocalPosts, getPostBySlug } from '@/features/posts/server/posts'
 import { BASE_URL } from '@/lib/envs'
 import {
   generateArticleStructuredData,
@@ -14,7 +14,6 @@ import {
 } from '@/lib/structured-data'
 
 import PostContent from '@/features/posts/components/post-content'
-import PostList from '@/features/posts/components/post-list'
 import ReadPostTracker from '@/features/posts/components/read-post-tracker'
 import { createPostReadKey } from '@/features/posts/utils/post-read-key'
 
@@ -82,7 +81,6 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   // 構造化データを生成
   const articleStructuredData = generateArticleStructuredData(post)
   const breadcrumbStructuredData = generateBreadcrumbStructuredData(breadcrumbItems)
-  const relatedPosts = await getRelatedPosts(post)
 
   return (
     <>
@@ -131,18 +129,6 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
           <div className="mt-8 flex justify-center items-center gap-4">
             <ShareButton title={post.title} url={postUrl} />
           </div>
-
-          {relatedPosts.length > 0 && (
-            <section className="mt-16" aria-labelledby="related-posts-heading">
-              <h2
-                id="related-posts-heading"
-                className="mb-4 text-xl font-semibold text-gray-900 dark:text-gray-100"
-              >
-                Related posts
-              </h2>
-              <PostList posts={relatedPosts} />
-            </section>
-          )}
         </div>
       </article>
 

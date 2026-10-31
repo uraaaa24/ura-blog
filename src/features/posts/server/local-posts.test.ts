@@ -33,6 +33,7 @@ afterEach(() => {
   mockFindLocalPostFile.mockReset()
   mockGetLocalPostFiles.mockReset()
   vi.restoreAllMocks()
+  vi.unstubAllEnvs()
   for (const directory of tempDirectories.splice(0)) {
     fs.rmSync(directory, { recursive: true, force: true })
   }
@@ -73,6 +74,7 @@ describe('getLocalPosts', () => {
   })
 
   it('excludes unpublished posts', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
     mockGetLocalPostFiles.mockReturnValue([
       createPostFile(
         'draft',
@@ -82,9 +84,42 @@ describe('getLocalPosts', () => {
 
     await expect(getLocalPosts()).resolves.toEqual([])
   })
+
+  it('includes drafts when running the dev server', async () => {
+    vi.stubEnv('NODE_ENV', 'development')
+    mockGetLocalPostFiles.mockReturnValue([
+      createPostFile(
+        'draft',
+        ['---', 'title: Draft', 'date: 2026-01-02', 'published: false', '---'].join('\n')
+      )
+    ])
+
+    const posts = await getLocalPosts()
+
+    expect(posts.map((post) => post.slug)).toEqual(['draft'])
+  })
 })
 
 describe('getPostBySlug', () => {
+  it('previews drafts only in development', async () => {
+    const postFile = createPostFile(
+      'draft',
+      ['---', 'title: Draft', 'date: 2026-01-02', 'published: false', '---', 'Draft body'].join(
+        '\n'
+      )
+    )
+    mockFindLocalPostFile.mockReturnValue(postFile)
+
+    vi.stubEnv('NODE_ENV', 'development')
+    await expect(getPostBySlug('draft')).resolves.toMatchObject({
+      slug: 'draft',
+      content: 'Draft body'
+    })
+
+    vi.stubEnv('NODE_ENV', 'production')
+    await expect(getPostBySlug('draft')).resolves.toBeUndefined()
+  })
+
   it('returns undefined when the post file does not exist', async () => {
     mockFindLocalPostFile.mockReturnValue(undefined)
 

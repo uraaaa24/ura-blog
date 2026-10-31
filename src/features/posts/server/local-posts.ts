@@ -16,12 +16,15 @@ import { findLocalPostFile, getLocalPostFiles } from './local-post-files'
 
 const createLocalPostHref = (slug: string): `/posts/${string}` => `/posts/${slug}`
 
-/** 公開済みのローカル記事を一覧表示用データとして返す。 */
+const isVisiblePost = (published: unknown): boolean =>
+  published === true || (process.env.NODE_ENV === 'development' && published === false)
+
+/** 公開記事と、開発時のみ下書きを一覧表示用データとして返す。 */
 export const getLocalPosts = cache(async (): Promise<LocalPostSummary[]> => {
   const posts = getLocalPostFiles().flatMap(({ slug, fullPath }) => {
     const { data } = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'))
 
-    if (data.published !== true) return []
+    if (!isVisiblePost(data.published)) return []
 
     const date = getFrontmatterString(data, 'date')
     const parsedDate = toValidDate(date)
@@ -52,7 +55,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<LocalPost | und
   if (!postFile) return undefined
 
   const { data, content } = parseFrontmatter(fs.readFileSync(postFile.fullPath, 'utf8'))
-  if (data.published !== true) return undefined
+  if (!isVisiblePost(data.published)) return undefined
 
   const processedContent = processContentImages(slug, content, {
     sourceDir: postFile.sourceDir
