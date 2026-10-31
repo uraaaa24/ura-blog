@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
 import { toHashHref } from '@/lib/heading'
 import type { TocItem } from '@/lib/toc'
@@ -60,12 +60,13 @@ const getTocPositions = (entries: TocDomEntry[]): TocPosition[] =>
 const TableOfContents = ({ items }: TableOfContentsProps) => {
   const navRef = useRef<HTMLElement>(null)
   const activeEntryRef = useRef<TocDomEntry | undefined>(undefined)
+  const visibleItems = useMemo(() => items.filter((item) => item.level === 2), [items])
 
   useEffect(() => {
     const nav = navRef.current
     if (!nav) return
 
-    const entries = buildTocEntries(nav, items)
+    const entries = buildTocEntries(nav, visibleItems)
     if (entries.length === 0) return
 
     // 記事遷移時に前の記事のactive DOM参照が残らないように初期化する。
@@ -106,16 +107,16 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
       window.removeEventListener('resize', refreshPositions)
       window.removeEventListener('load', refreshPositions)
     }
-  }, [items])
+  }, [visibleItems])
 
-  if (items.length === 0) return null
+  if (visibleItems.length === 0) return null
 
   return (
     <nav ref={navRef} aria-label="Table of contents" className="text-sm">
       <p className="mb-3 text-gray-400">ON THIS PAGE</p>
 
       <ul>
-        {items.map((item) => (
+        {visibleItems.map((item) => (
           <li key={item.id} data-active="false" className="group">
             <a
               href={toHashHref(item.id)}
