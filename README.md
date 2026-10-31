@@ -40,9 +40,12 @@ pnpm build && pnpm start
 
 # Quality checks
 pnpm lint
+pnpm format:check
 pnpm exec tsc --noEmit
 pnpm test --run
 ```
+
+Oxlint checks React, Next.js, TypeScript, and accessibility rules. ESLint remains for the project's import boundaries. Oxfmt checks code and configuration formatting; Markdown posts are excluded so their authored line breaks stay intact. The pre-commit hook checks staged files with both Oxc tools and rejects partially staged files so it checks the content being committed.
 
 ---
 

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -23,7 +23,7 @@ h6 {
 }
 
 @property --theme-mask-size {
-  syntax: "<length>";
+  syntax: '<length>';
   inherits: false;
   initial-value: 0px;
 }

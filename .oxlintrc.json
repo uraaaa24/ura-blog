@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "nextjs", "jsx-a11y", "import"],
+  "ignorePatterns": ["dist/**", "storybook-static/**"],
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "react/exhaustive-deps": "error",
+    "react/no-array-index-key": "error",
+    "jsx-a11y/control-has-associated-label": "error"
+  }
+}
