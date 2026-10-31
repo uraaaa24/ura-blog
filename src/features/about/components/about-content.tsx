@@ -93,7 +93,6 @@ const AboutContent = () => {
           ) : (
             '🔴'
           )}
-          .
         </p>
       </Section>
 
