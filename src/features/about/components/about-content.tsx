@@ -3,18 +3,21 @@ import Image from 'next/image'
 import Section from '@/components/layouts/section'
 import { Heading1, Heading2 } from '@/components/ui/heading'
 import SocialLinks from '@/components/ui/social-links'
+import { extractImageSrc } from '@/features/posts/utils/process-markdown'
 
-const ICON_SIZE = 160
+const ICON_SIZE = 120
 
 const AboutContent = () => {
+  const redCircleSrc = extractImageSrc('🔴')
+
   return (
     <>
       <Heading1>About</Heading1>
 
       <Section>
-        <div className="flex flex-col items-center gap-4 mb-6">
+        <div className="flex flex-col items-center gap-12">
           <Image
-            src="/gana-icon.png"
+            src="/ura-icon.png"
             alt="Profile picture"
             width={ICON_SIZE}
             height={ICON_SIZE}
@@ -76,8 +79,21 @@ const AboutContent = () => {
       <Section>
         <Heading2>Interests</Heading2>
         <p className="text-gray-800 dark:text-gray-200">
-          I like football, coffee, reading, and learning English. I&apos;m also an Arsenal
-          supporter.
+          I like football, coffee, reading, and learning English.
+          <br />
+          I&apos;m also an Arsenal supporter{' '}
+          {redCircleSrc ? (
+            <Image
+              src={redCircleSrc}
+              alt="🔴"
+              width={16}
+              height={16}
+              className="inline-block align-[-0.125em]"
+            />
+          ) : (
+            '🔴'
+          )}
+          .
         </p>
       </Section>
 

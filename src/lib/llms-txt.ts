@@ -23,11 +23,11 @@ export function generateLLMSTxt(posts: LLMPost[]): string {
     })
     .join('\n')
 
-  return `# Gana
+  return `# ura's notes
 
-GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。
+uraがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。
 
-> Author: Gana
+> Author: ura
 > Language: Japanese
 > Last Updated: ${currentDate}
 

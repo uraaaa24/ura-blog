@@ -19,13 +19,13 @@ const inter = Inter({
 })
 
 const siteDescription =
-  'GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。'
+  'uraがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Gana',
-    template: '%s | Gana'
+    default: "ura's notes",
+    template: "%s | ura's notes"
   },
   description: siteDescription,
   keywords: [
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     'TailwindCSS',
     '技術ブログ'
   ],
-  authors: [{ name: 'Gana' }],
-  creator: 'Gana',
+  authors: [{ name: 'ura' }],
+  creator: 'ura',
   alternates: {
     canonical: '/',
     types: {
@@ -53,21 +53,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ja_JP',
     url: '/',
-    siteName: 'Gana',
-    title: 'Gana',
+    siteName: "ura's notes",
+    title: "ura's notes",
     description: siteDescription,
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Gana'
+        alt: "ura's notes"
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gana',
+    title: "ura's notes",
     description: siteDescription,
     images: ['/opengraph-image']
   },

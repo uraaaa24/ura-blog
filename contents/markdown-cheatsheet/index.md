@@ -136,13 +136,13 @@ type User = {
 
 const user: User = {
   id: "1",
-  name: "Gana"
+  name: "ura"
 }
 ```
 
 ```json
 {
-  "name": "gana-blog",
+  "name": "ura-notes",
   "private": true
 }
 ```
@@ -162,13 +162,13 @@ type User = {
 
 const user: User = {
   id: "1",
-  name: "Gana"
+  name: "ura"
 }
 ```
 
 ```json
 {
-  "name": "gana-blog",
+  "name": "ura-notes",
   "private": true
 }
 ```

@@ -75,9 +75,13 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
 
     const updateActiveItem = () => {
       // アンカー遷移時と同じスクロール位置を通過済みの最後の見出しをactiveにする。
-      const nextEntry =
-        positionsRef.current.findLast((position) => position.activationTop <= window.scrollY)
-          ?.entry ?? entries[0]
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      const isAtBottom = maxScroll > 0 && window.scrollY >= maxScroll - 2
+      // 最後の見出しが短い節にある場合も、ページ末尾では最後の項目を選ぶ。
+      const nextEntry = isAtBottom
+        ? entries[entries.length - 1]
+        : (positionsRef.current.findLast((position) => position.activationTop <= window.scrollY)
+            ?.entry ?? entries[0])
 
       if (activeEntryRef.current?.id === nextEntry.id) return
 

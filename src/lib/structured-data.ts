@@ -20,22 +20,22 @@ export function generateArticleStructuredData(post: ArticleStructuredData) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || `${post.title}について書いた記事です。`,
-    image: post.thumbnail || `${BASE_URL}/gana-icon.png`,
+    image: post.thumbnail || `${BASE_URL}/ura-icon.png`,
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     author: {
       '@type': 'Person',
-      name: 'Gana',
+      name: 'ura',
       url: BASE_URL,
-      image: `${BASE_URL}/gana-icon.png`,
+      image: `${BASE_URL}/ura-icon.png`,
       sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href]
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Gana',
+      name: "ura's notes",
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/gana-icon.png`
+        url: `${BASE_URL}/ura-icon.png`
       }
     },
     mainEntityOfPage: {
@@ -55,15 +55,15 @@ export function generateWebSiteStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Gana',
+    name: "ura's notes",
     description:
-      'GanaがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。',
+      'uraがReact、Next.js、TypeScriptを中心に、フロントエンド開発や日々の学びを記録する個人ブログです。',
     url: BASE_URL,
     author: {
       '@type': 'Person',
-      name: 'Gana',
+      name: 'ura',
       url: BASE_URL,
-      image: `${BASE_URL}/gana-icon.png`,
+      image: `${BASE_URL}/ura-icon.png`,
       sameAs: [SOCIAL_LINKS.github.href, SOCIAL_LINKS.zenn.href, SOCIAL_LINKS.x.href],
       knowsAbout: [
         'React',
@@ -77,10 +77,10 @@ export function generateWebSiteStructuredData() {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Gana',
+      name: "ura's notes",
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/gana-icon.png`
+        url: `${BASE_URL}/ura-icon.png`
       }
     },
     image: `${BASE_URL}/opengraph-image`,

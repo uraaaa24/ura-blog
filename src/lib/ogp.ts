@@ -25,7 +25,7 @@ export function generateOGPMetadata(post: OGPPost) {
       title: post.title,
       description: post.excerpt || `${post.title}について書いた記事です。`,
       url: canonicalUrl,
-      siteName: 'Gana',
+      siteName: "ura's notes",
       locale: 'ja_JP',
       type: 'article' as const,
       publishedTime: post.publishedAt,

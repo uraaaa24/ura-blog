@@ -1,6 +1,6 @@
-# Gana
+# ura's notes
 
-Gana is a personal blog about frontend development, programming, and the things I learn along the way.
+ura's notes is a personal blog about frontend development, programming, and the things I learn along the way.
 
 - Website: https://gananana.me/
 - RSS: https://gananana.me/feed.xml

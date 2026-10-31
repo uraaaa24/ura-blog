@@ -12,7 +12,7 @@ const PagesLayout = ({ children }: { children: ReactNode }) => (
       Skip to content
     </a>
     <Header />
-    <main id="main-content" tabIndex={-1} className="flex grow flex-col px-6 pt-32">
+    <main id="main-content" tabIndex={-1} className="flex grow flex-col px-6 pt-10">
       <div className="container mx-auto flex w-full max-w-2xl grow flex-col">{children}</div>
     </main>
     <Footer />

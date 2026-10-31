@@ -41,8 +41,8 @@ const Header = () => {
   const activeHref = activeSegment === null ? '/' : `/${activeSegment}`
 
   return (
-    <header>
-      <nav className="fixed top-0 left-0 right-0 z-10 mt-10 flex justify-center transition-all duration-300 ease-out">
+    <header className="pt-10">
+      <nav className="flex justify-center">
         <ul className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md py-2 px-6 rounded-full flex items-center justify-center space-x-6">
           {navLinks.map((link) => (
             <li key={link.href}>

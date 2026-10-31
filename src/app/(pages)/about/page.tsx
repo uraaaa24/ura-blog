@@ -5,11 +5,11 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、Ganaについての紹介ページです。',
+    'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、uraについての紹介ページです。',
   openGraph: {
-    title: 'About - Gana',
+    title: "About | ura's notes",
     description:
-      'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、Ganaについての紹介ページです。',
+      'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、uraについての紹介ページです。',
     type: 'website'
   },
   keywords: [

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Posts',
   description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
   openGraph: {
-    title: 'Posts - Gana',
+    title: "Posts | ura's notes",
     description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
     type: 'website'
   }

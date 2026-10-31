@@ -16,6 +16,7 @@ import {
 import PostContent from '@/features/posts/components/post-content'
 import ReadPostTracker from '@/features/posts/components/read-post-tracker'
 import { createPostReadKey } from '@/features/posts/utils/post-read-key'
+import { extractImageSrc } from '@/features/posts/utils/process-markdown'
 
 import type { Metadata } from 'next'
 
@@ -44,7 +45,7 @@ export async function generateMetadata(props: {
       title: post.title,
       description,
       url: canonicalUrl,
-      siteName: 'Gana',
+      siteName: "ura's notes",
       locale: 'ja_JP',
       type: 'article',
       publishedTime: post.publishedAt,
@@ -73,6 +74,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
   if (!post) notFound()
 
   const postUrl = new URL(post.href, BASE_URL).toString()
+  const soccerBallSrc = extractImageSrc('⚽️')
   const breadcrumbItems = [{ label: 'Posts', href: '/posts' }, { label: post.title }]
 
   const parsedDate = new Date(post.publishedAt)
@@ -94,7 +96,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
         {JSON.stringify(breadcrumbStructuredData)}
       </Script>
 
-      <article className="font-sans">
+      <article>
         <Breadcrumb items={breadcrumbItems} />
         <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
           <div className="flex flex-col items-center gap-8 pb-8">
@@ -126,8 +128,31 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
           <PostContent content={post.content} />
 
-          <div className="mt-8 flex justify-center items-center gap-4">
-            <ShareButton title={post.title} url={postUrl} />
+          <div className="mt-30 space-y-16">
+            <div className="px-2 flex gap-4">
+              <Image
+                src="/ura-icon.png"
+                alt=""
+                width={64}
+                height={64}
+                className="rounded-full object-cover"
+              />
+              <div className="flex flex-col justify-center gap-1">
+                <p className="font-semibold text-lg text-gray-900 dark:text-gray-100">ura</p>
+                <p className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                  Software Engineer
+                  {soccerBallSrc ? (
+                    <Image src={soccerBallSrc} alt="⚽️" width={16} height={16} />
+                  ) : (
+                    '⚽️'
+                  )}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-center items-center gap-4">
+              <ShareButton title={post.title} url={postUrl} />
+            </div>
           </div>
         </div>
       </article>
