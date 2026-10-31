@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import { maxtileIndex, mintileIndex } from '../constants'
 import { type Row, ROW_TYPES, type RowType } from '../types'
 
+let nextRowId = 0
+
 export const generateRows = (amount: number): Row[] => {
   const rows: Row[] = []
   for (let i = 0; i < amount; i++) {
@@ -44,7 +46,7 @@ const generateForestMetaData = (): Extract<Row, { type: typeof ROW_TYPES.FOREST 
     return { tileIndex, height }
   })
 
-  return { type: ROW_TYPES.FOREST, trees }
+  return { id: nextRowId++, type: ROW_TYPES.FOREST, trees }
 }
 
 const generateCarLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.CAR }> => {
@@ -64,7 +66,7 @@ const generateCarLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.CAR }>
     return { initialtileIndex, color }
   })
 
-  return { type: ROW_TYPES.CAR, direction, speed, vehicles }
+  return { id: nextRowId++, type: ROW_TYPES.CAR, direction, speed, vehicles }
 }
 
 const generateTruckLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.TRUCK }> => {
@@ -86,5 +88,5 @@ const generateTruckLaneMetaData = (): Extract<Row, { type: typeof ROW_TYPES.TRUC
     return { initialtileIndex, color }
   })
 
-  return { type: ROW_TYPES.TRUCK, direction, speed, vehicles }
+  return { id: nextRowId++, type: ROW_TYPES.TRUCK, direction, speed, vehicles }
 }

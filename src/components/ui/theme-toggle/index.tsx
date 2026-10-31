@@ -56,13 +56,10 @@ const ThemeToggle = () => {
       aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} theme`}
       className={`
         relative w-8 h-8 rounded-full
-        transition-all duration-300 ease-out
-        transform-gpu will-change-transform
+        transition-transform duration-300 ease-out
+        transform-gpu
         cursor-pointer
       `}
-      style={{
-        transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
-      }}
     >
       <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
         {/* Moon (dark) */}

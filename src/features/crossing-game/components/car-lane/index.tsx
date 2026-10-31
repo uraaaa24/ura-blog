@@ -11,11 +11,10 @@ type CarLaneProps = {
 const CarLane = ({ rowIndex, row, isDark }: CarLaneProps) => {
   return (
     <Road rowIndex={rowIndex} isDark={isDark}>
-      {row.vehicles.map((vehicle, index) => {
-        const key = `vehicle-${index}`
+      {row.vehicles.map((vehicle) => {
         return (
           <Car
-            key={key}
+            key={vehicle.initialtileIndex}
             rowIndex={rowIndex}
             initialtileIndex={vehicle.initialtileIndex}
             direction={row.direction}

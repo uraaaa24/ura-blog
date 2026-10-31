@@ -11,11 +11,10 @@ type TrackLaneProps = {
 const TruckLane = ({ rowIndex, row, isDark }: TrackLaneProps) => {
   return (
     <Road rowIndex={rowIndex} isDark={isDark}>
-      {row.vehicles.map((vehicle, index) => {
-        const key = `vehicle-${index}`
+      {row.vehicles.map((vehicle) => {
         return (
           <Truck
-            key={key}
+            key={vehicle.initialtileIndex}
             rowIndex={rowIndex}
             initialtileIndex={vehicle.initialtileIndex}
             direction={row.direction}

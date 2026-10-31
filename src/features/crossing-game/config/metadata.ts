@@ -2,6 +2,7 @@ import { ROW_TYPES, type Row } from '../types'
 
 export const rows: Row[] = [
   {
+    id: 0,
     type: ROW_TYPES.FOREST,
     trees: [
       { tileIndex: -5, height: 50 },
@@ -10,6 +11,7 @@ export const rows: Row[] = [
     ]
   },
   {
+    id: 1,
     type: ROW_TYPES.CAR,
     direction: false,
     speed: 188,
@@ -20,6 +22,7 @@ export const rows: Row[] = [
     ]
   },
   {
+    id: 2,
     type: ROW_TYPES.FOREST,
     trees: [
       { tileIndex: -3, height: 50 },
@@ -28,6 +31,7 @@ export const rows: Row[] = [
     ]
   },
   {
+    id: 3,
     type: ROW_TYPES.TRUCK,
     direction: true,
     speed: 125,

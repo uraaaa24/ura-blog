@@ -11,9 +11,15 @@ type ForestProps = {
 const Forest = ({ rowIndex, row, isDark }: ForestProps) => {
   return (
     <Grass rowIndex={rowIndex} isDark={isDark}>
-      {row.trees.map((tree, index) => {
-        const key = `tree-${index}`
-        return <Tree key={key} tileIndex={tree.tileIndex} height={tree.height} isDark={isDark} />
+      {row.trees.map((tree) => {
+        return (
+          <Tree
+            key={tree.tileIndex}
+            tileIndex={tree.tileIndex}
+            height={tree.height}
+            isDark={isDark}
+          />
+        )
       })}
     </Grass>
   )

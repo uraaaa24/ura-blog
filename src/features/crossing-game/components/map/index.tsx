@@ -24,8 +24,7 @@ const GameMap = ({ isDark }: GameMapProps) => {
       <Grass rowIndex={-10} isDark={isDark} />
 
       {rows.map((row, index) => {
-        const key = `row-${index}`
-        return <Row key={key} rowIndex={index + 1} row={row} isDark={isDark} />
+        return <Row key={row.id} rowIndex={index + 1} row={row} isDark={isDark} />
       })}
     </>
   )

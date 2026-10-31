@@ -15,6 +15,7 @@ const Controls = () => {
         <button
           type="button"
           onClick={() => queueMove(MOVE_DIRECTIONS.FORWARD)}
+          aria-label="Move forward"
           style={{ gridColumn: '1 / -1' }}
           className={buttonClass}
         >
@@ -23,6 +24,7 @@ const Controls = () => {
         <button
           type="button"
           onClick={() => queueMove(MOVE_DIRECTIONS.LEFT)}
+          aria-label="Move left"
           className={buttonClass}
         >
           <Triangle size={20} fill="currentColor" className="-rotate-90" />
@@ -30,6 +32,7 @@ const Controls = () => {
         <button
           type="button"
           onClick={() => queueMove(MOVE_DIRECTIONS.BACKWARD)}
+          aria-label="Move backward"
           className={buttonClass}
         >
           <Triangle size={20} fill="currentColor" className="rotate-180" />
@@ -37,6 +40,7 @@ const Controls = () => {
         <button
           type="button"
           onClick={() => queueMove(MOVE_DIRECTIONS.RIGHT)}
+          aria-label="Move right"
           className={buttonClass}
         >
           <Triangle size={20} fill="currentColor" className="rotate-90" />

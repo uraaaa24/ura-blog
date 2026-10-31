@@ -43,12 +43,13 @@ export const getPosts = cache(async (limit?: number) => {
 export const getRelatedPosts = cache(
   async (currentPost: LocalPost, limit = 3): Promise<LocalPostSummary[]> => {
     const allPosts = await getLocalPosts()
+    const currentTags = new Set(currentPost.tags)
 
     return allPosts
       .filter((post) => post.slug !== currentPost.slug)
       .map((post) => ({
         post,
-        score: post.tags.filter((tag) => currentPost.tags.includes(tag)).length
+        score: post.tags.filter((tag) => currentTags.has(tag)).length
       }))
       .filter(({ score }) => score > 0)
       .sort((a, b) => b.score - a.score)

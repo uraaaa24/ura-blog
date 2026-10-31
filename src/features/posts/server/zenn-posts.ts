@@ -13,6 +13,13 @@ type ZennRSSFeed = {
   items: ZennRSSItem[]
 }
 
+const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'UTC',
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+})
+
 const parseRSSXML = (xmlText: string): ZennRSSFeed => {
   const itemBlocks = xmlText.match(/<item\b[^>]*>[\s\S]*?<\/item>/g) ?? []
 
@@ -35,12 +42,7 @@ const parseRSSXML = (xmlText: string): ZennRSSFeed => {
 
 export const toZennPostSummary = (item: ZennRSSItem): ZennPostSummary => {
   const publishedAt = item.pubDate ? new Date(item.pubDate) : new Date()
-  const formattedDate = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'UTC',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  }).format(publishedAt)
+  const formattedDate = dateFormatter.format(publishedAt)
 
   return {
     source: 'zenn',

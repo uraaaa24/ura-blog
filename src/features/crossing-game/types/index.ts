@@ -9,6 +9,7 @@ export type RowType = (typeof ROW_TYPES)[keyof typeof ROW_TYPES]
 
 export type Row =
   | {
+      id: number
       type: typeof ROW_TYPES.FOREST
       trees: {
         tileIndex: number
@@ -16,6 +17,7 @@ export type Row =
       }[]
     }
   | {
+      id: number
       type: typeof ROW_TYPES.CAR
       direction: boolean
       speed: number
@@ -25,6 +27,7 @@ export type Row =
       }[]
     }
   | {
+      id: number
       type: typeof ROW_TYPES.TRUCK
       direction: boolean
       speed: number
