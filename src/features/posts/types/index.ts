@@ -14,6 +14,7 @@ export type LocalPostSummary = PostSummaryFields & {
   source: 'local'
   slug: string
   href: `/posts/${string}`
+  isDraft: boolean
 }
 
 export type ZennPostSummary = PostSummaryFields & {

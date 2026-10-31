@@ -7,6 +7,7 @@ const localPost = (overrides: Partial<LocalPostSummary> = {}): LocalPostSummary 
   source: 'local',
   slug: 'local-post',
   href: '/posts/local-post',
+  isDraft: false,
   title: 'Local post',
   thumbnail: null,
   publishedAt: '2026-01-02T00:00:00.000Z',

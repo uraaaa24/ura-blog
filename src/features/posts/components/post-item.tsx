@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { markPostAsRead } from '../stores/read-posts'
 import type { PostSummary } from '../types'
+import DraftBadge from './draft-badge'
 import ReadDogEar from './read-dog-ear'
 
 type PostItemProps = {
@@ -53,6 +54,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
           <div className="flex min-w-0 flex-1 flex-col gap-1">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
               <time dateTime={dateTime}>{post.formattedDate}</time>
+              {post.source === 'local' && post.isDraft && <DraftBadge />}
             </div>
             <h3 className="text-lg font-bold leading-7 text-gray-900 transition-colors group-hover/post-item:text-gray-600 dark:text-gray-100 dark:group-hover/post-item:text-gray-300">
               {post.title}

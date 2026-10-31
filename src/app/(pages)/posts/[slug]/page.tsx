@@ -14,6 +14,7 @@ import {
 } from '@/lib/structured-data'
 
 import PostContent from '@/features/posts/components/post-content'
+import DraftBadge from '@/features/posts/components/draft-badge'
 import ReadPostTracker from '@/features/posts/components/read-post-tracker'
 import { createPostReadKey } from '@/features/posts/utils/post-read-key'
 import { extractImageSrc } from '@/lib/emoji'
@@ -113,6 +114,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <time dateTime={dateTime}>{post.formattedDate}</time>
+              {post.isDraft && <DraftBadge />}
             </div>
           </div>
         </header>

@@ -8,6 +8,7 @@ const post: LocalPostSummary = {
   source: 'local',
   slug: 'testing',
   href: '/posts/testing',
+  isDraft: false,
   title: 'Testing post',
   thumbnail: null,
   publishedAt: '2026-07-18',
