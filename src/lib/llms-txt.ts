@@ -67,7 +67,7 @@ ${recentPosts}
 
 # Contact & Social
 
-- GitHub: https://github.com/gananana24
+- GitHub: https://github.com/uraaaa24
 - X (Twitter): https://twitter.com/____gana24
 - Zenn: https://zenn.dev/uraaaa24
 `

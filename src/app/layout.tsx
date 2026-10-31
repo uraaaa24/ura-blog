@@ -92,7 +92,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
   const webSiteStructuredData = generateWebSiteStructuredData()
 
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
       </head>

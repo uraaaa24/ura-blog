@@ -9,7 +9,7 @@ describe('SOCIAL_LINKS', () => {
     const { github, zenn, x, rss } = SOCIAL_LINKS
 
     expect(github).toMatchObject({
-      href: 'https://github.com/gananana24',
+      href: 'https://github.com/uraaaa24',
       src: '/github.svg',
       alt: 'GitHub'
     })
