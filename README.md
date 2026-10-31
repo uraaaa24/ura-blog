@@ -48,5 +48,5 @@ pnpm test --run
 
 ## Links
 
-- GitHub: https://github.com/gananana24
+- GitHub: https://github.com/uraaaa24
 - Zenn: https://zenn.dev/uraaaa24
