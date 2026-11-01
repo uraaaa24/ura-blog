@@ -5,6 +5,7 @@ type PostSummaryFields = {
   href: string
   thumbnail: string | null
   publishedAt: string
+  updatedAt?: string
   formattedDate: string
   excerpt: string
   tags: string[]

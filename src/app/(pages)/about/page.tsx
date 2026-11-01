@@ -6,10 +6,13 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、uraについての紹介ページです。',
+  alternates: { canonical: '/about' },
   openGraph: {
     title: "About | ura's notes",
     description:
       'React、Next.js、TypeScriptを中心にWeb開発を行うエンジニア、uraについての紹介ページです。',
+    url: '/about',
+    images: ['/opengraph-image'],
     type: 'website'
   },
   keywords: [

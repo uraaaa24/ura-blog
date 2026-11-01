@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ura' }],
   creator: 'ura',
   alternates: {
-    canonical: '/',
+    canonical: BASE_URL,
     types: {
       'application/rss+xml': '/feed.xml',
       'application/atom+xml': '/atom.xml'
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: '/',
+    url: BASE_URL,
     siteName: "ura's notes",
     title: "ura's notes",
     description: siteDescription,
     images: [
       {
-        url: '/opengraph-image',
+        url: `${BASE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "ura's notes"
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "ura's notes",
     description: siteDescription,
-    images: ['/opengraph-image']
+    images: [`${BASE_URL}/opengraph-image`]
   },
   robots: {
     index: true,

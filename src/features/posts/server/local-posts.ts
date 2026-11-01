@@ -29,6 +29,7 @@ export const getLocalPosts = cache(async (): Promise<LocalPostSummary[]> => {
 
     const date = getFrontmatterString(data, 'date')
     const parsedDate = toValidDate(date)
+    const updatedDate = toValidDate(getFrontmatterString(data, 'updated'))
 
     return [
       {
@@ -39,6 +40,7 @@ export const getLocalPosts = cache(async (): Promise<LocalPostSummary[]> => {
         title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
         thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
         publishedAt: parsedDate ? parsedDate.toISOString() : date,
+        updatedAt: updatedDate?.toISOString(),
         formattedDate: parsedDate
           ? formatDate(parsedDate, { year: 'numeric', month: 'short', day: 'numeric' })
           : date,
@@ -64,6 +66,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<LocalPost | und
   })
   const date = getFrontmatterString(data, 'date')
   const parsedDate = toValidDate(date)
+  const updatedDate = toValidDate(getFrontmatterString(data, 'updated'))
 
   return {
     source: 'local',
@@ -73,6 +76,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<LocalPost | und
     title: normalizeTitle(getFrontmatterString(data, 'title'), slug),
     thumbnail: extractImageSrc(getFrontmatterString(data, 'thumbnail')),
     publishedAt: parsedDate ? parsedDate.toISOString() : date,
+    updatedAt: updatedDate?.toISOString(),
     formattedDate: parsedDate
       ? formatDate(parsedDate, { year: 'numeric', month: 'long', day: 'numeric' })
       : date,

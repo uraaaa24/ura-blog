@@ -6,9 +6,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Posts',
   description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
+  alternates: { canonical: '/posts' },
   openGraph: {
     title: "Posts | ura's notes",
     description: 'フロントエンド開発やプログラミングに関する記事をまとめたブログ一覧。',
+    url: '/posts',
+    images: ['/opengraph-image'],
     type: 'website'
   }
 }

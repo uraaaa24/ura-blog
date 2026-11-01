@@ -6,6 +6,7 @@ type ArticleStructuredData = {
   href: string
   title: string
   publishedAt: string
+  updatedAt?: string
   excerpt?: string
   thumbnail: string | null
   tags?: string[]
@@ -22,7 +23,7 @@ export function generateArticleStructuredData(post: ArticleStructuredData) {
     description: post.excerpt || `${post.title}について書いた記事です。`,
     image: post.thumbnail || `${BASE_URL}/ura-icon.png`,
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
     author: {
       '@type': 'Person',
       name: 'ura',
