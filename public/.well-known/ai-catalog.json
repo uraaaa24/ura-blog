@@ -1,0 +1,29 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "ura's notes",
+    "identifier": "https://urarara.me"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:urarara.me:api:blog",
+      "displayName": "Public blog content",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://urarara.me/openapi.json",
+      "representativeQueries": [
+        "Find articles about React and Next.js",
+        "Read the latest posts by ura"
+      ]
+    },
+    {
+      "identifier": "urn:air:urarara.me:skill:read-blog",
+      "displayName": "Read blog skill",
+      "type": "text/markdown",
+      "url": "https://urarara.me/.well-known/agent-skills/read-blog/SKILL.md",
+      "representativeQueries": [
+        "How can an agent read this blog?",
+        "Where can I find Markdown versions of articles?"
+      ]
+    }
+  ]
+}

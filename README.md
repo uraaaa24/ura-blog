@@ -56,3 +56,5 @@ Oxlint checks React, Next.js, TypeScript, and accessibility rules. ESLint remain
 
 - GitHub: https://github.com/uraaaa24
 - Zenn: https://zenn.dev/uraaaa24
+
+Agent-facing endpoints, supported features, and DNS configuration limits are documented in [docs/agent-discovery.md](docs/agent-discovery.md).

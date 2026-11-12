@@ -1,8 +1,30 @@
 import type { NextConfig } from 'next'
 
+import { discoveryLinks } from './src/lib/agent-discovery'
+
 import { BASE_URL } from './src/lib/envs'
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [
+          { key: 'Link', value: discoveryLinks },
+          { key: 'Vary', value: 'Accept' }
+        ]
+      },
+      { source: '/posts/:path*', headers: [{ key: 'Vary', value: 'Accept' }] },
+      {
+        source: '/:path*.md',
+        headers: [{ key: 'Content-Type', value: 'text/markdown; charset=utf-8' }]
+      },
+      {
+        source: '/.well-known/:path*',
+        headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }]
+      }
+    ]
+  },
   async redirects() {
     return [
       {
