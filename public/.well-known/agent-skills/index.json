@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "read-blog",
+      "type": "skill-md",
+      "description": "Find and read public articles on ura's notes.",
+      "url": "https://urarara.me/.well-known/agent-skills/read-blog/SKILL.md",
+      "digest": "sha256:3a172aa19c52e13d4d22a332ed498f351db38f6f5d3030aacd0fb885d8102d89"
+    }
+  ]
+}
