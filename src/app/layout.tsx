@@ -4,6 +4,9 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 
+import AgentTools from '@/components/agent-tools'
+import { getPosts } from '@/features/posts/server/posts'
+
 import { BASE_URL, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
@@ -87,7 +90,16 @@ export const metadata: Metadata = {
   }
 }
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout = async ({ children }: { children: ReactNode }) => {
+  const posts = await getPosts()
+  const articles = posts
+    .filter((post) => post.source !== 'local' || !post.isDraft)
+    .map(({ title, href, excerpt, tags }) => ({
+      title,
+      href: new URL(href, BASE_URL).toString(),
+      excerpt,
+      tags
+    }))
   // サイト全体の構造化データ
   const webSiteStructuredData = generateWebSiteStructuredData()
 
@@ -113,6 +125,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           {JSON.stringify(webSiteStructuredData)}
         </Script>
 
+        <AgentTools articles={articles} />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
