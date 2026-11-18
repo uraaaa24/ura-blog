@@ -1,6 +1,3 @@
-// Avoid shared HTML caches serving the wrong negotiated representation.
-export const dynamic = 'force-dynamic'
-
 import type { Metadata } from 'next'
 
 import PostsPageContent from '@/features/posts/components/posts-page-content'
