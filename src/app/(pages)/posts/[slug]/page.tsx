@@ -1,3 +1,6 @@
+// Avoid shared HTML caches serving the wrong negotiated representation.
+export const dynamic = 'force-dynamic'
+
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'

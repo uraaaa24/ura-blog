@@ -1,3 +1,6 @@
+// Avoid shared HTML caches serving the wrong negotiated representation.
+export const dynamic = 'force-dynamic'
+
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
 import AboutHero from '@/features/about/components/about-hero'
