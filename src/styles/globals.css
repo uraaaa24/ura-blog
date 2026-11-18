@@ -15,6 +15,10 @@ h6 {
   scroll-margin-top: 2rem;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 :root {
   --theme-toggle-x: 50vw;
   --theme-toggle-y: 50vh;
