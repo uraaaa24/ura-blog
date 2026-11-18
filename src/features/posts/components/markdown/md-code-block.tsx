@@ -1,10 +1,8 @@
-'use client'
-
-import { Check, Copy } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+
+import CodeCopyButton from './code-copy-button'
 
 type CodeBlockProps = {
   className?: string
@@ -12,33 +10,12 @@ type CodeBlockProps = {
 }
 
 const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
-  const [copied, setCopied] = useState(false)
   const matchCode = /language-(\w+)/.exec(className || '')
   const code = String(children).replace(/\n$/, '')
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   return matchCode ? (
     <div className="group relative">
-      <button
-        type="button"
-        onClick={handleCopy}
-        className="absolute top-3 right-3 cursor-pointer rounded-lg bg-gray-700 p-2 opacity-0 transition-colors group-hover:opacity-100 hover:bg-gray-600 focus:opacity-100"
-        aria-label={copied ? 'Code copied' : 'Copy code'}
-      >
-        {copied ? (
-          <Check size={16} className="text-green-400" />
-        ) : (
-          <Copy size={16} className="text-gray-300" />
-        )}
-      </button>
-      <span className="sr-only" aria-live="polite">
-        {copied ? 'Code copied' : ''}
-      </span>
+      <CodeCopyButton code={code} />
       <SyntaxHighlighter
         style={{
           ...oneDark,
