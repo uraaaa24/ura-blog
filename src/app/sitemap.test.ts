@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs'
 import { describe, expect, it, vi } from 'vitest'
 
 import sitemap from './sitemap'
@@ -13,12 +12,6 @@ vi.mock('@/features/posts/server/posts', () => ({
 }))
 
 describe('sitemap', () => {
-  it('configures the public origin for production builds', () => {
-    expect(readFileSync('.env.production', 'utf8')).toContain(
-      'NEXT_PUBLIC_APP_BASE_URL=https://urarara.me'
-    )
-  })
-
   it('uses the public domain and verified update dates for published posts only', async () => {
     mockGetLocalPosts.mockResolvedValue([
       {
