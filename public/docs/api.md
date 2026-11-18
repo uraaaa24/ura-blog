@@ -5,6 +5,7 @@ This public, read-only blog requires no authentication, registration, API key, o
 - `GET /llms.txt`: site description and recent article links (text/plain).
 - `GET /feed.xml`: RSS feed (application/rss+xml).
 - `GET /atom.xml`: Atom feed (application/atom+xml).
+- `GET /articles.json`: public article list with title, source URL, excerpt, and tags (application/json).
 - `GET /`, `/posts`, `/posts/{slug}` with `Accept: text/markdown`: Markdown content. Other requests receive HTML by default. Missing or unpublished articles return 404.
 - `GET /openapi.json`: machine-readable API description.
 

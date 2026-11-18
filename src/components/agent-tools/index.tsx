@@ -15,7 +15,14 @@ type ModelContext = {
   ) => Promise<void>
 }
 
-export default function AgentTools({ articles }: { articles: Article[] }) {
+// Fetched on tool use so article data stays out of every page's HTML; repeat calls hit the HTTP cache.
+const loadArticles = async (): Promise<Article[]> => {
+  const response = await fetch('/articles.json')
+  if (!response.ok) throw new Error('Failed to load articles')
+  return response.json()
+}
+
+export default function AgentTools() {
   useEffect(() => {
     const context =
       (document as Document & { modelContext?: ModelContext }).modelContext ??
@@ -44,7 +51,7 @@ export default function AgentTools({ articles }: { articles: Article[] }) {
             execute: async ({ query = '' }) => {
               if (typeof query !== 'string' || query.length > 200) throw new Error('Invalid query')
               const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean)
-              const results = articles
+              const results = (await loadArticles())
                 .filter((article) => {
                   const text =
                     `${article.title} ${article.excerpt} ${article.tags.join(' ')}`.toLowerCase()
@@ -59,6 +66,6 @@ export default function AgentTools({ articles }: { articles: Article[] }) {
       )
       .catch(() => {})
     return () => controller.abort()
-  }, [articles])
+  }, [])
   return null
 }

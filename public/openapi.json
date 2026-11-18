@@ -62,6 +62,45 @@
         }
       }
     },
+    "/articles.json": {
+      "get": {
+        "summary": "Public article list",
+        "responses": {
+          "200": {
+            "description": "Public articles with source URLs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": ["title", "href", "excerpt", "tags"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "summary": "Read blog content as HTML or Markdown",
