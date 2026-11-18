@@ -1,4 +1,25 @@
 import { defineConfig } from 'oxlint'
+import type { OxlintOverride } from 'oxlint'
+
+const APP_LAYER = { group: ['@/app', '@/app/**'], message: 'Must not depend on the app layer.' }
+
+const featureBoundary = (feature: string): OxlintOverride => ({
+  files: [`src/features/${feature}/**`],
+  rules: {
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: [
+          {
+            group: ['@/features/**', `!@/features/${feature}`, `!@/features/${feature}/**`],
+            message: 'Features must not depend on another feature.'
+          },
+          APP_LAYER
+        ]
+      }
+    ]
+  }
+})
 
 export default defineConfig({
   plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'react', 'nextjs', 'jsx-a11y', 'import'],
@@ -32,6 +53,34 @@ export default defineConfig({
     'jsx-a11y/control-has-associated-label': 'error'
   },
   overrides: [
+    featureBoundary('posts'),
+    featureBoundary('about'),
+    featureBoundary('crossing-game'),
+    {
+      files: [
+        'src/components/**',
+        'src/constants/**',
+        'src/hooks/**',
+        'src/lib/**',
+        'src/providers/**',
+        'src/types/**',
+        'src/utils/**'
+      ],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['@/features', '@/features/**'],
+                message: 'Shared modules must not depend on features.'
+              },
+              APP_LAYER
+            ]
+          }
+        ]
+      }
+    },
     {
       // Server Component: the year is computed once per render on the server.
       files: ['src/components/layouts/footer/index.tsx'],

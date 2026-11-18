@@ -18,7 +18,7 @@ pnpm start    # Start production server
 
 **Code quality:**
 ```bash
-pnpm lint       # Run Biome and ESLint
+pnpm lint       # Run Oxlint
 pnpm lint:fix   # Auto-fix linting issues
 pnpm watch      # TypeScript compiler in watch mode
 ```
@@ -57,7 +57,7 @@ src/
 - **Unidirectional dependency flow**: `app → features → shared (components, lib, hooks, utils)`
 - **No cross-feature imports**: Features cannot import from other features
 - **Self-contained features**: Each feature has its own api/, components/, types/, utils/
-- **Enforced boundaries**: ESLint rules prevent architectural violations
+- **Enforced boundaries**: Oxlint `no-restricted-imports` rules prevent architectural violations
 
 ### Feature Structure
 
@@ -127,7 +127,7 @@ export default async function PostsPage() {
 
 ### Import Rules
 
-The architecture enforces these import rules via ESLint:
+The architecture enforces these import rules via Oxlint (`oxlint.config.ts`):
 
 **✅ Allowed:**
 ```typescript

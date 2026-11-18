@@ -48,7 +48,7 @@ pnpm exec tsc --noEmit
 pnpm test --run
 ```
 
-Oxlint checks React, Next.js, TypeScript, and accessibility rules. ESLint remains for the project's import boundaries. Oxfmt checks code and configuration formatting; Markdown posts are excluded so their authored line breaks stay intact. The pre-commit hook checks staged files with both Oxc tools and rejects partially staged files so it checks the content being committed.
+Oxlint checks React, Next.js, TypeScript, accessibility, and the import boundaries between features. Oxfmt checks code and configuration formatting; Markdown posts are excluded so their authored line breaks stay intact. Lefthook runs both Oxc tools on staged files before each commit and checks commit messages with commitlint.
 
 ---
 

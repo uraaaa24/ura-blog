@@ -29,3 +29,6 @@ overrides:
   vite@>=8.1.0 <8.1.6: '>=8.1.6'
   webpack-dev-middleware@<7.4.6: '>=7.4.6'
   ws@>=8.0.0 <8.20.1: '>=8.20.1'
+
+onlyBuiltDependencies:
+  - lefthook
