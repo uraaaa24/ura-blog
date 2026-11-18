@@ -10,7 +10,6 @@ export const OG_IMAGE_SIZE = {
 export const OG_IMAGE_CONTENT_TYPE = 'image/png'
 
 const SITE_NAME = "ura's notes"
-const SITE_TAGLINE = 'web engineer based in Japan'
 const FONT_FAMILY = 'Zen Kaku Gothic New'
 
 type FontWeight = 500 | 700
@@ -54,16 +53,15 @@ type OgImageOptions = {
 }
 
 /**
- * アバター・見出し・補足を中央に積んだOGP画像を生成する。
- * 記事ではタイトルを見出しに、サイト全体ではブログ名を見出しにする。
+ * アバターと見出しを中央に積んだOGP画像を生成する。
+ * 記事ではタイトルを見出しにしてブログ名を添え、サイト全体ではブログ名だけを見出しにする。
  */
 export const createOgImage = async ({ title }: OgImageOptions = {}) => {
   const heading = title ?? SITE_NAME
-  const caption = title ? SITE_NAME : SITE_TAGLINE
 
   const [avatar, ...fonts] = await Promise.all([
     loadAvatar(),
-    loadGoogleFont(500, caption),
+    loadGoogleFont(500, SITE_NAME),
     loadGoogleFont(700, heading)
   ])
 
@@ -96,7 +94,7 @@ export const createOgImage = async ({ title }: OgImageOptions = {}) => {
       >
         {heading}
       </div>
-      <div style={{ fontSize: 26, fontWeight: 500, color: '#6b7280' }}>{caption}</div>
+      {title && <div style={{ fontSize: 26, fontWeight: 500, color: '#6b7280' }}>{SITE_NAME}</div>}
     </div>,
     {
       ...OG_IMAGE_SIZE,
