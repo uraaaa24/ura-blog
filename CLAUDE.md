@@ -29,12 +29,6 @@ pnpm test          # Run Vitest tests
 pnpm test:ui       # Run Vitest with UI
 ```
 
-**Storybook:**
-```bash
-pnpm storybook        # Start Storybook dev server
-pnpm build-storybook  # Build Storybook for production
-```
-
 ## Architecture Overview
 
 This is a Japanese personal blog built with Next.js 15 App Router following feature-based

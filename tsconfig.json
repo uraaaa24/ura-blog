@@ -30,7 +30,6 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    ".storybook/**/*",
     "src/app/(api)/.well-known/**/*.ts",
     "@types",
     ".next/types/**/*.ts",

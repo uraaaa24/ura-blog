@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "nextjs", "jsx-a11y", "import"],
-  "ignorePatterns": ["dist/**", "storybook-static/**"],
+  "ignorePatterns": ["dist/**"],
   "rules": {
     "typescript/no-explicit-any": "error",
     "react/exhaustive-deps": "error",

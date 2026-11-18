@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename)
 
 const eslintConfig = [
   {
-    ignores: ['dist/**', '**/*.css.d.ts', '**/*.css.d.ts.map', 'storybook-static/**']
+    ignores: ['dist/**', '**/*.css.d.ts', '**/*.css.d.ts.map']
   },
   ...nextCoreWebVitals,
   {
