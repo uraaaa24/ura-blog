@@ -5,7 +5,7 @@ import LinkItem from './link-item'
 
 describe('LinkItem', () => {
   it('renders active link with correct styling', () => {
-    render(<LinkItem isActive={true} href="/" label="Home" />)
+    render(<LinkItem isActive href="/" label="Home" />)
 
     const link = screen.getByRole('link', { name: 'Home' })
     expect(link).toBeInTheDocument()

@@ -1,5 +1,8 @@
 'use client'
 
+import { useTheme } from 'next-themes'
+import { Press_Start_2P } from 'next/font/google'
+
 import Controls from '@/features/crossing-game/components/controls'
 import GameMap from '@/features/crossing-game/components/map'
 import Player from '@/features/crossing-game/components/player'
@@ -7,8 +10,6 @@ import Result from '@/features/crossing-game/components/result'
 import Scene from '@/features/crossing-game/components/scene'
 import Score from '@/features/crossing-game/components/score'
 import { useIsClient } from '@/hooks/use-is-client'
-import { useTheme } from 'next-themes'
-import { Press_Start_2P } from 'next/font/google'
 
 const pressStart2P = Press_Start_2P({
   weight: '400',

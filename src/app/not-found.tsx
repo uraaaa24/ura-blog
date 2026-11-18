@@ -1,10 +1,9 @@
 import twemoji from '@twemoji/api'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import Section from '@/components/layouts/section'
-
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'ページが見つかりません',
@@ -41,7 +40,7 @@ export default function NotFound() {
 
   return (
     <Section>
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
         <Image
           src={emojiSrc ?? ''}
           alt={notFoundMessage.emoji}
@@ -51,15 +50,15 @@ export default function NotFound() {
           className="mb-8"
         />
 
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">404</h1>
-        <p className="text-xl text-gray-700 dark:text-gray-300 mb-2">{notFoundMessage.text}</p>
-        <p className="text-gray-500 dark:text-gray-400 mb-8">
+        <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100">404</h1>
+        <p className="mb-2 text-xl text-gray-700 dark:text-gray-300">{notFoundMessage.text}</p>
+        <p className="mb-8 text-gray-500 dark:text-gray-400">
           お探しのページは存在しないか、移動した可能性があります
         </p>
 
         <Link
           href="/"
-          className="px-4 py-3 text-sm text-gray-100 bg-gray-800 dark:bg-gray-700 rounded-lg transition-colors hover:bg-gray-700 dark:hover:bg-gray-600"
+          className="rounded-lg bg-gray-800 px-4 py-3 text-sm text-gray-100 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         >
           ホームに戻る
         </Link>

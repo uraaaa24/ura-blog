@@ -15,7 +15,7 @@ const Result = () => {
         <button
           type="button"
           onClick={reset}
-          className="cursor-pointer bg-red-500 px-12 py-5 font-inherit text-white dark:bg-red-600"
+          className="font-inherit cursor-pointer bg-red-500 px-12 py-5 text-white dark:bg-red-600"
         >
           Play Again
         </button>

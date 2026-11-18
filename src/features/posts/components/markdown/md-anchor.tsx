@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
 
-import { getYouTubeVideoId, isPlainUrlText } from '@/lib/youtube'
-
 import MDYouTubeEmbed from './md-youtube-embed'
+import { getYouTubeVideoId, isPlainUrlText } from '@/lib/youtube'
 
 type MDAnchorProps = {
   href?: string

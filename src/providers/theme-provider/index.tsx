@@ -1,8 +1,7 @@
 'use client'
 
-import type * as React from 'react'
-
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
+import type * as React from 'react'
 
 export function ThemeProvider({ children }: React.ComponentProps<typeof NextThemesProvider>) {
   return (
@@ -10,7 +9,7 @@ export function ThemeProvider({ children }: React.ComponentProps<typeof NextThem
       attribute="class"
       defaultTheme="light"
       enableSystem={false}
-      disableTransitionOnChange={true}
+      disableTransitionOnChange
     >
       {children}
     </NextThemesProvider>

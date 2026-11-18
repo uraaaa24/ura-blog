@@ -1,6 +1,8 @@
 import * as THREE from 'three'
+
 import { maxtileIndex, mintileIndex } from '../constants'
-import { type Row, ROW_TYPES, type RowType } from '../types'
+import { ROW_TYPES } from '../types'
+import type { Row, RowType } from '../types'
 
 let nextRowId = 0
 

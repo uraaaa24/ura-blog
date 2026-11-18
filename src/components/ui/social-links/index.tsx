@@ -13,7 +13,7 @@ const SocialLinks = () => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-75 transition-opacity duration-200"
+            className="transition-opacity duration-200 hover:opacity-75"
           >
             {key === 'rss' ? (
               <Rss size={24} className="text-orange-500 dark:text-orange-400" aria-label={alt} />

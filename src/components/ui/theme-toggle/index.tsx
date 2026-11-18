@@ -10,7 +10,7 @@ const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme()
   const isClient = useIsClient()
 
-  if (!isClient) return <div className="w-8 h-8" />
+  if (!isClient) return <div className="h-8 w-8" />
 
   const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
     /* ★ 1) ボタン中心座標と半径を計算 → CSS 変数に流し込む */
@@ -54,31 +54,20 @@ const ThemeToggle = () => {
       type="button"
       onClick={handleToggle}
       aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} theme`}
-      className={`
-        relative w-8 h-8 rounded-full
-        transition-transform duration-300 ease-out
-        transform-gpu
-        cursor-pointer
-      `}
+      className={`relative h-8 w-8 transform-gpu cursor-pointer rounded-full transition-transform duration-300 ease-out`}
     >
-      <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
+      <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
         {/* Moon (dark) */}
         <div
-          className={`
-            absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out 
-            ${resolvedTheme === 'dark' ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'}
-            `}
+          className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out ${resolvedTheme === 'dark' ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'} `}
         >
-          <Moon className="w-5 h-5 text-yellow-300" />
+          <Moon className="h-5 w-5 text-yellow-300" />
         </div>
         {/* Sun (light) */}
         <div
-          className={`
-            absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out 
-            ${resolvedTheme === 'light' ? 'rotate-0 opacity-100' : '-rotate-180 opacity-0'}
-            `}
+          className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out ${resolvedTheme === 'light' ? 'rotate-0 opacity-100' : '-rotate-180 opacity-0'} `}
         >
-          <Sun className="w-5 h-5 text-amber-500" />
+          <Sun className="h-5 w-5 text-amber-500" />
         </div>
       </div>
     </button>

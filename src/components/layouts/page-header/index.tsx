@@ -7,7 +7,7 @@ type PageHeaderProps = {
 
 const PageHeader = ({ title, action }: PageHeaderProps) => {
   return (
-    <div className="flex items-center justify-between mb-10">
+    <div className="mb-10 flex items-center justify-between">
       <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{title}</h1>
       {action && <div className="shrink-0">{action}</div>}
     </div>

@@ -1,6 +1,8 @@
 import { useFrame } from '@react-three/fiber'
-import { useRef, type RefObject } from 'react'
+import { useRef } from 'react'
+import type { RefObject } from 'react'
 import * as THREE from 'three'
+
 import { tileSize } from '../constants'
 import { state, stepCompleted } from '../stores/player'
 import { MOVE_DIRECTIONS } from '../types'

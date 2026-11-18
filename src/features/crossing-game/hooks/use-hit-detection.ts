@@ -1,6 +1,7 @@
 import { useFrame } from '@react-three/fiber'
 import type { RefObject } from 'react'
 import * as THREE from 'three'
+
 import useGameStore from '../stores/game'
 import { state as player } from '../stores/player'
 

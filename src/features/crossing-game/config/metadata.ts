@@ -1,4 +1,5 @@
-import { ROW_TYPES, type Row } from '../types'
+import { ROW_TYPES } from '../types'
+import type { Row } from '../types'
 
 export const rows: Row[] = [
   {

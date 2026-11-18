@@ -5,7 +5,7 @@ type SectionProps = {
 }
 
 const Section = ({ children }: SectionProps) => {
-  return <section className="pb-6 mb-6">{children}</section>
+  return <section className="mb-6 pb-6">{children}</section>
 }
 
 export default Section

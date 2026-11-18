@@ -1,4 +1,5 @@
-import { isValidElement, type ReactNode } from 'react'
+import { isValidElement } from 'react'
+import type { ReactNode } from 'react'
 
 import { toHashHref, toHeadingId } from '@/lib/heading'
 
@@ -44,7 +45,7 @@ export const MDHeading = ({ level, children, id }: MDHeadingProps) => {
       <a
         href={toHashHref(slug)}
         aria-label={`Link to “${text}”`}
-        className="absolute right-full top-1/2 hidden -translate-y-1/2 rounded-sm pr-2 text-gray-500 no-underline opacity-0 transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 group-hover:opacity-100 group-focus-within:opacity-100 sm:block dark:text-gray-400 dark:focus-visible:outline-gray-300"
+        className="absolute top-1/2 right-full hidden -translate-y-1/2 rounded-sm pr-2 text-gray-500 no-underline opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 sm:block dark:text-gray-400 dark:focus-visible:outline-gray-300"
       >
         #
       </a>

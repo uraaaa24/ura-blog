@@ -1,6 +1,5 @@
-import { SOCIAL_LINKS } from '@/constants/sns'
-
 import { BASE_URL } from './envs'
+import { SOCIAL_LINKS } from '@/constants/sns'
 
 type ArticleStructuredData = {
   href: string
@@ -94,7 +93,7 @@ export function generateWebSiteStructuredData() {
 /**
  * パンくずリストの構造化データ (BreadcrumbList) を生成
  */
-export function generateBreadcrumbStructuredData(items: Array<{ label: string; href?: string }>) {
+export function generateBreadcrumbStructuredData(items: { label: string; href?: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

@@ -1,10 +1,8 @@
 import { readFileSync } from 'node:fs'
-
 import { describe, expect, it, vi } from 'vitest'
 
-import { BASE_URL } from '@/lib/envs'
-
 import sitemap from './sitemap'
+import { BASE_URL } from '@/lib/envs'
 
 const { mockGetLocalPosts } = vi.hoisted(() => ({
   mockGetLocalPosts: vi.fn()

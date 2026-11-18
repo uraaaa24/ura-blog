@@ -4,8 +4,8 @@ export const dynamic = 'force-dynamic'
 import Section from '@/components/layouts/section'
 import SectionHeader from '@/components/layouts/section-header'
 import AboutHero from '@/features/about/components/about-hero'
-import { getPosts } from '@/features/posts/server/posts'
 import LatestPosts from '@/features/posts/components/latest-posts'
+import { getPosts } from '@/features/posts/server/posts'
 
 const LATEST_ITEMS_COUNT = 5
 
@@ -14,7 +14,7 @@ const HomePage = async () => {
 
   return (
     <>
-      <div className="min-h-[90vh] flex items-start justify-center pt-20 md:pt-32">
+      <div className="flex min-h-[90vh] items-start justify-center pt-20 md:pt-32">
         <AboutHero />
       </div>
 

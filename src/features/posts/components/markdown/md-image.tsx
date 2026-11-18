@@ -14,10 +14,10 @@ const MDImage = ({ src, alt }: MDImageProps) => {
       : imageSrc
 
   return (
-    <span className="w-auto flex items-center justify-center h-auto my-6">
+    <span className="my-6 flex h-auto w-auto items-center justify-center">
       {/* biome-ignore lint/performance/noImgElement: markdown images need to preserve each source image's intrinsic aspect ratio */}
       <img
-        className="max-w-full h-auto max-h-96 rounded-xl"
+        className="h-auto max-h-96 max-w-full rounded-xl"
         src={processedSrc || ''}
         alt={alt || ''}
         loading="lazy"

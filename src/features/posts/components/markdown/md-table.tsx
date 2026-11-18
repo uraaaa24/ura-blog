@@ -6,8 +6,8 @@ type MDTableProps = {
 
 export const MDTable = ({ children }: MDTableProps) => {
   return (
-    <div className="overflow-x-auto my-6">
-      <table className="border-collapse min-w-full">{children}</table>
+    <div className="my-6 overflow-x-auto">
+      <table className="min-w-full border-collapse">{children}</table>
     </div>
   )
 }
@@ -25,9 +25,9 @@ export const MDTableHead = ({ children }: MDTableProps) => {
 }
 
 export const MDTableHeadCell = ({ children }: MDTableProps) => {
-  return <th className="border border-gray-300 dark:border-gray-600 p-3 text-center">{children}</th>
+  return <th className="border border-gray-300 p-3 text-center dark:border-gray-600">{children}</th>
 }
 
 export const MDTableCell = ({ children }: MDTableProps) => {
-  return <td className="border border-gray-300 dark:border-gray-600 p-3">{children}</td>
+  return <td className="border border-gray-300 p-3 dark:border-gray-600">{children}</td>
 }

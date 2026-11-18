@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import { queueMove } from '../stores/player'
 import { MOVE_DIRECTIONS } from '../types'
 

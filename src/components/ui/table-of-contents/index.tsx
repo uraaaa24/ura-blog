@@ -125,7 +125,7 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
             <a
               href={toHashHref(item.id)}
               data-toc-id={item.id}
-              className="relative block py-0.5 pl-4 leading-6 text-gray-400 transition-colors duration-150 ease-out hover:text-gray-950 group-data-[active=true]:text-gray-900 dark:hover:text-gray-100 dark:group-data-[active=true]:text-gray-100"
+              className="relative block py-0.5 pl-4 leading-6 text-gray-400 transition-colors duration-150 ease-out group-data-[active=true]:text-gray-900 hover:text-gray-950 dark:group-data-[active=true]:text-gray-100 dark:hover:text-gray-100"
             >
               <span
                 aria-hidden="true"

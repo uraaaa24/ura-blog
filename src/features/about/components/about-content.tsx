@@ -38,7 +38,7 @@ const AboutContent = () => {
 
       <Section>
         <Heading2>Tech Stack</Heading2>
-        <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-gray-200">
+        <ul className="list-disc space-y-2 pl-6 text-gray-800 dark:text-gray-200">
           <li>
             <strong className="text-gray-900 dark:text-gray-100">Languages:</strong> TypeScript,
             Python, JavaScript

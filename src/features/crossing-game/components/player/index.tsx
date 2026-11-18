@@ -2,6 +2,7 @@ import { Bounds } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import type * as THREE from 'three'
+
 import { usePlayerAnimation } from '../../hooks/use-player-animation'
 import { setPlayerRef } from '../../stores/player'
 import DirectionalLight from '../directional-light'

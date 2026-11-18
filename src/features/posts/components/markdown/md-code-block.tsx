@@ -1,9 +1,8 @@
 'use client'
 
+import { Check, Copy } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useState } from 'react'
-
-import { Check, Copy } from 'lucide-react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
@@ -24,11 +23,11 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
   }
 
   return matchCode ? (
-    <div className="relative group">
+    <div className="group relative">
       <button
         type="button"
         onClick={handleCopy}
-        className="cursor-pointer absolute top-3 right-3 p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+        className="absolute top-3 right-3 cursor-pointer rounded-lg bg-gray-700 p-2 opacity-0 transition-colors group-hover:opacity-100 hover:bg-gray-600 focus:opacity-100"
         aria-label={copied ? 'Code copied' : 'Copy code'}
       >
         {copied ? (
@@ -62,7 +61,7 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
         }}
         language={matchCode[1]}
         PreTag="div"
-        wrapLines={true}
+        wrapLines
         {...props}
       >
         {code}
@@ -70,7 +69,7 @@ const MDCodeBlock = ({ className, children, ...props }: CodeBlockProps) => {
     </div>
   ) : (
     <code
-      className={`${className} bg-gray-200 dark:bg-gray-700 dark:text-gray-200 px-1 py-0.5 rounded-md`}
+      className={`${className} rounded-md bg-gray-200 px-1 py-0.5 dark:bg-gray-700 dark:text-gray-200`}
       {...props}
     >
       {children}

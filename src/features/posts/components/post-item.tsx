@@ -38,7 +38,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
         />
         <span
           aria-hidden="true"
-          className={`absolute left-0 top-0 h-px bg-gray-300 dark:bg-gray-600 ${isRead ? 'right-4.5' : 'right-0'}`}
+          className={`absolute top-0 left-0 h-px bg-gray-300 dark:bg-gray-600 ${isRead ? 'right-4.5' : 'right-0'}`}
         />
         {isRead && <ReadDogEar />}
         <div className="flex items-center gap-4 px-2">
@@ -46,7 +46,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
             {post.thumbnail ? (
               <Image src={post.thumbnail} alt="" width={40} height={40} unoptimized />
             ) : (
-              <span className="text-lg font-semibold uppercase text-gray-600 dark:text-gray-200">
+              <span className="text-lg font-semibold text-gray-600 uppercase dark:text-gray-200">
                 {fallbackLetter}
               </span>
             )}
@@ -56,7 +56,7 @@ const PostItem = ({ post, postKey, isRead }: PostItemProps) => {
               <time dateTime={dateTime}>{post.formattedDate}</time>
               {post.source === 'local' && post.isDraft && <DraftBadge />}
             </div>
-            <h3 className="text-lg font-bold leading-7 text-gray-900 transition-colors group-hover/post-item:text-gray-600 dark:text-gray-100 dark:group-hover/post-item:text-gray-300">
+            <h3 className="text-lg leading-7 font-bold text-gray-900 transition-colors group-hover/post-item:text-gray-600 dark:text-gray-100 dark:group-hover/post-item:text-gray-300">
               {post.title}
             </h3>
             {isRead && <span className="sr-only">Read</span>}

@@ -1,4 +1,5 @@
-import { ROW_TYPES, type Row as RowType } from '../../types'
+import { ROW_TYPES } from '../../types'
+import type { Row as RowType } from '../../types'
 import CarLane from '../car-lane'
 import Forest from '../forest'
 import TruckLane from '../track-lane'

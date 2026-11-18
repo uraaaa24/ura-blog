@@ -15,19 +15,19 @@ const HeroContent = () => {
         className="rounded-full object-cover"
       />
 
-      <div className="space-y-6 md:space-y-8 text-center max-w-2xl">
+      <div className="max-w-2xl space-y-6 text-center md:space-y-8">
         <div className="relative inline-block">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+          <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             ura&apos;s notes
           </h1>
         </div>
 
         <div className="space-y-5">
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
             web engineer based in Japan
           </p>
 
-          <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed">
+          <p className="text-base leading-relaxed text-gray-500 dark:text-gray-500">
             Front-end focused, building simple and useful things.
           </p>
         </div>
@@ -38,7 +38,7 @@ const HeroContent = () => {
           href={SOCIAL_LINKS.github.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="opacity-80 hover:opacity-100 transition-opacity dark:invert"
+          className="opacity-80 transition-opacity hover:opacity-100 dark:invert"
           aria-label="GitHub"
         >
           <Image src={SOCIAL_LINKS.github.src} alt="GitHub" width={24} height={24} />
@@ -47,7 +47,7 @@ const HeroContent = () => {
           href={SOCIAL_LINKS.x.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="opacity-80 hover:opacity-100 transition-opacity dark:invert"
+          className="opacity-80 transition-opacity hover:opacity-100 dark:invert"
           aria-label="X (Twitter)"
         >
           <Image src={SOCIAL_LINKS.x.src} alt="X" width={24} height={24} />
@@ -56,7 +56,7 @@ const HeroContent = () => {
           href={SOCIAL_LINKS.zenn.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="opacity-80 hover:opacity-100 transition-opacity"
+          className="opacity-80 transition-opacity hover:opacity-100"
           aria-label="Zenn"
         >
           <Image src={SOCIAL_LINKS.zenn.src} alt="Zenn" width={24} height={24} />

@@ -1,6 +1,6 @@
-import AboutContent from '@/features/about/components/about-content'
-
 import type { Metadata } from 'next'
+
+import AboutContent from '@/features/about/components/about-content'
 
 export const metadata: Metadata = {
   title: 'About',

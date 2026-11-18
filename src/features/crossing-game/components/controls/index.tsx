@@ -1,4 +1,5 @@
 import { Triangle } from 'lucide-react'
+
 import { useEventListeners } from '../../hooks/use-event-listeners'
 import { queueMove } from '../../stores/player'
 import { MOVE_DIRECTIONS } from '../../types'

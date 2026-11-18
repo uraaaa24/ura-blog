@@ -1,6 +1,7 @@
 // Avoid shared HTML caches serving the wrong negotiated representation.
 export const dynamic = 'force-dynamic'
 
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
@@ -9,20 +10,17 @@ import Breadcrumb from '@/components/layouts/breadcrumb'
 import ScrollToTop from '@/components/layouts/scroll-to-top'
 import ShareButton from '@/components/ui/share-button'
 import TableOfContents from '@/components/ui/table-of-contents'
+import DraftBadge from '@/features/posts/components/draft-badge'
+import PostContent from '@/features/posts/components/post-content'
+import ReadPostTracker from '@/features/posts/components/read-post-tracker'
 import { getLocalPosts, getPostBySlug } from '@/features/posts/server/posts'
+import { createPostReadKey } from '@/features/posts/utils/post-read-key'
+import { extractImageSrc } from '@/lib/emoji'
 import { BASE_URL } from '@/lib/envs'
 import {
   generateArticleStructuredData,
   generateBreadcrumbStructuredData
 } from '@/lib/structured-data'
-
-import PostContent from '@/features/posts/components/post-content'
-import DraftBadge from '@/features/posts/components/draft-badge'
-import ReadPostTracker from '@/features/posts/components/read-post-tracker'
-import { createPostReadKey } from '@/features/posts/utils/post-read-key'
-import { extractImageSrc } from '@/lib/emoji'
-
-import type { Metadata } from 'next'
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
@@ -102,7 +100,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
       <article>
         <Breadcrumb items={breadcrumbItems} />
-        <header className="border-b border-gray-300 dark:border-gray-600 mb-12">
+        <header className="mb-12 border-b border-gray-300 dark:border-gray-600">
           <div className="flex flex-col items-center gap-8 pb-8">
             {post.thumbnail ? (
               <Image
@@ -112,7 +110,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
                 height={64}
               />
             ) : null}
-            <h1 className="max-w-2xl text-balance text-center text-2xl font-semibold leading-normal text-gray-900 sm:text-3xl dark:text-gray-100">
+            <h1 className="max-w-2xl text-center text-2xl leading-normal font-semibold text-balance text-gray-900 sm:text-3xl dark:text-gray-100">
               {post.title}
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
@@ -124,7 +122,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
 
         <div className="relative">
           {post.toc.length > 0 && (
-            <aside className="absolute top-0 bottom-0 left-full ml-14 w-64 hidden xl:block">
+            <aside className="absolute top-0 bottom-0 left-full ml-14 hidden w-64 xl:block">
               <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <TableOfContents items={post.toc} />
               </div>
@@ -134,7 +132,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
           <PostContent content={post.content} />
 
           <div className="mt-30 space-y-16">
-            <div className="px-2 flex gap-4">
+            <div className="flex gap-4 px-2">
               <Image
                 src="/ura-icon.png"
                 alt=""
@@ -143,7 +141,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
                 className="rounded-full object-cover"
               />
               <div className="flex flex-col justify-center gap-1">
-                <p className="font-semibold text-lg text-gray-900 dark:text-gray-100">ura</p>
+                <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">ura</p>
                 <p className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                   Software Engineer
                   {soccerBallSrc ? (
@@ -155,7 +153,7 @@ const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
               </div>
             </div>
 
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               <ShareButton title={post.title} url={postUrl} />
             </div>
           </div>

@@ -27,7 +27,7 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                  className="font-medium text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
                 >
                   {label}
                 </Link>

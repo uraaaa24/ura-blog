@@ -1,5 +1,5 @@
 const MDHorizontalRule = () => {
-  return <hr className="border-gray-300 dark:border-gray-600 my-12 mx-auto w-4/5" />
+  return <hr className="mx-auto my-12 w-4/5 border-gray-300 dark:border-gray-600" />
 }
 
 export default MDHorizontalRule

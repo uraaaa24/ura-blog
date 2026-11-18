@@ -1,6 +1,7 @@
 import { maxtileIndex, mintileIndex } from '../constants'
 import useMapStore from '../stores/map'
-import { type MoveDirection, ROW_TYPES } from '../types'
+import { ROW_TYPES } from '../types'
+import type { MoveDirection } from '../types'
 
 export const caulcateFinalPosition = (
   currentPosition: { rowIndex: number; tileIndex: number },

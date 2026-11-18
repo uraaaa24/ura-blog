@@ -1,13 +1,11 @@
 'use client'
 
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
 import { useLayoutEffect, useRef } from 'react'
 
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
-
-import { navLinks } from '@/constants/nav-links'
-
-import ThemeToggle from '@/components/ui/theme-toggle'
 import LinkItem from './link-item'
+import ThemeToggle from '@/components/ui/theme-toggle'
+import { navLinks } from '@/constants/nav-links'
 
 const resetScrollPosition = () => {
   const root = document.documentElement
@@ -43,13 +41,13 @@ const Header = () => {
   return (
     <header className="pt-10">
       <nav className="flex justify-center">
-        <ul className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md py-2 px-6 rounded-full flex items-center justify-center space-x-6">
+        <ul className="flex items-center justify-center space-x-6 rounded-full bg-white/80 px-6 py-2 backdrop-blur-md dark:bg-gray-800/80">
           {navLinks.map((link) => (
             <li key={link.href}>
               <LinkItem isActive={link.href === activeHref} href={link.href} label={link.label} />
             </li>
           ))}
-          <li className="h-full flex items-center">
+          <li className="flex h-full items-center">
             <ThemeToggle />
           </li>
         </ul>

@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { getLocalPosts, getPostBySlug } from './local-posts'
@@ -9,7 +8,7 @@ import { getLocalPosts, getPostBySlug } from './local-posts'
 const { mockFindLocalPostFile, mockGetLocalPostFiles } = vi.hoisted(() => ({
   mockFindLocalPostFile:
     vi.fn<(slug: string) => { slug: string; fullPath: string; sourceDir: string } | undefined>(),
-  mockGetLocalPostFiles: vi.fn<() => Array<{ slug: string; fullPath: string; sourceDir: string }>>(
+  mockGetLocalPostFiles: vi.fn<() => { slug: string; fullPath: string; sourceDir: string }[]>(
     () => []
   )
 }))

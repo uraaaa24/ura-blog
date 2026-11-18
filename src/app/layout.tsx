@@ -1,18 +1,14 @@
-import type { ReactNode } from 'react'
-
 import { GoogleAnalytics } from '@next/third-parties/google'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import type { ReactNode } from 'react'
 
 import AgentTools from '@/components/agent-tools'
 import { getPosts } from '@/features/posts/server/posts'
-
 import { BASE_URL, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/envs'
 import { generateWebSiteStructuredData } from '@/lib/structured-data'
 import { ThemeProvider } from '@/providers/theme-provider'
-
-import type { Metadata } from 'next'
-
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -110,11 +106,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       </head>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <body
-        className={`${inter.className}
-          bg-[#f7f7f7] dark:bg-[#1a1a1a]
-          text-gray-900 dark:text-gray-100
-          leading-8 min-h-screen flex flex-col
-        `}
+        className={`${inter.className} flex min-h-screen flex-col bg-[#f7f7f7] leading-8 text-gray-900 dark:bg-[#1a1a1a] dark:text-gray-100`}
       >
         {/* サイト全体の構造化データ (JSON-LD) */}
         <Script

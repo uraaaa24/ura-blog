@@ -1,5 +1,7 @@
 import type * as THREE from 'three'
-import { MOVE_DIRECTIONS, type MoveDirection } from '../types'
+
+import { MOVE_DIRECTIONS } from '../types'
+import type { MoveDirection } from '../types'
 import { endsUpInValidPosition } from '../utils'
 import useGameStore from './game'
 import useMapStore from './map'

@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next'
 
 import { discoveryLinks } from './src/lib/agent-discovery'
-
 import { BASE_URL } from './src/lib/envs'
 
 const nextConfig: NextConfig = {

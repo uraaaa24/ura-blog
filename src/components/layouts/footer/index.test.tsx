@@ -2,9 +2,8 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { navLinks } from '@/constants/nav-links'
-
 import Footer from '.'
+import { navLinks } from '@/constants/nav-links'
 
 describe('Footer Component', () => {
   it('renders the footer as a <footer> element', () => {

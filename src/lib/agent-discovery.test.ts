@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-
 import { describe, expect, it } from 'vitest'
 
 import { prefersMarkdown } from './agent-discovery'

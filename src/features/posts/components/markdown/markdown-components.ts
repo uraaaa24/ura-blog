@@ -1,5 +1,5 @@
-import { jsx } from 'react/jsx-runtime'
 import type { Components } from 'react-markdown'
+import { jsx } from 'react/jsx-runtime'
 
 import MDAnchor from './md-anchor'
 import MDBlockquote from './md-blockquote'

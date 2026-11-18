@@ -1,11 +1,10 @@
 'use client'
 
+import type { PostSummary } from '../types'
+import PostList from './post-list'
 import PageHeader from '@/components/layouts/page-header'
 import SearchInput from '@/components/ui/search-input'
 import { useSearch } from '@/hooks/useSearch'
-
-import type { PostSummary } from '../types'
-import PostList from './post-list'
 
 type PostsPageContentProps = {
   posts: PostSummary[]
