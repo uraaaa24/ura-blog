@@ -25,7 +25,7 @@
     "@react-three/fiber": "^9.8.2",
     "@twemoji/api": "^17.0.3",
     "image-size": "^2.1.0",
-    "lucide-react": "^0.577.0",
+    "lucide-react": "^1.74.0",
     "next": "^16.4.3",
     "next-themes": "^0.4.6",
     "react": "19.2.9",
